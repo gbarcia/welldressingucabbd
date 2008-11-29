@@ -23,7 +23,7 @@ public class ControlHorario {
     /** Constructor que inicia el SQLMAP y la bitacora*/
     public ControlHorario() throws IOException {
         bitacora.info("Iniciando controlador de horario");
-        String resource = "configuracion/configuracionIbatis.xml";
+        String resource = "com/wd/configuracion/configuracionIbatis.xml";
         Reader reader = Resources.getResourceAsReader(resource);
         sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
     }
