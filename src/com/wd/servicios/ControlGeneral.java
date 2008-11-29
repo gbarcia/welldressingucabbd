@@ -50,7 +50,8 @@ public class ControlGeneral implements IfaceControlGeneral {
             controlHorario.agregarNuevoHorario(horario);
             resultado = true;
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar el control horario por " + ex.getMessage());
+            bitacora.info("No se pudo iniciar el control horario por "
+                    + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
