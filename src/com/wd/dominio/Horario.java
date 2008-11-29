@@ -49,10 +49,10 @@ public class Horario {
      * domingo}
      */
     public void setDiaFin(String diaFin) {
-        if (diaFin.equals("lunes") || diaFin.equals("martes") ||
-                diaFin.equals("miercoles") || diaFin.equals("jueves") ||
-                diaFin.equals("viernes") || diaFin.equals("sabado") ||
-                diaFin.equals("domingo")) {
+        if (diaFin.equals("LUNES") || diaFin.equals("MARTES") ||
+                diaFin.equals("MIERCOLES") || diaFin.equals("JUEVES") ||
+                diaFin.equals("VIERNES") || diaFin.equals("SABADO") ||
+                diaFin.equals("DOMINGO")) {
             this.diaFin = diaFin;
         } else {
             this.diaFin = null;
@@ -69,10 +69,10 @@ public class Horario {
      * domingo}
      */
     public void setDiaIni(String diaIni) {
-        if (diaFin.equals("lunes") || diaFin.equals("martes") ||
-                diaFin.equals("miercoles") || diaFin.equals("jueves") ||
-                diaFin.equals("viernes") || diaFin.equals("sabado") ||
-                diaFin.equals("domingo")) {
+        if (diaIni.equals("LUNES") || diaIni.equals("MARTES") ||
+                diaIni.equals("MIERCOLES") || diaIni.equals("JUEVES") ||
+                diaIni.equals("VIERNES") || diaIni.equals("SABADO") ||
+                diaIni.equals("DOMINGO")) {
             this.diaIni = diaIni;
         } else {
             this.diaIni = null;
