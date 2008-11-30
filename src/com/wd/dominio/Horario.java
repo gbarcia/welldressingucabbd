@@ -22,7 +22,6 @@ public class Horario {
 
     /**
      * Constructor de la clase con todos los atributos
-     * @author Gerardo Barcia
      * @param id identificador clave primaria
      * @param horaIni hora inicial
      * @param horaFin hora final
