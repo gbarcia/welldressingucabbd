@@ -8,28 +8,27 @@ import javax.swing.JOptionPane;
  */
 public class ControlGui {
 
-    /** variable de la ventana de inicio*/
+/** variable de la ventana de inicio*/
     private VentanaInicio ventanaInicio = new VentanaInicio();
 
-    /** Constructor del ControlGui */
+/** Constructor del ControlGui */
     public ControlGui() {
     }
 
-    /**
-     * metodo para ocultar o mostrar la ventana de inicio
-     * @param var booleano que indica si mostrar o no la ventana
-     */
+/**
+* metodo para ocultar o mostrar la ventana de inicio
+ * @param var booleano que indica si mostrar o no la ventana
+*/
     public void iniciarCerrarVentanaInicio(boolean var) {
-        ventanaInicio.setVisible(var);
-        this.mostrarMensaje("confir", 2);
+        ventanaInicio.setVisible(var);    
     }
 
-    /**
-     * Operacion para mostrar un mensaje de salida en pantalla
-     * @param mensaje mensaje a mostrar
-     * @param tipo tipo de mensaje a mostrar. Si es "1" es un mensaje de error,
-     * "2"si el mensaje es de confirmacion y "0" si el mensaje es de informacion
-     */
+/**
+* Operacion para mostrar un mensaje de salida en pantalla
+* @param mensaje mensaje a mostrar
+* @param tipo tipo de mensaje a mostrar. Si es "1" es un mensaje de error,
+* y "0" si el mensaje es de informacion
+*/
     public void mostrarMensaje(String mensaje, int tipo) {
         if (tipo == 0) {
             JOptionPane.showMessageDialog(null, mensaje, "Resultado",
@@ -37,10 +36,17 @@ public class ControlGui {
         } else if (tipo == 1) {
             JOptionPane.showMessageDialog(null, mensaje, "Resultado",
                     JOptionPane.ERROR_MESSAGE);
-        } else if (tipo == 2)
-        {
-            JOptionPane.showConfirmDialog(null, mensaje, "CONFIRMACION",
+        } 
+    }
+
+/**
+* Operacion para realizar una confirmacion. Despliega en la pantalla una ventana
+* de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
+* @param mensaje mensaje a mostrar
+* @return int 0 si se apreto aceptar y 2 si se apreto cancelar
+*/
+    public int dialogoConfirmacion (String mensaje) {
+        return JOptionPane.showConfirmDialog(null, mensaje, "CONFIRMACION",
                     JOptionPane.OK_CANCEL_OPTION);
-        }
     }
 }
