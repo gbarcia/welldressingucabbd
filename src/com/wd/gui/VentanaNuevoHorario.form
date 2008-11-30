@@ -272,7 +272,6 @@
                     <StringItem index="23" value="12 AM"/>
                   </StringArray>
                 </Property>
-                <Property name="selectedIndex" type="int" value="7"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
