@@ -30,9 +30,9 @@ public class ControlGui {
 * metodo para ocultar o mostrar la ventana de agregar nuevo horario
  * @param var booleano que indica si mostrar o no la ventana
 */
-    public void iniciarCerrarVentanaNuevoHorario (boolean var) {
+    public void iniciarVentanaNuevoHorario (boolean var) {
         ventanaNuevoHorario = new VentanaNuevoHorario();
-        ventanaNuevoHorario.setVisible(true);
+        ventanaNuevoHorario.setVisible(var);      
     }
 
 /**

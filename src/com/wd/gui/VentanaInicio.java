@@ -523,7 +523,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void menuUbicacionesHorarioAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUbicacionesHorarioAgregarActionPerformed
                 controlGeneralGui = new ControlGui ();
-                controlGeneralGui.iniciarCerrarVentanaNuevoHorario(true);
+                controlGeneralGui.iniciarVentanaNuevoHorario(true);
     }//GEN-LAST:event_menuUbicacionesHorarioAgregarActionPerformed
 
     /**
