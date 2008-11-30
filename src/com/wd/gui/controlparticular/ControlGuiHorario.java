@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.wd.gui.controlparticular;
 
@@ -11,7 +7,7 @@ import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 
 /**
- *
+ * Manejador de la interfaz gráfica para agregar un nuevo horario
  * @author Gerardo Barcia
  */
 public class ControlGuiHorario {
