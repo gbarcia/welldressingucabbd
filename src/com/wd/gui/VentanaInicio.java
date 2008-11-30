@@ -12,6 +12,8 @@ package com.wd.gui;
  */
 public class VentanaInicio extends javax.swing.JFrame {
 
+    private ControlGui controlGeneralGui;
+
     /** Creates new form VentanaInicio */
     public VentanaInicio() {
         initComponents();
@@ -469,6 +471,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuUbicacionesHorarios.setText("Horarios");
 
         menuUbicacionesHorarioAgregar.setText("Agregar nuevo horario");
+        menuUbicacionesHorarioAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUbicacionesHorarioAgregarActionPerformed(evt);
+            }
+        });
         menuUbicacionesHorarios.add(menuUbicacionesHorarioAgregar);
 
         menuUbicacionesHorariosEliminar.setText("Eliminar horario");
@@ -513,6 +520,11 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuUbicacionesHorarioAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUbicacionesHorarioAgregarActionPerformed
+                controlGeneralGui = new ControlGui ();
+                controlGeneralGui.iniciarCerrarVentanaNuevoHorario(true);
+    }//GEN-LAST:event_menuUbicacionesHorarioAgregarActionPerformed
 
     /**
     * @param args the command line arguments

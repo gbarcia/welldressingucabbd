@@ -11,6 +11,9 @@ public class ControlGui {
 /** variable de la ventana de inicio*/
     private VentanaInicio ventanaInicio = new VentanaInicio();
 
+/** variable de la ventana agregar nuevo horario*/
+    private VentanaNuevoHorario ventanaNuevoHorario;
+
 /** Constructor del ControlGui */
     public ControlGui() {
     }
@@ -21,6 +24,15 @@ public class ControlGui {
 */
     public void iniciarCerrarVentanaInicio(boolean var) {
         ventanaInicio.setVisible(var);    
+    }
+
+/**
+* metodo para ocultar o mostrar la ventana de agregar nuevo horario
+ * @param var booleano que indica si mostrar o no la ventana
+*/
+    public void iniciarCerrarVentanaNuevoHorario (boolean var) {
+        ventanaNuevoHorario = new VentanaNuevoHorario();
+        ventanaNuevoHorario.setVisible(true);
     }
 
 /**

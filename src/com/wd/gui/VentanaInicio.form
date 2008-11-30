@@ -549,6 +549,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Agregar nuevo horario"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuUbicacionesHorarioAgregarActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuUbicacionesHorariosEliminar">
                   <Properties>
