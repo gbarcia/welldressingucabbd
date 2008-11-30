@@ -7,6 +7,8 @@ package com.wd.gui.controlparticular;
 
 import com.wd.dominio.Horario;
 
+import com.wd.servicios.ControlGeneral;
+
 /**
  *
  * @author Gerardo Barcia
@@ -14,5 +16,10 @@ import com.wd.dominio.Horario;
 public class ControlGuiHorario {
 
     private Horario horario;
- 
+
+    public void agregarHorarioalSistema (int horaIni, int horaFin, String diaIni,
+                            String diaFin) {
+        horario = new Horario(0,horaIni,horaFin,diaIni,diaFin);
+        ControlGeneral.getInstance().agregarNuevoHorario(horario);
+    }
 }
