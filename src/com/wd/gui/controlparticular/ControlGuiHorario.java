@@ -14,5 +14,5 @@ import com.wd.dominio.Horario;
 public class ControlGuiHorario {
 
     private Horario horario;
-
+ 
 }
