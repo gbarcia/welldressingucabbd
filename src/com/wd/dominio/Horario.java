@@ -39,6 +39,10 @@ public class Horario implements Serializable{
         this.setDiaIni(diaIni);
         this.setDiaFin(diaFin);
     }
+    /** constructor por defecto*/
+    public Horario () {
+        
+    }
 
     /** Metodo para obtener el dia de fin*/
     public String getDiaFin() {

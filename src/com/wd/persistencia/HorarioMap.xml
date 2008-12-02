@@ -7,12 +7,12 @@
 
   <typeAlias alias="horario" type="com.wd.dominio.Horario"/>
 
-  <resultMap id= "MapaHorario" class="com.wd.dominio.Horario">
-   <result property="id" column="ID" />
-   <result property="horaIni" column="HoraInicio" />
-   <result property="horaFin" column="HoraFin" />
-   <result property="diaIni" column="DiaInicio" />
-   <result property="diaFin" column="DiaFin" />   
+  <resultMap id="traerTodosLosHorarios" class="horario">
+    <result property="id" column="ID" />
+    <result property="horaIni" column="HoraInicio" />
+    <result property="horaFin" column="HoraFin" />
+    <result property="diaIni" column="DiaInicio" />
+    <result property="diaFin" column="DiaFin" />
   </resultMap>
   
   <insert id="agregarNuevoHorario" parameterClass="horario">
@@ -20,10 +20,9 @@
       VALUES(null,#horaIni#,#horaFin#,#diaIni#,#diaFin#)
   </insert>
 
-  <select id="traerTodosLosHorarios" resultMap="MapaHorario" resultClass="Java.util.Collection">
-      SELECT h.id ID, h.hora_ini HoraInicio, h.hora_fin HoraFin, h.dia_ini DiaInicio,
-      h.dia_fin DiaFin
+  <select id="TodosLosHorarios" resultMap="traerTodosLosHorarios">
+      SELECT h.id ID, h.hora_ini HoraInicio, h.hora_fin HoraFin, h.dia_ini DiaInicio, h.dia_fin DiaFin
       from horario h;
   </select>
-  
+
   </sqlMap>

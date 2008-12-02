@@ -57,7 +57,7 @@ public class ControlHorario {
         Collection<Horario> coleccionHorarios = null;
         try {
             bitacora.info("Iniciando operacion para traer todos los Horarios");
-            coleccionHorarios = sqlMap.queryForList("traerTodosLosHorarios");
+            coleccionHorarios = sqlMap.queryForList("TodosLosHorarios");
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
         }
