@@ -1,5 +1,7 @@
 package com.wd.dominio;
 
+import java.io.Serializable;
+
 /**
  * En esta entidad se almacenara el control de horarios tanto en horas como en 
  * días de trabajo. Para ello existirá un día inicial de semana y un día final 
@@ -7,7 +9,7 @@ package com.wd.dominio;
  * hora final de trabajo.
  * @author Gerardo Barcia
  */
-public class Horario {
+public class Horario implements Serializable{
 
     /** variable de identificador*/
     private int id;

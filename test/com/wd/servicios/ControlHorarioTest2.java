@@ -45,36 +45,36 @@ public class ControlHorarioTest2 {
     /**
      * Test of agregarNuevoHorario method, of class ControlHorario.
      */
-    @Test
-    public void testAgregarNuevoHorario() throws IOException {
-        System.out.println("agregarNuevoHorario");
-        Horario horario = new Horario(1,4,6,"LUNES","MIERCOLES");
-        ControlHorario instance = new ControlHorario();
-        boolean expResult = true;
-        boolean result = instance.agregarNuevoHorario(horario);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+    //@Test
+//    public void testAgregarNuevoHorario() throws IOException {
+//        System.out.println("agregarNuevoHorario");
+//        Horario horario = new Horario(1,4,6,"LUNES","MIERCOLES");
+//        ControlHorario instance = new ControlHorario();
+//        boolean expResult = true;
+//        boolean result = instance.agregarNuevoHorario(horario);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        //fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of agregarNuevoHorario method, of class ControlHorario.
      */
-    @Test
-    public void testAgregarNuevoHorario_Horario() {
-        try {
-            System.out.println("agregarNuevoHorario");
-            Horario horario = null;
-            ControlHorario instance = new ControlHorario();
-            boolean expResult = false;
-            boolean result = instance.agregarNuevoHorario(horario);
-            assertEquals(expResult, result);
-            // TODO review the generated test code and remove the default call to fail.
-            fail("The test case is a prototype.");
-        } catch (IOException ex) {
-            Logger.getLogger(ControlHorarioTest2.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    @Test
+//    public void testAgregarNuevoHorario_Horario() {
+//        try {
+//            System.out.println("agregarNuevoHorario");
+//            Horario horario = null;
+//            ControlHorario instance = new ControlHorario();
+//            boolean expResult = false;
+//            boolean result = instance.agregarNuevoHorario(horario);
+//            assertEquals(expResult, result);
+//            // TODO review the generated test code and remove the default call to fail.
+//            fail("The test case is a prototype.");
+//        } catch (IOException ex) {
+//            Logger.getLogger(ControlHorarioTest2.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 
     /**
      * Test of traerTodosLosHorarios method, of class ControlHorario.
@@ -84,13 +84,15 @@ public class ControlHorarioTest2 {
         try {
             System.out.println("traerTodosLosHorarios");
             ControlHorario instance = new ControlHorario();
-            Collection<Horario> expResult = null;
             Collection<Horario> result = instance.traerTodosLosHorarios();
-            assertEquals(expResult, result);
+            assertNotNull(result);
+            //for (Horario horario : result) {
+              //  System.out.println(horario.getId());
+            //}
             // TODO review the generated test code and remove the default call to fail.
-            fail("The test case is a prototype.");
+            //fail("The test case is a prototype.");
         } catch (IOException ex) {
-            Logger.getLogger(ControlHorarioTest2.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
     }
 

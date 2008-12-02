@@ -7,7 +7,7 @@
 
   <typeAlias alias="horario" type="com.wd.dominio.Horario"/>
 
-  <resultMap id= "MapaHorario" class="horario">
+  <resultMap id= "MapaHorario" class="com.wd.dominio.Horario">
    <result property="id" column="ID" />
    <result property="horaIni" column="HoraInicio" />
    <result property="horaFin" column="HoraFin" />
@@ -20,7 +20,7 @@
       VALUES(null,#horaIni#,#horaFin#,#diaIni#,#diaFin#)
   </insert>
 
-  <select id="traerTodosLosHorarios" resultMap="MapaHorario">
+  <select id="traerTodosLosHorarios" resultMap="MapaHorario" resultClass="Java.util.Collection">
       SELECT h.id ID, h.hora_ini HoraInicio, h.hora_fin HoraFin, h.dia_ini DiaInicio,
       h.dia_fin DiaFin
       from horario h;
