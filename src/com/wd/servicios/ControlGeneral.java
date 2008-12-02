@@ -2,6 +2,8 @@ package com.wd.servicios;
 
 import com.wd.dominio.Horario;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -55,6 +57,21 @@ public class ControlGeneral implements IfaceControlGeneral {
             resultado = false;
         } finally {
             return resultado;
+        }
+    }
+
+    public Collection traerTodosLosHorarios () {
+        Collection<Horario> horarios = null;
+        try {
+            this.controlHorario = new ControlHorario();
+            bitacora.info("Control Horario Iniciado correctamente");
+            horarios = controlHorario.traerTodosLosHorarios();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control horario por "
+                    + ex.getMessage());
+        }
+        finally {
+            return horarios;
         }
     }
 }
