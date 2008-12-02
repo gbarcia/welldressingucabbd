@@ -59,7 +59,10 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
-
+    /**
+    * Metodo para buscar todos los horarios del sistema
+    * @return Collection todos los horarios registrados
+    */
     public Collection traerTodosLosHorarios () {
         Collection<Horario> horarios = null;
         try {
