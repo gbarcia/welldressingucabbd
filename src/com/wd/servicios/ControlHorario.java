@@ -7,6 +7,7 @@ import com.wd.dominio.Horario;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
+import java.util.Collection;
 import org.apache.log4j.Logger;
 
 /**
@@ -46,5 +47,23 @@ public class ControlHorario {
         } finally {
             return resultado;
         }
+    }
+
+    /**
+     * Metodo para buscar todos los horarios del sistema
+     * @return Collection todos los horarios registrados
+     */
+    public Collection<Horario> traerTodosLosHorarios () {
+        Collection<Horario> coleccionHorarios = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los Horarios");
+            coleccionHorarios = sqlMap.queryForList("traerTodosLosHorarios");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccionHorarios;
+        }
+
     }
 }
