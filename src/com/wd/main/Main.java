@@ -16,6 +16,7 @@ public class Main {
         // TODO code application logic here
         ControlGui control = new ControlGui();
         control.iniciarCerrarVentanaInicio(true);
+        System.out.println("hola");
     }
 
 }
