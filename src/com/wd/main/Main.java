@@ -18,6 +18,7 @@ public class Main {
         control.iniciarCerrarVentanaInicio(true);
         System.out.println("Sabes que brother? ya no quiero nada");
         System.out.println("hola");
+        System.out.println("cualquier vaina");
     }
 
 }
