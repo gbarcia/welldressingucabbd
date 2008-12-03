@@ -3,7 +3,6 @@ package com.wd.servicios;
 import com.wd.dominio.Horario;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
