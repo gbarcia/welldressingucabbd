@@ -2,6 +2,7 @@
 package com.wd.servicios;
 
 import com.wd.dominio.Horario;
+import com.wd.dominio.Tienda;
 import java.util.Collection;
 
 /**
@@ -10,12 +11,19 @@ import java.util.Collection;
  */
 public interface IfaceControlGeneral {
     
-/**
- * Metodo para agregar un nuevo Horario
- * @param horario objeto horario a insertar
- * @return boolean resultado de la operacion
- */    
-        public boolean agregarNuevoHorario (Horario horario);
+    /**
+     * Metodo para agregar un nuevo Horario
+     * @param horario objeto horario a insertar
+     * @return boolean resultado de la operacion
+     */
+     public boolean agregarNuevoHorario (Horario horario);
+
+    /**
+     * Metodo para agregar una nueva Tienda
+     * @param tienda la tienda a agregar
+     * @return valor boolean de resultado de la operacion
+     */
+    public  boolean agregarNuevaTienda(Tienda tienda);
 
  /**
   * Metodo para buscar todos los horarios del sistema

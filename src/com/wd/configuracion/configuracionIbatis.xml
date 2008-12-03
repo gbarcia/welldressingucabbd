@@ -20,5 +20,6 @@
     </transactionManager>
     
     <sqlMap resource="com/wd/persistencia/HorarioMap.xml" />
+    <sqlMap resource="com/wd/persistencia/TiendaMap.xml" />
 
 </sqlMapConfig>

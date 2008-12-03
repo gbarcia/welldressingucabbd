@@ -1,6 +1,7 @@
 package com.wd.servicios;
 
 import com.wd.dominio.Horario;
+import com.wd.dominio.Tienda;
 import java.io.IOException;
 import java.util.Collection;
 import org.apache.log4j.Logger;
@@ -14,6 +15,8 @@ public class ControlGeneral implements IfaceControlGeneral {
 
     /** Variable para trabajar con el controlador de los horario*/
     private ControlHorario controlHorario;
+    /** Variable para trabajar con el controlador de las tiendas*/
+    private ControlTienda controlTienda;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
@@ -51,7 +54,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             controlHorario.agregarNuevoHorario(horario);
             resultado = true;
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar el control horario por "
+            bitacora.error("No se pudo iniciar el control horario por "
                     + ex.getMessage());
             resultado = false;
         } finally {
@@ -76,4 +79,26 @@ public class ControlGeneral implements IfaceControlGeneral {
             return horarios;
         }
     }
+
+    /**
+     * Metodo para agregar una nueva Tienda
+     * @param tienda la tienda a agregar
+     * @return valor boolean de resultado de la operacion
+     */
+    public  boolean agregarNuevaTienda(Tienda tienda) {
+        boolean resultado = false;
+        try {
+            this.controlTienda = new ControlTienda();
+            this.bitacora.info("ControlTienda iniciado correctamente");
+            this.controlTienda.agregarNuevaTienda(tienda);
+            resultado = true;
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlTienda por "
+                    + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
 }
