@@ -35,6 +35,9 @@ public class CentroDistribucion {
         this.direccion = direccion;
         this.LUGAR_id = LUGAR_id;
     }
+    /**Constructor por defecto*/
+    public CentroDistribucion() {
+    }
 
      /** Metodo para obtener el identificador de la ciudad donde se encuentra el
      * centro*/
