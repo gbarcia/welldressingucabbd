@@ -1,5 +1,6 @@
 package com.wd.gui;
 
+import java.util.Vector;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +17,9 @@ public class ControlGui {
 
 /** Variable de la ventana agregar centro*/
     private VentanaAgregarCentro ventanaAgregarCentro;
+
+/** Variable de la ventana ver horarios*/
+    private VentanaConsultaHorarios ventanaConsultaHorarios;
 
 /** Constructor del ControlGui */
     public ControlGui() {
@@ -46,6 +50,15 @@ public class ControlGui {
     public void iniciarVentanaAgregarCentro (boolean var) {
         ventanaAgregarCentro = new VentanaAgregarCentro();
         ventanaAgregarCentro.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de ver horarios
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaConsultarHorario (boolean var, Vector result) {
+        ventanaConsultaHorarios = new VentanaConsultaHorarios(result);
+        ventanaConsultaHorarios.setVisible(var);
     }
 
 /**

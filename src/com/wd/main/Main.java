@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         ControlGui control = new ControlGui();
-        control.iniciarCerrarVentanaInicio(true);
+        control.iniciarCerrarVentanaInicio(true);        
     }
 
 }

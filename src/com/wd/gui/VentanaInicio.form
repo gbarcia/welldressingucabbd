@@ -558,8 +558,11 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuUbicacionesHorariosEliminar">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Eliminar horario"/>
+                    <Property name="text" type="java.lang.String" value="Ver todos los horarios"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuUbicacionesHorariosEliminarActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>

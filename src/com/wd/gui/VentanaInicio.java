@@ -6,6 +6,11 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Horario;
+import com.wd.gui.controlparticular.ControlGuiHorario;
+import java.util.Vector;
+
+
 /**
  *
  * @author  Johnny
@@ -13,6 +18,7 @@ package com.wd.gui;
 public class VentanaInicio extends javax.swing.JFrame {
 
     private ControlGui controlGeneralGui;
+    private ControlGuiHorario controlGuiHorario;
 
     /** Creates new form VentanaInicio */
     public VentanaInicio() {
@@ -483,7 +489,12 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         menuUbicacionesHorarios.add(menuUbicacionesHorarioAgregar);
 
-        menuUbicacionesHorariosEliminar.setText("Eliminar horario");
+        menuUbicacionesHorariosEliminar.setText("Ver todos los horarios");
+        menuUbicacionesHorariosEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUbicacionesHorariosEliminarActionPerformed(evt);
+            }
+        });
         menuUbicacionesHorarios.add(menuUbicacionesHorariosEliminar);
 
         menuUbicaciones.add(menuUbicacionesHorarios);
@@ -535,6 +546,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         controlGeneralGui = new ControlGui ();
         controlGeneralGui.iniciarVentanaAgregarCentro(true);
     }//GEN-LAST:event_menuCentroRegistroActionPerformed
+
+    private void menuUbicacionesHorariosEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUbicacionesHorariosEliminarActionPerformed
+           Vector<Horario> result = null;
+           this.controlGuiHorario = new ControlGuiHorario();
+           result = this.controlGuiHorario.traerTodosLosHorarios();
+           this.controlGeneralGui = new ControlGui();
+           this.controlGeneralGui.iniciarVentanaConsultarHorario(true, result);
+    }//GEN-LAST:event_menuUbicacionesHorariosEliminarActionPerformed
 
     /**
     * @param args the command line arguments

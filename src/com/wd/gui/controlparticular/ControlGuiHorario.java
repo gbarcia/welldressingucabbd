@@ -4,6 +4,8 @@ package com.wd.gui.controlparticular;
 import com.wd.dominio.Horario;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
+import java.util.Collection;
+import java.util.Vector;
 
 /**
  * Manejador de la interfaz gráfica para agregar un nuevo horario
@@ -37,5 +39,15 @@ public class ControlGuiHorario {
         controlador.mostrarMensaje("Horario agregado con éxito",0);
         }
         else controlador.mostrarMensaje("Operacion fallida", 1);
+    }
+
+    public Vector traerTodosLosHorarios () {
+        Vector<Horario> vectorResult = null;
+        Collection<Horario> coleccion = ControlGeneral.getInstance().traerTodosLosHorarios();     
+        vectorResult = new Vector();
+        for (Horario horarios : coleccion) {
+            vectorResult.add(horarios);
+        }
+        return vectorResult;
     }
 }

@@ -11,7 +11,10 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Horario;
+import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -20,8 +23,28 @@ import javax.swing.table.DefaultTableModel;
 public class VentanaConsultaHorarios extends javax.swing.JFrame {
 
     /** Creates new form VentanaConsultaHorarios */
-    public VentanaConsultaHorarios() {
+    public VentanaConsultaHorarios(Vector<Horario> result) {
         initComponents();
+
+        DefaultTableModel dm = new DefaultTableModel();
+            dm.addColumn("Id");
+            dm.addColumn("HoraInicio");
+            dm.addColumn("HoraFin");
+            dm.addColumn("DiaInicio");
+            dm.addColumn("DiaFin");
+            Vector info = new Vector();
+
+            for (Horario horario : result){
+                
+                info.addElement(horario.getId());
+                info.addElement(horario.getHoraIni());
+                info.addElement(horario.getHoraFin());
+                info.addElement(horario.getDiaIni());
+                info.addElement(horario.getDiaFin());
+                
+            }
+            dm.addRow(info);
+			this.jTable1.setModel(dm);
     }
 
     /** This method is called from within the constructor to
@@ -65,8 +88,12 @@ public class VentanaConsultaHorarios extends javax.swing.JFrame {
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Vector<Horario> result) {
+                new VentanaConsultaHorarios(result).setVisible(true);
+            }
+
             public void run() {
-                new VentanaConsultaHorarios().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }
