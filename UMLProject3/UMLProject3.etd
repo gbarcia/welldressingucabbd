@@ -229,29 +229,64 @@ de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
 
 
 <UML:Package xmi.id="DCE.0C5FF695-0B99-9915-C10C-94DE467C53DF" name="dominio" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD"><UML:Element.presentation>
+
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:Class xmi.id="DCE.80B8BF39-3531-B43E-5036-69853C81A0B6" name="centroDistribucion" owner="DCE.0C5FF695-0B99-9915-C10C-94DE467C53DF"><UML:Element.presentation>
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:Operation xmi.id="DCE.C19A7091-56C2-4558-C6AA-B22FEF3AFAB8" name="centroDistribucion" isConstructor="true" owner="DCE.80B8BF39-3531-B43E-5036-69853C81A0B6"><UML:Element.presentation>
+
+
 </UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class></UML:Element.ownedElement></UML:Package>
 <UML:Package xmi.id="DCE.D0ED2963-E857-3E82-EFD1-E0FD65E2F676" name="persistencia" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" clientDependency="DCE.49947A55-EC09-A324-BB76-3B5C4ACEEBA2 DCE.E081C891-A9DE-76BA-1EF7-DC553A49935B DCE.1C3820A8-0615-A1AF-857C-D71B8195FA39"><UML:Element.presentation>
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
 
 
 
 
-</UML:Element.ownedElement></UML:Package>
+
+
+
+
+<UML:Artifact xmi.id="DCE.3072DE7B-1C8A-509D-59D4-F0E875EFB9E3" name="SqlMapCentroDistribucion" owner="DCE.D0ED2963-E857-3E82-EFD1-E0FD65E2F676"><UML:Element.presentation>
+</UML:Element.presentation><UML:Classifier.generalization>
+</UML:Classifier.generalization></UML:Artifact></UML:Element.ownedElement></UML:Package>
 <UML:Package xmi.id="DCE.90A70131-E354-6104-8B0F-10CC77B25099" name="servicios" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD"><UML:Element.presentation>
+
+
+
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:Class xmi.id="DCE.2B8BBE7A-EF39-B46D-408B-DEAEEE8FBDED" name="control_AgregarCentro" owner="DCE.90A70131-E354-6104-8B0F-10CC77B25099"><UML:Element.presentation>
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:Operation xmi.id="DCE.82EB9BA2-487E-56AA-5E7F-05D82ACEFFAD" name="control_AgregarCentro" isConstructor="true" owner="DCE.2B8BBE7A-EF39-B46D-408B-DEAEEE8FBDED"><UML:Element.presentation>
+
+
 </UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class>
 <UML:Class xmi.id="DCE.1BBC1537-0F0F-48A9-0814-4636DDDA8C1E" name="control_general" owner="DCE.90A70131-E354-6104-8B0F-10CC77B25099" clientDependency="DCE.6CE619CB-20CC-5D75-916C-F1F0574D2033"><UML:Element.presentation>
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:Operation xmi.id="DCE.0013C31D-B5E7-1F97-A184-055E9B8690F7" name="control_general" isConstructor="true" owner="DCE.1BBC1537-0F0F-48A9-0814-4636DDDA8C1E"><UML:Element.presentation>
+
+
 </UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class>
 <UML:Implementation xmi.id="DCE.6CE619CB-20CC-5D75-916C-F1F0574D2033" owner="DCE.90A70131-E354-6104-8B0F-10CC77B25099" client="DCE.1BBC1537-0F0F-48A9-0814-4636DDDA8C1E" supplier="DCE.BA20A002-AA1A-6438-2020-81893D6E5BD2"><UML:Element.presentation>
+
+
 </UML:Element.presentation></UML:Implementation></UML:Element.ownedElement></UML:Package>
 
 
@@ -267,26 +302,61 @@ de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
 
 
 <UML:Interface xmi.id="DCE.BA20A002-AA1A-6438-2020-81893D6E5BD2" name="InterfaceControlGeneral" isAbstract="true" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" appliedStereotype="__uri_.\UMLProject3.etup#//*[@xmi.id=&quot;DCE.C95DF565-1C61-7E22-0DF9-4C81BF1FAE9B&quot;]" supplierDependency="DCE.6CE619CB-20CC-5D75-916C-F1F0574D2033"><UML:Element.presentation>
+
+
 </UML:Element.presentation></UML:Interface>
 
 <UML:Package xmi.id="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5" name="gui" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD"><UML:Element.presentation>
 
+
+
+
+
+
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:Class xmi.id="DCE.E1DE56F6-4ADC-DDA6-9E7B-E300220F58E7" name="Ventana_AgregarCentro" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5"><UML:Element.presentation>
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
 <UML:Operation xmi.id="DCE.DA532CDE-E858-35E4-91C9-91092CC7E87E" name="Ventana_AgregarCentro" isConstructor="true" owner="DCE.E1DE56F6-4ADC-DDA6-9E7B-E300220F58E7"><UML:Element.presentation>
+
+
 </UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class>
-<UML:Class xmi.id="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7" name="control_GUI" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5"><UML:Element.presentation>
+<UML:Class xmi.id="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7" name="controlGui" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5"><UML:Element.presentation>
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.1A0F6CB7-751D-C2BB-7A55-D74CB0F9CF26" name="control_GUI" isConstructor="true" owner="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7"><UML:Element.presentation>
+<UML:Operation xmi.id="DCE.1A0F6CB7-751D-C2BB-7A55-D74CB0F9CF26" name="controlGui" isConstructor="true" owner="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7"><UML:Element.presentation>
+
+
 </UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class>
 <UML:Package xmi.id="DCE.541E2391-C426-3B0F-DDC6-F4043943A6D0" name="controlparticular" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5"><UML:Element.presentation>
+
+
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
 
-<UML:Class xmi.id="DCE.9041A101-8DD7-A5A1-CC76-45DDEAEA1C86" name="control_GUI_AgregarCentro" owner="DCE.541E2391-C426-3B0F-DDC6-F4043943A6D0"><UML:Element.presentation>
+<UML:Class xmi.id="DCE.9041A101-8DD7-A5A1-CC76-45DDEAEA1C86" name="controlGuiAgregarCentro" owner="DCE.541E2391-C426-3B0F-DDC6-F4043943A6D0"><UML:Element.presentation>
+
+
+
 </UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.7BFA2B3C-EE53-5259-5CC8-F5829461ABD2" name="control_GUI_AgregarCentro" isConstructor="true" owner="DCE.9041A101-8DD7-A5A1-CC76-45DDEAEA1C86"><UML:Element.presentation>
+<UML:Operation xmi.id="DCE.7BFA2B3C-EE53-5259-5CC8-F5829461ABD2" name="controlGuiAgregarCentro" isConstructor="true" owner="DCE.9041A101-8DD7-A5A1-CC76-45DDEAEA1C86"><UML:Element.presentation>
+
+
 </UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class></UML:Element.ownedElement></UML:Package></UML:Element.ownedElement></UML:Package>
+
+
+
+
+
 
 
 

@@ -242,6 +242,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroMantenimiento.setText("Mantenimiento");
 
         menuCentroRegistro.setText("Registro de centro");
+        menuCentroRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroRegistroActionPerformed(evt);
+            }
+        });
         menuCentroMantenimiento.add(menuCentroRegistro);
 
         menuCentroEditar.setText("Editar un centro");
@@ -525,6 +530,10 @@ public class VentanaInicio extends javax.swing.JFrame {
                 controlGeneralGui = new ControlGui ();
                 controlGeneralGui.iniciarVentanaNuevoHorario(true);
     }//GEN-LAST:event_menuUbicacionesHorarioAgregarActionPerformed
+
+    private void menuCentroRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroRegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuCentroRegistroActionPerformed
 
     /**
     * @param args the command line arguments

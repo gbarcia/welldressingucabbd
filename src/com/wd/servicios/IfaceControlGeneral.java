@@ -1,6 +1,6 @@
-
 package com.wd.servicios;
 
+import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Tienda;
 import java.util.Collection;
@@ -30,4 +30,10 @@ public interface IfaceControlGeneral {
   * @return Collection todos los horarios registrados
   */
         public Collection traerTodosLosHorarios ();
+ /**
+  * Metodo para agregar un nuevo Centro de Distribucion
+  * @param centro objeto CentroDistribucion a insertar
+  * @return boolean resultado de la operacion
+  */
+        public boolean agregarCentroDistribucion(CentroDistribucion centro);
 }

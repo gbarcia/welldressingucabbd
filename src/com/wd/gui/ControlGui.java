@@ -14,6 +14,9 @@ public class ControlGui {
 /** variable de la ventana agregar nuevo horario*/
     private VentanaNuevoHorario ventanaNuevoHorario;
 
+/** Variable de la ventana agregar centro*/
+    private VentanaAgregarCentro ventanaAgregarCentro;
+
 /** Constructor del ControlGui */
     public ControlGui() {
     }
@@ -33,6 +36,16 @@ public class ControlGui {
     public void iniciarVentanaNuevoHorario (boolean var) {
         ventanaNuevoHorario = new VentanaNuevoHorario();
         ventanaNuevoHorario.setVisible(var);      
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de agregar centro
+     * @param var booleano que indica si mostrar o no la ventana
+
+     */
+    public void iniciarVentanaAgregarCentro (boolean var) {
+        ventanaAgregarCentro = new VentanaAgregarCentro();
+        ventanaAgregarCentro.setVisible(var);
     }
 
 /**

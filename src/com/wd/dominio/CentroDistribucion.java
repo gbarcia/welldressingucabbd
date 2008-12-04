@@ -1,6 +1,6 @@
 package com.wd.dominio;
 
-/**En esta clase se almacenará el control de centros de distribución que son los
+/**En esta entidad se almacenará el control de centros de distribución que son los
  * que reciben toda la mercancia que proviene de nuestros proveedores y
  * abastecen a nuestras tiendas con los productos solicitados por esta.
  * @author Gabylis
