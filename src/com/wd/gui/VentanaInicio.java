@@ -527,12 +527,13 @@ public class VentanaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuUbicacionesHorarioAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUbicacionesHorarioAgregarActionPerformed
-                controlGeneralGui = new ControlGui ();
-                controlGeneralGui.iniciarVentanaNuevoHorario(true);
+            controlGeneralGui = new ControlGui ();
+            controlGeneralGui.iniciarVentanaNuevoHorario(true);
     }//GEN-LAST:event_menuUbicacionesHorarioAgregarActionPerformed
 
     private void menuCentroRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroRegistroActionPerformed
-        // TODO add your handling code here:
+        controlGeneralGui = new ControlGui ();
+        controlGeneralGui.iniciarVentanaAgregarCentro(true);
     }//GEN-LAST:event_menuCentroRegistroActionPerformed
 
     /**

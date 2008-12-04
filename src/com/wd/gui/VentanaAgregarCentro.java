@@ -1,14 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * VentanaAgregarCentro.java
- *
- * Created on 02/12/2008, 07:51:54 PM
- */
-
 package com.wd.gui;
 
 import com.wd.gui.controlparticular.ControlGuiCentroDistribucion;
@@ -77,9 +66,9 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
         labelDireccion.setFont(new java.awt.Font("Verdana", 1, 12));
         labelDireccion.setText("Dirección");
 
-        jComboEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboEstado.setSelectedIndex(-1);
 
-        jComboCiudad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboCiudad.setSelectedIndex(-1);
 
         campoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
