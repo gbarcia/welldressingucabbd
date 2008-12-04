@@ -16,7 +16,7 @@ public class CentroDistribucion {
     /**Variable para la direccion del centro*/
     private String direccion;
     /**Variable para la identificar la ciudad en donde se encuentra el centro*/
-    private int LUGAR_id;
+    private int lugarId;
 
 
     /**
@@ -25,15 +25,15 @@ public class CentroDistribucion {
      * @param nombre nombre del centro
      * @param telefono numero telefonico del centro
      * @param direccion calle/Av edificio donde se encuentra el centro
-     * @param LUGAR_id identificador de la ciudad donde se encuentra el centro
+     * @param lugarId identificador de la ciudad donde se encuentra el centro
      */
 
-    public CentroDistribucion(int codigo, String nombre, String telefono, String direccion, int LUGAR_id) {
+    public CentroDistribucion(int codigo, String nombre, String telefono, String direccion, int lugarId) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.LUGAR_id = LUGAR_id;
+        this.lugarId = lugarId;
     }
     /**Constructor por defecto*/
     public CentroDistribucion() {
@@ -41,16 +41,16 @@ public class CentroDistribucion {
 
      /** Metodo para obtener el identificador de la ciudad donde se encuentra el
      * centro*/
-    public int getLUGAR_id() {
-        return LUGAR_id;
+    public int getLugarId() {
+        return lugarId;
     }
 
     /**
      * Metodo para establecer el identificador de la ciudad del centro
-     * @param LUGAR_id
+     * @param lugarId
      */
-    public void setLUGAR_id(int LUGAR_id) {
-        this.LUGAR_id = LUGAR_id;
+    public void setLugarId(int LUGAR_id) {
+        this.lugarId = LUGAR_id;
     }
 
     /**Metodo para obtener el codio identificador*/

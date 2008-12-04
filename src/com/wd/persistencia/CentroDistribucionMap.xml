@@ -9,7 +9,7 @@
   
   <insert id="agregarCentroDistribucion" parameterClass="CentroDistribucion">
       INSERT INTO CENTRO_DISTRIBUCION (codigo,nombre,telefono,direccion,LUGAR_id)
-      VALUES (#null#, #nombre#,#telefono#,#direccion#,#lugarId#)
+      VALUES (null, #nombre#,#telefono#,#direccion#,#lugarId#)
   </insert>
   
   </sqlMap>
