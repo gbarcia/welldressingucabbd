@@ -105,11 +105,16 @@ public class ControlGeneral implements IfaceControlGeneral {
         }
     }
 
-        public boolean agregarCentroDistribucion(CentroDistribucion centro) {
+    /**
+     * Metodo para Agregar un nuevo Centro de Distribución
+     * @param centro el nuevo centro a agregar
+     * @return boolean resultado de la operación
+     */
+    public boolean agregarCentroDistribucion(CentroDistribucion centro) {
         boolean resultado = false;
         try {
             this.controlCentroDistribucion = new ControlCentroDistribucion();
-            bitacora.info("Control Horario Iniciado correctamente");
+            bitacora.info("Control CentroDistribucion Iniciado correctamente");
             controlCentroDistribucion.agregarCentroDistribucion(centro);
             resultado = true;
         } catch (IOException ex) {
