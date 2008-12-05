@@ -41,6 +41,10 @@ public class ControlGuiHorario {
         else controlador.mostrarMensaje("Operacion fallida", 1);
     }
 
+    /**
+    * Metodo para buscar todos los horarios registrados en el sistema
+    * @return Vector vector con todos los objetos Horario del sistema
+    */
     public Vector traerTodosLosHorarios () {
         Vector<Horario> vectorResult = null;
         Collection<Horario> coleccion = ControlGeneral.getInstance().traerTodosLosHorarios();     
