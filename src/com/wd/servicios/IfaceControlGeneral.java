@@ -44,4 +44,10 @@ public interface IfaceControlGeneral {
       * @return boolean resultado de la operacion
       */
      public boolean agregarDepartamento(Departamento departamento);
+
+     /**
+      * Metodo para buscar todos los departamentos del sistema
+      * @return Collection todos los departamentos registrados
+      */
+     public Collection traerTodosLosDepartamentos();
 }

@@ -7,6 +7,7 @@ import com.wd.dominio.Departamento;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
+import java.util.Collection;
 import org.apache.log4j.Logger;
 
 /**
@@ -47,5 +48,24 @@ public class ControlDepartamento {
         } finally {
             return resultado;
         }
+    }
+
+    /**
+     * Metodo para buscar todos los departamentos del sistema
+     * @return Collection todos los departamentos registrados
+     */
+    public Collection<Departamento> traerTodosLosDepartamentos () {
+        Collection<Departamento> coleccionDepartamentos = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los " +
+            "Departamentos");
+            coleccionDepartamentos = sqlMap.queryForList("TodosLosDepartamentos");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccionDepartamentos;
+        }
+
     }
 }

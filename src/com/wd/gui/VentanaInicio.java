@@ -6,7 +6,9 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
+import com.wd.gui.controlparticular.ControlGuiDepartamento;
 import com.wd.gui.controlparticular.ControlGuiHorario;
 import java.util.Vector;
 
@@ -19,6 +21,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private ControlGui controlGeneralGui;
     private ControlGuiHorario controlGuiHorario;
+    private ControlGuiDepartamento controlGuiDepartamento;
 
     /** Creates new form VentanaInicio */
     public VentanaInicio() {
@@ -367,6 +370,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductosDepartamentos.add(menuProductosDepartamentosEditar);
 
         menuProductosDepartamentosConsultar.setText("Consultar departamento");
+        menuProductosDepartamentosConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProductosDepartamentosConsultarActionPerformed(evt);
+            }
+        });
         menuProductosDepartamentos.add(menuProductosDepartamentosConsultar);
 
         menuProductosDepartamentosEliminar.setText("Eliminar departamento");
@@ -564,6 +572,15 @@ public class VentanaInicio extends javax.swing.JFrame {
         controlGeneralGui = new ControlGui ();
         controlGeneralGui.iniciarVentanaAgregarDepartamento(true);
     }//GEN-LAST:event_menuProductosDepartamentosAgregarActionPerformed
+
+    private void menuProductosDepartamentosConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosDepartamentosConsultarActionPerformed
+
+        Vector<Departamento> result = null;
+        this.controlGuiDepartamento = new ControlGuiDepartamento();
+        result = this.controlGuiDepartamento.traerTodosLosDepartamentos();
+        controlGeneralGui = new ControlGui();
+        controlGeneralGui.iniciarVentanaConsultarDepartamentos(true, result);
+    }//GEN-LAST:event_menuProductosDepartamentosConsultarActionPerformed
 
     /**
     * @param args the command line arguments

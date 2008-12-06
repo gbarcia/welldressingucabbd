@@ -13,4 +13,19 @@
       VALUES (null, #nombre#,#descripcion#,#tipo#,null)
   </insert>
 
+  <resultMap id="traerTodosLosDepartamentos" class="departamento">
+    <result property="codigo" column="Codigo" />
+    <result property="nombre" column="Nombre" />
+    <result property="descripcion" column="Descripcion" />
+    <result property="tipo" column="Tipo" />
+    <result property="departamentoCodigo" column="DepartamentoCodigo" />
+  </resultMap>
+
+  <select id="TodosLosDepartamentos" resultMap="traerTodosLosDepartamentos">
+      SELECT d.codigo Codigo, d.nombre Nombre, d.descripcion Descripcion,
+      d.tipo Tipo, IFNULL(d.DEPARTAMENTO_codigo,2000) DepartamentoCodigo
+      FROM DEPARTAMENTO d
+      WHERE d.DEPARTAMENTO_codigo is null;
+  </select>
+
 </sqlMap>

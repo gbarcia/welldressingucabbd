@@ -41,10 +41,10 @@ public class VentanaAgregarDepartamento extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Departamento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(0, 102, 204));
 
-        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombre.setText("Nombre Departamento");
 
-        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDescripcion.setText("Descripción");
 
         campoDepartamento.setToolTipText("Nombre del departamento Aquí");
@@ -55,11 +55,11 @@ public class VentanaAgregarDepartamento extends javax.swing.JFrame {
         });
 
         campoDescripcion.setColumns(20);
-        campoDescripcion.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        campoDescripcion.setFont(new java.awt.Font("Tahoma", 0, 13));
         campoDescripcion.setRows(5);
         jScrollPane1.setViewportView(campoDescripcion);
 
-        buttonAgregar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonAgregar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonAgregar.setText("Agregar");
         buttonAgregar.setToolTipText("Presione para agregar el nuevo departamento");
         buttonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -68,9 +68,14 @@ public class VentanaAgregarDepartamento extends javax.swing.JFrame {
             }
         });
 
-        buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonCancelar.setText("Cancelar");
         buttonCancelar.setToolTipText("Presione para cancelar la operación");
+        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -149,6 +154,10 @@ public class VentanaAgregarDepartamento extends javax.swing.JFrame {
            controlDepartamento.agregarDepartamentoalSistema(nombre, descripcion);
        }
     }//GEN-LAST:event_buttonAgregarActionPerformed
+
+    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCancelarActionPerformed
 
     /**
     * @param args the command line arguments

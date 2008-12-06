@@ -149,4 +149,23 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+
+    /**
+    * Metodo para buscar todos los departamentos del sistema
+    * @return Collection todos los departamentos registrados
+    */
+    public Collection traerTodosLosDepartamentos(){
+        Collection<Departamento> departamentos = null;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            departamentos = controlDepartamento.traerTodosLosDepartamentos();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control departamento por "
+                    + ex.getMessage());
+        }
+        finally {
+            return departamentos;
+        }
+    }
 }
