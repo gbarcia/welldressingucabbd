@@ -356,6 +356,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductosDepartamentos.setText("Departamentos");
 
         menuProductosDepartamentosAgregar.setText("Agregar departamento");
+        menuProductosDepartamentosAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProductosDepartamentosAgregarActionPerformed(evt);
+            }
+        });
         menuProductosDepartamentos.add(menuProductosDepartamentosAgregar);
 
         menuProductosDepartamentosEditar.setText("Editar departamento");
@@ -554,6 +559,11 @@ public class VentanaInicio extends javax.swing.JFrame {
            this.controlGeneralGui = new ControlGui();
            this.controlGeneralGui.iniciarVentanaConsultarHorario(true, result);
     }//GEN-LAST:event_menuUbicacionesHorariosEliminarActionPerformed
+
+    private void menuProductosDepartamentosAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosDepartamentosAgregarActionPerformed
+        controlGeneralGui = new ControlGui ();
+        controlGeneralGui.iniciarVentanaAgregarDepartamento(true);
+    }//GEN-LAST:event_menuProductosDepartamentosAgregarActionPerformed
 
     /**
     * @param args the command line arguments

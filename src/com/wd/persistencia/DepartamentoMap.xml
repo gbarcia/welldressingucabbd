@@ -10,7 +10,7 @@
   <insert id="agregarDepartamento" parameterClass="Departamento">
       INSERT INTO DEPARTAMENTO (codigo,nombre,descripcion,tipo,
       DEPARTAMENTO_codigo)
-      VALUES (null, #nombre#,#descripcion#,#tipo,#departamentoCodigo#)
+      VALUES (null, #nombre#,#descripcion#,#tipo#,null)
   </insert>
 
 </sqlMap>

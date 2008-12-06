@@ -18,6 +18,9 @@ public class ControlGui {
 /** Variable de la ventana agregar centro*/
     private VentanaAgregarCentro ventanaAgregarCentro;
 
+/** Variable de la ventana agregar departamento*/
+    private VentanaAgregarDepartamento ventanaAgregarDepartamento;
+
 /** Variable de la ventana ver horarios*/
     private VentanaConsultaHorarios ventanaConsultaHorarios;
 
@@ -75,6 +78,16 @@ public class ControlGui {
             JOptionPane.showMessageDialog(null, mensaje, "Resultado",
                     JOptionPane.ERROR_MESSAGE);
         } 
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de agregar departamento
+     * @param var booleano que indica si mostrar o no la ventana
+
+     */
+    public void iniciarVentanaAgregarDepartamento (boolean var) {
+        ventanaAgregarDepartamento = new VentanaAgregarDepartamento();
+        ventanaAgregarDepartamento.setVisible(var);
     }
 
 /**

@@ -31,12 +31,15 @@ public class Departamento {
      * @param descripcion descripcion del departamento
      * @param tipo {0 si es una subclase,1 si es una clase,
      * 2 si es un departamento}
+     * @param departamentoCodigo codigo del departamento con el que se relaciona
      */
-    public Departamento(int codigo, String nombre, String descripcion, int tipo) {
+    public Departamento(int codigo, String nombre, String descripcion, int tipo
+            ,int departamentoCodigo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.tipo = tipo;
+        this.departamentoCodigo = departamentoCodigo;
     }
 
     /**Metodo para obtener el codigo identificador*/

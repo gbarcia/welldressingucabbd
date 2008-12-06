@@ -1,6 +1,7 @@
 package com.wd.servicios;
 
 import com.wd.dominio.CentroDistribucion;
+import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Tienda;
 import java.io.IOException;
@@ -21,6 +22,8 @@ public class ControlGeneral implements IfaceControlGeneral {
     /** Variable para trabajar con el controlador de los centros de distribucion
     */
     private ControlCentroDistribucion controlCentroDistribucion;
+    /** Variable para trabajar con el controlador de los departamentos*/
+    private ControlDepartamento controlDepartamento;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
@@ -126,4 +129,24 @@ public class ControlGeneral implements IfaceControlGeneral {
         }
     }
 
+    /**
+     * Metodo para Agregar un nuevo Departamento
+     * @param deparamento el nuevo departamento a agregar
+     * @return boolean resultado de la operación
+     */
+    public boolean agregarDepartamento(Departamento departamento) {
+        boolean resultado = false;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            controlDepartamento.agregarDepartamento(departamento);
+            resultado = true;
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar control departamento por "
+                    + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
 }
