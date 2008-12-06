@@ -1,6 +1,7 @@
 package com.wd.servicios;
 
 import com.wd.dominio.CentroDistribucion;
+import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Tienda;
 import java.util.Collection;
@@ -36,4 +37,11 @@ public interface IfaceControlGeneral {
       * @return boolean resultado de la operacion
       */
      public boolean agregarCentroDistribucion(CentroDistribucion centro);
+
+     /**
+      * Metodo para agregar un nuevo Departamento
+      * @param centro objeto Departamento a insertar
+      * @return boolean resultado de la operacion
+      */
+     public boolean agregarDepartamento(Departamento departamento);
 }

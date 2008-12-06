@@ -90,12 +90,12 @@ public class ControlGui {
         ventanaAgregarDepartamento.setVisible(var);
     }
 
-/**
-* Operacion para realizar una confirmacion. Despliega en la pantalla una ventana
-* de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
-* @param mensaje mensaje a mostrar
-* @return int 0 si se apreto aceptar y 2 si se apreto cancelar
-*/
+    /**
+    * Operacion para realizar una confirmacion. Despliega en la pantalla una ventana
+    * de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
+    * @param mensaje mensaje a mostrar
+    * @return int 0 si se apreto aceptar y 2 si se apreto cancelar
+    */
     public int dialogoConfirmacion (String mensaje) {
         return JOptionPane.showConfirmDialog(null, mensaje, "CONFIRMACION",
                     JOptionPane.OK_CANCEL_OPTION);
