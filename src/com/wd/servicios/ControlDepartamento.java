@@ -23,7 +23,7 @@ public class ControlDepartamento {
 
     /** Constructor que inicia el SQLMAP y la bitacora*/
     public ControlDepartamento() throws IOException {
-        bitacora.info("Iniciando controlador de centro de distribucion");
+        bitacora.info("Iniciando controlador de Departamento");
         String resource = "com/wd/configuracion/configuracionIbatis.xml";
         Reader reader = Resources.getResourceAsReader(resource);
         sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
