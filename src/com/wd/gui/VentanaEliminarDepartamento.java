@@ -144,7 +144,21 @@ public class VentanaEliminarDepartamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
-        // TODO add your handling code here:
+       
+       int resultado = -1;
+       int select = 0;
+       String nombre = "";
+       String descripcion = "";
+       select = this.comboNombre.getSelectedIndex();
+       this.controlGeneral =  new ControlGui ();
+       resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
+               "que desea realizar esta operación?");
+       if (resultado == 0) {
+           Departamento dpto = new Departamento();
+           dpto = this.vecDepartamentos.elementAt(select);
+           this.controlDepartamento = new ControlGuiDepartamento();
+           controlDepartamento.eliminarDepartamentodelSistema(dpto);
+       }
     }//GEN-LAST:event_buttonEliminarActionPerformed
 
     private void comboNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNombreActionPerformed

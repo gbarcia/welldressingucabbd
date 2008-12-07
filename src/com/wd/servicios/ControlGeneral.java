@@ -168,4 +168,25 @@ public class ControlGeneral implements IfaceControlGeneral {
             return departamentos;
         }
     }
+
+    /**
+     * Metodo para Agregar un nuevo Departamento
+     * @param departamento el nuevo departamento a agregar
+     * @return boolean resultado de la operación
+     */
+    public boolean eliminarDepartamento(Departamento departamento) {
+        boolean resultado = false;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            controlDepartamento.eliminarDepartamento(departamento);
+            resultado = true;
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar control departamento por "
+                    + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
 }

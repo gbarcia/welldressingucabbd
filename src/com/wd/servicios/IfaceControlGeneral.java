@@ -50,4 +50,11 @@ public interface IfaceControlGeneral {
       * @return Collection todos los departamentos registrados
       */
      public Collection traerTodosLosDepartamentos();
+
+     /**
+     * Metodo para Eliminar un Departamento
+     * @param departamento el departamento a eliminar
+     * @return boolean resultado de la operación
+     */
+    public boolean eliminarDepartamento(Departamento departamento);
 }

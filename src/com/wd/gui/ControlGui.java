@@ -24,6 +24,9 @@ public class ControlGui {
     /** Variable de la ventana consultar departamentos*/
     private VentanaConsultarDepartamentos ventanaConsultarDepartamentos;
 
+    /** Variable de la ventana eliminar departamentos*/
+    private VentanaEliminarDepartamento ventanaEliminarDepartamento;
+
 /** Variable de la ventana ver horarios*/
     private VentanaConsultaHorarios ventanaConsultaHorarios;
 
@@ -68,12 +71,21 @@ public class ControlGui {
     }
 
     /**
-     * Metodo para ocultar o mostrar la ventana de ver horarios
+     * Metodo para ocultar o mostrar la ventana de consultar departamentos
      * @param var booleano que indica si mostrar o no la ventana
      */
     public void iniciarVentanaConsultarDepartamentos (boolean var, Vector result) {
         ventanaConsultarDepartamentos = new VentanaConsultarDepartamentos(result);
         ventanaConsultarDepartamentos.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de elimianar departamentos
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaEliminarDepartamento (boolean var, Vector result) {
+        ventanaEliminarDepartamento = new VentanaEliminarDepartamento(result);
+        ventanaEliminarDepartamento.setVisible(var);
     }
 
 /**

@@ -50,4 +50,16 @@ public class ControlGuiDepartamento {
         }
         return vectorResult;
     }
+
+    /**
+     * Metodo para eliminarr un Departamento del sistema
+     * @param dpto Departamento departamento a eliminar
+     */
+    public void  eliminarDepartamentodelSistema (Departamento dpto){
+        boolean resultado = ControlGeneral.getInstance().eliminarDepartamento(dpto);
+        if (resultado) {
+        controlador.mostrarMensaje("Departamento eliminado con éxito",0);
+        }
+        else controlador.mostrarMensaje("Operacion fallida", 1);
+    }
 }
