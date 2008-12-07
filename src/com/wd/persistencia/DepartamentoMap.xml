@@ -28,4 +28,8 @@
       WHERE d.DEPARTAMENTO_codigo is null;
   </select>
 
+  <delete id="borrarDepartamento" parameterClass="Departamento">
+      DELETE FROM DEPARTAMENTO d WHERE d.tipo = 2 AND d.codigo=#codigo#
+  </delete>
+
 </sqlMap>

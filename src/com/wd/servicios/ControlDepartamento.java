@@ -68,4 +68,24 @@ public class ControlDepartamento {
         }
 
     }
+
+    /**
+     * Metodo eliminar un departamento del sistema
+     * @return Collection todos los departamentos registrados
+     */
+    public boolean eliminarDepartamento (Departamento dpto) {
+        boolean resultado = false;
+        try {
+            sqlMap.delete("eliminarDepartamento",dpto);
+            bitacora.info("Departamento: " + dpto.getCodigo() +
+            " eliminado con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+
+    }
 }
