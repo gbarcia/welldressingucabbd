@@ -12,6 +12,7 @@
 package com.wd.gui;
 
 import com.wd.dominio.Departamento;
+import com.wd.gui.controlparticular.ControlGuiDepartamento;
 import java.util.Vector;
 
 /**
@@ -21,6 +22,10 @@ import java.util.Vector;
 public class VentanaEliminarDepartamento extends javax.swing.JFrame {
 
     private Vector<Departamento> vecDepartamentos;
+
+    private ControlGuiDepartamento controlDepartamento;
+
+    private ControlGui controlGeneral;
 
     /** Creates new form VentanaEliminarDepartamento */
     public VentanaEliminarDepartamento(Vector<Departamento> result) {
@@ -62,6 +67,11 @@ public class VentanaEliminarDepartamento extends javax.swing.JFrame {
         labelDescripcion.setText("Descripción");
 
         comboNombre.setToolTipText("Nombre del departamento a eliminar");
+        comboNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboNombreActionPerformed(evt);
+            }
+        });
 
         campoDescripcion.setColumns(20);
         campoDescripcion.setEditable(false);
@@ -136,6 +146,14 @@ public class VentanaEliminarDepartamento extends javax.swing.JFrame {
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonEliminarActionPerformed
+
+    private void comboNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNombreActionPerformed
+        int select = -1;
+        String descripcion = "";
+        select = this.comboNombre.getSelectedIndex();
+        descripcion = vecDepartamentos.elementAt(select).getDescripcion();
+        this.campoDescripcion.setText(descripcion);
+    }//GEN-LAST:event_comboNombreActionPerformed
 
     /**
     * @param args the command line arguments
