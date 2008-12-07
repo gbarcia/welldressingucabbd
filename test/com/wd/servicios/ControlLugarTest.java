@@ -56,6 +56,11 @@ public class ControlLugarTest {
         }
         Collection<Lugar> result = instance.traerTodosLosLugares();
         assertNotNull(result);
+
+        for (Lugar lugar : result) {
+            System.out.println("Ciudad: " + lugar.getNombrePropio());
+            System.out.println("Estado: " + lugar.getNombrePertenece());
+        }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
