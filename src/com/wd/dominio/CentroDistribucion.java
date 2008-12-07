@@ -47,7 +47,7 @@ public class CentroDistribucion {
 
     /**
      * Metodo para establecer el identificador de la ciudad del centro
-     * @param lugarId
+     * @param LUGAR_id
      */
     public void setLugarId(int LUGAR_id) {
         this.lugarId = LUGAR_id;

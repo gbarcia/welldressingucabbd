@@ -22,10 +22,11 @@ public class ControlGuiCentroDistribucion {
 
 /**
  * Metodo para agregar un centro de distribucion al sistema
- * @param horaIni int hora de inicio
- * @param horaFin int hora de fin
- * @param diaIni String dia de inicio
- * @param diaFin String dia de Fin
+ * @param codigo int codigo del centro
+ * @param nombre String nombre del centro
+ * @param telefono String telefono del centro
+ * @param direccion String direccion del centro
+ * @param LUGAR_id int lugar donde se encuentra el centro
  */
     public void  agregarCentroDistribucion (int codigo, String nombre, String telefono, String direccion, int LUGAR_id) {
         centro = new CentroDistribucion(0,nombre,telefono,direccion,LUGAR_id);

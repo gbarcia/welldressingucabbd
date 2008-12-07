@@ -25,10 +25,8 @@ public class ControlGuiDepartamento {
 
 /**
  * Metodo para agregar un Departamento al sistema
- * @param nombte String nombre del departamento
- * @param descripcion String descripcion del departamento
- * @param tipo int tipo de departamento
- * @param departamentoCodigo int departamento con el que se relaciona
+ * @param nombre String nombre del departamento
+ * @param descripcion String descripcion del departamento 
  */
     public void  agregarDepartamentoalSistema (String nombre, String descripcion){
         departamento = new Departamento(0,nombre,descripcion,2,0);

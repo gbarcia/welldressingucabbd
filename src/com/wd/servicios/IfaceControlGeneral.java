@@ -40,7 +40,7 @@ public interface IfaceControlGeneral {
 
      /**
       * Metodo para agregar un nuevo Departamento
-      * @param centro objeto Departamento a insertar
+      * @param departamento objeto Departamento a insertar
       * @return boolean resultado de la operacion
       */
      public boolean agregarDepartamento(Departamento departamento);
