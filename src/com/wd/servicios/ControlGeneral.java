@@ -177,7 +177,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             controlDepartamento.eliminarDepartamento(departamento);
             resultado = true;
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar control departamento por " + ex.getMessage());
+            bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -188,19 +188,25 @@ public class ControlGeneral implements IfaceControlGeneral {
         Collection<Lugar> resultado = null;
         try {
             this.controlLugar = new ControlLugar();
+            bitacora.info("Control Lugar Iniciado correctamente");
             switch (operacion) {
                 case 1: {
+                    bitacora.info("Iniciando traer todos los estados");
                     resultado = this.controlLugar.traerTodosLosEstados();
                     return resultado;
                 }
                 case 2: {
+                    bitacora.info("Iniciando traer todos los lugares");
                     resultado = this.controlLugar.traerTodosLosLugares();
                     return resultado;
                 }
-                default:
+                default: {
+                    bitacora.error("Parametro introducido erroneo, num " + operacion);
                     return resultado;
+                }
             }
         } catch (IOException ex) {
+             bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
         } finally {
             return resultado;
         }
