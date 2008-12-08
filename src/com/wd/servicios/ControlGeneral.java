@@ -19,8 +19,7 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlHorario controlHorario;
     /** Variable para trabajar con el controlador de las tiendas*/
     private ControlTienda controlTienda;
-    /** Variable para trabajar con el controlador de los centros de distribucion
-    */
+    /** Variable para trabajar con el controlador de los centros de distribucion*/
     private ControlCentroDistribucion controlCentroDistribucion;
     /** Variable para trabajar con el controlador de los departamentos*/
     private ControlDepartamento controlDepartamento;
