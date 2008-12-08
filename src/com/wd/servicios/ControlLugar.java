@@ -44,4 +44,18 @@ public class ControlLugar {
             return resultado;
         }
     }
+
+    public Collection<Lugar> traerTodosLosEstados () {
+        Collection<Lugar> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los Estados");
+            resultado = sqlMap.queryForList("todosLosEstados");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: "
+                    + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
 }

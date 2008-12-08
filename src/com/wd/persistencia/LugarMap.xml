@@ -15,10 +15,23 @@
     <result property="nombrePertenece" column="Estado" />
     </resultMap>
 
+    <resultMap id="traerTodosLosEstados" class="lugar">
+        <result property="id" column="id"/>
+        <result property="nombrePropio" column="nombre"/>
+        <result property="tipo" column="tipo"/>
+        <result property="lugarID" column="Estado" />
+    </resultMap>
+
     <select id="todosLosLugares" resultMap="traerTodosLosLugares">
         SELECT l.id Id, l.nombre Ciudad, l.tipo , l2.nombre Estado,
         l2.id EdoId FROM lugar l, lugar l2
-        WHERE l.LUGAR_id is not null AND l.LUGAR_id = l2.id;
+        WHERE l.LUGAR_id is not null AND l.LUGAR_id = l2.id GROUP BY Estado;
+    </select>
+
+    <select id="todosLosEstados" resultMap="traerTodosLosEstados">
+       select l.id,l.nombre,l.tipo, IFNULL (l.LUGAR_id,-1) Estado
+       from lugar l
+       where tipo= 0
     </select>
 
   </sqlMap>
