@@ -200,16 +200,16 @@ public class ControlGeneral implements IfaceControlGeneral {
                 case 1: {
                     bitacora.info("Iniciando traer todos los estados");
                     resultado = this.controlLugar.traerTodosLosEstados();
-                    return resultado;
+                    break;
                 }
                 case 2: {
                     bitacora.info("Iniciando traer todos los lugares");
                     resultado = this.controlLugar.traerTodosLosLugares();
-                    return resultado;
+                    break;
                 }
                 default: {
                     bitacora.error("Parametro introducido erroneo, num " + operacion);
-                    return resultado;
+                    break;
                 }
             }
         } catch (IOException ex) {
