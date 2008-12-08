@@ -3,6 +3,7 @@ package com.wd.servicios;
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
+import com.wd.dominio.Lugar;
 import com.wd.dominio.Tienda;
 import java.io.IOException;
 import java.util.Collection;
@@ -23,6 +24,8 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlCentroDistribucion controlCentroDistribucion;
     /** Variable para trabajar con el controlador de los departamentos*/
     private ControlDepartamento controlDepartamento;
+    /** Variable para trabajar con el controlador de los lugares*/
+    private ControlLugar controlLugar;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
@@ -60,28 +63,26 @@ public class ControlGeneral implements IfaceControlGeneral {
             controlHorario.agregarNuevoHorario(horario);
             resultado = true;
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el control horario por "
-                    + ex.getMessage());
+            bitacora.error("No se pudo iniciar el control horario por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
         }
     }
+
     /**
-    * Metodo para buscar todos los horarios del sistema
-    * @return Collection todos los horarios registrados
-    */
-    public Collection traerTodosLosHorarios () {
+     * Metodo para buscar todos los horarios del sistema
+     * @return Collection todos los horarios registrados
+     */
+    public Collection traerTodosLosHorarios() {
         Collection<Horario> horarios = null;
         try {
             this.controlHorario = new ControlHorario();
             bitacora.info("Control Horario Iniciado correctamente");
             horarios = controlHorario.traerTodosLosHorarios();
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar el control horario por "
-                    + ex.getMessage());
-        }
-        finally {
+            bitacora.info("No se pudo iniciar el control horario por " + ex.getMessage());
+        } finally {
             return horarios;
         }
     }
@@ -91,7 +92,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param tienda la tienda a agregar
      * @return valor boolean de resultado de la operacion
      */
-    public  boolean agregarNuevaTienda(Tienda tienda) {
+    public boolean agregarNuevaTienda(Tienda tienda) {
         boolean resultado = false;
         try {
             this.controlTienda = new ControlTienda();
@@ -99,8 +100,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlTienda.agregarNuevaTienda(tienda);
             resultado = true;
         } catch (IOException ex) {
-            this.bitacora.error("No se pudo iniciar el ControlTienda por "
-                    + ex.getMessage());
+            this.bitacora.error("No se pudo iniciar el ControlTienda por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -120,8 +120,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             controlCentroDistribucion.agregarCentroDistribucion(centro);
             resultado = true;
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar control centroDistribucion por "
-                    + ex.getMessage());
+            bitacora.info("No se pudo iniciar control centroDistribucion por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -141,8 +140,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             controlDepartamento.agregarDepartamento(departamento);
             resultado = true;
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar control departamento por "
-                    + ex.getMessage());
+            bitacora.info("No se pudo iniciar control departamento por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -150,20 +148,18 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
-    * Metodo para buscar todos los departamentos del sistema
-    * @return Collection todos los departamentos registrados
-    */
-    public Collection traerTodosLosDepartamentos(){
+     * Metodo para buscar todos los departamentos del sistema
+     * @return Collection todos los departamentos registrados
+     */
+    public Collection traerTodosLosDepartamentos() {
         Collection<Departamento> departamentos = null;
         try {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento Iniciado correctamente");
             departamentos = controlDepartamento.traerTodosLosDepartamentos();
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar el control departamento por "
-                    + ex.getMessage());
-        }
-        finally {
+            bitacora.info("No se pudo iniciar el control departamento por " + ex.getMessage());
+        } finally {
             return departamentos;
         }
     }
@@ -181,9 +177,30 @@ public class ControlGeneral implements IfaceControlGeneral {
             controlDepartamento.eliminarDepartamento(departamento);
             resultado = true;
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar control departamento por "
-                    + ex.getMessage());
+            bitacora.info("No se pudo iniciar control departamento por " + ex.getMessage());
             resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    public Collection<Lugar> traerTodosLosLuagres(int operacion) {
+        Collection<Lugar> resultado = null;
+        try {
+            this.controlLugar = new ControlLugar();
+            switch (operacion) {
+                case 1: {
+                    resultado = this.controlLugar.traerTodosLosEstados();
+                    return resultado;
+                }
+                case 2: {
+                    resultado = this.controlLugar.traerTodosLosLugares();
+                    return resultado;
+                }
+                default:
+                    return resultado;
+            }
+        } catch (IOException ex) {
         } finally {
             return resultado;
         }
