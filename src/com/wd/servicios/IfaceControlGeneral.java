@@ -57,7 +57,7 @@ public interface IfaceControlGeneral {
      * @param departamento el departamento a eliminar
      * @return boolean resultado de la operación
      */
-    public boolean eliminarDepartamento(Departamento departamento);
+    public int eliminarDepartamento(Departamento departamento);
 
      /**
      * Metodo para  traer todos los lugares. Tiene dos operaciones en una

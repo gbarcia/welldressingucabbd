@@ -56,8 +56,8 @@ public class ControlGuiDepartamento {
      * @param dpto Departamento departamento a eliminar
      */
     public void  eliminarDepartamentodelSistema (Departamento dpto){
-        boolean resultado = ControlGeneral.getInstance().eliminarDepartamento(dpto);
-        if (resultado) {
+        int resultado = ControlGeneral.getInstance().eliminarDepartamento(dpto);
+        if (resultado==1) {
         controlador.mostrarMensaje("Departamento eliminado con éxito",0);
         }
         else controlador.mostrarMensaje("Operacion fallida", 1);

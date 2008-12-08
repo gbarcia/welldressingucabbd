@@ -29,7 +29,7 @@
   </select>
 
   <delete id="borrarDepartamento" parameterClass="Departamento">
-      DELETE FROM DEPARTAMENTO d WHERE d.tipo = 2 AND d.codigo=#codigo#
+      DELETE FROM DEPARTAMENTO WHERE tipo = 2 AND codigo=#codigo#
   </delete>
 
 </sqlMap>

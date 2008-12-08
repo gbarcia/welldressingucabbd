@@ -76,7 +76,7 @@ public class ControlDepartamento {
     public boolean eliminarDepartamento (Departamento dpto) {
         boolean resultado = false;
         try {
-            sqlMap.delete("eliminarDepartamento",dpto);
+            sqlMap.delete("borrarDepartamento",dpto);
             bitacora.info("Departamento: " + dpto.getCodigo() +
             " eliminado con éxito");
             resultado = true;
