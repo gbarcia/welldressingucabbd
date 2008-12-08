@@ -51,6 +51,11 @@ public class ControlLugar {
         }
     }
 
+     /**
+      * Metodo para obtener todos los Estados
+      * @return objetos de tipo lugar con informacion sobre los estados con su
+      * respectivo nombre, id y tipo
+      */
     public Collection<Lugar> traerTodosLosEstados () {
         Collection<Lugar> resultado = null;
         try {
