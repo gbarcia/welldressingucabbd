@@ -71,17 +71,17 @@ public class ControlDepartamento {
 
     /**
      * Metodo eliminar un departamento del sistema
-     * @return Collection todos los departamentos registrados
+     * @return int resultado de la operacion
      */
-    public boolean eliminarDepartamento (Departamento dpto) {
-        boolean resultado = false;
+    public int eliminarDepartamento (Departamento dpto) {
+        int resultado = 0;
         try {
-            sqlMap.delete("borrarDepartamento",dpto);
+            resultado = sqlMap.delete("borrarDepartamento",dpto);            
             bitacora.info("Departamento: " + dpto.getCodigo() +
             " eliminado con éxito");
-            resultado = true;
+            //resultado = true;
         } catch (SQLException ex) {
-            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());            
         }
         finally {
             return resultado;

@@ -7,13 +7,13 @@
 
   <typeAlias alias="departamento" type="com.wd.dominio.Departamento"/>
 
-  <insert id="agregarDepartamento" parameterClass="Departamento">
+  <insert id="agregarDepartamento" parameterClass="departamento">
       INSERT INTO DEPARTAMENTO (codigo,nombre,descripcion,tipo,
       DEPARTAMENTO_codigo)
       VALUES (null, #nombre#,#descripcion#,#tipo#,null)
   </insert>
 
-  <resultMap id="traerTodosLosDepartamentos" class="departamento">
+  <resultMap id="traerTodosLosDepartamentos" class="Departamento">
     <result property="codigo" column="Codigo" />
     <result property="nombre" column="Nombre" />
     <result property="descripcion" column="Descripcion" />
@@ -31,5 +31,11 @@
   <delete id="borrarDepartamento" parameterClass="Departamento">
       DELETE FROM DEPARTAMENTO WHERE tipo = 2 AND codigo=#codigo#
   </delete>
+
+  <update id="modificarDepartamento" parameterClass="Departamento">
+      UPDATE DEPARTAMENTO SET
+      NOMBRE = #nombre# ,DESCRIPCION = #DESCRIPCION#
+      WHERE CODIGO = #codigo#
+  </update>
 
 </sqlMap>

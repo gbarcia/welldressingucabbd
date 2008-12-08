@@ -56,10 +56,10 @@ public class VentanaConsultarDepartamentos extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta Departamentos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(0, 102, 204));
 
-        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombre.setText("Nombre Departamento");
 
-        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDescripcion.setText("Descripción");
 
         comboNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +72,7 @@ public class VentanaConsultarDepartamentos extends javax.swing.JFrame {
         campoDescripcion.setRows(5);
         jScrollPane1.setViewportView(campoDescripcion);
 
-        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonCerrar.setText("Cerrar");
         buttonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -60,10 +60,10 @@ public class VentanaEliminarDepartamento extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Departamento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
-        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombre.setText("Nombre Departamento");
 
-        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDescripcion.setText("Descripción");
 
         comboNombre.setToolTipText("Nombre del departamento a eliminar");
@@ -79,7 +79,7 @@ public class VentanaEliminarDepartamento extends javax.swing.JFrame {
         campoDescripcion.setToolTipText("Descripción del departamento a eliminar");
         jScrollPane1.setViewportView(campoDescripcion);
 
-        buttonEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonEliminar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonEliminar.setText("Eliminar");
         buttonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

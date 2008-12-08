@@ -48,7 +48,7 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar Centro Distribución");
 
-        jPanelAgregarCentro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Centro de Distribución", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 12), new java.awt.Color(0, 0, 102))); // NOI18N
+        jPanelAgregarCentro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Centro de Distribución", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(0, 102, 204))); // NOI18N
         jPanelAgregarCentro.setToolTipText("Agregar Centro de Distribución");
 
         labelEstado.setFont(new java.awt.Font("Verdana", 1, 12));
@@ -65,10 +65,6 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
 
         labelDireccion.setFont(new java.awt.Font("Verdana", 1, 12));
         labelDireccion.setText("Dirección");
-
-        jComboEstado.setSelectedIndex(-1);
-
-        jComboCiudad.setSelectedIndex(-1);
 
         campoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,7 +162,7 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(jPanelAgregarCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );

@@ -39,7 +39,7 @@ public class ControlGuiDepartamento {
 
     /**
     * Metodo para buscar todos los horarios registrados en el sistema
-    * @return Vector vector con todos los objetos Horario del sistema
+    * @return Vector vector con todos los objetos Departamento del sistema
     */
     public Vector traerTodosLosDepartamentos () {
         Vector<Departamento> vectorResult = null;
@@ -52,7 +52,7 @@ public class ControlGuiDepartamento {
     }
 
     /**
-     * Metodo para eliminarr un Departamento del sistema
+     * Metodo para eliminar un Departamento del sistema
      * @param dpto Departamento departamento a eliminar
      */
     public void  eliminarDepartamentodelSistema (Departamento dpto){
@@ -60,6 +60,7 @@ public class ControlGuiDepartamento {
         if (resultado==1) {
         controlador.mostrarMensaje("Departamento eliminado con éxito",0);
         }
-        else controlador.mostrarMensaje("Operacion fallida", 1);
+        else  if (resultado==0)
+        controlador.mostrarMensaje("Operacion fallida", 1);
     }
 }
