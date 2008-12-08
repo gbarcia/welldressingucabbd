@@ -3,6 +3,7 @@ package com.wd.servicios;
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
+import com.wd.dominio.Lugar;
 import com.wd.dominio.Tienda;
 import java.util.Collection;
 
@@ -57,4 +58,6 @@ public interface IfaceControlGeneral {
      * @return boolean resultado de la operación
      */
     public boolean eliminarDepartamento(Departamento departamento);
+
+     public Collection<Lugar> traerTodosLosLuagres(int operacion);
 }
