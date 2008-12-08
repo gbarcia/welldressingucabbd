@@ -13,7 +13,7 @@
       VALUES (null, #nombre#,#descripcion#,#tipo#,null)
   </insert>
 
-  <resultMap id="traerTodosLosDepartamentos" class="Departamento">
+  <resultMap id="traerTodosLosDepartamentos" class="departamento">
     <result property="codigo" column="Codigo" />
     <result property="nombre" column="Nombre" />
     <result property="descripcion" column="Descripcion" />
@@ -28,13 +28,14 @@
       WHERE d.DEPARTAMENTO_codigo is null;
   </select>
 
-  <delete id="borrarDepartamento" parameterClass="Departamento">
+  <delete id="borrarDepartamento" parameterClass="departamento">
       DELETE FROM DEPARTAMENTO WHERE tipo = 2 AND codigo=#codigo#
   </delete>
 
-  <update id="modificarDepartamento" parameterClass="Departamento">
+  <update id="modificarDepartamento" parameterClass="departamento">
       UPDATE DEPARTAMENTO SET
-      NOMBRE = #nombre# ,DESCRIPCION = #DESCRIPCION#
+      NOMBRE = #nombre#,
+      DESCRIPCION = #descripcion#
       WHERE CODIGO = #codigo#
   </update>
 
