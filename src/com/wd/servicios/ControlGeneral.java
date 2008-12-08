@@ -218,4 +218,5 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+    
 }

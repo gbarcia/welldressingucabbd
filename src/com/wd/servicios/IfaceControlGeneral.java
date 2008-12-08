@@ -59,5 +59,12 @@ public interface IfaceControlGeneral {
      */
     public boolean eliminarDepartamento(Departamento departamento);
 
+     /**
+     * Metodo para  traer todos los lugares. Tiene dos operaciones en una
+     * la primera para traer todos los estados y la segunda todas las ciudades
+     * con sus correspondientes estados
+     * @param operacion int 1: trae todos los estados, 2: trae todas las ciudades
+     * @return Collection coleccion de objetos Lugar
+     */
      public Collection<Lugar> traerTodosLosLuagres(int operacion);
 }
