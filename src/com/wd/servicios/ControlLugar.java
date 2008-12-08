@@ -31,6 +31,12 @@ public class ControlLugar {
         sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
     }
 
+     /**
+      * Metodo para obtener todos los lugares
+      * @return objetos de tipo lugar con informacion sobre las ciudades con su
+      * id y tipo cada una y además con el estado a quien pertenecen, con el id
+      * del estado respectivo
+      */
     public Collection<Lugar> traerTodosLosLugares () {
         Collection<Lugar> resultado = null;
         try {
