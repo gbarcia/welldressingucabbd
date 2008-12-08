@@ -88,4 +88,20 @@ public class ControlDepartamento {
         }
 
     }
+
+    public boolean modificarDepartamento(Departamento newDpto) {
+        boolean resultado = false;
+        try {
+            sqlMap.update("modificarDepartamento", newDpto);
+            bitacora.info("Departamento: " + newDpto.getCodigo() +
+            " modificado con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("Departamento: " + newDpto.getCodigo() +
+            " operacion" + " fallida porque: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
 }

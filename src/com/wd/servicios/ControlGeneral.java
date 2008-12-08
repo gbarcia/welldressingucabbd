@@ -63,9 +63,31 @@ public class ControlGeneral implements IfaceControlGeneral {
             controlHorario.agregarNuevoHorario(horario);
             resultado = true;
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el control horario por " + ex.getMessage());
+            bitacora.error("No se pudo iniciar el control horario por "
+            + ex.getMessage());
             resultado = false;
         } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para modificar un Departamento
+     * @param newDpto objeto Departamento a modificar
+     * @return boolean resultado de la operacion
+     */
+    public boolean modificarDepartamento(Departamento newDpto) {
+        boolean resultado = false;
+        try{
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento iniciado correctamente");
+            controlDepartamento.modificarDepartamento(newDpto);
+            resultado = true;
+        }catch(IOException ex){
+            bitacora.error("No se pudo iniciar el control horario por "
+            + ex.getMessage());
+            resultado = false;
+        }finally{
             return resultado;
         }
     }

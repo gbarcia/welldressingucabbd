@@ -11,15 +11,31 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Departamento;
+import com.wd.gui.controlparticular.ControlGuiDepartamento;
+import java.util.Vector;
+
 /**
  *
  * @author Gabylis
  */
 public class VentanaModificarDepartamento extends javax.swing.JFrame {
 
+    private Vector<Departamento> vecDepartamentos;
+
+    private ControlGui controlGeneral;
+
+    private ControlGuiDepartamento controlDepartamento;
+
     /** Creates new form VentanaModificarDepartamento */
-    public VentanaModificarDepartamento() {
+    public VentanaModificarDepartamento(Vector<Departamento> result) {
         initComponents();
+        vecDepartamentos = new Vector();
+        vecDepartamentos = result;
+        Vector info = new Vector();
+        for (Departamento dpto : result){
+            this.comboNombre.addItem(dpto.getNombre());
+       }
     }
 
     /** This method is called from within the constructor to
@@ -47,6 +63,11 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modificar Departamento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
         comboNombre.setToolTipText("Escoge departamento a modificar");
+        comboNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboNombreActionPerformed(evt);
+            }
+        });
 
         campoNombre.setToolTipText("Nombre modificable");
 
@@ -66,9 +87,19 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
 
         buttonModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         buttonModificar.setText("Modificar");
+        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonModificarActionPerformed(evt);
+            }
+        });
 
         buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         buttonCancelar.setText("Cancelar");
+        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,13 +173,52 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comboNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNombreActionPerformed
+        int select = -1;
+        String descripcion = "";
+        String nombre = "";
+        select = this.comboNombre.getSelectedIndex();
+        nombre = vecDepartamentos.elementAt(select).getNombre();
+        descripcion = vecDepartamentos.elementAt(select).getDescripcion();
+        this.campoNombre.setText(nombre);
+        this.campoDescripcion.setText(descripcion);
+    }//GEN-LAST:event_comboNombreActionPerformed
+
+    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonCancelarActionPerformed
+
+    private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
+        int resultado = -1;
+       String nombre = "";
+       String descripcion = "";
+       this.controlGeneral =  new ControlGui ();
+       resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
+               "que desea realizar esta operación?");
+       if (resultado == 0) {
+           int codigo = -1;
+           int select = -1;
+           select = this.comboNombre.getSelectedIndex();
+           codigo = vecDepartamentos.elementAt(select).getCodigo();
+           nombre = this.campoNombre.getText().toUpperCase();
+           descripcion   = this.campoDescripcion.getText().toUpperCase();
+           Departamento newDpto = new Departamento(codigo,nombre,descripcion,2,0);
+           this.controlDepartamento = new ControlGuiDepartamento();
+           controlDepartamento.modificarDepartamentodelSistema(newDpto);
+       }
+    }//GEN-LAST:event_buttonModificarActionPerformed
+
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Vector<Departamento> result) {
+                new VentanaModificarDepartamento(result).setVisible(true);
+            }
+
             public void run() {
-                new VentanaModificarDepartamento().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }

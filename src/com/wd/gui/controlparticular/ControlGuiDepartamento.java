@@ -37,6 +37,15 @@ public class ControlGuiDepartamento {
         else controlador.mostrarMensaje("Operacion fallida", 1);
     }
 
+    public void modificarDepartamentodelSistema(Departamento newDpto) {
+        boolean resultado = ControlGeneral.getInstance().modificarDepartamento(newDpto);
+        if (resultado){
+            controlador.mostrarMensaje("Departamento modificado con éxito", 0);
+        }else{
+            controlador.mostrarMensaje("Operación fallida",1);
+        }
+    }
+
     /**
     * Metodo para buscar todos los horarios registrados en el sistema
     * @return Vector vector con todos los objetos Departamento del sistema

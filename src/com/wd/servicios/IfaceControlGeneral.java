@@ -60,6 +60,13 @@ public interface IfaceControlGeneral {
     public int eliminarDepartamento(Departamento departamento);
 
      /**
+     * Metodo para modificar un Departamento
+     * @param newDpto objeto Departamento a modificar
+     * @return boolean resultado de la operacion
+     */
+    public boolean modificarDepartamento(Departamento newDpto);
+
+     /**
      * Metodo para  traer todos los lugares. Tiene dos operaciones en una
      * la primera para traer todos los estados y la segunda todas las ciudades
      * con sus correspondientes estados
