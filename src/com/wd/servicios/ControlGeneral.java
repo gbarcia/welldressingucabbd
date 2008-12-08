@@ -165,7 +165,7 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
-     * Metodo para Agregar un nuevo Departamento
+     * Metodo para  eliminar un Departamento
      * @param departamento el nuevo departamento a agregar
      * @return boolean resultado de la operación
      */
