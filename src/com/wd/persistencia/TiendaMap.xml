@@ -34,7 +34,7 @@
     UPDATE tienda
     SET nombre = #nombre#, tamano = #tamano#, telefono = #telefono#, correo = #correo#, direccion = #direccion#, HORARIO_id = #HORARIO_id#, LUGAR_id = #LUGAR_id#, EMPRESA_SERVICIO_rif = #EMPRESA_SERVICIO_rif#
     WHERE codigo = #codigo#
-  </update
+  </update>
 
   <delete id="eliminarTienda" parameterClass="int">
       DELETE FROM tienda
