@@ -7,9 +7,42 @@
 
   <typeAlias alias="tienda" type="com.wd.dominio.Tienda"/>
 
+    <resultMap id="tiendaResult" class="tienda">
+    <result property="codigo" column="codigo" />
+    <result property="nombre" column="nombre" />
+    <result property="tamano" column="tamano" />
+    <result property="correo" column="correo" />
+    <result property="direccion" column="direccion" />
+    <result property="LUGAR_id" column="LUGAR_id" />
+    <result property="HORARIO_id" column="HORARIO_id" />
+    <result property="EMPRESA_SERVICIO_rif" column="EMPRESA_SERVICIO_rif" />
+  </resultMap>
+
   <insert id="agregarNuevaTienda" parameterClass="tienda">
-      INSERT INTO tienda (codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif)
-      values (null, #nombre#, #tamano#, #telefono#, #correo#, #direccion#, #LUGAR_id#, #HORARIO_id#, #EMPRESA_SERVICIO_rif#)
+    INSERT INTO tienda (codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif)
+    VALUES (null, #nombre#, #tamano#, #telefono#, #correo#, #direccion#, #LUGAR_id#, #HORARIO_id#, #EMPRESA_SERVICIO_rif#)
   </insert>
+
+  <select id="consultarTienda" parameterClass="tienda">
+    SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
+    FROM tienda
+    WHERE codigo = #codigo#
+  </select>
+
+  <update>
+    UPDATE tienda
+    SET nombre = #nombre#, tamano = #tamano#, telefono = #tamano#, correo = #correo#, direccion = #direccion#, HORARIO_id = #HORARIO_id#, LUGAR_id = #LUGAR_id#, EMPRESA_SERVICIO_rif = #EMPRESA_SERVICIO_rif#
+    WHERE codigo = #codigo#
+  </update>
+
+  <delete>
+      DELETE FROM tienda
+      WHERE codigo = #codigo#
+  </delete>
+
+  <select id="tiendas" parameterClass="tiendaResult">
+    SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
+    FROM tienda
+  </select>
 
   </sqlMap>
