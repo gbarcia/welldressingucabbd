@@ -7,7 +7,7 @@
 
   <typeAlias alias="tienda" type="com.wd.dominio.Tienda"/>
 
-  <resultMap id="resultTienda" class="tienda">
+  <resultMap id="resultMapTienda" class="tienda">
     <result property="codigo" column="codigo" />
     <result property="nombre" column="nombre" />
     <result property="correo" column="correo" />
@@ -24,7 +24,7 @@
     VALUES (null, #nombre#, #tamano#, #telefono#, #correo#, #direccion#, #LUGAR_id#, #HORARIO_id#, #EMPRESA_SERVICIO_rif#)
   </insert>
 
-  <select id="consultarTienda" parameterClass="int">
+  <select id="consultarTienda" parameterClass="int" resultClass="tienda">
     SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
     FROM tienda
     WHERE codigo = #codigo#
@@ -34,14 +34,14 @@
     UPDATE tienda
     SET nombre = #nombre#, tamano = #tamano#, telefono = #telefono#, correo = #correo#, direccion = #direccion#, HORARIO_id = #HORARIO_id#, LUGAR_id = #LUGAR_id#, EMPRESA_SERVICIO_rif = #EMPRESA_SERVICIO_rif#
     WHERE codigo = #codigo#
-  </update>
+  </update
 
   <delete id="eliminarTienda" parameterClass="int">
       DELETE FROM tienda
       WHERE codigo = #codigo#
   </delete>
 
-  <select id="consultarTiendas" parameterClass="resultTienda">
+  <select id="consultarTiendas" resultMap="resultMapTienda">
     SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
     FROM tienda
   </select>
