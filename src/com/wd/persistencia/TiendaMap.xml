@@ -7,7 +7,7 @@
 
   <typeAlias alias="tienda" type="com.wd.dominio.Tienda"/>
 
-    <resultMap id="tiendaResult" class="tienda">
+  <resultMap id="resultTienda" class="tienda">
     <result property="codigo" column="codigo" />
     <result property="nombre" column="nombre" />
     <result property="tamano" column="tamano" />
@@ -18,31 +18,31 @@
     <result property="EMPRESA_SERVICIO_rif" column="EMPRESA_SERVICIO_rif" />
   </resultMap>
 
-  <insert id="agregarNuevaTienda" parameterClass="tienda">
+  <insert id="agregarTienda" parameterClass="tienda">
     INSERT INTO tienda (codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif)
     VALUES (null, #nombre#, #tamano#, #telefono#, #correo#, #direccion#, #LUGAR_id#, #HORARIO_id#, #EMPRESA_SERVICIO_rif#)
   </insert>
 
-  <select id="consultarTienda" parameterClass="tienda">
+  <select id="consultarTienda" parameterClass="int">
     SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
     FROM tienda
     WHERE codigo = #codigo#
   </select>
 
-  <update>
+  <update id="modificarTienda" parameterClass="tienda">
     UPDATE tienda
     SET nombre = #nombre#, tamano = #tamano#, telefono = #tamano#, correo = #correo#, direccion = #direccion#, HORARIO_id = #HORARIO_id#, LUGAR_id = #LUGAR_id#, EMPRESA_SERVICIO_rif = #EMPRESA_SERVICIO_rif#
     WHERE codigo = #codigo#
   </update>
 
-  <delete>
+  <delete id="eliminarTienda" parameterClass="int">
       DELETE FROM tienda
       WHERE codigo = #codigo#
   </delete>
 
-  <select id="tiendas" parameterClass="tiendaResult">
+  <select id="consultarTiendas" parameterClass="resultTienda">
     SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
     FROM tienda
   </select>
 
-  </sqlMap>
+</sqlMap>

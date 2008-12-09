@@ -114,12 +114,12 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param tienda la tienda a agregar
      * @return valor boolean de resultado de la operacion
      */
-    public boolean agregarNuevaTienda(Tienda tienda) {
+    public boolean agregarTienda(Tienda tienda) {
         boolean resultado = false;
         try {
             this.controlTienda = new ControlTienda();
             this.bitacora.info("ControlTienda iniciado correctamente");
-            this.controlTienda.agregarNuevaTienda(tienda);
+            this.controlTienda.agregarTienda(tienda);
             resultado = true;
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlTienda por " + ex.getMessage());

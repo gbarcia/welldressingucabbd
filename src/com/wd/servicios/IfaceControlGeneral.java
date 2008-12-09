@@ -25,7 +25,7 @@ public interface IfaceControlGeneral {
      * @param tienda la tienda a agregar
      * @return valor boolean de resultado de la operacion
      */
-    public  boolean agregarNuevaTienda(Tienda tienda);
+    public  boolean agregarTienda(Tienda tienda);
 
      /**
       * Metodo para buscar todos los horarios del sistema
