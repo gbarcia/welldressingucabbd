@@ -10,8 +10,9 @@
   <resultMap id="resultTienda" class="tienda">
     <result property="codigo" column="codigo" />
     <result property="nombre" column="nombre" />
-    <result property="tamano" column="tamano" />
     <result property="correo" column="correo" />
+    <result property="tamano" column="tamano" />
+    <result property="telefono" column="telefono" />
     <result property="direccion" column="direccion" />
     <result property="LUGAR_id" column="LUGAR_id" />
     <result property="HORARIO_id" column="HORARIO_id" />
@@ -31,7 +32,7 @@
 
   <update id="modificarTienda" parameterClass="tienda">
     UPDATE tienda
-    SET nombre = #nombre#, tamano = #tamano#, telefono = #tamano#, correo = #correo#, direccion = #direccion#, HORARIO_id = #HORARIO_id#, LUGAR_id = #LUGAR_id#, EMPRESA_SERVICIO_rif = #EMPRESA_SERVICIO_rif#
+    SET nombre = #nombre#, tamano = #tamano#, telefono = #telefono#, correo = #correo#, direccion = #direccion#, HORARIO_id = #HORARIO_id#, LUGAR_id = #LUGAR_id#, EMPRESA_SERVICIO_rif = #EMPRESA_SERVICIO_rif#
     WHERE codigo = #codigo#
   </update>
 
