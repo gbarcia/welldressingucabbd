@@ -228,22 +228,11 @@ de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
 
 
 
-<UML:Package xmi.id="DCE.0C5FF695-0B99-9915-C10C-94DE467C53DF" name="dominio" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD"><UML:Element.presentation>
+
+<UML:Package xmi.id="DCE.D0ED2963-E857-3E82-EFD1-E0FD65E2F676" name="persistencia" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" clientDependency="DCE.49947A55-EC09-A324-BB76-3B5C4ACEEBA2 DCE.E081C891-A9DE-76BA-1EF7-DC553A49935B DCE.1C3820A8-0615-A1AF-857C-D71B8195FA39 DCE.EB1CD750-7263-C67E-D836-83EF181DB00F DCE.D789557D-AB3B-855C-3870-05F6906DC86C DCE.AC34D723-F0EC-C994-C5A5-1570554A39A5 DCE.118208E3-6D8F-F31C-728F-F10655FA2D19 DCE.ECACBFE7-103A-0816-10F2-4FCCFDA728B7" supplierDependency="DCE.1D32D915-A9E8-75E9-9AA3-C3E3D28B7F2C DCE.57581241-6BB5-D06A-EC38-FBE42A732B95"><UML:Element.presentation>
 
 
 
-
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:Class xmi.id="DCE.80B8BF39-3531-B43E-5036-69853C81A0B6" name="centroDistribucion" owner="DCE.0C5FF695-0B99-9915-C10C-94DE467C53DF"><UML:Element.presentation>
-
-
-
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.C19A7091-56C2-4558-C6AA-B22FEF3AFAB8" name="centroDistribucion" isConstructor="true" owner="DCE.80B8BF39-3531-B43E-5036-69853C81A0B6"><UML:Element.presentation>
-
-
-</UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class></UML:Element.ownedElement></UML:Package>
-<UML:Package xmi.id="DCE.D0ED2963-E857-3E82-EFD1-E0FD65E2F676" name="persistencia" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" clientDependency="DCE.49947A55-EC09-A324-BB76-3B5C4ACEEBA2 DCE.E081C891-A9DE-76BA-1EF7-DC553A49935B DCE.1C3820A8-0615-A1AF-857C-D71B8195FA39"><UML:Element.presentation>
 
 
 </UML:Element.presentation><UML:Element.ownedElement>
@@ -255,10 +244,38 @@ de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
 
 
 
-<UML:Artifact xmi.id="DCE.3072DE7B-1C8A-509D-59D4-F0E875EFB9E3" name="SqlMapCentroDistribucion" owner="DCE.D0ED2963-E857-3E82-EFD1-E0FD65E2F676"><UML:Element.presentation>
+<UML:Artifact xmi.id="DCE.3072DE7B-1C8A-509D-59D4-F0E875EFB9E3" name="SqlMapEmpresaServicio" owner="DCE.D0ED2963-E857-3E82-EFD1-E0FD65E2F676" supplierDependency="DCE.C35E1267-585A-1B81-A4B3-FAC85AF57938"><UML:Element.presentation>
+
 </UML:Element.presentation><UML:Classifier.generalization>
 </UML:Classifier.generalization></UML:Artifact></UML:Element.ownedElement></UML:Package>
-<UML:Package xmi.id="DCE.90A70131-E354-6104-8B0F-10CC77B25099" name="servicios" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD"><UML:Element.presentation>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<UML:Package xmi.id="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5" name="gui" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" clientDependency="DCE.7882F3EF-1DE1-3DE2-C83D-2F6EBE0DF30E DCE.6BED2400-0152-7060-4BF6-2576C28A9174 DCE.3FA72341-1293-A4CC-459C-D13611BBDC2C DCE.7F772FE5-E637-B857-6C05-CC22437A8144"><UML:Element.presentation>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -266,27 +283,40 @@ de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
 
 
 </UML:Element.presentation><UML:Element.ownedElement>
-<UML:Class xmi.id="DCE.2B8BBE7A-EF39-B46D-408B-DEAEEE8FBDED" name="control_AgregarCentro" owner="DCE.90A70131-E354-6104-8B0F-10CC77B25099"><UML:Element.presentation>
+<UML:Class xmi.id="DCE.E1DE56F6-4ADC-DDA6-9E7B-E300220F58E7" name="Ventana_ModificarrEmpresasVigilancia" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5"><UML:Element.presentation>
+
+
 
 
 
 </UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.82EB9BA2-487E-56AA-5E7F-05D82ACEFFAD" name="control_AgregarCentro" isConstructor="true" owner="DCE.2B8BBE7A-EF39-B46D-408B-DEAEEE8FBDED"><UML:Element.presentation>
+<UML:Operation xmi.id="DCE.DA532CDE-E858-35E4-91C9-91092CC7E87E" name="Ventana_ModificarrEmpresasVigilancia" isConstructor="true" owner="DCE.E1DE56F6-4ADC-DDA6-9E7B-E300220F58E7"><UML:Element.presentation>
+
+
 
 
 </UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class>
-<UML:Class xmi.id="DCE.1BBC1537-0F0F-48A9-0814-4636DDDA8C1E" name="control_general" owner="DCE.90A70131-E354-6104-8B0F-10CC77B25099" clientDependency="DCE.6CE619CB-20CC-5D75-916C-F1F0574D2033"><UML:Element.presentation>
+<UML:Class xmi.id="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7" name="controlGui" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5" clientDependency="DCE.332B810D-0499-9731-E960-E08C8FCB7DA6"><UML:Element.presentation>
+
+
 
 
 
 </UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.0013C31D-B5E7-1F97-A184-055E9B8690F7" name="control_general" isConstructor="true" owner="DCE.1BBC1537-0F0F-48A9-0814-4636DDDA8C1E"><UML:Element.presentation>
+<UML:Operation xmi.id="DCE.1A0F6CB7-751D-C2BB-7A55-D74CB0F9CF26" name="controlGui" isConstructor="true" owner="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7"><UML:Element.presentation>
 
 
+
+
+</UML:Element.presentation></UML:Operation>
+<UML:Operation xmi.id="DCE.8940A215-1217-F5A4-1B63-4E6D2B704821" name="modificarEmpresaVigilancia" isQuery="false" isAbstract="false" redefinedElement="DCE.A067E6A3-A0FE-C3AF-F96E-F46E1D19D299" owner="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7"><UML:Element.ownedElement>
+<UML:Parameter xmi.id="DCE.6B42B30C-90BE-F059-D25C-B23F654DEDD7" type="DCE.033E2A76-19A5-5D57-EB1E-C9073BEE71BA" direction="result" owner="DCE.8940A215-1217-F5A4-1B63-4E6D2B704821"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.D7110E1D-1D23-4DBE-E276-66966F66D092"/></UML:TypedElement.multiplicity></UML:Parameter>
+<UML:Parameter xmi.id="DCE.CFE1BB9D-8404-8D12-2D2A-E1B6AE7E010F" type="DCE.A244281E-C55E-7134-CD6E-0C9ACA8782A4" name="emp" direction="in" owner="DCE.8940A215-1217-F5A4-1B63-4E6D2B704821"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.1EAC212C-830F-BA51-4132-6848FCA6100A" isOrdered="true"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
 </UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class>
-<UML:Implementation xmi.id="DCE.6CE619CB-20CC-5D75-916C-F1F0574D2033" owner="DCE.90A70131-E354-6104-8B0F-10CC77B25099" client="DCE.1BBC1537-0F0F-48A9-0814-4636DDDA8C1E" supplier="DCE.BA20A002-AA1A-6438-2020-81893D6E5BD2"><UML:Element.presentation>
 
-
+<UML:Implementation xmi.id="DCE.332B810D-0499-9731-E960-E08C8FCB7DA6" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5" client="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7" supplier="DCE.922C4AED-5F76-AA30-CC3A-079D61A7B349"><UML:Element.presentation>
 </UML:Element.presentation></UML:Implementation></UML:Element.ownedElement></UML:Package>
 
 
@@ -301,57 +331,49 @@ de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
 
 
 
-<UML:Interface xmi.id="DCE.BA20A002-AA1A-6438-2020-81893D6E5BD2" name="InterfaceControlGeneral" isAbstract="true" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" appliedStereotype="__uri_.\UMLProject3.etup#//*[@xmi.id=&quot;DCE.C95DF565-1C61-7E22-0DF9-4C81BF1FAE9B&quot;]" supplierDependency="DCE.6CE619CB-20CC-5D75-916C-F1F0574D2033"><UML:Element.presentation>
 
 
-</UML:Element.presentation></UML:Interface>
+<UML:Comment xmi.id="DCE.9283D533-6E1E-BFC5-D888-1DDA7A905546" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" annotatedElement=""><UML:Element.presentation>
 
-<UML:Package xmi.id="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5" name="gui" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD"><UML:Element.presentation>
-
-
-
-
-
-
-
-
-
+</UML:Element.presentation></UML:Comment>
+<UML:Package xmi.id="DCE.07072894-8E83-4625-42FB-A1C45192260E" name="Integración" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" clientDependency="DCE.F2D3E940-35BA-5B33-6191-AC2FEBFB544A DCE.1D32D915-A9E8-75E9-9AA3-C3E3D28B7F2C DCE.57581241-6BB5-D06A-EC38-FBE42A732B95 DCE.3FEA883A-8711-2165-3F9A-35C6C56ACA91" supplierDependency="DCE.3FEA883A-8711-2165-3F9A-35C6C56ACA91 DCE.ECACBFE7-103A-0816-10F2-4FCCFDA728B7 DCE.7882F3EF-1DE1-3DE2-C83D-2F6EBE0DF30E DCE.6BED2400-0152-7060-4BF6-2576C28A9174 DCE.3FA72341-1293-A4CC-459C-D13611BBDC2C DCE.7F772FE5-E637-B857-6C05-CC22437A8144"><UML:Element.presentation>
 </UML:Element.presentation><UML:Element.ownedElement>
-<UML:Class xmi.id="DCE.E1DE56F6-4ADC-DDA6-9E7B-E300220F58E7" name="Ventana_AgregarCentro" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5"><UML:Element.presentation>
-
-
-
+<UML:Class xmi.id="DCE.48BE5A50-94E2-228C-963C-63B7CAEEC487" name="ControlGeneral" owner="DCE.07072894-8E83-4625-42FB-A1C45192260E" clientDependency="DCE.37307BDF-3B23-D38E-DC98-F2474353A389"><UML:Element.presentation>
 </UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.DA532CDE-E858-35E4-91C9-91092CC7E87E" name="Ventana_AgregarCentro" isConstructor="true" owner="DCE.E1DE56F6-4ADC-DDA6-9E7B-E300220F58E7"><UML:Element.presentation>
-
-
+<UML:Operation xmi.id="DCE.5B50818F-13A9-1918-A0D2-C6EF6F667A59" name="ControlGeneral" isConstructor="true" owner="DCE.48BE5A50-94E2-228C-963C-63B7CAEEC487"><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation>
+<UML:Operation xmi.id="DCE.D06D8626-A9DA-BBBF-633F-C0012AB2379C" name="modificarEmpresaVigilancia" owner="DCE.48BE5A50-94E2-228C-963C-63B7CAEEC487" redefinedElement="DCE.A067E6A3-A0FE-C3AF-F96E-F46E1D19D299" visibility="public"><UML:Element.ownedElement>
+<UML:Parameter xmi.id="DCE.DD0F5B2F-0AC6-16D4-A037-0F93A1F5F477" type="DCE.033E2A76-19A5-5D57-EB1E-C9073BEE71BA" direction="result" owner="DCE.D06D8626-A9DA-BBBF-633F-C0012AB2379C"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.B1FE716D-C175-3184-CACB-EF6E9F508EBD"/></UML:TypedElement.multiplicity></UML:Parameter>
+<UML:Parameter xmi.id="DCE.FCBC4B1A-53C0-99D6-B2D7-4CDD5BFC5FC2" type="DCE.A244281E-C55E-7134-CD6E-0C9ACA8782A4" name="emp" owner="DCE.D06D8626-A9DA-BBBF-633F-C0012AB2379C"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.95435F4E-7905-FA16-19D6-703E7D9C4FDA"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
 </UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class>
-<UML:Class xmi.id="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7" name="controlGui" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5"><UML:Element.presentation>
+<UML:Implementation xmi.id="DCE.37307BDF-3B23-D38E-DC98-F2474353A389" owner="DCE.07072894-8E83-4625-42FB-A1C45192260E" client="DCE.48BE5A50-94E2-228C-963C-63B7CAEEC487" supplier="DCE.922C4AED-5F76-AA30-CC3A-079D61A7B349"><UML:Element.presentation>
+</UML:Element.presentation></UML:Implementation>
+
+
+<UML:DataType xmi.id="DCE.19E7D3E7-FC54-850C-7826-3163BC6739CE" name="CentroDistribucion" owner="DCE.07072894-8E83-4625-42FB-A1C45192260E"/>
+<UML:DataType xmi.id="DCE.37A5019E-63D2-D282-22CD-0CCB4614A470" name="vector" owner="DCE.07072894-8E83-4625-42FB-A1C45192260E"/>
+<UML:DataType xmi.id="DCE.E6E5D1C0-2BFF-3C69-1F49-D9FDFC5ADE14" name="Vector" owner="DCE.07072894-8E83-4625-42FB-A1C45192260E"/>
+<UML:DataType xmi.id="DCE.C846C6BD-D211-6DE3-C6F0-4C020BFA89B4" name="Departamento" owner="DCE.07072894-8E83-4625-42FB-A1C45192260E"/>
+<UML:DataType xmi.id="DCE.A244281E-C55E-7134-CD6E-0C9ACA8782A4" name="EmpresaServicio" owner="DCE.07072894-8E83-4625-42FB-A1C45192260E"/></UML:Element.ownedElement></UML:Package>
 
 
 
+
+
+
+<UML:Usage xmi.id="DCE.57581241-6BB5-D06A-EC38-FBE42A732B95" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" client="DCE.07072894-8E83-4625-42FB-A1C45192260E" supplier="DCE.D0ED2963-E857-3E82-EFD1-E0FD65E2F676"><UML:Element.presentation>
+</UML:Element.presentation></UML:Usage>
+
+<UML:Interface xmi.id="DCE.922C4AED-5F76-AA30-CC3A-079D61A7B349" name="IfaceControlGeneral" isAbstract="true" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" appliedStereotype="__uri_.\UMLProject3.etup#//*[@xmi.id=&quot;DCE.C95DF565-1C61-7E22-0DF9-4C81BF1FAE9B&quot;]" supplierDependency="DCE.37307BDF-3B23-D38E-DC98-F2474353A389 DCE.332B810D-0499-9731-E960-E08C8FCB7DA6"><UML:Element.presentation>
 </UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.1A0F6CB7-751D-C2BB-7A55-D74CB0F9CF26" name="controlGui" isConstructor="true" owner="DCE.16F909CA-5C19-1EF7-F36E-37E810C14DE7"><UML:Element.presentation>
-
-
-</UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class>
-<UML:Package xmi.id="DCE.541E2391-C426-3B0F-DDC6-F4043943A6D0" name="controlparticular" owner="DCE.0E4C70FA-E61E-55FC-26E6-BB722F3995F5"><UML:Element.presentation>
-
-
-
-
-
-</UML:Element.presentation><UML:Element.ownedElement>
-
-<UML:Class xmi.id="DCE.9041A101-8DD7-A5A1-CC76-45DDEAEA1C86" name="controlGuiAgregarCentro" owner="DCE.541E2391-C426-3B0F-DDC6-F4043943A6D0"><UML:Element.presentation>
-
-
-
-</UML:Element.presentation><UML:Element.ownedElement>
-<UML:Operation xmi.id="DCE.7BFA2B3C-EE53-5259-5CC8-F5829461ABD2" name="controlGuiAgregarCentro" isConstructor="true" owner="DCE.9041A101-8DD7-A5A1-CC76-45DDEAEA1C86"><UML:Element.presentation>
-
-
-</UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Class></UML:Element.ownedElement></UML:Package></UML:Element.ownedElement></UML:Package>
+<UML:Operation xmi.id="DCE.A067E6A3-A0FE-C3AF-F96E-F46E1D19D299" name="modificarEmpresaVigilancia" isAbstract="true" owner="DCE.922C4AED-5F76-AA30-CC3A-079D61A7B349" redefiningElement="DCE.D06D8626-A9DA-BBBF-633F-C0012AB2379C DCE.8940A215-1217-F5A4-1B63-4E6D2B704821"><UML:Element.ownedElement>
+<UML:Parameter xmi.id="DCE.4D8E7C53-B92F-3CC3-6DAA-016DF6E06DE7" type="DCE.033E2A76-19A5-5D57-EB1E-C9073BEE71BA" direction="result" owner="DCE.A067E6A3-A0FE-C3AF-F96E-F46E1D19D299"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.0ABC3F59-1C61-B965-15B0-C6CED7B90679"/></UML:TypedElement.multiplicity></UML:Parameter>
+<UML:Parameter xmi.id="DCE.5B02204F-2FE9-A32B-083E-CED8622CFA5E" type="DCE.A244281E-C55E-7134-CD6E-0C9ACA8782A4" name="emp" direction="in" owner="DCE.A067E6A3-A0FE-C3AF-F96E-F46E1D19D299"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.FFF1DA73-8807-8632-A7C4-E4ED9245CFBF" isOrdered="true"/></UML:TypedElement.multiplicity></UML:Parameter></UML:Element.ownedElement><UML:Element.presentation>
+</UML:Element.presentation></UML:Operation></UML:Element.ownedElement></UML:Interface>
 
 
 
@@ -359,6 +381,9 @@ de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
 
 
 
+
+<UML:Usage xmi.id="DCE.ECACBFE7-103A-0816-10F2-4FCCFDA728B7" owner="DCE.08AB79E2-3C53-3F36-6754-3B0B768648CD" client="DCE.D0ED2963-E857-3E82-EFD1-E0FD65E2F676" supplier="DCE.07072894-8E83-4625-42FB-A1C45192260E"><UML:Element.presentation>
+</UML:Element.presentation></UML:Usage>
 
 
 

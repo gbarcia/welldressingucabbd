@@ -205,6 +205,7 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
            Departamento newDpto = new Departamento(codigo,nombre,descripcion,2,0);
            this.controlDepartamento = new ControlGuiDepartamento();
            controlDepartamento.modificarDepartamentodelSistema(newDpto);
+           this.recargarCombo();
        }
     }//GEN-LAST:event_buttonModificarActionPerformed
 
@@ -236,4 +237,17 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
     private javax.swing.JLabel labelNombreMod;
     // End of variables declaration//GEN-END:variables
 
+    public void recargarCombo(){
+        this.controlDepartamento = new ControlGuiDepartamento();
+        vecDepartamentos = controlDepartamento.traerTodosLosDepartamentos();
+        int items = this.comboNombre.getItemCount();
+        /*for (int i = 0; i <items; i++) {
+            this.comboNombre.removeItemAt(i);
+            this.comboNombre.addItem(vecDepartamentos.elementAt(i).getNombre());
+        }*/
+        for (Departamento dpto : vecDepartamentos){
+            this.comboNombre.addItem(dpto.getNombre());
+       }
+
+    }
 }
