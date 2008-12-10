@@ -32,6 +32,7 @@ public class VentanaConsultaHorarios extends javax.swing.JFrame {
             dm.addColumn("HoraFin");
             dm.addColumn("DiaInicio");
             dm.addColumn("DiaFin");
+            dm.addColumn("DiaLibre");
             
 
             for (Horario horario : result){
@@ -41,6 +42,7 @@ public class VentanaConsultaHorarios extends javax.swing.JFrame {
                 info.addElement(horario.getHoraFin());
                 info.addElement(horario.getDiaIni());
                 info.addElement(horario.getDiaFin());
+                info.addElement(horario.getDiaLibre());
                 dm.addRow(info);
             }
             
