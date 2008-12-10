@@ -30,10 +30,11 @@ public class ControlGuiHorario {
  * @param horaFin int hora de fin
  * @param diaIni String dia de inicio
  * @param diaFin String dia de Fin
+ * @param diaLibre String dia libre
  */
     public void  agregarHorarioalSistema (int horaIni, int horaFin, String diaIni,
-                            String diaFin) {
-        horario = new Horario(0,horaIni,horaFin,diaIni,diaFin);
+                            String diaFin, String diaLibre) {
+        horario = new Horario(0,horaIni,horaFin,diaIni,diaFin,diaLibre);
         boolean resultado = ControlGeneral.getInstance().agregarNuevoHorario(horario);
         if (resultado) {
         controlador.mostrarMensaje("Horario agregado con éxito",0);

@@ -13,15 +13,16 @@
     <result property="horaFin" column="HoraFin" />
     <result property="diaIni" column="DiaInicio" />
     <result property="diaFin" column="DiaFin" />
+    <result property="diaLibre" column="DiaLibre" />
   </resultMap>
   
   <insert id="agregarNuevoHorario" parameterClass="horario">
-      INSERT INTO HORARIO (id,hora_ini,hora_fin,dia_ini,dia_fin)
-      VALUES(null,#horaIni#,#horaFin#,#diaIni#,#diaFin#)
+      INSERT INTO HORARIO (id,hora_ini,hora_fin,dia_ini,dia_fin,dia_libre)
+      VALUES(null,#horaIni#,#horaFin#,#diaIni#,#diaFin#,#diaLibre#)
   </insert>
 
   <select id="TodosLosHorarios" resultMap="traerTodosLosHorarios">
-      SELECT h.id ID, h.hora_ini HoraInicio, h.hora_fin HoraFin, h.dia_ini DiaInicio, h.dia_fin DiaFin
+      SELECT h.id ID, h.hora_ini HoraInicio, h.hora_fin HoraFin, h.dia_ini DiaInicio, h.dia_fin DiaFin, h.dia_libre DiaLibre
       from horario h;
   </select>
 

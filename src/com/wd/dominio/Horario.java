@@ -21,6 +21,8 @@ public class Horario implements Serializable{
     private String diaIni;
     /** variable para el dia final*/
     private String diaFin;
+    /** variable para el dia libre*/
+    private String diaLibre;
 
     /**
      * Constructor de la clase con todos los atributos
@@ -31,13 +33,17 @@ public class Horario implements Serializable{
      * sabado,domingo}
      * @param diaFin el dia final {lunes, martes, miercoles,jueves,viernes,
      * sabado,domingo}
+     * @param diaLibre el dia que la tienda tenga libre {dias de la semana: lun,
+     * mar,etc}
      */
-    public Horario(int id, int horaIni, int horaFin, String diaIni, String diaFin) {
+    public Horario(int id, int horaIni, int horaFin, String diaIni, String diaFin,
+            String diaLibre) {
         this.id = id;
         this.horaIni = horaIni;
         this.setHoraFin(horaFin);
         this.setDiaIni(diaIni);
         this.setDiaFin(diaFin);
+        this.setDiaLibre(diaLibre);
     }
     /** constructor por defecto*/
     public Horario () {
@@ -118,5 +124,26 @@ public class Horario implements Serializable{
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /** Metodo para obtener el dia libre
+     */
+    public String getDiaLibre() {
+        return diaLibre;
+    }
+
+    /** Metodo para establecer el id
+     *  @param diaLibre String dia libre a establecer
+     */
+    public void setDiaLibre(String diaLibre) {
+        if (diaLibre.equals("LUNES") || diaLibre.equals("MARTES") ||
+                diaLibre.equals("MIERCOLES") || diaLibre.equals("JUEVES") ||
+                diaLibre.equals("VIERNES") || diaLibre.equals("SABADO") ||
+                diaLibre.equals("DOMINGO")) {
+            this.diaLibre = diaLibre;
+        } else {
+            this.diaLibre = null;
+        }
+        this.diaLibre = diaLibre;
     }
 }
