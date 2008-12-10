@@ -49,7 +49,7 @@ public class ControlHorarioTest2 {
     @Test
     public void testAgregarNuevoHorario() throws IOException {
         System.out.println("agregarNuevoHorario");
-        Horario horario = new Horario(1,4,6,"LUNES","MIERCOLES");
+        Horario horario = new Horario(1,4,6,"LUNES","MIERCOLES","NINGUNO");
         ControlHorario instance = new ControlHorario();
         boolean expResult = true;
         boolean result = instance.agregarNuevoHorario(horario);

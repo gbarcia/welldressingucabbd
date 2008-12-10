@@ -136,14 +136,6 @@ public class Horario implements Serializable{
      *  @param diaLibre String dia libre a establecer
      */
     public void setDiaLibre(String diaLibre) {
-        if (diaLibre.equals("LUNES") || diaLibre.equals("MARTES") ||
-                diaLibre.equals("MIERCOLES") || diaLibre.equals("JUEVES") ||
-                diaLibre.equals("VIERNES") || diaLibre.equals("SABADO") ||
-                diaLibre.equals("DOMINGO")) {
             this.diaLibre = diaLibre;
-        } else {
-            this.diaLibre = null;
         }
-        this.diaLibre = diaLibre;
-    }
 }
