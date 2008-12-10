@@ -43,6 +43,8 @@ public class VentanaNuevoHorario extends javax.swing.JFrame {
         diaInicio = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         diaFin = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
+        diaLibre = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         horaInicio = new javax.swing.JComboBox();
@@ -67,6 +69,10 @@ public class VentanaNuevoHorario extends javax.swing.JFrame {
         diaFin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO" }));
         diaFin.setSelectedIndex(6);
 
+        jLabel5.setText("Libre:");
+
+        diaLibre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "NINGUNO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO", "DOMINGO" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -74,6 +80,10 @@ public class VentanaNuevoHorario extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addComponent(diaLibre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
@@ -95,7 +105,11 @@ public class VentanaNuevoHorario extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(diaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(diaLibre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Horas"));
@@ -209,6 +223,7 @@ public class VentanaNuevoHorario extends javax.swing.JFrame {
        int horaFinal = -1;
        String diaInicial = "";
        String diaFinal = "";
+       String diaLibres = null;
        this.controlGeneral =  new ControlGui ();
        resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
                "que desea realizar esta operación?");
@@ -217,9 +232,10 @@ public class VentanaNuevoHorario extends javax.swing.JFrame {
            horaFinal   = this.horaFin.getSelectedIndex();
            diaInicial  = (String) this.diaInicio.getSelectedItem();
            diaFinal    = (String) this.diaFin.getSelectedItem();
+           diaLibres   = (String) this.diaFin.getSelectedItem();
            this.controlHorario = new ControlGuiHorario ();
            controlHorario.agregarHorarioalSistema(horaInicial, horaFinal,
-                   diaInicial, diaFinal);
+                   diaInicial, diaFinal,diaLibres);
        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -241,6 +257,7 @@ public class VentanaNuevoHorario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox diaFin;
     private javax.swing.JComboBox diaInicio;
+    private javax.swing.JComboBox diaLibre;
     private javax.swing.JComboBox horaFin;
     private javax.swing.JComboBox horaInicio;
     private javax.swing.JButton jButton1;
@@ -249,6 +266,7 @@ public class VentanaNuevoHorario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
