@@ -55,7 +55,7 @@ public class ControlTiendaTest {
             Logger.getLogger(ControlTiendaTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         boolean expResult = true;
-        boolean result = instance.agregarNuevaTienda(tienda);
+        boolean result = instance.agregarTienda(tienda);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
