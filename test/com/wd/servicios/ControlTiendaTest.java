@@ -1,9 +1,13 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package com.wd.servicios;
 
 import com.wd.dominio.Tienda;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Collection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,7 +17,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Johnny
+ * @author Jonathan Trujillo
  */
 public class ControlTiendaTest {
 
@@ -37,28 +41,75 @@ public class ControlTiendaTest {
     }
 
     /**
-     * Test of agregarNuevaTienda method, of class ControlTienda.
+     * Test of agregarTienda method, of class ControlTienda.
      */
     @Test
-    public void testAgregarNuevaTienda() {
-        System.out.println("agregarNuevaTienda");
-        Tienda tienda = new Tienda(10,"Sambil Prueba", 300,"872487", "sp@wd.com.ve", "Calle Pajarito", 2, 1, "J-759-645-1");
-        ControlTienda instance = null;
+    public void testAgregarTienda() {
         try {
-            instance = new ControlTienda();
+            System.out.println("agregarTienda");
+            Tienda tienda = new Tienda(0, "PRUEBA", 50, "02129629999",
+                    "CORREOPRUEBA@WD.COM.VE", "DIRECCION PRUEBA", 4,
+                    1, null);
+            ControlTienda instance = new ControlTienda();
+            boolean expResult = true;
+            boolean result = instance.agregarTienda(tienda);
+            assertEquals(expResult, result);
+            // TODO review the generated test code and remove the default call to fail.
+//            fail("The test case is a prototype.");
         } catch (IOException ex) {
-            Logger.getLogger(ControlTiendaTest.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
+    }
+
+    /**
+     * Test of modificarTienda method, of class ControlTienda.
+     */
+    @Test
+    public void testModificarTienda() {
         try {
-            instance = new ControlTienda();
+            System.out.println("modificarTienda");
+            Tienda tienda = new Tienda(6, "PRUEBA", 100, "02129620000",
+                    "CORREOPRUEBA@WD.COM.VE", "DIRECCION PRUEBA", 4,
+                    1, "J-658-374-1");
+            ControlTienda instance = new ControlTienda();
+            boolean expResult = true;
+            boolean result = instance.modificarTienda(tienda);
+            assertEquals(expResult, result);
+            // TODO review the generated test code and remove the default call to fail.
+//            fail("The test case is a prototype.");
         } catch (IOException ex) {
-            Logger.getLogger(ControlTiendaTest.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
-        boolean expResult = true;
-        boolean result = instance.agregarTienda(tienda);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of consultarTiendas method, of class ControlTienda.
+     */
+    @Test
+    public void testConsultarTiendas() {
+        try {
+            System.out.println("consultarTiendas");
+            ControlTienda instance = new ControlTienda();
+//            Collection<Tienda> expResult = null;
+            Collection<Tienda> result = instance.consultarTiendas();
+            for (Tienda tienda : result) {
+                System.out.println(tienda.getCodigo() + " " +
+                        tienda.getNombre() + " " +
+                        tienda.getTamano() + " " +
+                        tienda.getTelefono() + " " +
+                        tienda.getCorreo() + " " +
+                        tienda.getDireccion() + " " +
+                        tienda.getLUGAR_id() + " " +
+                        tienda.getHORARIO_id() + " " +
+                        tienda.getEMPRESA_SERVICIO_rif());
+            }
+//            assertEquals(expResult, result);
+            assertNotNull(result);
+            // TODO review the generated test code and remove the default call to fail.
+//            fail("The test case is a prototype.");
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
 }
