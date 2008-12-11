@@ -5,6 +5,7 @@ import com.wd.dominio.Lugar;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
+import java.util.Collection;
 import java.util.Vector;
 
 /**
@@ -27,7 +28,18 @@ public class ControlGuiLugar {
         this.controlador = new ControlGui();
     }
 
-    public Vector traerTodosLosLugares () {
-        return null;
+    /**
+     * Operacion para retornas todoso los lugares sengun: Estado o Ciudad
+     * @param operacion int si es 1 trae todos los estads, si es 2 todas las ciudades
+     * @return Vector con todas los lugares resultantes de la operacion
+     */
+    public Vector<Lugar> traerTodosLosLugares (int operacion) {
+        Vector<Lugar> resultado = null;
+        Collection<Lugar> coleccion = controlG.traerTodosLosLuagres(operacion);
+        resultado = new Vector();
+        for (Lugar lugars : coleccion) {
+            resultado.add(lugars);
+        }
+        return resultado;
     }
 }
