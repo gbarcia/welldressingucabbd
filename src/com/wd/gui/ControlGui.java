@@ -33,6 +33,9 @@ public class ControlGui {
 /** Variable de la ventana ver horarios*/
     private VentanaConsultaHorarios ventanaConsultaHorarios;
 
+    /** Variable de la ventana ver los lugares*/
+    private VentanaConsultarLugares ventanaConsultaLugares;
+
 /** Constructor del ControlGui */
     public ControlGui() {
     }
@@ -89,6 +92,18 @@ public class ControlGui {
     public void iniciarVentanaEliminarDepartamento (boolean var, Vector result) {
         ventanaEliminarDepartamento = new VentanaEliminarDepartamento(result);
         ventanaEliminarDepartamento.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de consulta de lugares
+     * @param var booleano que indica si mostrar o no la ventana
+     * @paramr result1 Vector con los resultados de los estados
+     * @param result2 Vector con los resultados de las ciudades
+     */
+    public void iniciarVentanaConsultaLugares (boolean var, Vector result1,
+            Vector result2) {
+        this.ventanaConsultaLugares = new VentanaConsultarLugares(result1, result2);
+        this.ventanaConsultaLugares.setVisible(var);
     }
 
 /**
