@@ -18,8 +18,6 @@
     <resultMap id="traerTodosLosEstados" class="lugar">
         <result property="id" column="id"/>
         <result property="nombrePropio" column="nombre"/>
-        <result property="tipo" column="tipo"/>
-        <result property="lugarID" column="Estado" />
     </resultMap>
 
     <select id="todosLosLugares" resultMap="traerTodosLosLugares">
@@ -29,7 +27,7 @@
     </select>
 
     <select id="todosLosEstados" resultMap="traerTodosLosEstados">
-       select l.id,l.nombre,l.tipo, IFNULL (l.LUGAR_id,-1) Estado
+       select l.id,l.nombre
        from lugar l
        where tipo= 0
     </select>

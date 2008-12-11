@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Vector;
 
 /**
- * Manejador de la interfaz gráfica para agregar un nuevo horario
+ * Manejador de la interfaz gráfica para horario
  * @author Gerardo Barcia
  */
 public class ControlGuiHorario {
