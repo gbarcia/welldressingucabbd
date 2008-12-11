@@ -619,6 +619,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void menuUbicacionesLugarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUbicacionesLugarConsultaActionPerformed
         Vector<Lugar> resultadoEdo = null;
         Vector<Lugar> resultadoCiudad = null;
+        this.controlGuiLugar = new ControlGuiLugar();
         resultadoEdo = this.controlGuiLugar.traerTodosLosLugares(1);
         resultadoCiudad = this.controlGuiLugar.traerTodosLosLugares(2);
         controlGeneralGui = new  ControlGui();
