@@ -38,7 +38,19 @@ public class VentanaConsultarLugares extends javax.swing.JFrame {
         this.jTableEdo.setModel(dm1);
 
         DefaultTableModel dm2 = new DefaultTableModel();
-        dm2.addColumn("");
+        dm2.addColumn("Id");
+        dm2.addColumn("Ciudad");
+        dm2.addColumn("Estado");
+
+        for (Lugar lugar : resultC) {
+            Vector info2 = new Vector();
+            info2.addElement(lugar.getId());
+            info2.addElement(lugar.getNombrePropio());
+            info2.addElement(lugar.getNombrePertenece());
+            dm2.addRow(info2);
+        }
+
+        this.jTableCiudad.setModel(dm2);
     }
 
     /** This method is called from within the constructor to
@@ -52,6 +64,8 @@ public class VentanaConsultarLugares extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPciudad = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableCiudad = new javax.swing.JTable();
         jPestado = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -59,15 +73,31 @@ public class VentanaConsultarLugares extends javax.swing.JFrame {
 
         setTitle("Consulta de Lugares");
 
+        jTableCiudad.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(jTableCiudad);
+
         javax.swing.GroupLayout jPciudadLayout = new javax.swing.GroupLayout(jPciudad);
         jPciudad.setLayout(jPciudadLayout);
         jPciudadLayout.setHorizontalGroup(
             jPciudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(jPciudadLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         jPciudadLayout.setVerticalGroup(
             jPciudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 268, Short.MAX_VALUE)
+            .addGroup(jPciudadLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ciudades", jPciudad);
@@ -106,7 +136,7 @@ public class VentanaConsultarLugares extends javax.swing.JFrame {
             .addGroup(jPestadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Estado", jPestado);
@@ -124,7 +154,7 @@ public class VentanaConsultarLugares extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -151,7 +181,9 @@ public class VentanaConsultarLugares extends javax.swing.JFrame {
     private javax.swing.JPanel jPciudad;
     private javax.swing.JPanel jPestado;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTableCiudad;
     private javax.swing.JTable jTableEdo;
     // End of variables declaration//GEN-END:variables
 
