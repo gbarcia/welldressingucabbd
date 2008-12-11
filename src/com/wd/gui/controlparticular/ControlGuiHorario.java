@@ -4,6 +4,7 @@ package com.wd.gui.controlparticular;
 import com.wd.dominio.Horario;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
+import com.wd.servicios.IfaceControlGeneral;
 import java.util.Collection;
 import java.util.Vector;
 
@@ -18,6 +19,9 @@ public class ControlGuiHorario {
 
 /** variable para el manejo de la instancia del controlador GUI */
     private ControlGui controlador;
+
+/** variable de la interface responsable del control de las entidades */
+    private IfaceControlGeneral controlG = ControlGeneral.getInstance();
 
 /** constructor que inicia el control general GUI */
     public ControlGuiHorario() {
@@ -35,7 +39,7 @@ public class ControlGuiHorario {
     public void  agregarHorarioalSistema (int horaIni, int horaFin, String diaIni,
                             String diaFin, String diaLibre) {
         horario = new Horario(0,horaIni,horaFin,diaIni,diaFin,diaLibre);
-        boolean resultado = ControlGeneral.getInstance().agregarNuevoHorario(horario);
+        boolean resultado = controlG.agregarNuevoHorario(horario);
         if (resultado) {
         controlador.mostrarMensaje("Horario agregado con éxito",0);
         }
@@ -48,7 +52,7 @@ public class ControlGuiHorario {
     */
     public Vector traerTodosLosHorarios () {
         Vector<Horario> vectorResult = null;
-        Collection<Horario> coleccion = ControlGeneral.getInstance().traerTodosLosHorarios();     
+        Collection<Horario> coleccion = controlG.traerTodosLosHorarios();
         vectorResult = new Vector();
         for (Horario horarios : coleccion) {
             vectorResult.add(horarios);
