@@ -69,4 +69,25 @@ public class ControlLugar {
             return resultado;
         }
     }
+    /**
+    * Operacion para agregar un lugar al sistema
+    * @param lugar Lugar objeto a registrar
+    * @return boolean resultado de la operacion
+    */
+    public boolean agregarLugar (Lugar lugar) {
+        boolean resultado = false;
+        Integer pk = -1;
+        try {
+            pk = (Integer) sqlMap.insert("agregarLugar", lugar);
+            bitacora.info("Lugar: " + pk + " agregado con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo agregar el lugar " + lugar.getNombrePropio()
+                    + " porque " + ex.getMessage());
+            resultado = false;
+        }
+        finally {
+            return resultado;
+        }
+    }
 }
