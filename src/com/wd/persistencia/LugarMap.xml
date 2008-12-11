@@ -32,7 +32,7 @@
        where tipo= 0
     </select>
 
-    <insert id="agregarLugar" parameterClass="lugar">
+    <insert id="agregarLugarEstado" parameterClass="lugar">
         INSERT INTO LUGAR (id, nombre, tipo, LUGAR_id)
         VALUES (null, #nombrePropio#, #tipo#, null)
     </insert>

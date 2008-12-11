@@ -78,7 +78,7 @@ public class ControlLugar {
         boolean resultado = false;
         Integer pk = -1;
         try {
-            pk = (Integer) sqlMap.insert("agregarLugar", lugar);
+            pk = (Integer) sqlMap.insert("agregarLugarEstado", lugar);
             bitacora.info("Lugar: " + pk + " agregado con éxito");
             resultado = true;
         } catch (SQLException ex) {
