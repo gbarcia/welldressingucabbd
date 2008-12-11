@@ -97,7 +97,7 @@ public class ControlGui {
     /**
      * Metodo para ocultar o mostrar la ventana de consulta de lugares
      * @param var booleano que indica si mostrar o no la ventana
-     * @paramr result1 Vector con los resultados de los estados
+     * @param result1 Vector con los resultados de los estados
      * @param result2 Vector con los resultados de las ciudades
      */
     public void iniciarVentanaConsultaLugares (boolean var, Vector result1,
