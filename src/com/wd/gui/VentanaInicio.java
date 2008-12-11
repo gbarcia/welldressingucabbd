@@ -8,8 +8,10 @@ package com.wd.gui;
 
 import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
+import com.wd.dominio.Lugar;
 import com.wd.gui.controlparticular.ControlGuiDepartamento;
 import com.wd.gui.controlparticular.ControlGuiHorario;
+import com.wd.gui.controlparticular.ControlGuiLugar;
 import java.util.Vector;
 
 
@@ -22,6 +24,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private ControlGui controlGeneralGui;
     private ControlGuiHorario controlGuiHorario;
     private ControlGuiDepartamento controlGuiDepartamento;
+    private ControlGuiLugar controlGuiLugar;
 
     /** Creates new form VentanaInicio */
     public VentanaInicio() {
@@ -528,6 +531,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuUbicacionesLugares.add(menuUbicacionesLugarNuevo);
 
         menuUbicacionesLugarConsulta.setText("Consulta de lugares");
+        menuUbicacionesLugarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUbicacionesLugarConsultaActionPerformed(evt);
+            }
+        });
         menuUbicacionesLugares.add(menuUbicacionesLugarConsulta);
 
         menuUbicaciones.add(menuUbicacionesLugares);
@@ -607,6 +615,16 @@ public class VentanaInicio extends javax.swing.JFrame {
         controlGeneralGui = new ControlGui();
         controlGeneralGui.iniciarVentanaModificarDepartamento(true, result);
     }//GEN-LAST:event_menuProductosDepartamentosEditarActionPerformed
+
+    private void menuUbicacionesLugarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUbicacionesLugarConsultaActionPerformed
+        Vector<Lugar> resultadoEdo = null;
+        Vector<Lugar> resultadoCiudad = null;
+        resultadoEdo = this.controlGuiLugar.traerTodosLosLugares(1);
+        resultadoCiudad = this.controlGuiLugar.traerTodosLosLugares(2);
+        controlGeneralGui = new  ControlGui();
+        controlGeneralGui.iniciarVentanaConsultaLugares(true, resultadoEdo,
+                                                        resultadoCiudad);
+    }//GEN-LAST:event_menuUbicacionesLugarConsultaActionPerformed
 
     /**
     * @param args the command line arguments
