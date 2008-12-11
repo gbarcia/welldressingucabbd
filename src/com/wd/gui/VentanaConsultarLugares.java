@@ -36,6 +36,9 @@ public class VentanaConsultarLugares extends javax.swing.JFrame {
             dm1.addRow(info);
         }
         this.jTableEdo.setModel(dm1);
+
+        DefaultTableModel dm2 = new DefaultTableModel();
+        dm2.addColumn("");
     }
 
     /** This method is called from within the constructor to
