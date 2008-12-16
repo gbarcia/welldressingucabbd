@@ -34,7 +34,7 @@
 
     <insert id="agregarLugarEstado" parameterClass="lugar">
         INSERT INTO LUGAR (id, nombre, tipo, LUGAR_id)
-        VALUES (null, #nombrePropio#, #tipo#, null)
+        VALUES (null, #nombrePropio#, #tipo#,null)
     </insert>
 
   </sqlMap>

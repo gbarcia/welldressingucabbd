@@ -13,7 +13,7 @@ package com.wd.dominio;
 public class Lugar {
 
     /** variable de identificador*/
-    private int id;
+    private Integer id;
 
     /** variable del nombre del lugar*/
     private String nombrePropio;
@@ -22,7 +22,7 @@ public class Lugar {
     private int tipo;
 
     /** Identificador del lugar a que pertenece*/
-    private int lugarID;
+    private Integer lugarID;
 
     /** Nombre del lugar al que pertenece a nivel jerarquico (Edo)*/
     private String nombrePertenece;
@@ -36,8 +36,8 @@ public class Lugar {
      * @param nombrePropio String nombre del lugar
      * @param tipo int tipo de lugar 0 Estado, 1 Ciudad
      */
-    public Lugar(int id, String nombrePropio, int tipo) {
-        this.id = id;
+    public Lugar(Integer id, String nombrePropio, int tipo) {
+        this.id = new Integer(id);
         this.nombrePropio = nombrePropio;
         this.tipo = tipo;
     }
@@ -49,12 +49,12 @@ public class Lugar {
       *@param lugarID int el lugar de referencia de su Jerarquia (EDO)
       *@param nombrePertenece String nombre del lugar de jerarquia (EDO) 
      */
-    public Lugar(int id, String nombrePropio, int tipo, int lugarID,
+    public Lugar(Integer id, String nombrePropio, int tipo, int lugarID,
             String nombrePertenece) {
-        this.id = id;
+        this.id = new Integer(id);
         this.nombrePropio = nombrePropio;
         this.tipo = tipo;
-        this.lugarID = lugarID;
+        this.lugarID = new Integer(lugarID);
         this.nombrePertenece = nombrePertenece;
     }
 
@@ -66,8 +66,8 @@ public class Lugar {
     /**metodo para establecer el id
      * @param id int el identificador
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setId(Integer id) {
+        this.id = new Integer(id);
     }
 
     /**metodo para obtener el id de referencia jerarquico de un lugar*/
@@ -78,8 +78,8 @@ public class Lugar {
     /**metodo para establecer el id de referencia jerarquico de un lugar
      * @param lugarID int el id del lugar de referencia jerarquico
      */
-    public void setLugarID(int lugarID) {
-        this.lugarID = lugarID;
+    public void setLugarID(Integer lugarID) {
+        this.lugarID = new Integer(lugarID);
     }
 
     /**metodo para obtener el nombre de un lugar jerarquico*/
