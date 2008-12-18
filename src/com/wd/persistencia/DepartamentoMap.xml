@@ -38,5 +38,55 @@
       DESCRIPCION = #descripcion#
       WHERE CODIGO = #codigo#
   </update>
+  
+  <insert id="agregarClase" parameterClass="departamento">
+      INSERT INTO DEPARTAMENTO (codigo,nombre,descripcion,tipo,
+      DEPARTAMENTO_codigo)
+      VALUES (null, #nombre#,#descripcion#,#tipo#,#departamentoCodigo#)
+  </insert>
+  
+  <select id="TodasLasClases" resultMap="traerTodosLosDepartamentos">
+      SELECT d.codigo Codigo, d.nombre Nombre, d.descripcion Descripcion,
+      d.tipo Tipo,d.DEPARTAMENTO_codigo DepartamentoCodigo
+      FROM DEPARTAMENTO d
+      WHERE d.tipo = 1;
+  </select>
+
+  <delete id="borrarClase" parameterClass="departamento">
+      DELETE FROM DEPARTAMENTO WHERE tipo = 1 AND codigo=#codigo#
+  </delete>
+
+  <update id="modificarClase" parameterClass="departamento">
+      UPDATE DEPARTAMENTO SET
+      NOMBRE = #nombre#,
+      DESCRIPCION = #descripcion#,
+      DEPARTAMENTO_CODIGO = #departamentoCodigo#
+      WHERE CODIGO = #codigo#
+  </update>
+
+  <insert id="agregarSubClase" parameterClass="departamento">
+      INSERT INTO DEPARTAMENTO (codigo,nombre,descripcion,tipo,
+      DEPARTAMENTO_codigo)
+      VALUES (null, #nombre#,#descripcion#,#tipo#,#departamentoCodigo#)
+  </insert>
+
+  <select id="TodasLasSubClases" resultMap="traerTodosLosDepartamentos">
+      SELECT d.codigo Codigo, d.nombre Nombre, d.descripcion Descripcion,
+      d.tipo Tipo,d.DEPARTAMENTO_codigo DepartamentoCodigo
+      FROM DEPARTAMENTO d
+      WHERE d.tipo = 0;
+  </select>
+
+  <delete id="borrarSubClase" parameterClass="departamento">
+      DELETE FROM DEPARTAMENTO WHERE tipo = 0 AND codigo=#codigo#
+  </delete>
+
+  <update id="modificarSubClase" parameterClass="departamento">
+      UPDATE DEPARTAMENTO SET
+      NOMBRE = #nombre#,
+      DESCRIPCION = #descripcion#,
+      DEPARTAMENTO_CODIGO = #departamentoCodigo#
+      WHERE CODIGO = #codigo#
+  </update>
 
 </sqlMap>
