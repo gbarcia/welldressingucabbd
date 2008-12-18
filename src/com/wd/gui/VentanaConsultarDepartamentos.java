@@ -50,7 +50,6 @@ public class VentanaConsultarDepartamentos extends javax.swing.JFrame {
         campoDescripcion = new javax.swing.JTextArea();
         buttonCerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultar Departamentos");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta Departamentos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
