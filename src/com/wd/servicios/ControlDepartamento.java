@@ -89,6 +89,11 @@ public class ControlDepartamento {
 
     }
 
+    /**
+     * Metodo para modificar cualquier atributo de un departamento
+     * @param newDpto objeto departamento a modificar
+     * @return resultado de la operacion
+     */
     public boolean modificarDepartamento(Departamento newDpto) {
         boolean resultado = false;
         try {
@@ -98,6 +103,164 @@ public class ControlDepartamento {
             resultado = true;
         } catch (SQLException ex) {
             bitacora.error("Departamento: " + newDpto.getCodigo() +
+            " operacion" + " fallida porque: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para agregar una SubClase
+     * @param departamento objeto Departamento a instertar
+     * @return boolean resultado exito o no de la operacion
+     */
+    public boolean agregarSubClase(Departamento newSubClase) {
+        boolean resultado = false;
+        try {
+            sqlMap.insert("agregarSubClase", newSubClase);
+            bitacora.info("Clase: " + newSubClase.getCodigo() +
+            " agregada con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("Clase: " + newSubClase.getCodigo() +
+            " operacion" + " fallida porque: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para buscar todos las Subclases del sistema
+     * @return Collection todos los Subclases registradas
+     */
+    public Collection<Departamento> traerTodasLasSubClases () {
+        Collection<Departamento> coleccionClases = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los " +
+            "Departamentos");
+            coleccionClases = sqlMap.queryForList("TodasLasSubClases");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccionClases;
+        }
+    }
+
+    /**
+     * Metodo eliminar una Subclase del sistema
+     * @return int resultado de la operacion
+     */
+    public int eliminarSubClase (Departamento subclase) {
+        int resultado = 0;
+        try {
+            resultado = sqlMap.delete("borrarSubClase",subclase);
+            bitacora.info("SubClase: " + subclase.getCodigo() +
+            " eliminada con éxito");
+            //resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
+
+     /**
+     * Metodo para modificar cualquier atributo de una Subclase
+     * @param newClase objeto departamento a modificar
+     * @return resultado de la operacion
+     */
+    public boolean modificarSubClase(Departamento newSubClase) {
+        boolean resultado = false;
+        try {
+            sqlMap.update("modificarSubClase", newSubClase);
+            bitacora.info("Clase: " + newSubClase.getCodigo() +
+            " modificada con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("Departamento: " + newSubClase.getCodigo() +
+            " operacion" + " fallida porque: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para agregar una Clase
+     * @param departamento objeto Departamento a instertar
+     * @return boolean resultado exito o no de la operacion
+     */
+    public boolean agregarClase(Departamento newClase) {
+        boolean resultado = false;
+        try {
+            sqlMap.insert("agregarClase", newClase);
+            bitacora.info("Clase: " + newClase.getCodigo() +
+            " agregada con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("Clase: " + newClase.getCodigo() +
+            " operacion" + " fallida porque: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para buscar todos las clases del sistema
+     * @return Collection todos los clases registradas
+     */
+    public Collection<Departamento> traerTodosLasClases () {
+        Collection<Departamento> coleccionClases = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los " +
+            "Departamentos");
+            coleccionClases = sqlMap.queryForList("TodasLasClases");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccionClases;
+        }
+    }
+
+    /**
+     * Metodo eliminar una clase del sistema
+     * @return int resultado de la operacion
+     */
+    public int eliminarClase (Departamento clase) {
+        int resultado = 0;
+        try {
+            resultado = sqlMap.delete("borrarClase",clase);
+            bitacora.info("Clase: " + clase.getCodigo() +
+            " eliminada con éxito");
+            //resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
+
+     /**
+     * Metodo para modificar cualquier atributo de una clase
+     * @param newClase objeto departamento a modificar
+     * @return resultado de la operacion
+     */
+    public boolean modificarClase(Departamento newClase) {
+        boolean resultado = false;
+        try {
+            sqlMap.update("modificarDClase", newClase);
+            bitacora.info("Clase: " + newClase.getCodigo() +
+            " modificada con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("Departamento: " + newClase.getCodigo() +
             " operacion" + " fallida porque: " + ex.getMessage());
             resultado = false;
         } finally {
