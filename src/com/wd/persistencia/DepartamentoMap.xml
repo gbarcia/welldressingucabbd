@@ -61,7 +61,7 @@
       NOMBRE = #nombre#,
       DESCRIPCION = #descripcion#,
       DEPARTAMENTO_CODIGO = #departamentoCodigo#
-      WHERE CODIGO = #codigo#
+      WHERE CODIGO = #codigo# AND tipo = 1
   </update>
 
   <insert id="agregarSubClase" parameterClass="departamento">

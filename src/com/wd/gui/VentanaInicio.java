@@ -409,6 +409,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductosClases.add(menuProductosClaseEditar);
 
         menuProductosClaseConsultar.setText("Consultar clase");
+        menuProductosClaseConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProductosClaseConsultarActionPerformed(evt);
+            }
+        });
         menuProductosClases.add(menuProductosClaseConsultar);
 
         menuProductosClaseEliminar.setText("Eliminar clase");
@@ -639,6 +644,20 @@ public class VentanaInicio extends javax.swing.JFrame {
         controlGeneralGui = new ControlGui();
         controlGeneralGui.iniciarVentanaAgregarClase(true, result);
     }//GEN-LAST:event_menuProductosClaseAgregarActionPerformed
+
+    private void menuProductosClaseConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosClaseConsultarActionPerformed
+        Vector<Departamento> dptos = null;
+        Vector<Departamento> clases = null;
+        Vector<Departamento> subclases = null;
+
+
+        this.controlGuiDepartamento = new ControlGuiDepartamento();
+        dptos = this.controlGuiDepartamento.traerTodosLosDepartamentos();
+        clases = this.controlGuiDepartamento.traerTodasLasClases();
+        subclases = this.controlGuiDepartamento.traerTodasLasSubClases();
+        controlGeneralGui = new ControlGui();
+        controlGeneralGui.iniciarVentanaConsultarClase(true, dptos,clases,subclases);
+    }//GEN-LAST:event_menuProductosClaseConsultarActionPerformed
 
     /**
     * @param args the command line arguments

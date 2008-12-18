@@ -138,8 +138,8 @@ public class ControlDepartamento {
     public Collection<Departamento> traerTodasLasSubClases () {
         Collection<Departamento> coleccionClases = null;
         try {
-            bitacora.info("Iniciando operacion para traer todos los " +
-            "Departamentos");
+            bitacora.info("Iniciando operacion para traer todos las " +
+            "SubClases");
             coleccionClases = sqlMap.queryForList("TodasLasSubClases");
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
@@ -217,8 +217,8 @@ public class ControlDepartamento {
     public Collection<Departamento> traerTodosLasClases () {
         Collection<Departamento> coleccionClases = null;
         try {
-            bitacora.info("Iniciando operacion para traer todos los " +
-            "Departamentos");
+            bitacora.info("Iniciando operacion para traer todos las " +
+            "Clases");
             coleccionClases = sqlMap.queryForList("TodasLasClases");
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
