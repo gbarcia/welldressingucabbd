@@ -155,7 +155,7 @@ public class VentanaAgregarDepartamento extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAgregarActionPerformed
 
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_buttonCancelarActionPerformed
 
     /**

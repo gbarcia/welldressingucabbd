@@ -9,16 +9,16 @@ import javax.swing.JOptionPane;
  */
 public class ControlGui {
 
-/** variable de la ventana de inicio*/
+    /** variable de la ventana de inicio*/
     private VentanaInicio ventanaInicio = new VentanaInicio();
 
-/** variable de la ventana agregar nuevo horario*/
+    /** variable de la ventana agregar nuevo horario*/
     private VentanaNuevoHorario ventanaNuevoHorario;
 
-/** Variable de la ventana agregar centro*/
+    /** Variable de la ventana agregar centro*/
     private VentanaAgregarCentro ventanaAgregarCentro;
 
-/** Variable de la ventana agregar departamento*/
+    /** Variable de la ventana agregar departamento*/
     private VentanaAgregarDepartamento ventanaAgregarDepartamento;
 
     /** Variable de la ventana consultar departamentos*/
@@ -35,6 +35,9 @@ public class ControlGui {
 
     /** Variable de la ventana ver los lugares*/
     private VentanaConsultarLugares ventanaConsultaLugares;
+
+    /** Variable de la ventana agregar Clase*/
+    private VentanaAgregarClase ventanaAgregarClase;
 
 /** Constructor del ControlGui */
     public ControlGui() {
@@ -140,6 +143,15 @@ public class ControlGui {
     public void iniciarVentanaModificarDepartamento (boolean var, Vector result) {
         ventanaModificarDepartamento = new VentanaModificarDepartamento(result);
         ventanaModificarDepartamento.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de agregar clases
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaAgregarClase (boolean var, Vector result) {
+        ventanaAgregarClase = new VentanaAgregarClase(result);
+        ventanaAgregarClase.setVisible(var);
     }
 
     /**
