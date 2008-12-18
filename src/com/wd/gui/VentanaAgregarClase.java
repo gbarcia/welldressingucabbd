@@ -58,6 +58,8 @@ public class VentanaAgregarClase extends javax.swing.JFrame {
         buttonAgregar = new javax.swing.JButton();
         buttonCancelar = new javax.swing.JButton();
 
+        setTitle("Agregar Clase");
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nueva Clase", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
         comboDepartamento.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -66,8 +68,11 @@ public class VentanaAgregarClase extends javax.swing.JFrame {
             }
         });
 
+        campoNombre.setToolTipText("Nombre de la Clase a Agregar");
+
         campoDescripcion.setColumns(20);
         campoDescripcion.setRows(5);
+        campoDescripcion.setToolTipText("Descripción de la clase a Agregar");
         jScrollPane1.setViewportView(campoDescripcion);
 
         labelDepartamento.setFont(new java.awt.Font("Tahoma", 1, 11));

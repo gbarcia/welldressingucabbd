@@ -53,7 +53,7 @@ public class ControlGuiDepartamento {
     }
 
     /**
-    * Metodo para buscar todos los horarios registrados en el sistema
+    * Metodo para buscar todos las subclases registrados en el sistema
     * @return Vector vector con todos los objetos Departamento del sistema
     */
     public Vector traerTodasLasSubClases () {

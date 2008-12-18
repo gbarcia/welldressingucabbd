@@ -38,6 +38,9 @@ public class ControlGui {
 
     /** Variable de la ventana agregar Clase*/
     private VentanaAgregarClase ventanaAgregarClase;
+    
+    /** Variable de la ventana consultar Clase*/
+    private VentanaConsultarClase ventanaConsultarClase;
 
 /** Constructor del ControlGui */
     public ControlGui() {
@@ -152,6 +155,16 @@ public class ControlGui {
     public void iniciarVentanaAgregarClase (boolean var, Vector result) {
         ventanaAgregarClase = new VentanaAgregarClase(result);
         ventanaAgregarClase.setVisible(var);
+    }
+    
+    /**
+     * Metodo para ocultar o mostrar la ventana de consultar clases
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaConsultarClase (boolean var, Vector result,
+            Vector result1,Vector result2){
+        ventanaConsultarClase = new VentanaConsultarClase(result,result1,result2);
+        ventanaConsultarClase.setVisible(var);
     }
 
     /**
