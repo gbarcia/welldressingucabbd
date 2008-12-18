@@ -112,12 +112,12 @@ public class ControlGui {
         this.ventanaConsultaLugares.setVisible(var);
     }
 
-/**
-* Operacion para mostrar un mensaje de salida en pantalla
-* @param mensaje mensaje a mostrar
-* @param tipo tipo de mensaje a mostrar. Si es "1" es un mensaje de error,
-* y "0" si el mensaje es de informacion
-*/
+    /**
+    * Operacion para mostrar un mensaje de salida en pantalla
+    * @param mensaje mensaje a mostrar
+    * @param tipo tipo de mensaje a mostrar. Si es "1" es un mensaje de error,
+    * y "0" si el mensaje es de informacion
+    */
     public void mostrarMensaje(String mensaje, int tipo) {
         if (tipo == 0) {
             JOptionPane.showMessageDialog(null, mensaje, "Resultado",
