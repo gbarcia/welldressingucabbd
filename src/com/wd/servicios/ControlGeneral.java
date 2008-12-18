@@ -318,5 +318,82 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
-    
+
+    /**
+     * Metodo para Agregar un nueva SubClase
+     * @param departamento la nueva Subclase a agregar
+     * @return boolean resultado de la operación
+     */
+    public boolean agregarSubClase(Departamento newSubClase) {
+        boolean resultado = false;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            controlDepartamento.agregarSubClase(newSubClase);
+            resultado = true;
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar control departamento por " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para modificar una SubClase
+     * @param newClase objeto Departamento de tipo subclase a modificar
+     * @return boolean resultado de la operacion
+     */
+    public boolean modificarSubClase(Departamento newSubClase) {
+        boolean resultado = false;
+        try{
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento iniciado correctamente");
+            controlDepartamento.modificarSubClase(newSubClase);
+            resultado = true;
+        }catch(IOException ex){
+            bitacora.error("No se pudo iniciar el control departamento por "
+            + ex.getMessage());
+            resultado = false;
+        }finally{
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para buscar todos las Subclases del sistema
+     * @return Collection todos las Subclases registradas
+     */
+    public Collection traerTodasLasSubClases() {
+        Collection<Departamento> departamentos = null;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            departamentos = controlDepartamento.traerTodasLasSubClases();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control departamento por " + ex.getMessage());
+        } finally {
+            return departamentos;
+        }
+    }
+
+    /**
+     * Metodo para  eliminar una Subclase
+     * @param clase objeto Departamento de tipo subclase a eliminar
+     * @return int resultado de la operación
+     */
+    public int eliminarSubClase(Departamento Subclase) {
+        int resultado = 0;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            controlDepartamento.eliminarSubClase(Subclase);
+            resultado = 1;
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
+            resultado = 0;
+        } finally {
+            return resultado;
+        }
+    }
 }
