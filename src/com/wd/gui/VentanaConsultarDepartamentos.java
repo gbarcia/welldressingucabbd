@@ -42,6 +42,7 @@ public class VentanaConsultarDepartamentos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         labelNombre = new javax.swing.JLabel();
         labelDescripcion = new javax.swing.JLabel();
@@ -171,6 +172,7 @@ public class VentanaConsultarDepartamentos extends javax.swing.JFrame {
     private javax.swing.JComboBox comboNombre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel labelDescripcion;
     private javax.swing.JLabel labelNombre;
     // End of variables declaration//GEN-END:variables
