@@ -240,5 +240,83 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+
+    /**
+     * Metodo para Agregar un nueva Clase
+     * @param departamento la nueva clase a agregar
+     * @return boolean resultado de la operación
+     */
+    public boolean agregarClase(Departamento newClase) {
+        boolean resultado = false;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            controlDepartamento.agregarClase(newClase);
+            resultado = true;
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar control departamento por " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para modificar una Clase
+     * @param newClase objeto Departamento a modificar
+     * @return boolean resultado de la operacion
+     */
+    public boolean modificarClase(Departamento newClase) {
+        boolean resultado = false;
+        try{
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento iniciado correctamente");
+            controlDepartamento.modificarClase(newClase);
+            resultado = true;
+        }catch(IOException ex){
+            bitacora.error("No se pudo iniciar el control departamento por "
+            + ex.getMessage());
+            resultado = false;
+        }finally{
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para buscar todos las clases del sistema
+     * @return Collection todos las clases registradas
+     */
+    public Collection traerTodasLasClases() {
+        Collection<Departamento> departamentos = null;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            departamentos = controlDepartamento.traerTodosLasClases();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control departamento por " + ex.getMessage());
+        } finally {
+            return departamentos;
+        }
+    }
+
+    /**
+     * Metodo para  eliminar una clase
+     * @param clase la clase a eliminar
+     * @return int resultado de la operación
+     */
+    public int eliminarClase(Departamento clase) {
+        int resultado = 0;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            controlDepartamento.eliminarClase(clase);
+            resultado = 1;
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
+            resultado = 0;
+        } finally {
+            return resultado;
+        }
+    }
     
 }
