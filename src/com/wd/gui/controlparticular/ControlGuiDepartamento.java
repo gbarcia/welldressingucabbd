@@ -30,6 +30,85 @@ public class ControlGuiDepartamento {
      * @param departamentoCodigo int codigo del departamento al que pertenece la
      * clase
     */
+    public void  agregarSubClasealSistema (String nombre, String descripcion, int departamentoCodigo){
+        departamento = new Departamento(0,nombre,descripcion,0,departamentoCodigo);
+        boolean resultado = ControlGeneral.getInstance().agregarSubClase(departamento);
+        if (resultado) {
+        controlador.mostrarMensaje("Clase agregada con éxito",0);
+        }
+        else controlador.mostrarMensaje("Operacion fallida", 1);
+    }
+
+    /**
+     * Metodo para modificar una Subclase del sistema
+     * @param newClase objeto departamento a modificar
+     */
+    public void modificarSubClasedelSistema(Departamento newSubClase) {
+        boolean resultado = ControlGeneral.getInstance().modificarSubClase(newSubClase);
+        if (resultado){
+            controlador.mostrarMensaje("SubClase modificada con éxito", 0);
+        }else{
+            controlador.mostrarMensaje("Operación fallida",1);
+        }
+    }
+
+    /**
+    * Metodo para buscar todos los horarios registrados en el sistema
+    * @return Vector vector con todos los objetos Departamento del sistema
+    */
+    public Vector traerTodasLasSubClases () {
+        Vector<Departamento> vectorResult = null;
+        Collection<Departamento> coleccion = ControlGeneral.getInstance().traerTodasLasSubClases();
+        vectorResult = new Vector();
+        for (Departamento departamentos : coleccion) {
+            vectorResult.add(departamentos);
+        }
+        return vectorResult;
+    }
+
+    /**
+     * Metodo para eliminar una Subclase del sistema
+     * @param clase Departamento Subclase a eliminar
+     */
+    public void  eliminarSubClasedelSistema (Departamento Subclase){
+        int resultado = ControlGeneral.getInstance().eliminarSubClase(Subclase);
+        if (resultado==1) {
+        controlador.mostrarMensaje("Departamento eliminado con éxito",0);
+        }
+        else  if (resultado==0)
+        controlador.mostrarMensaje("Operacion fallida", 1);
+    }
+
+    /**
+     * Metodo para agregar un Departamento al sistema
+     * @param nombre String nombre del departamento
+     * @param descripcion String descripcion del departamento
+     */
+    public void  agregarDepartamentoalSistema (String nombre, String descripcion){
+        departamento = new Departamento(0,nombre,descripcion,2,0);
+        boolean resultado = ControlGeneral.getInstance().agregarDepartamento(departamento);
+        if (resultado) {
+        controlador.mostrarMensaje("Departamento agregado con éxito",0);
+        }
+        else controlador.mostrarMensaje("Operacion fallida", 1);
+    }
+
+    public void modificarDepartamentodelSistema(Departamento newDpto) {
+        boolean resultado = ControlGeneral.getInstance().modificarDepartamento(newDpto);
+        if (resultado){
+            controlador.mostrarMensaje("Departamento modificado con éxito", 0);
+        }else{
+            controlador.mostrarMensaje("Operación fallida",1);
+        }
+    }
+
+    /**
+     * Metodo para agregar un Departamento de tipo Clase al sistema
+     * @param nombre String nombre del departamento
+     * @param descripcion String descripcion del departamento
+     * @param departamentoCodigo int codigo del departamento al que pertenece la
+     * clase
+    */
     public void  agregarClasealSistema (String nombre, String descripcion, int departamentoCodigo){
         departamento = new Departamento(0,nombre,descripcion,1,departamentoCodigo);
         boolean resultado = ControlGeneral.getInstance().agregarClase(departamento);
@@ -77,29 +156,6 @@ public class ControlGuiDepartamento {
         }
         else  if (resultado==0)
         controlador.mostrarMensaje("Operacion fallida", 1);
-    }
-
-    /**
- * Metodo para agregar un Departamento al sistema
- * @param nombre String nombre del departamento
- * @param descripcion String descripcion del departamento
- */
-    public void  agregarDepartamentoalSistema (String nombre, String descripcion){
-        departamento = new Departamento(0,nombre,descripcion,2,0);
-        boolean resultado = ControlGeneral.getInstance().agregarDepartamento(departamento);
-        if (resultado) {
-        controlador.mostrarMensaje("Departamento agregado con éxito",0);
-        }
-        else controlador.mostrarMensaje("Operacion fallida", 1);
-    }
-
-    public void modificarDepartamentodelSistema(Departamento newDpto) {
-        boolean resultado = ControlGeneral.getInstance().modificarDepartamento(newDpto);
-        if (resultado){
-            controlador.mostrarMensaje("Departamento modificado con éxito", 0);
-        }else{
-            controlador.mostrarMensaje("Operación fallida",1);
-        }
     }
 
     /**
