@@ -169,7 +169,7 @@ public class VentanaAgregarClase extends javax.swing.JFrame {
            descripcion   = this.campoDescripcion.getText().toUpperCase();
            select = this.comboDepartamento.getSelectedIndex();
            codigoDepartamento = vecDepartamentos.elementAt(select).getCodigo();
-
+           this.comboDepartamento.setToolTipText(vecDepartamentos.elementAt(select).getDescripcion());
            this.controlDepartamento = new ControlGuiDepartamento();
            controlDepartamento.agregarClasealSistema(nombre, descripcion,codigoDepartamento);
        }
