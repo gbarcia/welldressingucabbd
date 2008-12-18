@@ -58,8 +58,6 @@ public class VentanaAgregarClase extends javax.swing.JFrame {
         buttonAgregar = new javax.swing.JButton();
         buttonCancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nueva Clase", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
         campoDescripcion.setColumns(20);
@@ -85,6 +83,11 @@ public class VentanaAgregarClase extends javax.swing.JFrame {
 
         buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         buttonCancelar.setText("Cancelar");
+        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,8 +156,28 @@ public class VentanaAgregarClase extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarActionPerformed
-        // TODO add your handling code here:
+       int resultado = -1;
+       String nombre = "";
+       String descripcion = "";
+       int codigoDepartamento = -1;
+       int select = -1;
+       this.controlGeneral =  new ControlGui ();
+       resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
+               "que desea realizar esta operación?");
+       if (resultado == 0) {
+           nombre = this.campoNombre.getText().toUpperCase();
+           descripcion   = this.campoDescripcion.getText().toUpperCase();
+           select = this.comboDepartamento.getSelectedIndex();
+           codigoDepartamento = vecDepartamentos.elementAt(select).getCodigo();
+
+           this.controlDepartamento = new ControlGuiDepartamento();
+           controlDepartamento.agregarClasealSistema(nombre, descripcion,codigoDepartamento);
+       }
     }//GEN-LAST:event_buttonAgregarActionPerformed
+
+    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
+       this.setVisible(false);
+    }//GEN-LAST:event_buttonCancelarActionPerformed
 
     /**
     * @param args the command line arguments
