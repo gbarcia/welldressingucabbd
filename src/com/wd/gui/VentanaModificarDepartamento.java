@@ -63,6 +63,11 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modificar Departamento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
         comboNombre.setToolTipText("Escoge departamento a modificar");
+        comboNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboNombreMouseClicked(evt);
+            }
+        });
         comboNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboNombreActionPerformed(evt);
@@ -76,16 +81,16 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
         campoDescripcion.setToolTipText("Descripcion Modificable");
         jScrollPane1.setViewportView(campoDescripcion);
 
-        labelNombreCombo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombreCombo.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombreCombo.setText("Nombre Departamento");
 
-        labelNombreMod.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombreMod.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombreMod.setText("Nombre");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel1.setText("Descripción");
 
-        buttonModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonModificar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonModificar.setText("Modificar");
         buttonModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +98,7 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
             }
         });
 
-        buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonCancelar.setText("Cancelar");
         buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,15 +120,10 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
                         .addComponent(buttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelNombreCombo)
-                                .addGap(18, 18, 18))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelNombreMod)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(labelNombreCombo)
+                            .addComponent(labelNombreMod)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(campoNombre, javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +159,7 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -177,11 +177,13 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
         int select = -1;
         String descripcion = "";
         String nombre = "";
-        select = this.comboNombre.getSelectedIndex();
-        nombre = vecDepartamentos.elementAt(select).getNombre();
-        descripcion = vecDepartamentos.elementAt(select).getDescripcion();
-        this.campoNombre.setText(nombre);
-        this.campoDescripcion.setText(descripcion);
+        if(this.comboNombre.getItemCount() > 0){
+            select = this.comboNombre.getSelectedIndex();
+            nombre = vecDepartamentos.elementAt(select).getNombre();
+            descripcion = vecDepartamentos.elementAt(select).getDescripcion();
+            this.campoNombre.setText(nombre);
+            this.campoDescripcion.setText(descripcion);
+        }
     }//GEN-LAST:event_comboNombreActionPerformed
 
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
@@ -208,6 +210,10 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
            this.recargarCombo();
        }
     }//GEN-LAST:event_buttonModificarActionPerformed
+
+    private void comboNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboNombreMouseClicked
+
+    }//GEN-LAST:event_comboNombreMouseClicked
 
     /**
     * @param args the command line arguments
@@ -240,14 +246,17 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
     public void recargarCombo(){
         this.controlDepartamento = new ControlGuiDepartamento();
         vecDepartamentos = controlDepartamento.traerTodosLosDepartamentos();
-        int items = this.comboNombre.getItemCount();
-        /*for (int i = 0; i <items; i++) {
-            this.comboNombre.removeItemAt(i);
-            this.comboNombre.addItem(vecDepartamentos.elementAt(i).getNombre());
-        }*/
+        
+        this.comboNombre.removeAllItems();
+
         for (Departamento dpto : vecDepartamentos){
             this.comboNombre.addItem(dpto.getNombre());
-       }
+        }
+        
+
+
+
+        
 
     }
 }

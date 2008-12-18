@@ -35,7 +35,6 @@ public class VentanaAgregarDepartamento extends javax.swing.JFrame {
         buttonAgregar = new javax.swing.JButton();
         buttonCancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar Departamento");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuevo Departamento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
