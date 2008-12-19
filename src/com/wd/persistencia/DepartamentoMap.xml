@@ -45,11 +45,11 @@
       VALUES (null, #nombre#,#descripcion#,#tipo#,#departamentoCodigo#)
   </insert>
   
-  <select id="TodasLasClases" resultMap="traerTodosLosDepartamentos">
+  <select id="TodasLasClases" resultMap="traerTodosLosDepartamentos" parameterClass="departamento">
       SELECT d.codigo Codigo, d.nombre Nombre, d.descripcion Descripcion,
       d.tipo Tipo,d.DEPARTAMENTO_codigo DepartamentoCodigo
       FROM DEPARTAMENTO d
-      WHERE d.tipo = 1;
+      WHERE d.tipo = 1 AND d.DEPARTAMENTO_codigo = #codigo#;
   </select>
 
   <delete id="borrarClase" parameterClass="departamento">

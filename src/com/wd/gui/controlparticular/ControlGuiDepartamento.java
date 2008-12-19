@@ -135,9 +135,23 @@ public class ControlGuiDepartamento {
     * Metodo para buscar todos los horarios registrados en el sistema
     * @return Vector vector con todos los objetos Departamento del sistema
     */
-    public Vector traerTodasLasClases () {
+    /*public Vector traerTodasLasClases () {
         Vector<Departamento> vectorResult = null;
         Collection<Departamento> coleccion = ControlGeneral.getInstance().traerTodasLasClases();
+        vectorResult = new Vector();
+        for (Departamento departamentos : coleccion) {
+            vectorResult.add(departamentos);
+        }
+        return vectorResult;
+    }*/
+
+    /**
+    * Metodo para buscar todos los horarios registrados en el sistema
+    * @return Vector vector con todos los objetos Departamento del sistema
+    */
+    public Vector traerTodasLasClases (Departamento dueño) {
+        Vector<Departamento> vectorResult = null;
+        Collection<Departamento> coleccion = ControlGeneral.getInstance().traerTodasLasClases(dueño);
         vectorResult = new Vector();
         for (Departamento departamentos : coleccion) {
             vectorResult.add(departamentos);

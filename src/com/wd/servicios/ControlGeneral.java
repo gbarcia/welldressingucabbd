@@ -286,12 +286,29 @@ public class ControlGeneral implements IfaceControlGeneral {
      * Metodo para buscar todos las clases del sistema
      * @return Collection todos las clases registradas
      */
-    public Collection traerTodasLasClases() {
+    /*public Collection traerTodasLasClases(){
         Collection<Departamento> departamentos = null;
         try {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento Iniciado correctamente");
             departamentos = controlDepartamento.traerTodosLasClases();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control departamento por " + ex.getMessage());
+        } finally {
+            return departamentos;
+        }
+    }*/
+
+    /**
+     * Metodo para buscar todos las clases del sistema
+     * @return Collection todos las clases registradas
+     */
+    public Collection traerTodasLasClases(Departamento dueño){
+        Collection<Departamento> departamentos = null;
+        try {
+            this.controlDepartamento = new ControlDepartamento();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            departamentos = controlDepartamento.traerTodosLasClases(dueño);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar el control departamento por " + ex.getMessage());
         } finally {

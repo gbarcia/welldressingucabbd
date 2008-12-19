@@ -214,12 +214,30 @@ public class ControlDepartamento {
      * Metodo para buscar todos las clases del sistema
      * @return Collection todos los clases registradas
      */
-    public Collection<Departamento> traerTodosLasClases () {
+    /*public Collection<Departamento> traerTodosLasClases () {
         Collection<Departamento> coleccionClases = null;
         try {
             bitacora.info("Iniciando operacion para traer todos las " +
             "Clases");
             coleccionClases = sqlMap.queryForList("TodasLasClases");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccionClases;
+        }
+    }*/
+
+    /**
+     * Metodo para buscar todos las clases del sistema
+     * @return Collection todos los clases registradas
+     */
+    public Collection<Departamento> traerTodosLasClases (Departamento dueño) {
+        Collection<Departamento> coleccionClases = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos las " +
+            "Clases");
+            coleccionClases = sqlMap.queryForList("TodasLasClases",dueño);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
         }

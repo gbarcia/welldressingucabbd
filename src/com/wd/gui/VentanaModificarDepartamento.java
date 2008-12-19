@@ -63,11 +63,6 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modificar Departamento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
         comboNombre.setToolTipText("Escoge departamento a modificar");
-        comboNombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                comboNombreMouseClicked(evt);
-            }
-        });
         comboNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboNombreActionPerformed(evt);
@@ -211,10 +206,6 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_buttonModificarActionPerformed
 
-    private void comboNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboNombreMouseClicked
-
-    }//GEN-LAST:event_comboNombreMouseClicked
-
     /**
     * @param args the command line arguments
     */
@@ -251,7 +242,7 @@ public class VentanaModificarDepartamento extends javax.swing.JFrame {
 
         for (Departamento dpto : vecDepartamentos){
             this.comboNombre.addItem(dpto.getNombre());
-        }
+    }
         
 
 
