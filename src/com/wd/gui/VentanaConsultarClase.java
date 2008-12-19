@@ -1,14 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * VentanaConsultarClase.java
- *
- * Created on 18/12/2008, 12:45:44 PM
- */
-
 package com.wd.gui;
 
 import com.wd.dominio.Departamento;
@@ -36,7 +25,7 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
 
     /** Creates new form VentanaConsultarClase */
     public VentanaConsultarClase(Vector<Departamento> result,
-            Vector<Departamento> result1,Vector<Departamento> result2) {
+        Vector<Departamento> result1,Vector<Departamento> result2) {
         initComponents();
         vecDepartamentos = new Vector();
         vecClases = new Vector();
@@ -73,11 +62,15 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
         labelDescripcion = new javax.swing.JLabel();
         buttonCerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consular Clases");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta de Clases", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
+        comboDepartamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboDepartamentoMouseClicked(evt);
+            }
+        });
         comboDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboDepartamentoActionPerformed(evt);
@@ -227,6 +220,9 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
                 this.comboClase.addItem(nombreClase);
             }
         }
+        if(this.comboClase.getItemCount()>0){
+            this.comboClase.removeAllItems();
+        }
     }//GEN-LAST:event_comboDepartamentoActionPerformed
 
     private void comboClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboClaseActionPerformed
@@ -235,7 +231,8 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
         String nombreAux = "";
         nombreClase = this.comboClase.getSelectedItem()+"";
         this.setCodigoClase(nombreClase);
-
+        
+        //this.cargarComboClase(nombreClase);
          for (int i = 0; i < vecClases.size(); i++) {
             nombreAux = vecClases.elementAt(i).getNombre();
             if(nombreClase.equals(nombreAux)){
@@ -249,6 +246,12 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
     private void buttonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCerrarActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_buttonCerrarActionPerformed
+
+    private void comboDepartamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboDepartamentoMouseClicked
+        if(this.comboClase.getItemCount()>0){
+            this.comboClase.removeAllItems();
+        }
+    }//GEN-LAST:event_comboDepartamentoMouseClicked
 
     /**
     * @param args the command line arguments
@@ -311,5 +314,19 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
 			this.jTable1.setModel(dm);
             }
 
-        }
+    }
+
+    public void cargarComboClase(String nombreClase){
+
+        String nombreAux = "";
+        String descripcion = "";
+            for (int i = 0; i < vecClases.size(); i++) {
+            nombreAux = vecClases.elementAt(i).getNombre();
+                if(nombreClase.equals(nombreAux)){
+                    descripcion = vecClases.elementAt(i).getDescripcion();
+                    this.campoDescripcion.setText(descripcion);
+                }
+            }
+        
+    }
 }
