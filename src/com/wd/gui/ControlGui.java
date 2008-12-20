@@ -161,9 +161,8 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de consultar clases
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaConsultarClase (boolean var, Vector result,
-            Vector result1,Vector result2){
-        ventanaConsultarClase = new VentanaConsultarClase(result,result1,result2);
+    public void iniciarVentanaConsultarClase (boolean var, Vector result){
+        ventanaConsultarClase = new VentanaConsultarClase(result);
         ventanaConsultarClase.setVisible(var);
     }
 

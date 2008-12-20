@@ -654,9 +654,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGuiDepartamento = new ControlGuiDepartamento();
         dptos = this.controlGuiDepartamento.traerTodosLosDepartamentos();
         //clases = this.controlGuiDepartamento.traerTodasLasClases();
-        subclases = this.controlGuiDepartamento.traerTodasLasSubClases();
+        //subclases = this.controlGuiDepartamento.traerTodasLasSubClases();
         controlGeneralGui = new ControlGui();
-        controlGeneralGui.iniciarVentanaConsultarClase(true, dptos,clases,subclases);
+        controlGeneralGui.iniciarVentanaConsultarClase(true, dptos);
     }//GEN-LAST:event_menuProductosClaseConsultarActionPerformed
 
     /**

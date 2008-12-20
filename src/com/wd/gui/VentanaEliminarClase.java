@@ -1,14 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * VentanaEliminarClase.java
- *
- * Created on 19/12/2008, 04:19:25 PM
- */
-
 package com.wd.gui;
 
 /**

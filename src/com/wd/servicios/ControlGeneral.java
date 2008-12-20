@@ -381,12 +381,12 @@ public class ControlGeneral implements IfaceControlGeneral {
      * Metodo para buscar todos las Subclases del sistema
      * @return Collection todos las Subclases registradas
      */
-    public Collection traerTodasLasSubClases() {
+    public Collection traerTodasLasSubClases(Departamento dueño) {
         Collection<Departamento> departamentos = null;
         try {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento Iniciado correctamente");
-            departamentos = controlDepartamento.traerTodasLasSubClases();
+            departamentos = controlDepartamento.traerTodasLasSubClases(dueño);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar el control departamento por " + ex.getMessage());
         } finally {

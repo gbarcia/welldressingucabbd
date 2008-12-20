@@ -135,12 +135,12 @@ public class ControlDepartamento {
      * Metodo para buscar todos las Subclases del sistema
      * @return Collection todos los Subclases registradas
      */
-    public Collection<Departamento> traerTodasLasSubClases () {
+    public Collection<Departamento> traerTodasLasSubClases (Departamento dueño) {
         Collection<Departamento> coleccionClases = null;
         try {
             bitacora.info("Iniciando operacion para traer todos las " +
             "SubClases");
-            coleccionClases = sqlMap.queryForList("TodasLasSubClases");
+            coleccionClases = sqlMap.queryForList("TodasLasSubClases",dueño);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
         }

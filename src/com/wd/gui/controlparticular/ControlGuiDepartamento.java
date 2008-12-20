@@ -56,9 +56,9 @@ public class ControlGuiDepartamento {
     * Metodo para buscar todos las subclases registrados en el sistema
     * @return Vector vector con todos los objetos Departamento del sistema
     */
-    public Vector traerTodasLasSubClases () {
+    public Vector traerTodasLasSubClases (Departamento dueño) {
         Vector<Departamento> vectorResult = null;
-        Collection<Departamento> coleccion = ControlGeneral.getInstance().traerTodasLasSubClases();
+        Collection<Departamento> coleccion = ControlGeneral.getInstance().traerTodasLasSubClases(dueño);
         vectorResult = new Vector();
         for (Departamento departamentos : coleccion) {
             vectorResult.add(departamentos);
