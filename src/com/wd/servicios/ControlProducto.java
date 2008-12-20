@@ -1,6 +1,13 @@
 package com.wd.servicios;
 
+import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.wd.dominio.Producto;
+import java.io.IOException;
+import java.io.Reader;
+import java.sql.SQLException;
+import java.util.Collection;
 import org.apache.log4j.Logger;
 
 /**
@@ -14,7 +21,94 @@ public class ControlProducto {
     /** variable de manejo de bitacora*/
     private Logger bitacora = Logger.getLogger(getClass());
 
-    public ControlProducto(){
+    /**
+     * Constructor que inicia SQLMap y la bitacora
+     * @throws java.io.IOException
+     */
+    public ControlProducto() throws IOException{
         this.bitacora.info("Iniciando controlador de producto");
+        String resource = "com/wd/configuracion/configuracionIbatis.xml";
+        Reader reader = Resources.getResourceAsReader(resource);
+        sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
     }
+
+    /**
+     * Metodo para agregar un producto
+     * @param producto el producto a agregar
+     * @return resultado de la operacion
+     */
+    public boolean agregarProducto(Producto producto){
+        boolean resultado = false;
+        try {
+            this.sqlMap.insert("agregarProducto", producto);
+            this.bitacora.info("Producto: " + producto.getId() + " agregado con " +
+                    "éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            this.bitacora.error("Producto: " + producto.getId() + " operacion " +
+                    "fallida: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para modificar un producto
+     * @param producto el producto a modificar
+     * @return resultado de la operacion
+     */
+    public boolean modificarProducto(Producto producto){
+        boolean resultado = false;
+        try {
+            this.sqlMap.update("modificarProducto", producto);
+            this.bitacora.info("Producto: " + producto.getId() + " modificado " +
+                    "con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            this.bitacora.error("Producto: " + producto.getId() + " operacion " +
+                    "fallida: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para eliminar un producto
+     * @param id el id del producto
+     * @return resultado de la operacion
+     */
+    public boolean eliminarProducto(int id){
+        boolean resultado = false;
+        try {
+            this.sqlMap.delete("eliminarProducto", id);
+            this.bitacora.info("Producto: " + id + " eliminado con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            this.bitacora.error("Producto: " + id + " operacion fallida: " +
+                    ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para consultar productos
+     * @return coleccion de productos
+     */
+    public Collection<Producto> consultarProductos(){
+        Collection<Producto> coleccionProductos = null;
+        try {
+            this.bitacora.info("Iniciando operacion para traer todos los Productos");
+            coleccionProductos = this.sqlMap.queryForList("consultarProductos");
+        } catch (SQLException ex) {
+            this.bitacora.error("No se pudo realizar la operacion porque: " +
+                    ex.getMessage());
+        } finally {
+            return coleccionProductos;
+        }
+    }
+
 }

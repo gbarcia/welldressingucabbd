@@ -26,7 +26,7 @@
 
   <update id="modificarProducto" parameterClass="producto">
     UPDATE producto
-    SET nombre = #nombre#, descripcion = #descripcion#,
+    SET nombre = #nombre#, descripcion = #descripcion#
     WHERE id = #id#
   </update>
 
@@ -35,7 +35,7 @@
       WHERE id = #id#
   </delete>
 
-  <select id="consultarTiendas" resultMap="resultMapProducto">
+  <select id="consultarProductos" resultMap="resultMapProducto">
     SELECT id, nombre, descripcion
     FROM producto
   </select>

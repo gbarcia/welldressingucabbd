@@ -21,7 +21,10 @@ public class ControlTienda {
     /** variable de manejo de bitacora*/
     private Logger bitacora = Logger.getLogger(getClass());
 
-    /** Constructor que inicia SQLMap y la bitacora*/
+    /**
+     * Constructor que inicia SQLMap y la bitacora
+     * @throws java.io.IOException
+     */
     public ControlTienda() throws IOException {
         this.bitacora.info("Iniciando controlador de tienda");
         String resource = "com/wd/configuracion/configuracionIbatis.xml";
