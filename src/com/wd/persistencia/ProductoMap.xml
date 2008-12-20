@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="producto">
+
+  <typeAlias alias="producto" type="com.wd.dominio.Producto"/>
+
+  <resultMap id="resultMapProducto" class="producto">
+    <result property="id" column="id" />
+    <result property="nombre" column="nombre" />
+    <result property="descripcion" column="descripcion" />
+  </resultMap>
+
+  <insert id="agregarProducto" parameterClass="producto">
+    INSERT INTO producto (id, nombre, descripcion)
+    VALUES (null, #nombre#, #descripcion#)
+  </insert>
+
+  <select id="consultarProducto" parameterClass="int" resultClass="producto">
+    SELECT id, nombre, descripcion
+    FROM producto
+    WHERE id = #id#
+  </select>
+
+  <update id="modificarProducto" parameterClass="producto">
+    UPDATE producto
+    SET nombre = #nombre#, descripcion = #descripcion#,
+    WHERE id = #id#
+  </update>
+
+  <delete id="eliminarProducto" parameterClass="producto">
+      DELETE FROM producto
+      WHERE id = #id#
+  </delete>
+
+  <select id="consultarTiendas" resultMap="resultMapProducto">
+    SELECT id, nombre, descripcion
+    FROM producto
+  </select>
+
+</sqlMap>
