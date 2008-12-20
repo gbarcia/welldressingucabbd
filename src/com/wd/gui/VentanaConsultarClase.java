@@ -23,11 +23,10 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
 
     private Vector<Departamento> vecSubClases;
 
-    private int codigoClase;
+    private DefaultTableModel dm;
 
     /** Creates new form VentanaConsultarClase */
-    public VentanaConsultarClase(Vector<Departamento> result,
-        Vector<Departamento> result1,Vector<Departamento> result2) {
+    public VentanaConsultarClase(Vector<Departamento> result) {
         initComponents();
 
         vecDepartamentos = new Vector();
@@ -35,8 +34,10 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
         vecSubClases = new Vector();
         vecClasesAux = new Vector();
 
-        vecClases = result1;
-        vecSubClases = result2;
+        dm = new DefaultTableModel();
+        dm.addColumn("Id");
+        dm.addColumn("Nombre Subclase");
+        dm.addColumn("Descripción");
 
         vecDepartamentos = result;
         for (Departamento dpto : result){
@@ -208,49 +209,20 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
         String nombreClase = "";
         Departamento aux = new Departamento();
         select = this.comboDepartamento.getSelectedIndex();
-        aux = vecDepartamentos.elementAt(select);
-
-        controlDepartamento = new ControlGuiDepartamento();
-        vecClases = controlDepartamento.traerTodasLasClases(aux);
-
-        for (Departamento dpto : vecClases){
-            this.comboClase.addItem(dpto.getNombre());
-        }
-
-        /*for (int i = 0; i < vecClases.size(); i++) {
-
-            int auxCod = 0;
-            auxCod = vecClases.elementAt(i).getDepartamentoCodigo();
-            if (auxCod == aux.getCodigo()){
-                vecClasesAux.addElement(aux);
-                System.out.println("tamaño: "+vecClasesAux.size());
-                nombreClase = vecClases.elementAt(i).getNombre();
-                this.comboClase.addItem(nombreClase);
-            }
-        }*/
+        this.recargarCombo(select);
     }//GEN-LAST:event_comboDepartamentoActionPerformed
 
     private void comboClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboClaseActionPerformed
-        String nombreClase = "";
         String descripcion = "";
-        String nombreAux = "";
-        nombreClase = this.comboClase.getSelectedItem()+"";
-        this.setCodigoClase(nombreClase);
-        
-        //this.cargarComboClase(nombreClase);
-         /*for (int i = 0; i < vecClases.size(); i++) {
-            nombreAux = vecClases.elementAt(i).getNombre();
-            if(nombreClase.equals(nombreAux)){
-                descripcion = vecClases.elementAt(i).getDescripcion();
-                this.campoDescripcion.setText(descripcion);
-            }
-        }*/
-        for (Departamento dpto : vecClases){
-            descripcion = dpto.getDescripcion();
-            System.out.println("clase nombre"+dpto.getNombre());
+        int select = -1;
+        if(this.comboClase.getItemCount()>0){
+
+            select = this.comboClase.getSelectedIndex();
+            descripcion = vecClases.elementAt(select).getDescripcion();
             this.campoDescripcion.setText(descripcion);
+
+            llenarTabla(select);
         }
-        llenarTabla();
     }//GEN-LAST:event_comboClaseActionPerformed
 
     private void buttonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCerrarActionPerformed
@@ -262,9 +234,8 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run(Vector<Departamento> result,
-                    Vector<Departamento> result1,Vector<Departamento> result2) {
-                new VentanaConsultarClase(result,result1,result2).setVisible(true);
+            public void run(Vector<Departamento> result){
+                new VentanaConsultarClase(result).setVisible(true);
             }
             public void run() {
                 throw new UnsupportedOperationException("Not supported yet.");
@@ -287,44 +258,36 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
     private javax.swing.JLabel labelDescripcion;
     // End of variables declaration//GEN-END:variables
 
-    public void setCodigoClase(String nombreClase){
 
-        String nombreAux = "";
-        for (int i = 0; i < vecClases.size(); i++) {
-            nombreAux = vecClases.elementAt(i).getNombre();
-            if(nombreClase.equals(nombreAux)){
-                codigoClase = vecClases.elementAt(i).getCodigo();
-            }
+    public void llenarTabla(int select){
+
+        for (int i = 0; i < dm.getRowCount(); i++) {
+            this.dm.removeRow(i);
+        }
+        Departamento aux = new Departamento();
+        aux = vecClases.elementAt(select);
+        controlDepartamento = new ControlGuiDepartamento();
+        vecSubClases = controlDepartamento.traerTodasLasSubClases(aux);
+
+        for (Departamento dpto : vecSubClases) {
+            Vector info = new Vector();
+            info.addElement(dpto.getCodigo());
+            info.addElement(dpto.getNombre());
+            info.addElement(dpto.getDescripcion());
+            dm.addRow(info);
+            this.jTable1.setModel(dm);
         }
     }
 
-    public void llenarTabla(){
-
-        DefaultTableModel dm = new DefaultTableModel();
-            dm.addColumn("Id");
-            dm.addColumn("Nombre Subclase");
-            dm.addColumn("Descripción");
-
-            for (int i = 0; i < vecSubClases.size(); i++) {
-                Departamento subClase = new Departamento();
-                subClase = vecSubClases.elementAt(i);
-                if(subClase.getDepartamentoCodigo() == codigoClase){
-                    Vector info = new Vector();
-                    info.addElement(subClase.getCodigo());
-                    info.addElement(subClase.getNombre());
-                    info.addElement(subClase.getDescripcion());
-                    dm.addRow(info);
-                }
-			this.jTable1.setModel(dm);
-            }
-
-    }
-
-    public void recargarCombo(){
-        this.controlDepartamento = new ControlGuiDepartamento();
-        //vecClases = controlDepartamento.traerTodosLosDepartamentos();
-
+    public void recargarCombo(int select){
+      
         this.comboClase.removeAllItems();
+        Departamento aux = new Departamento();
+        select = this.comboDepartamento.getSelectedIndex();
+        aux = vecDepartamentos.elementAt(select);
+
+        controlDepartamento = new ControlGuiDepartamento();
+        vecClases = controlDepartamento.traerTodasLasClases(aux);
 
         for (Departamento dpto : vecClases){
             this.comboClase.addItem(dpto.getNombre());
