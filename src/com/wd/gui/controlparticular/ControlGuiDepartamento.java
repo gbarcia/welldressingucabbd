@@ -24,9 +24,9 @@ public class ControlGuiDepartamento {
     }
 
     /**
-     * Metodo para agregar un Departamento de tipo Clase al sistema
-     * @param nombre String nombre del departamento
-     * @param descripcion String descripcion del departamento
+     * Metodo para agregar un Departamento de tipo SubClase al sistema
+     * @param nombre String nombre de la SubClase
+     * @param descripcion String descripcion de la Subclase
      * @param departamentoCodigo int codigo del departamento al que pertenece la
      * clase
     */
@@ -34,7 +34,7 @@ public class ControlGuiDepartamento {
         departamento = new Departamento(0,nombre,descripcion,0,departamentoCodigo);
         boolean resultado = ControlGeneral.getInstance().agregarSubClase(departamento);
         if (resultado) {
-        controlador.mostrarMensaje("Clase agregada con éxito",0);
+        controlador.mostrarMensaje("SubClase agregada con éxito",0);
         }
         else controlador.mostrarMensaje("Operacion fallida", 1);
     }

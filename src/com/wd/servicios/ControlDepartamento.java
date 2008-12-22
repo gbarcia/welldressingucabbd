@@ -79,7 +79,7 @@ public class ControlDepartamento {
             resultado = sqlMap.delete("borrarDepartamento",dpto);            
             bitacora.info("Departamento: " + dpto.getCodigo() +
             " eliminado con éxito");
-            //resultado = true;
+            //resultado = 1;
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());            
         }
@@ -159,7 +159,7 @@ public class ControlDepartamento {
             resultado = sqlMap.delete("borrarSubClase",subclase);
             bitacora.info("SubClase: " + subclase.getCodigo() +
             " eliminada con éxito");
-            //resultado = true;
+            //resultado = 1;
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
         }
@@ -238,7 +238,7 @@ public class ControlDepartamento {
             resultado = sqlMap.delete("borrarClase",clase);
             bitacora.info("Clase: " + clase.getCodigo() +
             " eliminada con éxito");
-            //resultado = true;
+            //resultado = 1;
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
         }
