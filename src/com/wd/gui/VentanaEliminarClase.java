@@ -1,14 +1,33 @@
 package com.wd.gui;
 
+import com.wd.dominio.Departamento;
+import com.wd.gui.controlparticular.ControlGuiDepartamento;
+import java.util.Vector;
+
 /**
  *
  * @author Gabylis
  */
 public class VentanaEliminarClase extends javax.swing.JFrame {
 
+    private ControlGuiDepartamento controlDepartamento;
+
+    private ControlGui controlGeneral;
+
+    private Vector<Departamento> vecDepartamentos;
+
+    private Vector<Departamento> vecClases;
+
     /** Creates new form VentanaEliminarClase */
-    public VentanaEliminarClase() {
+    public VentanaEliminarClase(Vector<Departamento> result) {
         initComponents();
+        vecDepartamentos = new Vector();
+        vecClases = new Vector();
+        
+        vecDepartamentos = result;
+        for (Departamento dpto : result){
+            this.comboDepartamento.addItem(dpto.getNombre());
+       }
     }
 
     /** This method is called from within the constructor to
@@ -34,22 +53,39 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Clase", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
+        comboDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboDepartamentoActionPerformed(evt);
+            }
+        });
+
+        comboClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboClaseActionPerformed(evt);
+            }
+        });
+
         campoDescripcion.setColumns(20);
         campoDescripcion.setEditable(false);
         campoDescripcion.setRows(5);
         jScrollPane1.setViewportView(campoDescripcion);
 
-        labelDepartamento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDepartamento.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDepartamento.setText("Departamento");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel1.setText("Nombre Clase");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel2.setText("Descripción");
 
-        buttonEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonEliminar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonEliminar.setText("Eliminar");
+        buttonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,13 +149,56 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comboDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDepartamentoActionPerformed
+        int select = -1;
+        String nombreClase = "";
+        Departamento aux = new Departamento();
+        select = this.comboDepartamento.getSelectedIndex();
+        this.recargarCombo(select);
+    }//GEN-LAST:event_comboDepartamentoActionPerformed
+
+    private void comboClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboClaseActionPerformed
+        String descripcion = "";
+        int select = -1;
+        if(this.comboClase.getItemCount()>0){
+            select = this.comboClase.getSelectedIndex();
+            descripcion = vecClases.elementAt(select).getDescripcion();
+            this.campoDescripcion.setText(descripcion);
+        }
+    }//GEN-LAST:event_comboClaseActionPerformed
+
+    private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
+        int resultado = -1;
+       String nombre = "";
+       String descripcion = "";
+       this.controlGeneral =  new ControlGui ();
+       resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
+               "que desea realizar esta operación?");
+       if (resultado == 0) {
+           int codigo = -1;
+           int select = -1;
+           int selectClase = -1;
+           select = this.comboDepartamento.getSelectedIndex();
+           selectClase = this.comboClase.getSelectedIndex();
+
+           Departamento claseAux = new Departamento();
+           claseAux = vecClases.elementAt(selectClase);
+           this.controlDepartamento = new ControlGuiDepartamento();
+           controlDepartamento.eliminarClasedelSistema(claseAux);
+           this.recargarCombo(select);
+       }
+    }//GEN-LAST:event_buttonEliminarActionPerformed
+
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Vector<Departamento> result){
+                new VentanaEliminarClase(result).setVisible(true);
+            }
             public void run() {
-                new VentanaEliminarClase().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }
@@ -136,4 +215,18 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
     private javax.swing.JLabel labelDepartamento;
     // End of variables declaration//GEN-END:variables
 
+    public void recargarCombo(int select){
+
+        this.comboClase.removeAllItems();
+        Departamento aux = new Departamento();
+        select = this.comboDepartamento.getSelectedIndex();
+        aux = vecDepartamentos.elementAt(select);
+
+        controlDepartamento = new ControlGuiDepartamento();
+        vecClases = controlDepartamento.traerTodasLasClases(aux);
+
+        for (Departamento dpto : vecClases){
+            this.comboClase.addItem(dpto.getNombre());
+        }
+    }
 }

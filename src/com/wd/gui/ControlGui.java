@@ -42,6 +42,9 @@ public class ControlGui {
     /** Variable de la ventana consultar Clase*/
     private VentanaConsultarClase ventanaConsultarClase;
 
+    /** Variable de la ventana eliminar Clase*/
+    private VentanaEliminarClase ventanaEliminarClase;
+
 /** Constructor del ControlGui */
     public ControlGui() {
     }
@@ -164,6 +167,15 @@ public class ControlGui {
     public void iniciarVentanaConsultarClase (boolean var, Vector result){
         ventanaConsultarClase = new VentanaConsultarClase(result);
         ventanaConsultarClase.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de eliminar clases
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaEliminarClase (boolean var, Vector result){
+        ventanaEliminarClase = new VentanaEliminarClase(result);
+        ventanaEliminarClase.setVisible(var);
     }
 
     /**

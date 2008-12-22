@@ -398,6 +398,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar clase"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProductosClaseEliminarActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
