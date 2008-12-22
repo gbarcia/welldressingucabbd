@@ -1,3 +1,14 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/*
+ * VentanaEliminarSubClase.java
+ *
+ * Created on 22/12/2008, 03:24:34 PM
+ */
+
 package com.wd.gui;
 
 import com.wd.dominio.Departamento;
@@ -8,7 +19,7 @@ import java.util.Vector;
  *
  * @author Gabylis
  */
-public class VentanaEliminarClase extends javax.swing.JFrame {
+public class VentanaEliminarSubClase extends javax.swing.JFrame {
 
     private ControlGuiDepartamento controlDepartamento;
 
@@ -18,12 +29,15 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
 
     private Vector<Departamento> vecClases;
 
-    /** Creates new form VentanaEliminarClase */
-    public VentanaEliminarClase(Vector<Departamento> result) {
+    private Vector<Departamento> vecSubClases;
+
+    /** Creates new form VentanaEliminarSubClase */
+    public VentanaEliminarSubClase(Vector<Departamento> result) {
         initComponents();
         vecDepartamentos = new Vector();
         vecClases = new Vector();
-        
+        vecSubClases = new Vector();
+
         vecDepartamentos = result;
         for (Departamento dpto : result){
             this.comboDepartamento.addItem(dpto.getNombre());
@@ -42,16 +56,18 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         comboDepartamento = new javax.swing.JComboBox();
         comboClase = new javax.swing.JComboBox();
+        comboSubClase = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         campoDescripcion = new javax.swing.JTextArea();
         labelDepartamento = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelClase = new javax.swing.JLabel();
+        labelSubClase = new javax.swing.JLabel();
+        labelDescripcion = new javax.swing.JLabel();
         buttonEliminar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Eliminar SubClase");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Clase", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar SubClase", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
         comboDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,21 +81,30 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
             }
         });
 
+        comboSubClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSubClaseActionPerformed(evt);
+            }
+        });
+
         campoDescripcion.setColumns(20);
         campoDescripcion.setEditable(false);
         campoDescripcion.setRows(5);
         jScrollPane1.setViewportView(campoDescripcion);
 
-        labelDepartamento.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelDepartamento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelDepartamento.setText("Departamento");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabel1.setText("Nombre Clase");
+        labelClase.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelClase.setText("Clase");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabel2.setText("Descripción");
+        labelSubClase.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelSubClase.setText("SubClase");
 
-        buttonEliminar.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDescripcion.setText("Descripción");
+
+        buttonEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         buttonEliminar.setText("Eliminar");
         buttonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,42 +116,51 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelDepartamento)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboClase, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboDepartamento, javax.swing.GroupLayout.Alignment.LEADING, 0, 186, Short.MAX_VALUE))
-                .addGap(42, 42, 42))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(buttonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelDepartamento)
+                            .addComponent(labelClase)
+                            .addComponent(labelSubClase)
+                            .addComponent(labelDescripcion))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(comboSubClase, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboClase, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(buttonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(comboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(comboClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
+                            .addComponent(comboSubClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelSubClase)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(labelClase))
                     .addComponent(labelDepartamento))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(26, 26, 26)
+                    .addComponent(labelDescripcion)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonEliminar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,13 +169,13 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -152,48 +186,57 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
     private void comboDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDepartamentoActionPerformed
         int select = -1;
         select = this.comboDepartamento.getSelectedIndex();
-        this.recargarCombo(select);
+        this.recargarComboClase(select);
     }//GEN-LAST:event_comboDepartamentoActionPerformed
 
     private void comboClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboClaseActionPerformed
-        String descripcion = "";
-        int select = -1;
+       int select = -1;
         if(this.comboClase.getItemCount()>0){
             select = this.comboClase.getSelectedIndex();
-            descripcion = vecClases.elementAt(select).getDescripcion();
-            this.campoDescripcion.setText(descripcion);
+            this.recargarComboSubClase(select);
         }
     }//GEN-LAST:event_comboClaseActionPerformed
 
+    private void comboSubClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSubClaseActionPerformed
+        String descripcion = "";
+        int select = -1;
+        if(this.comboSubClase.getItemCount()>0){
+            select = this.comboSubClase.getSelectedIndex();
+            descripcion = vecSubClases.elementAt(select).getDescripcion();
+            this.campoDescripcion.setText(descripcion);
+        }
+    }//GEN-LAST:event_comboSubClaseActionPerformed
+
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
-        int resultado = -1;
-       String nombre = "";
-       String descripcion = "";
+       int resultado = -1;
        this.controlGeneral =  new ControlGui ();
        resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
                "que desea realizar esta operación?");
        if (resultado == 0) {
-           int codigo = -1;
            int select = -1;
            int selectClase = -1;
+           int selectSubClase = -1;
+
            select = this.comboDepartamento.getSelectedIndex();
            selectClase = this.comboClase.getSelectedIndex();
+           selectSubClase = this.comboSubClase.getSelectedIndex();
 
-           Departamento claseAux = new Departamento();
-           claseAux = vecClases.elementAt(selectClase);
+           Departamento subClaseAux = new Departamento();
+           subClaseAux = vecSubClases.elementAt(selectSubClase);
+
            this.controlDepartamento = new ControlGuiDepartamento();
-           controlDepartamento.eliminarClasedelSistema(claseAux);
-           this.recargarCombo(select);
-       }
+           controlDepartamento.eliminarSubClasedelSistema(subClaseAux);
+           this.recargarComboClase(select);
+           this.recargarComboSubClase(selectClase);
     }//GEN-LAST:event_buttonEliminarActionPerformed
-
+    }
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run(Vector<Departamento> result){
-                new VentanaEliminarClase(result).setVisible(true);
+            public void run(Vector<Departamento> result) {
+                new VentanaEliminarSubClase(result).setVisible(true);
             }
             public void run() {
                 throw new UnsupportedOperationException("Not supported yet.");
@@ -206,14 +249,16 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
     private javax.swing.JTextArea campoDescripcion;
     private javax.swing.JComboBox comboClase;
     private javax.swing.JComboBox comboDepartamento;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JComboBox comboSubClase;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelClase;
     private javax.swing.JLabel labelDepartamento;
+    private javax.swing.JLabel labelDescripcion;
+    private javax.swing.JLabel labelSubClase;
     // End of variables declaration//GEN-END:variables
 
-    public void recargarCombo(int select){
+    public void recargarComboClase(int select){
 
         this.comboClase.removeAllItems();
         Departamento aux = new Departamento();
@@ -225,6 +270,20 @@ public class VentanaEliminarClase extends javax.swing.JFrame {
 
         for (Departamento dpto : vecClases){
             this.comboClase.addItem(dpto.getNombre());
+        }
+    }
+
+    public void recargarComboSubClase(int select){
+
+        this.comboSubClase.removeAllItems();
+        Departamento aux = new Departamento();
+        aux = vecClases.elementAt(select);
+
+        controlDepartamento = new ControlGuiDepartamento();
+        vecSubClases = controlDepartamento.traerTodasLasSubClases(aux);
+
+        for (Departamento dpto : vecSubClases){
+            this.comboSubClase.addItem(dpto.getNombre());
         }
     }
 }

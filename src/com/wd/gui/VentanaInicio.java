@@ -448,6 +448,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductosSubClases.add(menuProductosSubConsultar);
 
         menuProductosSubEliminar.setText("Eliminar sub clase");
+        menuProductosSubEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProductosSubEliminarActionPerformed(evt);
+            }
+        });
         menuProductosSubClases.add(menuProductosSubEliminar);
 
         menuProductos.add(menuProductosSubClases);
@@ -691,6 +696,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         controlGeneralGui = new ControlGui();
         controlGeneralGui.iniciarVentanaAgregarSubClase(true, dptos);
     }//GEN-LAST:event_menuProductosSubAgregarActionPerformed
+
+    private void menuProductosSubEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosSubEliminarActionPerformed
+        Vector<Departamento> dptos = null;
+        this.controlGuiDepartamento = new ControlGuiDepartamento();
+        dptos = this.controlGuiDepartamento.traerTodosLosDepartamentos();
+        controlGeneralGui = new ControlGui();
+        controlGeneralGui.iniciarVentanaEliminarSubClase(true, dptos);
+    }//GEN-LAST:event_menuProductosSubEliminarActionPerformed
 
     /**
     * @param args the command line arguments
