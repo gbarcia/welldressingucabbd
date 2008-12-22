@@ -26,6 +26,9 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
     /** Creates new form VentanaConsultarClase */
     public VentanaConsultarClase(Vector<Departamento> result) {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
 
         vecDepartamentos = new Vector();
         vecClases = new Vector();

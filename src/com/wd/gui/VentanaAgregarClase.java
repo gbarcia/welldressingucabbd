@@ -1,14 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * VentanaAgregarClase.java
- *
- * Created on 18/12/2008, 11:30:35 AM
- */
-
 package com.wd.gui;
 
 import com.wd.dominio.Departamento;
@@ -30,6 +19,10 @@ public class VentanaAgregarClase extends javax.swing.JFrame {
     /** Creates new form VentanaAgregarClase */
     public VentanaAgregarClase(Vector<Departamento> result) {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+        
         vecDepartamentos = new Vector();
         vecDepartamentos = result;
         Vector info = new Vector();
