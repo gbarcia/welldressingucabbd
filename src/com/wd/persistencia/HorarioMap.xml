@@ -23,7 +23,7 @@
 
   <select id="TodosLosHorarios" resultMap="traerTodosLosHorarios">
       SELECT h.id ID, h.hora_ini HoraInicio, h.hora_fin HoraFin, h.dia_ini DiaInicio, h.dia_fin DiaFin, h.dia_libre DiaLibre
-      from horario h;
+      from HORARIO h;
   </select>
 
   </sqlMap>
