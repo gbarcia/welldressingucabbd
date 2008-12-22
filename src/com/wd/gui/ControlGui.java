@@ -85,8 +85,8 @@ public class ControlGui {
      * @param var booleano que indica si mostrar o no la ventana
 
      */
-    public void iniciarVentanaAgregarCentro (boolean var) {
-        ventanaAgregarCentro = new VentanaAgregarCentro();
+    public void iniciarVentanaAgregarCentro (boolean var,Vector result) {
+        ventanaAgregarCentro = new VentanaAgregarCentro(result);
         ventanaAgregarCentro.setVisible(var);
     }
 

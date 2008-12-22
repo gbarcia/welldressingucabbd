@@ -83,8 +83,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jComboEstado" alignment="0" pref="250" max="32767" attributes="0"/>
-                      <Component id="jComboCiudad" alignment="0" pref="250" max="32767" attributes="0"/>
+                      <Component id="comboEstado" alignment="0" pref="250" max="32767" attributes="0"/>
+                      <Component id="comboCiudad" alignment="0" pref="250" max="32767" attributes="0"/>
                       <Component id="campoNombre" alignment="0" pref="250" max="32767" attributes="0"/>
                       <Component id="campoTelefono" alignment="0" pref="250" max="32767" attributes="0"/>
                       <Component id="campoDireccion" alignment="0" pref="250" max="32767" attributes="0"/>
@@ -106,12 +106,12 @@
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelEstado" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboEstado" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboEstado" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelCiudad" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboCiudad" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboCiudad" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -179,35 +179,32 @@
             <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboEstado">
+        <Component class="javax.swing.JComboBox" name="comboEstado">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboEstadoActionPerformed"/>
+          </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="jComboEstado.setSelectedIndex(-1);"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="comboEstado.setSelectedIndex(-1);"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboCiudad">
+        <Component class="javax.swing.JComboBox" name="comboCiudad">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="jComboCiudad.setSelectedIndex(-1);"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="comboCiudad.setSelectedIndex(-1);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="campoNombre">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoNombreActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campoTelefono">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoTelefonoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campoDireccion">
         </Component>
