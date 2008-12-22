@@ -1,14 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * VentanaConsultarDepartamentos.java
- *
- * Created on 06/12/2008, 02:37:26 PM
- */
-
 package com.wd.gui;
 
 import com.wd.dominio.Departamento;
@@ -25,6 +14,10 @@ public class VentanaConsultarDepartamentos extends javax.swing.JFrame {
     /** Creates new form VentanaConsultarDepartamentos */
     public VentanaConsultarDepartamentos(Vector<Departamento> result) {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+        
         vecDepartamentos = new Vector();
         vecDepartamentos = result;
         Vector info = new Vector();

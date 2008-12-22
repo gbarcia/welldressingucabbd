@@ -15,6 +15,9 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
     /** Creates new form VentanaAgregarCentro */
     public VentanaAgregarCentro() {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
     }
 
     /** This method is called from within the constructor to

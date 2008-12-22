@@ -34,6 +34,10 @@ public class VentanaModificarSubClase extends javax.swing.JFrame {
     /** Creates new form VentanaModificarSubClase */
     public VentanaModificarSubClase(Vector<Departamento> result) {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+        
         vecDepartamentos = new Vector();
         vecClases = new Vector();
         vecSubClases = new Vector();

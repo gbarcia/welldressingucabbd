@@ -15,6 +15,9 @@ public class VentanaAgregarDepartamento extends javax.swing.JFrame {
     /** Creates new form VentanaAgregarDepartamento */
     public VentanaAgregarDepartamento() {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
     }
 
     /** This method is called from within the constructor to
