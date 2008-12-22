@@ -417,6 +417,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductosClases.add(menuProductosClaseConsultar);
 
         menuProductosClaseEliminar.setText("Eliminar clase");
+        menuProductosClaseEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProductosClaseEliminarActionPerformed(evt);
+            }
+        });
         menuProductosClases.add(menuProductosClaseEliminar);
 
         menuProductos.add(menuProductosClases);
@@ -647,17 +652,19 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void menuProductosClaseConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosClaseConsultarActionPerformed
         Vector<Departamento> dptos = null;
-        Vector<Departamento> clases = null;
-        Vector<Departamento> subclases = null;
-
-
         this.controlGuiDepartamento = new ControlGuiDepartamento();
         dptos = this.controlGuiDepartamento.traerTodosLosDepartamentos();
-        //clases = this.controlGuiDepartamento.traerTodasLasClases();
-        //subclases = this.controlGuiDepartamento.traerTodasLasSubClases();
         controlGeneralGui = new ControlGui();
         controlGeneralGui.iniciarVentanaConsultarClase(true, dptos);
     }//GEN-LAST:event_menuProductosClaseConsultarActionPerformed
+
+    private void menuProductosClaseEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosClaseEliminarActionPerformed
+        Vector<Departamento> dptos = null;
+        this.controlGuiDepartamento = new ControlGuiDepartamento();
+        dptos = this.controlGuiDepartamento.traerTodosLosDepartamentos();
+        controlGeneralGui = new ControlGui();
+        controlGeneralGui.iniciarVentanaEliminarClase(true, dptos);
+    }//GEN-LAST:event_menuProductosClaseEliminarActionPerformed
 
     /**
     * @param args the command line arguments

@@ -17,9 +17,7 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
 
     private Vector<Departamento> vecDepartamentos;
 
-    private Vector<Departamento> vecClases;
-
-    private Vector<Departamento> vecClasesAux;
+    private Vector<Departamento> vecClases;    
 
     private Vector<Departamento> vecSubClases;
 
@@ -32,7 +30,6 @@ public class VentanaConsultarClase extends javax.swing.JFrame {
         vecDepartamentos = new Vector();
         vecClases = new Vector();
         vecSubClases = new Vector();
-        vecClasesAux = new Vector();
 
         dm = new DefaultTableModel();
         dm.addColumn("Id");
