@@ -1,3 +1,14 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/*
+ * VentanaModificarSubClase.java
+ *
+ * Created on 22/12/2008, 04:16:26 PM
+ */
+
 package com.wd.gui;
 
 import com.wd.dominio.Departamento;
@@ -8,7 +19,7 @@ import java.util.Vector;
  *
  * @author Gabylis
  */
-public class VentanaEliminarSubClase extends javax.swing.JFrame {
+public class VentanaModificarSubClase extends javax.swing.JFrame {
 
     private ControlGuiDepartamento controlDepartamento;
 
@@ -20,8 +31,8 @@ public class VentanaEliminarSubClase extends javax.swing.JFrame {
 
     private Vector<Departamento> vecSubClases;
 
-    /** Creates new form VentanaEliminarSubClase */
-    public VentanaEliminarSubClase(Vector<Departamento> result) {
+    /** Creates new form VentanaModificarSubClase */
+    public VentanaModificarSubClase(Vector<Departamento> result) {
         initComponents();
         vecDepartamentos = new Vector();
         vecClases = new Vector();
@@ -46,17 +57,20 @@ public class VentanaEliminarSubClase extends javax.swing.JFrame {
         comboDepartamento = new javax.swing.JComboBox();
         comboClase = new javax.swing.JComboBox();
         comboSubClase = new javax.swing.JComboBox();
+        campoNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         campoDescripcion = new javax.swing.JTextArea();
+        buttonModificar = new javax.swing.JButton();
+        buttonCancelar = new javax.swing.JButton();
         labelDepartamento = new javax.swing.JLabel();
         labelClase = new javax.swing.JLabel();
-        labelSubClase = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        labelNombreSub = new javax.swing.JLabel();
         labelDescripcion = new javax.swing.JLabel();
-        buttonEliminar = new javax.swing.JButton();
 
-        setTitle("Eliminar SubClase");
+        setTitle("Modificar SubClase");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar SubClase", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modificar SubClase", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
         comboDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,9 +91,24 @@ public class VentanaEliminarSubClase extends javax.swing.JFrame {
         });
 
         campoDescripcion.setColumns(20);
-        campoDescripcion.setEditable(false);
         campoDescripcion.setRows(5);
         jScrollPane1.setViewportView(campoDescripcion);
+
+        buttonModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonModificar.setText("Modificar");
+        buttonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonModificarActionPerformed(evt);
+            }
+        });
+
+        buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonCancelar.setText("Cancelar");
+        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelarActionPerformed(evt);
+            }
+        });
 
         labelDepartamento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelDepartamento.setText("Departamento");
@@ -87,19 +116,14 @@ public class VentanaEliminarSubClase extends javax.swing.JFrame {
         labelClase.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelClase.setText("Clase");
 
-        labelSubClase.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        labelSubClase.setText("SubClase");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setText("SubClase");
+
+        labelNombreSub.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombreSub.setText("Nombre SubClase");
 
         labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        labelDescripcion.setText("Descripción");
-
-        buttonEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        buttonEliminar.setText("Eliminar");
-        buttonEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEliminarActionPerformed(evt);
-            }
-        });
+        labelDescripcion.setText("Desccripción");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,48 +132,64 @@ public class VentanaEliminarSubClase extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelDepartamento)
-                            .addComponent(labelClase)
-                            .addComponent(labelSubClase)
-                            .addComponent(labelDescripcion))
-                        .addGap(27, 27, 27)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelDepartamento))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelClase))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelNombreSub))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelDescripcion)))
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(campoNombre, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(comboSubClase, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(comboClase, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comboDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)))
+                                .addComponent(comboDepartamento, javax.swing.GroupLayout.Alignment.LEADING, 0, 164, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(buttonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addContainerGap()
+                        .addComponent(buttonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(comboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(comboClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboSubClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelSubClase)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(labelClase))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelDepartamento))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelClase))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboSubClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNombreSub))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelDescripcion)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonEliminar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonModificar)
+                    .addComponent(buttonCancelar))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,7 +199,7 @@ public class VentanaEliminarSubClase extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +219,7 @@ public class VentanaEliminarSubClase extends javax.swing.JFrame {
     }//GEN-LAST:event_comboDepartamentoActionPerformed
 
     private void comboClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboClaseActionPerformed
-       int select = -1;
+        int select = -1;
         if(this.comboClase.getItemCount()>0){
             select = this.comboClase.getSelectedIndex();
             this.recargarComboSubClase(select);
@@ -187,45 +227,60 @@ public class VentanaEliminarSubClase extends javax.swing.JFrame {
     }//GEN-LAST:event_comboClaseActionPerformed
 
     private void comboSubClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSubClaseActionPerformed
+        String nombre = "";
         String descripcion = "";
         int select = -1;
         if(this.comboSubClase.getItemCount()>0){
             select = this.comboSubClase.getSelectedIndex();
+            nombre = vecSubClases.elementAt(select).getNombre();
             descripcion = vecSubClases.elementAt(select).getDescripcion();
+            this.campoNombre.setText(nombre);
             this.campoDescripcion.setText(descripcion);
         }
     }//GEN-LAST:event_comboSubClaseActionPerformed
 
-    private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
+    private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
        int resultado = -1;
+       String nombre = "";
+       String descripcion = "";
        this.controlGeneral =  new ControlGui ();
        resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
                "que desea realizar esta operación?");
        if (resultado == 0) {
-           int select = -1;
+           int codigoClase = -1;
+           int codigoSub = -1;
            int selectClase = -1;
            int selectSubClase = -1;
 
-           select = this.comboDepartamento.getSelectedIndex();
            selectClase = this.comboClase.getSelectedIndex();
            selectSubClase = this.comboSubClase.getSelectedIndex();
 
-           Departamento subClaseAux = new Departamento();
-           subClaseAux = vecSubClases.elementAt(selectSubClase);
+           codigoSub = vecSubClases.elementAt(selectSubClase).getCodigo();
+           codigoClase = vecClases.elementAt(selectClase).getCodigo();
+
+           nombre = this.campoNombre.getText().toUpperCase();
+           descripcion   = this.campoDescripcion.getText().toUpperCase();
+
+           Departamento subClaseMod = new Departamento(codigoSub,nombre,
+           descripcion,0,codigoClase);
 
            this.controlDepartamento = new ControlGuiDepartamento();
-           controlDepartamento.eliminarSubClasedelSistema(subClaseAux);
-           this.recargarComboClase(select);
+           controlDepartamento.modificarSubClasedelSistema(subClaseMod);
            this.recargarComboSubClase(selectClase);
-    }//GEN-LAST:event_buttonEliminarActionPerformed
-    }
+       }
+    }//GEN-LAST:event_buttonModificarActionPerformed
+
+    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonCancelarActionPerformed
+
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run(Vector<Departamento> result) {
-                new VentanaEliminarSubClase(result).setVisible(true);
+                new VentanaModificarSubClase(result).setVisible(true);
             }
             public void run() {
                 throw new UnsupportedOperationException("Not supported yet.");
@@ -234,24 +289,26 @@ public class VentanaEliminarSubClase extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonEliminar;
+    private javax.swing.JButton buttonCancelar;
+    private javax.swing.JButton buttonModificar;
     private javax.swing.JTextArea campoDescripcion;
+    private javax.swing.JTextField campoNombre;
     private javax.swing.JComboBox comboClase;
     private javax.swing.JComboBox comboDepartamento;
     private javax.swing.JComboBox comboSubClase;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelClase;
     private javax.swing.JLabel labelDepartamento;
     private javax.swing.JLabel labelDescripcion;
-    private javax.swing.JLabel labelSubClase;
+    private javax.swing.JLabel labelNombreSub;
     // End of variables declaration//GEN-END:variables
 
     public void recargarComboClase(int select){
 
         this.comboClase.removeAllItems();
         Departamento aux = new Departamento();
-        //select = this.comboDepartamento.getSelectedIndex();
         aux = vecDepartamentos.elementAt(select);
 
         controlDepartamento = new ControlGuiDepartamento();

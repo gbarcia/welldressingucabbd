@@ -420,11 +420,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProductosSubAgregarActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuProductosSubEditar">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Editar sub clase"/>
-                  </Properties>
-                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuProductosSubConsultar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Consultar sub clase"/>
