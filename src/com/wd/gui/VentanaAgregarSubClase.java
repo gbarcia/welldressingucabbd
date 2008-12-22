@@ -66,19 +66,19 @@ public class VentanaAgregarSubClase extends javax.swing.JFrame {
         campoDescripcion.setRows(5);
         jScrollPane1.setViewportView(campoDescripcion);
 
-        labelDepartamento.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDepartamento.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDepartamento.setText("Departamento");
 
-        labelClase.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelClase.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelClase.setText("Clase");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel1.setText("Nombre SubClase");
 
-        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDescripcion.setText("Descripción");
 
-        buttonAgregar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonAgregar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonAgregar.setText("Agregar");
         buttonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +86,7 @@ public class VentanaAgregarSubClase extends javax.swing.JFrame {
             }
         });
 
-        buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonCancelar.setText("Cancelar");
         buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,12 +112,12 @@ public class VentanaAgregarSubClase extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(labelClase)
                             .addComponent(labelDescripcion))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(campoNombre, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboClase, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboDepartamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(comboDepartamento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(21, 21, 21))
         );
         jPanel1Layout.setVerticalGroup(

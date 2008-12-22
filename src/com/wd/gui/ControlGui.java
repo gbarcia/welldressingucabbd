@@ -51,6 +51,9 @@ public class ControlGui {
     /** Variable de la ventana agregar SubClase*/
     private VentanaAgregarSubClase ventanaAgregarSubClase;
 
+    /** Variable de la ventana eliminar SubClase*/
+    private VentanaEliminarSubClase ventanaEliminarSubClase;
+
 
 
 /** Constructor del ControlGui */
@@ -202,6 +205,15 @@ public class ControlGui {
     public void iniciarVentanaAgregarSubClase (boolean var, Vector result){
         ventanaAgregarSubClase = new VentanaAgregarSubClase(result);
         ventanaAgregarSubClase.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de agregar subclases
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaEliminarSubClase (boolean var, Vector result){
+        ventanaEliminarSubClase = new VentanaEliminarSubClase(result);
+        ventanaEliminarSubClase.setVisible(var);
     }
 
     /**
