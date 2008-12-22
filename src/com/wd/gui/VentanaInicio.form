@@ -159,7 +159,8 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroRegistro">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Registro de centro"/>
+                    <Property name="text" type="java.lang.String" value="Agregar centro"/>
+                    <Property name="actionCommand" type="java.lang.String" value="Agregar centro"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCentroRegistroActionPerformed"/>

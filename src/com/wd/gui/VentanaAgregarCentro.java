@@ -1,6 +1,9 @@
 package com.wd.gui;
 
+import com.wd.dominio.Lugar;
 import com.wd.gui.controlparticular.ControlGuiCentroDistribucion;
+import com.wd.gui.controlparticular.ControlGuiLugar;
+import java.util.Vector;
 
 /**
  *
@@ -10,14 +13,28 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
 
     private ControlGuiCentroDistribucion controlCentro;
 
+    private ControlGuiLugar controlLugar;
+
     private ControlGui controlGeneral;
 
+    private Vector<Lugar> estados;
+
+    private Vector<Lugar> ciudades;
+
     /** Creates new form VentanaAgregarCentro */
-    public VentanaAgregarCentro() {
+    public VentanaAgregarCentro(Vector<Lugar> result) {
         initComponents();
         java.net.URL url = getClass().getResource("Iconos/icon_016.png");
         java.awt.Image imagen = getToolkit().getImage(url);
         setIconImage (imagen);
+
+        ciudades = new Vector();
+        estados = new Vector();
+        estados = result;
+
+        for (Lugar lugar : result){
+            this.comboEstado.addItem(lugar.getNombrePropio());
+        }
     }
 
     /** This method is called from within the constructor to
@@ -36,10 +53,10 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
         labelNombre = new java.awt.Label();
         labelTelefono = new java.awt.Label();
         labelDireccion = new java.awt.Label();
-        jComboEstado = new javax.swing.JComboBox();
-        jComboEstado.setSelectedIndex(-1);
-        jComboCiudad = new javax.swing.JComboBox();
-        jComboCiudad.setSelectedIndex(-1);
+        comboEstado = new javax.swing.JComboBox();
+        comboEstado.setSelectedIndex(-1);
+        comboCiudad = new javax.swing.JComboBox();
+        comboCiudad.setSelectedIndex(-1);
         campoNombre = new javax.swing.JTextField();
         campoTelefono = new javax.swing.JTextField();
         campoDireccion = new javax.swing.JTextField();
@@ -68,19 +85,13 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
         labelDireccion.setFont(new java.awt.Font("Verdana", 1, 12));
         labelDireccion.setText("Dirección");
 
-        campoNombre.addActionListener(new java.awt.event.ActionListener() {
+        comboEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNombreActionPerformed(evt);
+                comboEstadoActionPerformed(evt);
             }
         });
 
-        campoTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoTelefonoActionPerformed(evt);
-            }
-        });
-
-        jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAceptar.setFont(new java.awt.Font("Tahoma", 1, 11));
         jButtonAceptar.setText("Aceptar");
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +99,7 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
             }
         });
 
-        jButtonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11));
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,8 +122,8 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
                     .addComponent(labelDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelAgregarCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboEstado, 0, 250, Short.MAX_VALUE)
-                    .addComponent(jComboCiudad, 0, 250, Short.MAX_VALUE)
+                    .addComponent(comboEstado, 0, 250, Short.MAX_VALUE)
+                    .addComponent(comboCiudad, 0, 250, Short.MAX_VALUE)
                     .addComponent(campoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                     .addComponent(campoTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                     .addComponent(campoDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
@@ -130,11 +141,11 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanelAgregarCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelAgregarCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelAgregarCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,14 +185,6 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoTelefonoActionPerformed
-
-    private void campoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoNombreActionPerformed
-
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
 
        int resultado = -1;
@@ -189,30 +192,48 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
        String nombre = "";
        String telefono = "";
        String direccion = "";
+       String nombreCiudad = "";
 
        this.controlGeneral =  new ControlGui ();
        resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
                "que desea realizar esta operación?");
        if (resultado == 0) {
+           nombreCiudad = this.comboCiudad.getSelectedItem().toString();
+           lugarId = this.buscarCiudadId(nombreCiudad);
            nombre = this.campoNombre.getText().toUpperCase();
            telefono   = this.campoTelefono.getText().toUpperCase();
            direccion  = this.campoDireccion.getText().toUpperCase();
            this.controlCentro = new ControlGuiCentroDistribucion ();
-           controlCentro.agregarCentroDistribucion(0, nombre, telefono, direccion, lugarId);
+           controlCentro.agregarCentroDistribucion(0, nombre, telefono,
+           direccion, lugarId);
        }
+       this.reiniciarFields();
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
+    private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
+        int select = -1;
+        select = this.comboEstado.getSelectedIndex();
+        //if (this.comboCiudad.getItemCount()>0){
+            Lugar estadoDueño = new Lugar();
+            estadoDueño = estados.elementAt(select);
+            cargarCiudades(estadoDueño);
+        //}
+    }//GEN-LAST:event_comboEstadoActionPerformed
+
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Vector<Lugar> result) {
+                new VentanaAgregarCentro(result).setVisible(true);
+            }
             public void run() {
-                new VentanaAgregarCentro().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }
@@ -221,11 +242,11 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
     private javax.swing.JTextField campoDireccion;
     private javax.swing.JTextField campoNombre;
     private javax.swing.JTextField campoTelefono;
+    private javax.swing.JComboBox comboCiudad;
+    private javax.swing.JComboBox comboEstado;
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboCiudad;
-    private javax.swing.JComboBox jComboEstado;
     private javax.swing.JPanel jPanelAgregarCentro;
     private java.awt.Label labelCiudad;
     private java.awt.Label labelDireccion;
@@ -234,4 +255,36 @@ public class VentanaAgregarCentro extends javax.swing.JFrame {
     private java.awt.Label labelTelefono;
     // End of variables declaration//GEN-END:variables
 
+    public void cargarCiudades(Lugar Estado){
+        this.comboCiudad.removeAllItems();
+
+        int codigoEstado = -1;
+        codigoEstado = Estado.getId();
+
+        controlLugar = new ControlGuiLugar();
+        ciudades = controlLugar.traerTodosLosLugares(2);
+
+        for (Lugar lugar : ciudades) {
+            if (lugar.getLugarID() == codigoEstado){
+                this.comboCiudad.addItem(lugar.getNombrePropio());
+            }
+        }
+    }
+
+    public int buscarCiudadId(String nombre){
+        int id = -1;
+        for (Lugar lugar : ciudades){
+            if (lugar.getNombrePropio().equals(nombre)){
+                id = lugar.getId();
+                break;
+            }
+        }
+        return id;
+    }
+
+    public void reiniciarFields(){
+        this.campoNombre.setText("");
+        this.campoTelefono.setText("");
+        this.campoDireccion.setText("");
+    }
 }

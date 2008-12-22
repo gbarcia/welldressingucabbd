@@ -28,11 +28,12 @@ public class ControlGuiCentroDistribucion {
  * @param direccion String direccion del centro
  * @param LUGAR_id int lugar donde se encuentra el centro
  */
-    public void  agregarCentroDistribucion (int codigo, String nombre, String telefono, String direccion, int LUGAR_id) {
+    public void  agregarCentroDistribucion (int codigo, String nombre,
+    String telefono, String direccion, int LUGAR_id) {
         centro = new CentroDistribucion(0,nombre,telefono,direccion,LUGAR_id);
         boolean resultado = ControlGeneral.getInstance().agregarCentroDistribucion(centro);
         if (resultado) {
-        controlador.mostrarMensaje("Horario agregado con éxito",0);
+        controlador.mostrarMensaje("Centro de Distribución agregado con éxito",0);
         }
         else controlador.mostrarMensaje("Operacion fallida", 1);
     }

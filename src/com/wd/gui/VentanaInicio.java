@@ -9,6 +9,7 @@ package com.wd.gui;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
+import com.wd.gui.controlparticular.ControlGuiCentroDistribucion;
 import com.wd.gui.controlparticular.ControlGuiDepartamento;
 import com.wd.gui.controlparticular.ControlGuiHorario;
 import com.wd.gui.controlparticular.ControlGuiLugar;
@@ -24,6 +25,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private ControlGui controlGeneralGui;
     private ControlGuiHorario controlGuiHorario;
     private ControlGuiDepartamento controlGuiDepartamento;
+    private ControlGuiCentroDistribucion controlGuiCentro;
     private ControlGuiLugar controlGuiLugar;
 
     /** Creates new form VentanaInicio */
@@ -252,7 +254,8 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentroMantenimiento.setText("Mantenimiento");
 
-        menuCentroRegistro.setText("Registro de centro");
+        menuCentroRegistro.setText("Agregar centro");
+        menuCentroRegistro.setActionCommand("Agregar centro");
         menuCentroRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuCentroRegistroActionPerformed(evt);
@@ -600,8 +603,11 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_menuUbicacionesHorarioAgregarActionPerformed
 
     private void menuCentroRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroRegistroActionPerformed
-        controlGeneralGui = new ControlGui ();
-        controlGeneralGui.iniciarVentanaAgregarCentro(true);
+       Vector<Lugar> result = null;
+       this.controlGuiLugar = new ControlGuiLugar();
+       result = this.controlGuiLugar.traerTodosLosLugares(1);
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaAgregarCentro(true,result);
     }//GEN-LAST:event_menuCentroRegistroActionPerformed
 
     private void menuUbicacionesHorariosEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUbicacionesHorariosEliminarActionPerformed
