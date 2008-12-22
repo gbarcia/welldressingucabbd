@@ -214,24 +214,6 @@ public class ControlDepartamento {
      * Metodo para buscar todos las clases del sistema
      * @return Collection todos los clases registradas
      */
-    /*public Collection<Departamento> traerTodosLasClases () {
-        Collection<Departamento> coleccionClases = null;
-        try {
-            bitacora.info("Iniciando operacion para traer todos las " +
-            "Clases");
-            coleccionClases = sqlMap.queryForList("TodasLasClases");
-        } catch (SQLException ex) {
-            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
-        }
-        finally {
-            return coleccionClases;
-        }
-    }*/
-
-    /**
-     * Metodo para buscar todos las clases del sistema
-     * @return Collection todos los clases registradas
-     */
     public Collection<Departamento> traerTodosLasClases (Departamento dueño) {
         Collection<Departamento> coleccionClases = null;
         try {
@@ -273,7 +255,7 @@ public class ControlDepartamento {
     public boolean modificarClase(Departamento newClase) {
         boolean resultado = false;
         try {
-            sqlMap.update("modificarDClase", newClase);
+            sqlMap.update("modificarClase", newClase);
             bitacora.info("Clase: " + newClase.getCodigo() +
             " modificada con éxito");
             resultado = true;
