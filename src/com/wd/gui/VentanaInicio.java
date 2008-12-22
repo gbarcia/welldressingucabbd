@@ -117,7 +117,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductosClaseEliminar = new javax.swing.JMenuItem();
         menuProductosSubClases = new javax.swing.JMenu();
         menuProductosSubAgregar = new javax.swing.JMenuItem();
-        menuProductosSubEditar = new javax.swing.JMenuItem();
         menuProductosSubConsultar = new javax.swing.JMenuItem();
         menuProductosSubEliminar = new javax.swing.JMenuItem();
         menuProductosSeparador = new javax.swing.JSeparator();
@@ -440,9 +439,6 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
         menuProductosSubClases.add(menuProductosSubAgregar);
-
-        menuProductosSubEditar.setText("Editar sub clase");
-        menuProductosSubClases.add(menuProductosSubEditar);
 
         menuProductosSubConsultar.setText("Consultar sub clase");
         menuProductosSubClases.add(menuProductosSubConsultar);
@@ -795,7 +791,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuProductosSubAgregar;
     private javax.swing.JMenu menuProductosSubClases;
     private javax.swing.JMenuItem menuProductosSubConsultar;
-    private javax.swing.JMenuItem menuProductosSubEditar;
     private javax.swing.JMenuItem menuProductosSubEliminar;
     private javax.swing.JMenuItem menuRegistrarTienda;
     private javax.swing.JMenuItem menuSalir;
