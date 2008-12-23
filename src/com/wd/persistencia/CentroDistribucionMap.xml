@@ -11,5 +11,19 @@
       INSERT INTO CENTRO_DISTRIBUCION (codigo,nombre,telefono,direccion,LUGAR_id)
       VALUES (null, #nombre#,#telefono#,#direccion#,#lugarId#)
   </insert>
+
+  <resultMap id="traerTodosLosCentros" class="centroDistribucion">
+    <result property="codigo" column="Codigo" />
+    <result property="nombre" column="Nombre" />
+    <result property="telefono" column="Telefono" />
+    <result property="direccion" column="Direccion" />
+    <result property="lugarId" column="LugarId" />
+  </resultMap>
+
+  <select id="TodosLosCentros" resultMap="traerTodosLosCentros">
+      SELECT c.codigo Codigo, c.nombre Nombre, c.telefono Telefono,
+      c.direccion Direccion, c.LUGAR_id LugarId
+      FROM CENTRO_DISTRIBUCION c;
+  </select>
   
 </sqlMap>

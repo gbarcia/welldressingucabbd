@@ -7,6 +7,8 @@ package com.wd.gui.controlparticular;
 import com.wd.dominio.CentroDistribucion;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
+import java.util.Collection;
+import java.util.Vector;
 
 public class ControlGuiCentroDistribucion {
     /** variable para el manejo de la entidad horario */
@@ -36,6 +38,21 @@ public class ControlGuiCentroDistribucion {
         controlador.mostrarMensaje("Centro de Distribución agregado con éxito",0);
         }
         else controlador.mostrarMensaje("Operacion fallida", 1);
+    }
+
+    /**
+    * Metodo para buscar todos los centros de distribucion registrados en el
+    * sistema
+    * @return Vector vector con todos los objetos CentroDistribucion del sistema
+    */
+    public Vector traerTodosLosCentros () {
+        Vector<CentroDistribucion> vectorResult = null;
+        Collection<CentroDistribucion> coleccion = ControlGeneral.getInstance().traerTodosLosCentros();
+        vectorResult = new Vector();
+        for (CentroDistribucion centro : coleccion) {
+            vectorResult.add(centro);
+        }
+        return vectorResult;
     }
 
 }

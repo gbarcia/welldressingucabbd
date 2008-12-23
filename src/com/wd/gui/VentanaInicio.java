@@ -255,7 +255,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroMantenimiento.setText("Mantenimiento");
 
         menuCentroRegistro.setText("Agregar centro");
-        menuCentroRegistro.setActionCommand("Agregar centro");
         menuCentroRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuCentroRegistroActionPerformed(evt);
@@ -267,6 +266,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroMantenimiento.add(menuCentroEditar);
 
         menuCentroConsultar.setText("Consultar un centro");
+        menuCentroConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroConsultarActionPerformed(evt);
+            }
+        });
         menuCentroMantenimiento.add(menuCentroConsultar);
 
         menuCentroEliminar.setText("Eliminar un centro");
@@ -706,6 +710,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         controlGeneralGui = new ControlGui();
         controlGeneralGui.iniciarVentanaEliminarSubClase(true, dptos);
     }//GEN-LAST:event_menuProductosSubEliminarActionPerformed
+
+    private void menuCentroConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroConsultarActionPerformed
+       Vector<Lugar> result = null;
+       this.controlGuiLugar = new ControlGuiLugar();
+       result = this.controlGuiLugar.traerTodosLosLugares(1);
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaConsultarCentro(true,result);
+    }//GEN-LAST:event_menuCentroConsultarActionPerformed
 
     /**
     * @param args the command line arguments
