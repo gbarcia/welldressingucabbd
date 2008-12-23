@@ -18,6 +18,8 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
     private Vector<Lugar> estados;
 
     private Vector<Lugar> ciudades;
+
+    private Vector<Lugar> ciudadesAux;
     
     private Vector<CentroDistribucion> vecCentros;
 
@@ -28,6 +30,9 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
     /** Creates new form VentanaConsultarCentro */
     public VentanaConsultarCentro(Vector<Lugar> result) {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
 
         dm = new DefaultTableModel();
         dm.addColumn("Id");
@@ -35,11 +40,8 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
         dm.addColumn("Telefono");
         dm.addColumn("Dirección");
 
-        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
-        java.awt.Image imagen = getToolkit().getImage(url);
-        setIconImage (imagen);
-
         vecCentros = new Vector();
+        ciudadesAux = new Vector();
         ciudades = new Vector();
         estados = new Vector();
         estados = result;
@@ -198,10 +200,10 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
     private void comboCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCiudadActionPerformed
         String nombre = "";
         int ciudadId = -1;
+        int select = -1;
         if (this.comboCiudad.getItemCount()>0){
-            nombre = this.comboCiudad.getSelectedItem().toString();
-            ciudadId = this.buscarCiudadId(nombre);
-            this.llenarTabla(ciudadId);
+            select = this.comboCiudad.getSelectedIndex();
+            this.llenarTabla(select);
         }
     }//GEN-LAST:event_comboCiudadActionPerformed
 
@@ -237,6 +239,7 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
 
     public void cargarCiudades(Lugar Estado){
         this.comboCiudad.removeAllItems();
+        this.ciudadesAux.removeAllElements();
 
         int codigoEstado = -1;
         codigoEstado = Estado.getId();
@@ -246,6 +249,7 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
 
         for (Lugar lugar : ciudades) {
             if (lugar.getLugarID() == codigoEstado){
+                ciudadesAux.addElement(lugar);
                 this.comboCiudad.addItem(lugar.getNombrePropio());
             }
         }
@@ -262,7 +266,7 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
         return id;
     }
 
-    public void llenarTabla(int lugarId){
+    public void llenarTabla(int select){
 
         for (int i = 0; i < dm.getRowCount(); i++) {
             this.dm.removeRow(i);
@@ -272,7 +276,7 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
         vecCentros = controlCentro.traerTodosLosCentros();
 
         for (CentroDistribucion centro : vecCentros){
-            if(centro.getLugarId() == lugarId){
+            if(centro.getLugarId() == ciudadesAux.elementAt(select).getId()){
                 Vector info = new Vector();
                 info.addElement(centro.getCodigo());
                 info.addElement(centro.getNombre());
