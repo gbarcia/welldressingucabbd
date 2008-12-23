@@ -198,9 +198,7 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
     }//GEN-LAST:event_comboEstadoActionPerformed
 
     private void comboCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCiudadActionPerformed
-        String nombre = "";
-        int ciudadId = -1;
-        int select = -1;
+       int select = -1;
         if (this.comboCiudad.getItemCount()>0){
             select = this.comboCiudad.getSelectedIndex();
             this.llenarTabla(select);
@@ -253,17 +251,6 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
                 this.comboCiudad.addItem(lugar.getNombrePropio());
             }
         }
-    }
-
-    public int buscarCiudadId(String nombre){
-        int id = -1;
-        for (Lugar lugar : ciudades){
-            if (lugar.getNombrePropio().equals(nombre)){
-                id = lugar.getId();
-                break;
-            }
-        }
-        return id;
     }
 
     public void llenarTabla(int select){
