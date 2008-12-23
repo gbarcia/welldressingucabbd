@@ -72,20 +72,20 @@ public class ControlCentroDistribucionTest {
 
     /**
      * Test of traerTodosLosCentros method, of class ControlCentroDistribucion.
-     */
-    @Test
-    public void testTraerTodosLosCentros() throws IOException {
-        System.out.println("traerTodosLosCentros");
-        ControlCentroDistribucion instance = new ControlCentroDistribucion();
-        Collection<CentroDistribucion> result = instance.traerTodosLosCentros();
-        assertNotNull(result);
-
-        for (CentroDistribucion centroDistribucion : result) {
-            System.out.println("nombre"+centroDistribucion.getNombre());
-
-        }
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+//     */
+//    @Test
+//    public void testTraerTodosLosCentros() throws IOException {
+//        System.out.println("traerTodosLosCentros");
+//        ControlCentroDistribucion instance = new ControlCentroDistribucion();
+//        Collection<CentroDistribucion> result = instance.traerTodosLosCentros();
+//        assertNotNull(result);
+//
+//        for (CentroDistribucion centroDistribucion : result) {
+//            System.out.println("nombre"+centroDistribucion.getNombre());
+//
+//        }
+//        // TODO review the generated test code and remove the default call to fail.
+//        //fail("The test case is a prototype.");
+//    }
 
 }
