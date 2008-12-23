@@ -44,6 +44,10 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
         ciudadesAux = new Vector();
         ciudades = new Vector();
         estados = new Vector();
+
+        controlCentro = new ControlGuiCentroDistribucion();
+        vecCentros = controlCentro.traerTodosLosCentros();
+        
         estados = result;
 
         for (Lugar lugar : result){
@@ -199,6 +203,7 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
 
     private void comboCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCiudadActionPerformed
        int select = -1;
+       //select = this.comboCiudad.getSelectedIndex();
         if (this.comboCiudad.getItemCount()>0){
             select = this.comboCiudad.getSelectedIndex();
             this.llenarTabla(select);
@@ -259,11 +264,9 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
             this.dm.removeRow(i);
         }
 
-        controlCentro = new ControlGuiCentroDistribucion();
-        vecCentros = controlCentro.traerTodosLosCentros();
-
         for (CentroDistribucion centro : vecCentros){
             if(centro.getLugarId() == ciudadesAux.elementAt(select).getId()){
+                System.out.println("selected index: "+select);
                 Vector info = new Vector();
                 info.addElement(centro.getCodigo());
                 info.addElement(centro.getNombre());
