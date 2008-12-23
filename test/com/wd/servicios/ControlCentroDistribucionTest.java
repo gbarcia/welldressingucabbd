@@ -7,6 +7,7 @@ package com.wd.servicios;
 
 import com.wd.dominio.CentroDistribucion;
 import java.io.IOException;
+import java.util.Collection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -50,6 +51,39 @@ public class ControlCentroDistribucionTest {
         boolean expResult = true;
         boolean result = instance.agregarCentroDistribucion(centro);
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of agregarCentroDistribucion method, of class ControlCentroDistribucion.
+     */
+    /*@Test
+    public void testAgregarCentroDistribucion_CentroDistribucion() {
+        System.out.println("agregarCentroDistribucion");
+        CentroDistribucion centro = null;
+        ControlCentroDistribucion instance = new ControlCentroDistribucion();
+        boolean expResult = false;
+        boolean result = instance.agregarCentroDistribucion(centro);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }*/
+
+    /**
+     * Test of traerTodosLosCentros method, of class ControlCentroDistribucion.
+     */
+    @Test
+    public void testTraerTodosLosCentros() throws IOException {
+        System.out.println("traerTodosLosCentros");
+        ControlCentroDistribucion instance = new ControlCentroDistribucion();
+        Collection<CentroDistribucion> result = instance.traerTodosLosCentros();
+        assertNotNull(result);
+
+        for (CentroDistribucion centroDistribucion : result) {
+            System.out.println("nombre"+centroDistribucion.getNombre());
+
+        }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

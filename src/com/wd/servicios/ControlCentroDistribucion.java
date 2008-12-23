@@ -7,6 +7,7 @@ import com.wd.dominio.CentroDistribucion;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
+import java.util.Collection;
 import org.apache.log4j.Logger;
 
 /**
@@ -47,5 +48,24 @@ public class ControlCentroDistribucion {
         } finally {
             return resultado;
         }
+    }
+
+    /**
+     * Metodo para buscar todos los centros de distribuición del sistema
+     * @return Collection todos los centros de distribuición registrados
+     */
+    public Collection<CentroDistribucion> traerTodosLosCentros () {
+        Collection<CentroDistribucion> coleccionCentros = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los " +
+            "Departamentos");
+            coleccionCentros = sqlMap.queryForList("TodosLosCentros");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccionCentros;
+        }
+
     }
 }

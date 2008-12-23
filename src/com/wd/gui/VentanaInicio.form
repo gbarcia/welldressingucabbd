@@ -160,7 +160,6 @@
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroRegistro">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Agregar centro"/>
-                    <Property name="actionCommand" type="java.lang.String" value="Agregar centro"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCentroRegistroActionPerformed"/>
@@ -175,6 +174,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Consultar un centro"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCentroConsultarActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroEliminar">
                   <Properties>

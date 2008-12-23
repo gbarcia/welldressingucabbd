@@ -150,6 +150,23 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Metodo para buscar todos los Centros Distribucion del sistema
+     * @return Collection todos los Centros Distribucion registrados
+     */
+    public Collection traerTodosLosCentros() {
+        Collection<CentroDistribucion> centros = null;
+        try {
+            this.controlCentroDistribucion = new ControlCentroDistribucion();
+            bitacora.info("Control Centro Distribucion Iniciado correctamente");
+            centros = controlCentroDistribucion.traerTodosLosCentros();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control horario por " + ex.getMessage());
+        } finally {
+            return centros;
+        }
+    }
+
+    /**
      * Metodo para Agregar un nuevo Departamento
      * @param departamento el nuevo departamento a agregar
      * @return boolean resultado de la operación
