@@ -28,7 +28,7 @@
 
     <select id="todosLosEstados" resultMap="traerTodosLosEstados">
        select l.id,l.nombre
-       from lugar l
+       from LUGAR l
        where tipo= 0
     </select>
 
