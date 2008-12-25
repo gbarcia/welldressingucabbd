@@ -140,7 +140,7 @@ public class ControlLugarTest {
     public void testAgregarLugar() {
         try {
             System.out.println("agregarLugar");
-            Lugar lugar = new Lugar(0, "ARAGUA",0);
+            Lugar lugar = new Lugar(0, "ARAGUA",1,11,"ARAGUITA");
             ControlLugar instance = new ControlLugar();
             boolean expResult = true;
             boolean result = instance.agregarLugar(lugar);
