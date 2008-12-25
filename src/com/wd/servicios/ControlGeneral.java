@@ -260,7 +260,7 @@ public class ControlGeneral implements IfaceControlGeneral {
 
     /**
      * Metodo para Agregar un nueva Clase
-     * @param departamento la nueva clase a agregar
+     * @param newClase la nueva clase a agregar
      * @return boolean resultado de la operación
      */
     public boolean agregarClase(Departamento newClase) {
@@ -355,7 +355,7 @@ public class ControlGeneral implements IfaceControlGeneral {
 
     /**
      * Metodo para Agregar un nueva SubClase
-     * @param departamento la nueva Subclase a agregar
+     * @param newSubClase la nueva Subclase a agregar
      * @return boolean resultado de la operación
      */
     public boolean agregarSubClase(Departamento newSubClase) {
@@ -375,7 +375,7 @@ public class ControlGeneral implements IfaceControlGeneral {
 
     /**
      * Metodo para modificar una SubClase
-     * @param newClase objeto Departamento de tipo subclase a modificar
+     * @param newSubClase objeto Departamento de tipo subclase a modificar
      * @return boolean resultado de la operacion
      */
     public boolean modificarSubClase(Departamento newSubClase) {
@@ -413,7 +413,7 @@ public class ControlGeneral implements IfaceControlGeneral {
 
     /**
      * Metodo para  eliminar una Subclase
-     * @param clase objeto Departamento de tipo subclase a eliminar
+     * @param Subclase objeto Departamento de tipo subclase a eliminar
      * @return int resultado de la operación
      */
     public int eliminarSubClase(Departamento Subclase) {

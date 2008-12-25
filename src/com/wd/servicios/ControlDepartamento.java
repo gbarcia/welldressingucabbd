@@ -112,7 +112,7 @@ public class ControlDepartamento {
 
     /**
      * Metodo para agregar una SubClase
-     * @param departamento objeto Departamento a instertar
+     * @param newSubClase objeto Departamento a instertar
      * @return boolean resultado exito o no de la operacion
      */
     public boolean agregarSubClase(Departamento newSubClase) {
@@ -170,7 +170,7 @@ public class ControlDepartamento {
 
      /**
      * Metodo para modificar cualquier atributo de una Subclase
-     * @param newClase objeto departamento a modificar
+     * @param newSubClase objeto departamento a modificar
      * @return resultado de la operacion
      */
     public boolean modificarSubClase(Departamento newSubClase) {
@@ -191,7 +191,7 @@ public class ControlDepartamento {
 
     /**
      * Metodo para agregar una Clase
-     * @param departamento objeto Departamento a instertar
+     * @param newClase objeto Departamento a instertar
      * @return boolean resultado exito o no de la operacion
      */
     public boolean agregarClase(Departamento newClase) {

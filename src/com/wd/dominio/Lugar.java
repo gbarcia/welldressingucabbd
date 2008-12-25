@@ -71,8 +71,10 @@ public class Lugar {
     }
 
     /**metodo para obtener el id de referencia jerarquico de un lugar*/
-    public int getLugarID() {
+    public Integer getLugarID() {
+        if (this.lugarID != null)
         return lugarID;
+        else return null;
     }
 
     /**metodo para establecer el id de referencia jerarquico de un lugar
