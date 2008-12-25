@@ -41,7 +41,7 @@ public class ControlGuiDepartamento {
 
     /**
      * Metodo para modificar una Subclase del sistema
-     * @param newClase objeto departamento a modificar
+     * @param newSubClase objeto departamento a modificar
      */
     public void modificarSubClasedelSistema(Departamento newSubClase) {
         boolean resultado = ControlGeneral.getInstance().modificarSubClase(newSubClase);
@@ -68,7 +68,7 @@ public class ControlGuiDepartamento {
 
     /**
      * Metodo para eliminar una Subclase del sistema
-     * @param clase Departamento Subclase a eliminar
+     * @param Subclase Departamento Subclase a eliminar
      */
     public void  eliminarSubClasedelSistema (Departamento Subclase){
         int resultado = ControlGeneral.getInstance().eliminarSubClase(Subclase);
