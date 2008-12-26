@@ -1,5 +1,6 @@
 package com.wd.gui;
 
+import java.util.Collection;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 
@@ -59,6 +60,9 @@ public class ControlGui {
 
     /** Variable de la ventana modificar SubClase*/
     private VentanaModificarSubClase ventanaModificarSubClase;
+
+    /** Variable de la ventana para agregar un lugar*/
+    private VentanaAgregarLugar ventanaAgregarLugar;
 
 
 /** Constructor del ControlGui */
@@ -237,6 +241,16 @@ public class ControlGui {
     public void iniciarVentanaModificarSubClase (boolean var, Vector result){
         ventanaModificarSubClase = new VentanaModificarSubClase(result);
         ventanaModificarSubClase.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana para agregar un Lugar
+     * @param var booleano que indica si mostrar o no la ventana
+     * @param result Coleccion con todos los estados
+     */
+    public void iniciarVentanaAgregarLugar (boolean var, Collection result){
+        ventanaAgregarLugar = new VentanaAgregarLugar(result);
+        ventanaAgregarLugar.setVisible(var);
     }
 
     /**
