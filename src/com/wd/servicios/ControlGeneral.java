@@ -27,6 +27,8 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlDepartamento controlDepartamento;
     /** Variable para trabajar con el controlador de los lugares*/
     private ControlLugar controlLugar;
+    /** Variable para trabajar con el controlador de los lugares*/
+    private ControlProveedor controlProveedor;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
