@@ -23,9 +23,9 @@ public class Producto {
 
     /**
      * Constructor de la clase
-     * @param id
-     * @param nombre
-     * @param descripcion
+     * @param id el identificador del producto
+     * @param nombre el nombre del producto
+     * @param descripcion la descripcion del producto
      */
     public Producto(int id, String nombre, String descripcion) {
         this.id = id;
