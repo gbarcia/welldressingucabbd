@@ -4,6 +4,7 @@ import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
+import com.wd.dominio.Proveedor;
 import com.wd.dominio.Tienda;
 import java.util.Collection;
 
@@ -81,4 +82,11 @@ public interface IfaceControlGeneral {
      * @return boolean resultado de la operación
      */
     public boolean  agregarLugar (Lugar newLugar);
+
+     /**
+    * Operacion para agregar un proveedor al sistema
+    * @param proveedor el proveedor a registrar
+    * @return boolean resultado de la operacion
+    */
+    public boolean agregarProveedor (Proveedor proveedor);
 }
