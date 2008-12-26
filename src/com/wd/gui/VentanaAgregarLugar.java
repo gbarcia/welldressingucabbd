@@ -12,8 +12,8 @@ package com.wd.gui;
 
 import com.wd.dominio.Lugar;
 import com.wd.gui.controlparticular.ControlGuiLugar;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Vector;
 
 /**
  *
@@ -176,7 +176,7 @@ public class VentanaAgregarLugar extends javax.swing.JFrame {
         String nombree = this.nombre.getText();
         if (seleccion == 1) {
             int seleccionEstado = this.comboEstado.getSelectedIndex();
-            ArrayList<Lugar> arregloEdo = (ArrayList<Lugar>) this.coleccion;
+            Vector<Lugar> arregloEdo = (Vector<Lugar>) this.coleccion;
             Lugar estadoP = arregloEdo.get(seleccionEstado);
             controlador.agregarLugarAlSistema(nombree, seleccion, estadoP.getId());
         }
