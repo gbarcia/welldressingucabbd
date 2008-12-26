@@ -262,7 +262,7 @@ public class ControlGui {
      * @param result Coleccion con todos las ciudades
      */
     public void iniciarVentanaAgregarProveedor (boolean var, Collection result){
-        ventanaAgregarproveedor = new VentanaAgregarProveedor();
+        ventanaAgregarproveedor = new VentanaAgregarProveedor(result);
         ventanaAgregarproveedor.setVisible(var);
     }
 
