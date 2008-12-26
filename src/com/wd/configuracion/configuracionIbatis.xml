@@ -25,5 +25,6 @@
     <sqlMap resource="com/wd/persistencia/ProductoMap.xml" />
     <sqlMap resource="com/wd/persistencia/DepartamentoMap.xml" />
     <sqlMap resource="com/wd/persistencia/LugarMap.xml" />
+    <sqlMap resource="com/wd/persistencia/ProveedorMap.xml" />
 
 </sqlMapConfig>
