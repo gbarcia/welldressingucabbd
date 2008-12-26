@@ -7,7 +7,7 @@
 
    <typeAlias alias="proveedor" type="com.wd.dominio.Proveedor"/>
 
-    <insert id="agregarProvedor" parameterClass="proveedor">
+    <insert id="agregarProveedor" parameterClass="proveedor">
         INSERT INTO EMPRESA_SERVICIO
         (rif,
         nombre,
@@ -18,7 +18,7 @@
         tipo,
         LUGAR_id) 
         VALUES (#rif#, #nombre#, #telefono#, #nombreContacto#, #apellidoContacto#,
-        #direccion#,#tipo#,#lugarID#)
+        #direccion#,0,#lugarID#)
     </insert>
 
     </sqlMap>
