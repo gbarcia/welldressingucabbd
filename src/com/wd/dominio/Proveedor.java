@@ -34,12 +34,12 @@ public class Proveedor {
     /** Constructor sin el nombre del lugar donde se encuentra*/
     public Proveedor(String rif, String nombre, String telefono, String direccion,
                      Integer lugarID, String nombreContacto, String apellidoContacto) {
-        this.rif = rif;
-        this.nombre = nombre;
-        this.telefono = telefono;
+        this.setRif(rif);
+        this.setNombre(nombre);
+        this.setTelefono(telefono);
         this.setDireccion(direccion);
         this.lugarID = lugarID;
-        this.nombreContacto = nombreContacto;
+        this.setNombreContacto(nombreContacto);
         this.setApellidoContacto(apellidoContacto);
     }
 
@@ -47,13 +47,13 @@ public class Proveedor {
     public Proveedor(String rif, String nombre, String telefono, String direccion,
                     Integer lugarID, String nombreCiudad, String nombreContacto,
                     String apellidoContacto) {
-        this.rif = rif;
-        this.nombre = nombre;
-        this.telefono = telefono;
+        this.setRif(rif);
+        this.setNombre(nombre);
+        this.setTelefono(telefono);
         this.setDireccion(direccion);
         this.lugarID = lugarID;
-        this.nombreCiudad = nombreCiudad;
-        this.nombreContacto = nombreContacto;
+        this.setNombreCiudad(nombreCiudad);
+        this.setNombreContacto(nombreContacto);
         this.setApellidoContacto(apellidoContacto);
     }
 
