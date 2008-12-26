@@ -39,17 +39,37 @@ public class ControlGuiLugar {
         }
         return resultado;
     }
-
+    
+     /**
+     * Operacion para agregar un lugar de tipo estado en el sistema
+     * @param estado estado a agregar de tipo lugar
+     * @return resultado boolean de exito o no de la operacion
+     */
     private boolean agregarEstado(Lugar estado) {
         boolean resultado = false;
-
-        return false;
+        resultado = controlG.agregarLugar(estado);
+        return resultado;
     }
 
+     /**
+     * Operacion para agregar un lugar de tipo ciudad en el sistema
+     * @param ciudad ciudad a agregar de tipo lugar
+     * @return resultado boolean de exito o no de la operacion
+     */
     private boolean agregarCiudad(Lugar ciudad) {
-        return false;
+        boolean resultado = false;
+        resultado = controlG.agregarLugar(ciudad);
+        return resultado;
     }
 
+     /**
+     * Operacion para agregar un lugar en el sistema, no recibe el identificador
+     * puesto que en la base de datos esta dispuesto con la caracteristica
+     * auto_increment
+     * @param nombrePropio el nombre del lugar
+     * @param tipo el tipo de lugar 0 para estado y 1 para ciudad
+     * @param LugarId el id del lugar al que pertenece (FK)
+     */
     public void agregarLugarAlSistema(String nombrePropio, int tipo,
             int LugarId) {
         Lugar estado = null;
