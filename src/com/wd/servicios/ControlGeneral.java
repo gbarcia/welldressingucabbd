@@ -27,7 +27,7 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlDepartamento controlDepartamento;
     /** Variable para trabajar con el controlador de los lugares*/
     private ControlLugar controlLugar;
-    /** Variable para trabajar con el controlador de los lugares*/
+    /** Variable para trabajar con el controlador de los proveedores*/
     private ControlProveedor controlProveedor;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
@@ -461,6 +461,17 @@ public class ControlGeneral implements IfaceControlGeneral {
     * @return boolean resultado de la operacion
     */
     public boolean agregarProveedor (Proveedor proveedor) {
-        return false;
+         boolean resultado = false;
+        try {
+            this.controlProveedor = new ControlProveedor();
+            bitacora.info("Control Proveedor Iniciado correctamente");
+            controlProveedor.agregarProveedor(proveedor);
+            resultado = true;
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar control proveedor por " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
     }
 }
