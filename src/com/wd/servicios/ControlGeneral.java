@@ -7,7 +7,6 @@ import com.wd.dominio.Lugar;
 import com.wd.dominio.Tienda;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
