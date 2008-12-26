@@ -11,6 +11,8 @@
 package com.wd.gui;
 
 import com.wd.dominio.Lugar;
+import com.wd.gui.controlparticular.ControlGuiLugar;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -18,6 +20,10 @@ import java.util.Collection;
  * @author gerardo
  */
 public class VentanaAgregarLugar extends javax.swing.JFrame {
+
+    private ControlGuiLugar controlador;
+
+    private Collection<Lugar> coleccion;
 
     /** Creates new form VentanaAgregarLugar */
     public VentanaAgregarLugar(Collection<Lugar> estados) {
@@ -28,6 +34,8 @@ public class VentanaAgregarLugar extends javax.swing.JFrame {
         }
         this.comboEstado.setVisible(false);
         this.labelEdo.setVisible(false);
+        this.coleccion = estados;
+        controlador = new ControlGuiLugar();
     }
 
     /** This method is called from within the constructor to
@@ -43,7 +51,7 @@ public class VentanaAgregarLugar extends javax.swing.JFrame {
         comboTipo = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         labelEdo = new javax.swing.JLabel();
         comboEstado = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
@@ -80,7 +88,7 @@ public class VentanaAgregarLugar extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(3, 3, 3)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelEdo)
                         .addGap(12, 12, 12)
@@ -97,7 +105,7 @@ public class VentanaAgregarLugar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelEdo)
@@ -106,6 +114,11 @@ public class VentanaAgregarLugar extends javax.swing.JFrame {
         );
 
         jButton1.setText("Registrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +171,20 @@ public class VentanaAgregarLugar extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_comboTipoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int seleccion = this.comboTipo.getSelectedIndex();
+        String nombree = this.nombre.getText();
+        if (seleccion == 1) {
+            int seleccionEstado = this.comboEstado.getSelectedIndex();
+            ArrayList<Lugar> arregloEdo = (ArrayList<Lugar>) this.coleccion;
+            Lugar estadoP = arregloEdo.get(seleccionEstado);
+            controlador.agregarLugarAlSistema(nombree, seleccion, estadoP.getId());
+        }
+        else {
+            controlador.agregarLugarAlSistema(nombree, seleccion, -1);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -182,7 +209,7 @@ public class VentanaAgregarLugar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelEdo;
+    private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 }
