@@ -38,7 +38,7 @@ public class Lugar {
      */
     public Lugar(Integer id, String nombrePropio, int tipo) {
         this.id = new Integer(id);
-        this.nombrePropio = nombrePropio;
+        this.nombrePropio = nombrePropio.toUpperCase();
         this.tipo = tipo;
     }
     
@@ -52,7 +52,7 @@ public class Lugar {
     public Lugar(Integer id, String nombrePropio, int tipo, int lugarID,
             String nombrePertenece) {
         this.id = new Integer(id);
-        this.nombrePropio = nombrePropio;
+        this.nombrePropio = nombrePropio.toUpperCase();
         this.tipo = tipo;
         this.lugarID = new Integer(lugarID);
         this.nombrePertenece = nombrePertenece;
