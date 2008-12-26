@@ -64,6 +64,9 @@ public class ControlGui {
     /** Variable de la ventana para agregar un lugar*/
     private VentanaAgregarLugar ventanaAgregarLugar;
 
+     /** Variable de la ventana para agregar un provedor*/
+    private VentanaAgregarProveedor ventanaAgregarproveedor;
+
 
 /** Constructor del ControlGui */
     public ControlGui() {
@@ -251,6 +254,16 @@ public class ControlGui {
     public void iniciarVentanaAgregarLugar (boolean var, Collection result){
         ventanaAgregarLugar = new VentanaAgregarLugar(result);
         ventanaAgregarLugar.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana para agregar un proveedor
+     * @param var booleano que indica si mostrar o no la ventana
+     * @param result Coleccion con todos las ciudades
+     */
+    public void iniciarVentanaAgregarProveedor (boolean var, Collection result){
+        ventanaAgregarproveedor = new VentanaAgregarProveedor();
+        ventanaAgregarproveedor.setVisible(var);
     }
 
     /**
