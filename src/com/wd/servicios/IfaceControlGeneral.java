@@ -74,4 +74,11 @@ public interface IfaceControlGeneral {
      * @return Collection coleccion de objetos Lugar
      */
      public Collection<Lugar> traerTodosLosLuagres(int operacion);
+
+     /**
+     * Metodo para Agregar un lugar Nuevo
+     * @param newLugar el nuevo lugar a agregar
+     * @return boolean resultado de la operación
+     */
+    public boolean  agregarLugar (Lugar newLugar);
 }
