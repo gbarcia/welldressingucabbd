@@ -4,3 +4,21 @@
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
     <sqlMap namespace="Proveedor">
+
+   <typeAlias alias="proveedor" type="com.wd.dominio.Proveedor"/>
+
+    <insert id="agregarProvedor" parameterClass="proveedor">
+        INSERT INTO EMPRESA_SERVICIO
+        (rif,
+        nombre,
+        telefono,
+        nombre_contacto,
+        apellido_contacto,
+        direccion,
+        tipo,
+        LUGAR_id) 
+        VALUES (#rif#, #nombre#, #telefono#, #nombreContacto#, #apellidoContacto#,
+        #direccion#,#tipo#,#lugarID#)
+    </insert>
+
+    </sqlMap>
