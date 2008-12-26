@@ -13,6 +13,7 @@ import com.wd.gui.controlparticular.ControlGuiCentroDistribucion;
 import com.wd.gui.controlparticular.ControlGuiDepartamento;
 import com.wd.gui.controlparticular.ControlGuiHorario;
 import com.wd.gui.controlparticular.ControlGuiLugar;
+import java.util.Collection;
 import java.util.Vector;
 
 
@@ -561,6 +562,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuUbicacionesLugares.setText("Lugares");
 
         menuUbicacionesLugarNuevo.setText("Nuevo lugar");
+        menuUbicacionesLugarNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUbicacionesLugarNuevoActionPerformed(evt);
+            }
+        });
         menuUbicacionesLugares.add(menuUbicacionesLugarNuevo);
 
         menuUbicacionesLugarConsulta.setText("Consulta de lugares");
@@ -718,6 +724,14 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui = new ControlGui();
        this.controlGeneralGui.iniciarVentanaConsultarCentro(true,result);
     }//GEN-LAST:event_menuCentroConsultarActionPerformed
+
+    private void menuUbicacionesLugarNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUbicacionesLugarNuevoActionPerformed
+        Collection<Lugar> result = null;
+        this.controlGuiLugar = new ControlGuiLugar();
+        result = this.controlGuiLugar.traerTodosLosLugares(1);
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaAgregarLugar(true, result);
+    }//GEN-LAST:event_menuUbicacionesLugarNuevoActionPerformed
 
     /**
     * @param args the command line arguments
