@@ -99,42 +99,72 @@ public class Proveedor {
         this.lugarID = lugarID;
     }
 
+    /** metodo para obtener el nombre del proveedor
+     * @return String nombre del proveedor
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /** metodo para establecer el nombre del proveedor
+     * @param nombre String nombre del proveedor
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre.toUpperCase();
     }
 
+    /** metodo para obtener el nombre de la ciudad donde se encuentra
+     * @return String nombre de la ciudad donde se encuentra
+     */
     public String getNombreCiudad() {
         return nombreCiudad;
     }
 
+    /** metodo para establecer el nombre de la ciudad donde se encuentra
+     * @param nombreCiudad String nombre de la ciudad donde se encuentra
+     */
     public void setNombreCiudad(String nombreCiudad) {
         this.nombreCiudad = nombreCiudad.toUpperCase();
     }
 
+    /** metodo para obtener el nombre de la persona de contacto
+     * @return String nombre de la persona de contacto
+     */
     public String getNombreContacto() {
         return nombreContacto;
     }
 
+    /** metodo para establecer el nombre de la persona de contacto
+     * @param nombreContacto String con el nombre de la persona de contacto
+     */
     public void setNombreContacto(String nombreContacto) {
         this.nombreContacto = nombreContacto.toUpperCase();
     }
 
+    /** metodo para obtener el rif
+     * @return String rif del proveedor
+     */
     public String getRif() {
         return rif;
     }
 
+    /** metodo para establecer el rif
+     * @param rif String el rif del proveedor
+     */
     public void setRif(String rif) {
         this.rif = rif.toUpperCase();
     }
 
+    /** metodo para obtener el telefono del proveedor
+     * @return String telefono del proveedor
+     */
     public String getTelefono() {
         return telefono;
     }
 
+    /** metodo para establecer el telefono del proveedor
+     * @param telefono String telefono del proveedor
+     */
     public void setTelefono(String telefono) {
         this.telefono = telefono.toUpperCase();
     }    
