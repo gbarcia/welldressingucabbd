@@ -22,7 +22,6 @@ import java.util.Vector;
 public class VentanaAgregarLugar extends javax.swing.JFrame {
 
     private ControlGuiLugar controlador;
-
     private Collection<Lugar> coleccion;
 
     /** Creates new form VentanaAgregarLugar */
@@ -179,10 +178,13 @@ public class VentanaAgregarLugar extends javax.swing.JFrame {
             Vector<Lugar> arregloEdo = (Vector<Lugar>) this.coleccion;
             Lugar estadoP = arregloEdo.get(seleccionEstado);
             controlador.agregarLugarAlSistema(nombree, seleccion, estadoP.getId());
-        }
-        else {
+            this.comboEstado.setVisible(false);
+            this.labelEdo.setVisible(false);
+        } else {
             controlador.agregarLugarAlSistema(nombree, seleccion, -1);
+            this.setVisible(false);
         }
+        this.nombre.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
