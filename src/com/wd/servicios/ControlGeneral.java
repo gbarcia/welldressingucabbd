@@ -7,6 +7,7 @@ import com.wd.dominio.Lugar;
 import com.wd.dominio.Tienda;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -254,6 +255,27 @@ public class ControlGeneral implements IfaceControlGeneral {
         } catch (IOException ex) {
              bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
         } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para Agregar un lugar Nuevo
+     * @param newLugar el nuevo lugar a agregar
+     * @return boolean resultado de la operación
+     */
+    public boolean  agregarLugar (Lugar newLugar) {
+        boolean resultado = false;
+        try {
+            this.controlLugar = new ControlLugar();
+            bitacora.info("Control Lugar Iniciado correctamente");
+            this.controlLugar.agregarLugar(newLugar);
+            resultado = true;
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar control lugar por " + ex.getMessage());
+            resultado = false;
+        }
+        finally {
             return resultado;
         }
     }
