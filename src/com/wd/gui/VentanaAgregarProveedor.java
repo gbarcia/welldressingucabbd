@@ -29,7 +29,7 @@ public class VentanaAgregarProveedor extends javax.swing.JFrame {
         initComponents();
 
         for (Lugar lugar : ciudades) {
-            this.jComboCiudad.addItem(lugar);
+            this.jComboCiudad.addItem(lugar.getNombrePropio());
         }
         this.coleccion = ciudades;
         controlador = new ControlGuiLugar();
