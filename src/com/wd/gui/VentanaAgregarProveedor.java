@@ -13,7 +13,9 @@ package com.wd.gui;
 
 import com.wd.dominio.Lugar;
 import com.wd.gui.controlparticular.ControlGuiLugar;
+import com.wd.gui.controlparticular.ControlGuiProveedor;
 import java.util.Collection;
+import java.util.Vector;
 
 /**
  *
@@ -22,6 +24,7 @@ import java.util.Collection;
 public class VentanaAgregarProveedor extends javax.swing.JFrame {
 
     private ControlGuiLugar controlador;
+    private ControlGuiProveedor controladorP;
     private Collection<Lugar> coleccion;
 
     /** Creates new form VentanaAgregarProveedor */
@@ -33,6 +36,7 @@ public class VentanaAgregarProveedor extends javax.swing.JFrame {
         }
         this.coleccion = ciudades;
         controlador = new ControlGuiLugar();
+        controladorP = new ControlGuiProveedor();
     }
 
     /** This method is called from within the constructor to
@@ -161,6 +165,11 @@ public class VentanaAgregarProveedor extends javax.swing.JFrame {
         );
 
         jButton1.setText("Registrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -208,6 +217,22 @@ public class VentanaAgregarProveedor extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nombreProveedor = this.jTnombre.getText();
+        String rifProveedor    = this.jTrif.getText();
+        String telefonoProve   = this.jTtelf.getText();
+        Integer ciudad         = this.jComboCiudad.getSelectedIndex();
+        String direccion       = this.jAdireccion.getText();
+        String nombreCon       = this.jTContactoNombre.getText();
+        String apellidoCon     = this.jTContactoApellido.getText();
+
+        Vector<Lugar> arregloCiudades = (Vector<Lugar>) this.coleccion;
+        Lugar ciudadP = arregloCiudades.get(ciudad);
+
+        controladorP.agregarProveedorAlSistema(rifProveedor, nombreProveedor, telefonoProve,
+                direccion, nombreCon, apellidoCon, ciudadP.getId());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
     * @param args the command line arguments
