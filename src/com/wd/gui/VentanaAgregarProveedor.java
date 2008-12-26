@@ -11,15 +11,28 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Lugar;
+import com.wd.gui.controlparticular.ControlGuiLugar;
+import java.util.Collection;
+
 /**
  *
  * @author gerardo
  */
 public class VentanaAgregarProveedor extends javax.swing.JFrame {
 
+    private ControlGuiLugar controlador;
+    private Collection<Lugar> coleccion;
+
     /** Creates new form VentanaAgregarProveedor */
-    public VentanaAgregarProveedor() {
+    public VentanaAgregarProveedor(Collection<Lugar> ciudades) {
         initComponents();
+
+        for (Lugar lugar : ciudades) {
+            this.jComboCiudad.addItem(lugar);
+        }
+        this.coleccion = ciudades;
+        controlador = new ControlGuiLugar();
     }
 
     /** This method is called from within the constructor to
@@ -201,8 +214,12 @@ public class VentanaAgregarProveedor extends javax.swing.JFrame {
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Collection<Lugar> ciudades) {
+                new VentanaAgregarProveedor(ciudades).setVisible(true);
+            }
+
             public void run() {
-                new VentanaAgregarProveedor().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }
