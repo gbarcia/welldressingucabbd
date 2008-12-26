@@ -83,7 +83,7 @@ public class ControlGuiLugar {
             resultado = this.agregarCiudad(ciudad);
         }
         if (resultado) {
-        controlador.mostrarMensaje("Lugar " + nombrePropio +  "agregado con éxito",0);
+        controlador.mostrarMensaje("Lugar " + nombrePropio +  " agregado con éxito",0);
         }
         else controlador.mostrarMensaje("Operacion fallida", 1);
     }
