@@ -42,4 +42,8 @@ public class ControlGuiLugar {
         }
         return resultado;
     }
+
+    public void agregarLugarAlSistema () {
+        
+    }
 }
