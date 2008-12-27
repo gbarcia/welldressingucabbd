@@ -60,7 +60,7 @@ public class ControlGuiProveedor {
                     lugar, nombreC, apellidoC);
             resultado = controlG.agregarProveedor(proveedor);
             if (resultado) {
-                controlador.mostrarMensaje("Lugar " + nombre + " agregado con éxito", 0);
+                controlador.mostrarMensaje("Proveedor " + nombre + " agregado con éxito", 0);
             } else {
                 controlador.mostrarMensaje("Operacion fallida", 1);
             }
