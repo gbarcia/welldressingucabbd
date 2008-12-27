@@ -232,6 +232,13 @@ public class VentanaAgregarProveedor extends javax.swing.JFrame {
 
         controladorP.agregarProveedorAlSistema(rifProveedor, nombreProveedor, telefonoProve,
                 direccion, nombreCon, apellidoCon, ciudadP.getId());
+        this.jTnombre.setText("");
+        this.jTrif.setText("");
+        this.jTtelf.setText("");
+        this.jComboCiudad.setSelectedIndex(0);
+        this.jAdireccion.setText("");
+        this.jTContactoNombre.setText("");
+        this.jTContactoApellido.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
