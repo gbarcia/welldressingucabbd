@@ -18,20 +18,30 @@
   </resultMap>
 
   <insert id="agregarCamion" parameterClass="camion">
-      INSERT INTO camion (id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_id)
-      VALUES (null, #placa#, #modelo#, #color#, #estado#, #capacidad#, #CENTRO_DISTRIBUCION_id#)
+    INSERT INTO camion (id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_id)
+    VALUES (null, #placa#, #modelo#, #color#, #estado#, #capacidad#, #CENTRO_DISTRIBUCION_id#)
   </insert>
 
   <select id="consultarCamion" parameterClass="int" resultClass="camion">
+    SELECT id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_id
+    FROM camion
+    WHERE id = #id#
   </select>
 
   <update id="modificarCamion" parameterClass="camion">
+    UPDATE camion
+    SET placa = #placa#, modelo = #modelo#, color = #color#, estado = #estado#, capacidad = #capacidad#, CENTRO_DISTRIBUCION_id = #CENTRO_DISTRIBUCION_id#
+    WHERE id = #id#
   </update>
 
   <delete id="eliminarCamion" parameterClass="camion">
+    DELETE FROM camion
+    WHERE id = #id#
   </delete>
 
   <select id="consultarCamiones" resultMap="resultMapCamion">
+    SELECT id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_id
+    FROM camion
   </select>
 
 </sqlMap>
