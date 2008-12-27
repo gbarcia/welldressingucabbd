@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="camion">
+
+  <typeAlias alias="camion" type="com.wd.dominio.Camion"/>
+
+  <resultMap id="resultMapCamion" class="camion">
+    <result property="id" column="id" />
+    <result property="placa" column="placa" />
+    <result property="modelo" column="modelo" />
+    <result property="color" column="color" />
+    <result property="estado" column="estado" />
+    <result property="capacidad" column="capacidad" />
+    <result property="CENTRO_DISTRIBUCION_id" column="CENTRO_DISTRIBUCION_id" />
+  </resultMap>
+
+  <insert id="agregarCamion" parameterClass="camion">
+  </insert>
+
+  <select id="consultarCamion" parameterClass="int" resultClass="camion">
+  </select>
+
+  <update id="modificarCamion" parameterClass="camion">
+  </update>
+
+  <delete id="eliminarCamion" parameterClass="camion">
+  </delete>
+
+  <select id="consultarCamiones" resultMap="resultMapCamion">
+  </select>
+
+</sqlMap>
