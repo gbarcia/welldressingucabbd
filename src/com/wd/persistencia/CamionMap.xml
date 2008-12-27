@@ -18,6 +18,8 @@
   </resultMap>
 
   <insert id="agregarCamion" parameterClass="camion">
+      INSERT INTO camion (id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_id)
+      VALUES (null, #placa#, #modelo#, #color#, #estado#, #capacidad#, #CENTRO_DISTRIBUCION_id#)
   </insert>
 
   <select id="consultarCamion" parameterClass="int" resultClass="camion">
