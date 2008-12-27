@@ -465,8 +465,7 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlProveedor = new ControlProveedor();
             bitacora.info("Control Proveedor Iniciado correctamente");
-            controlProveedor.agregarProveedor(proveedor);
-            resultado = true;
+            resultado = controlProveedor.agregarProveedor(proveedor);        
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar control proveedor por " + ex.getMessage());
             resultado = false;
