@@ -13,7 +13,7 @@ package com.wd.gui;
 
 import com.wd.dominio.Proveedor;
 import com.wd.gui.controlparticular.ControlGuiProveedor;
-import java.util.Vector;
+import java.util.Collection;
 import javax.swing.DefaultListModel;
 /**
  *
@@ -21,7 +21,7 @@ import javax.swing.DefaultListModel;
  */
 public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
 
-    private Vector<Proveedor> proveedores;
+    private Collection<Proveedor> proveedores;
 
     private ControlGuiProveedor control = new ControlGuiProveedor();
 
