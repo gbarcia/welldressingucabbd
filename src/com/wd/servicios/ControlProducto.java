@@ -111,4 +111,24 @@ public class ControlProducto {
         }
     }
 
+      /**
+     * Metodo para consultar productos para un determinado proveedor
+     * @param rif String con el rif del proveedor a consultar los productos
+     * @return resultado coleccion de productos
+     */
+    public Collection<Producto> consultaProductosProveedor (String rif) {
+        Collection<Producto> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los Productos del " +
+                    "Provedor:" + rif);
+            resultado = sqlMap.queryForList("consultarProductosProveedor", rif);
+        } catch (SQLException ex) {
+            this.bitacora.error("No se pudo realizar la operacion porque: " +
+                    ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
+
 }

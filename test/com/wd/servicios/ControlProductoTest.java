@@ -118,4 +118,85 @@ public class ControlProductoTest {
         }
     }
 
+    /**
+//     * Test of agregarProducto method, of class ControlProducto.
+//     */
+//    @Test
+//    public void testAgregarProducto_Producto() {
+//        System.out.println("agregarProducto");
+//        Producto producto = null;
+//        ControlProducto instance = new ControlProducto();
+//        boolean expResult = false;
+//        boolean result = instance.agregarProducto(producto);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of modificarProducto method, of class ControlProducto.
+//     */
+//    @Test
+//    public void testModificarProducto_Producto() {
+//        System.out.println("modificarProducto");
+//        Producto producto = null;
+//        ControlProducto instance = new ControlProducto();
+//        boolean expResult = false;
+//        boolean result = instance.modificarProducto(producto);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of eliminarProducto method, of class ControlProducto.
+//     */
+//    @Test
+//    public void testEliminarProducto() {
+//        System.out.println("eliminarProducto");
+//        int id = 0;
+//        ControlProducto instance = new ControlProducto();
+//        boolean expResult = false;
+//        boolean result = instance.eliminarProducto(id);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of consultarProductos method, of class ControlProducto.
+//     */
+//    @Test
+//    public void testConsultarProductos1() {
+//        System.out.println("consultarProductos");
+//        ControlProducto instance = new ControlProducto();
+//        Collection<Producto> expResult = null;
+//        Collection<Producto> result = instance.consultarProductos();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of consultaProductosProveedor method, of class ControlProducto.
+     */
+    @Test
+    public void testConsultaProductosProveedor() {
+        System.out.println("consultaProductosProveedor");
+        String rif = "J-643-385-2";
+        ControlProducto instance = null;
+        try {
+            instance = new ControlProducto();
+        } catch (IOException ex) {
+            Logger.getLogger(ControlProductoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Collection<Producto> result = instance.consultaProductosProveedor(rif);
+        assertNotNull(result);
+        for (Producto producto : result) {
+            System.out.println(producto.getNombre());
+        }
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
 }
