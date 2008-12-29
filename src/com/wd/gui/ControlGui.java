@@ -67,6 +67,9 @@ public class ControlGui {
      /** Variable de la ventana para agregar un provedor*/
     private VentanaAgregarProveedor ventanaAgregarproveedor;
 
+    /** Variable de la ventana para editar o consultar proveedor 1*/
+    private VentanaConsultaEdicionProveedor1 ventanaConsulEdipro;
+
 
 /** Constructor del ControlGui */
     public ControlGui() {
@@ -264,6 +267,15 @@ public class ControlGui {
     public void iniciarVentanaAgregarProveedor (boolean var, Collection result){
         ventanaAgregarproveedor = new VentanaAgregarProveedor(result);
         ventanaAgregarproveedor.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana para editar o mostrar proveedor
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaEdiConProveedor (boolean var){
+        ventanaConsulEdipro = new VentanaConsultaEdicionProveedor1();
+        ventanaConsulEdipro.setVisible(var);
     }
 
     /**
