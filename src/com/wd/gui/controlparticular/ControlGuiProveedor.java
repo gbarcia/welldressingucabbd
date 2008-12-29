@@ -5,7 +5,6 @@ import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
 import java.util.Collection;
-import java.util.Vector;
 
 /**
  * Manejador de la interfaz gráfica para Proveedor
@@ -71,14 +70,12 @@ public class ControlGuiProveedor {
         }
     }
 
-    public Vector traerTodosLosProveedores () {
-        Vector<Proveedor> resultado = null;
-        Collection<Proveedor> proveedores = null;
-        proveedores = controlG.todosLosProveedores();
-        resultado = new Vector<Proveedor>();
-        for (Proveedor prove : proveedores) {
-            resultado.add(prove);
-        }
+     /** operacion para traer todos los proveedores registrados en el sistema
+     * @result coleccion de todos los proveedores registrados en el sistema
+     */
+    public Collection<Proveedor> traerTodosLosProveedores () {
+        Collection<Proveedor> resultado = null;
+        resultado = controlG.todosLosProveedores();
         return resultado;
     }
 }
