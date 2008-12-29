@@ -4,6 +4,7 @@ import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
+import com.wd.dominio.Producto;
 import com.wd.dominio.Proveedor;
 import com.wd.dominio.Tienda;
 import java.io.IOException;
@@ -29,6 +30,8 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlLugar controlLugar;
     /** Variable para trabajar con el controlador de los proveedores*/
     private ControlProveedor controlProveedor;
+    /** Variable para trabajar con el controlador de los productos*/
+    private ControlProducto controlProducto;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
@@ -470,6 +473,80 @@ public class ControlGeneral implements IfaceControlGeneral {
             bitacora.info("No se pudo iniciar control proveedor por " + ex.getMessage());
             resultado = false;
         } finally {
+            return resultado;
+        }
+    }
+
+    /**
+    * Operacion para editar un proveedor en el sistema
+    * @param proveedor el proveedor a registrar
+    * @return boolean resultado de la operacion
+    */
+    public boolean editarProveedor (Proveedor proveedor) {
+         boolean resultado = false;
+        try {
+            this.controlProveedor = new ControlProveedor();
+            bitacora.info("Control Proveedor Iniciado correctamente");
+            resultado = controlProveedor.editarProveedor(proveedor);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar control proveedor por " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+     /**
+     * Metodo para buscar todos las Productos para un determinado proveedor
+     * @param rif String del rif del proveedor a buscar sus productos
+     * @return Collection todos los productos para el proveedor
+     */
+     public Collection<Producto> consultaProductosProveedor (String rif) {
+        Collection<Producto> resultado = null;
+        try {
+            this.controlProducto = new ControlProducto();
+            bitacora.info("Control Producto Iniciado correctamente");
+            resultado = controlProducto.consultaProductosProveedor(rif);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control producto por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para consultar un proveedor en el sistema
+     * @param rif String rif del proveedor a consultar
+     * @return resultado Proveedor con los datos de la consulta
+     */
+    public Proveedor consultarProveedor (String rif) {
+        Proveedor resultado = null;
+        try {
+            this.controlProveedor = new ControlProveedor();
+            bitacora.info("Control Proveedor Iniciado correctamente");
+            resultado = this.controlProveedor.consultarProveedor(rif);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control proveedor por " + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para consultar todos los proveedores registrados en el sistema
+     * @return resultado Coleccion de objetos Proveedor
+     */
+    public Collection<Proveedor> todosLosProveedores() {
+        Collection<Proveedor> resultado = null;
+        try {
+            this.controlProveedor = new ControlProveedor();
+            bitacora.info("Control Proveedor Iniciado correctamente");
+            resultado = controlProveedor.todosLosProveedores();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control proveedor por " + ex.getMessage());
+        }
+        finally {
             return resultado;
         }
     }
