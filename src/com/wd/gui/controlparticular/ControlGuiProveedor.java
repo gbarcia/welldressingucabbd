@@ -79,9 +79,16 @@ public class ControlGuiProveedor {
         return resultado;
     }
 
-    public Proveedor consultarProveedor (String rif) {
+    private Proveedor consultarProveedor (String rif) {
         Proveedor resultado = null;
         resultado = controlG.consultarProveedor(rif);
         return resultado;
+    }
+
+    public void iniciarVentanaConsulta (String rif) {
+        Proveedor proveedorC = this.consultarProveedor(rif);
+        if (proveedorC != null) {
+            this.controlador.iniciarCerrarVentanaConsultaProve2(true, proveedorC);
+        }
     }
 }
