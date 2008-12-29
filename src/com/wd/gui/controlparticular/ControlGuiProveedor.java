@@ -78,4 +78,10 @@ public class ControlGuiProveedor {
         resultado = controlG.todosLosProveedores();
         return resultado;
     }
+
+    public Proveedor consultarProveedor (String rif) {
+        Proveedor resultado = null;
+        resultado = controlG.consultarProveedor(rif);
+        return resultado;
+    }
 }

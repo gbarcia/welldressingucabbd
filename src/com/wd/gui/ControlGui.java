@@ -1,5 +1,6 @@
 package com.wd.gui;
 
+import com.wd.dominio.Proveedor;
 import java.util.Collection;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -70,6 +71,8 @@ public class ControlGui {
     /** Variable de la ventana para editar o consultar proveedor 1*/
     private VentanaConsultaEdicionProveedor1 ventanaConsulEdipro;
 
+    /** Variable de la ventana para editar o consultar proveedor 2*/
+    private VentanaConsultaEdicionProveedor2 ventanaConsulEdipro2;
 
 /** Constructor del ControlGui */
     public ControlGui() {
@@ -81,6 +84,16 @@ public class ControlGui {
 */
     public void iniciarCerrarVentanaInicio(boolean var) {
         ventanaInicio.setVisible(var);    
+    }
+
+/**
+* metodo para ocultar o mostrar la ventana de editarConsultar proveedor 2
+* @param var booleano que indica si mostrar o no la ventana
+* @param prove Objeto proveedor con la informacion a mostrar
+*/
+    public void iniciarCerrarVentanaConsultaProve2(boolean var, Proveedor prove) {
+        this.ventanaConsulEdipro2 = new VentanaConsultaEdicionProveedor2(prove);
+        this.ventanaConsulEdipro2.setVisible(var);
     }
 
 /**

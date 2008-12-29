@@ -112,6 +112,11 @@ public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
         );
 
         jButton1.setText("Editar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +169,7 @@ public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void flagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flagActionPerformed
@@ -177,6 +182,12 @@ public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
             this.listaProve.setEnabled(true);
         }
     }//GEN-LAST:event_flagActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (this.flag.isSelected()) {
+            String rif = this.campoRif.getText();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
     * @param args the command line arguments
