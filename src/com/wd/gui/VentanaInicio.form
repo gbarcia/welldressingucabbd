@@ -506,6 +506,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Editar informacion"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem17ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JSeparator" name="jSeparator2">
                     </MenuItem>
@@ -535,6 +538,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Consultar proveedor"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuServiciosProvedoresConsultarActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuServiciosProvedoresEliminar">
                   <Properties>

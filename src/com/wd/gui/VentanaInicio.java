@@ -501,6 +501,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuServiciosProvedoresEditar.setText("Editar proveedor");
 
         jMenuItem17.setText("Editar informacion");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
         menuServiciosProvedoresEditar.add(jMenuItem17);
         menuServiciosProvedoresEditar.add(jSeparator2);
 
@@ -519,6 +524,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuServiciosProvedores.add(menuServiciosProvedoresEditar);
 
         menuServiciosProvedoresConsultar.setText("Consultar proveedor");
+        menuServiciosProvedoresConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuServiciosProvedoresConsultarActionPerformed(evt);
+            }
+        });
         menuServiciosProvedores.add(menuServiciosProvedoresConsultar);
 
         menuServiciosProvedoresEliminar.setText("Eliminar proveedor");
@@ -745,6 +755,16 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniciarVentanaAgregarProveedor(true, result);
     }//GEN-LAST:event_menuServiciosProvedoresAgregarActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaEdiConProveedor1(true);
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void menuServiciosProvedoresConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuServiciosProvedoresConsultarActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaEdiConProveedor1(true);
+    }//GEN-LAST:event_menuServiciosProvedoresConsultarActionPerformed
 
     /**
     * @param args the command line arguments
