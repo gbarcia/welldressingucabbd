@@ -29,7 +29,7 @@ public class ControlTienda {
         this.bitacora.info("Iniciando controlador de tienda");
         String resource = "com/wd/configuracion/configuracionIbatis.xml";
         Reader reader = Resources.getResourceAsReader(resource);
-        sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
+        this.sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
     }
 
      /**
