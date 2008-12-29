@@ -273,7 +273,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana para editar o mostrar proveedor
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaEdiConProveedor (boolean var){
+    public void iniciarVentanaEdiConProveedor1 (boolean var){
         ventanaConsulEdipro = new VentanaConsultaEdicionProveedor1();
         ventanaConsulEdipro.setVisible(var);
     }
