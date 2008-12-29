@@ -4,6 +4,7 @@ import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
+import com.wd.dominio.Producto;
 import com.wd.dominio.Proveedor;
 import com.wd.dominio.Tienda;
 import java.util.Collection;
@@ -89,4 +90,31 @@ public interface IfaceControlGeneral {
     * @return boolean resultado de la operacion
     */
     public boolean agregarProveedor (Proveedor proveedor);
+
+     /**
+     * Metodo para consultar productos para un determinado proveedor
+     * @param rif String con el rif del proveedor a consultar los productos
+     * @return resultado coleccion de productos
+     */
+    public Collection<Producto> consultaProductosProveedor (String rif);
+
+    /**
+     * Operacion para editar un proveedor en el sistema
+     * @param proveedor el proveedor a registrar
+     * @return boolean resultado de la operacion
+     */
+    public boolean editarProveedor(Proveedor proveedor);
+
+     /**
+     * Operacion para consultar un proveedor en el sistema
+     * @param rif String rif del proveedor a consultar
+     * @return resultado Proveedor con los datos de la consulta
+     */
+    public Proveedor consultarProveedor (String rif);
+
+    /**
+     * Operacion para consultar todos los proveedores registrados en el sistema
+     * @return resultado Coleccion de objetos Proveedor
+     */
+    public Collection<Proveedor> todosLosProveedores();
 }
