@@ -14,6 +14,7 @@ package com.wd.gui;
 import com.wd.dominio.Proveedor;
 import com.wd.gui.controlparticular.ControlGuiProveedor;
 import java.util.Collection;
+import java.util.Vector;
 import javax.swing.DefaultListModel;
 /**
  *
@@ -187,6 +188,12 @@ public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
         if (this.flag.isSelected()) {
             String rif = this.campoRif.getText();
             control.iniciarVentanaConsulta(rif);
+        }
+        else {
+            int indiceSeleccionado = this.listaProve.getSelectedIndex();
+            Vector aux = new Vector(proveedores);
+            Proveedor p = (Proveedor) aux.get(indiceSeleccionado);
+            control.iniciarVentanaConsulta(p.getRif());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

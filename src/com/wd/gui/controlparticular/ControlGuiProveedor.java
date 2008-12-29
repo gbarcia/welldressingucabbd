@@ -71,7 +71,7 @@ public class ControlGuiProveedor {
     }
 
      /** operacion para traer todos los proveedores registrados en el sistema
-     * @result coleccion de todos los proveedores registrados en el sistema
+     * @return resultado coleccion de todos los proveedores registrados en el sistema
      */
     public Collection<Proveedor> traerTodosLosProveedores () {
         Collection<Proveedor> resultado = null;
@@ -79,16 +79,27 @@ public class ControlGuiProveedor {
         return resultado;
     }
 
+    /** operacion para consultar un proveedor en el sistema
+     * @param rif String del rif del proveedor a consultar
+     * @return resultado Proveedor Objeto proveedor con la informacion solicitada
+     */
     private Proveedor consultarProveedor (String rif) {
         Proveedor resultado = null;
         resultado = controlG.consultarProveedor(rif);
         return resultado;
     }
 
+    /** Operacion para iniciar la ventana de consulta, recibe un rif y crea
+     * la nueva ventana que presenta la informacion pertinente de ese proveedor
+     * @param rif String del rif del proveedor a consulta
+     */
     public void iniciarVentanaConsulta (String rif) {
         Proveedor proveedorC = this.consultarProveedor(rif);
         if (proveedorC != null) {
             this.controlador.iniciarCerrarVentanaConsultaProve2(true, proveedorC);
+        }
+        else {
+            controlador.mostrarMensaje("Error: El proveedor " + rif + "no existe", 1);
         }
     }
 }
