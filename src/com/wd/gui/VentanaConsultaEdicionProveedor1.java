@@ -11,15 +11,30 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Proveedor;
+import com.wd.gui.controlparticular.ControlGuiProveedor;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
 /**
  *
  * @author gerardo
  */
 public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
 
+    private Vector<Proveedor> proveedores;
+
+    private ControlGuiProveedor control = new ControlGuiProveedor();
+
     /** Creates new form VentanaConsultaEdicionProveedor1 */
     public VentanaConsultaEdicionProveedor1() {
         initComponents();
+        this.jPanel2.setVisible(false);
+        proveedores = control.traerTodosLosProveedores();
+        DefaultListModel modelo = new DefaultListModel();
+        for (Proveedor prove : proveedores) {
+            modelo.addElement(prove.getNombre());
+        }
+        this.listaProve.setModel(modelo);
     }
 
     /** This method is called from within the constructor to
@@ -67,6 +82,11 @@ public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
         );
 
         flag.setText("Activar busqueda por RIF");
+        flag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flagActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Búsqueda por RIF", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 12), java.awt.SystemColor.activeCaption)); // NOI18N
 
@@ -146,6 +166,17 @@ public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void flagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flagActionPerformed
+        if (this.flag.isSelected()) {
+            this.jPanel2.setVisible(true);
+            this.listaProve.setEnabled(false);
+        }
+        else {
+            this.jPanel2.setVisible(false);
+            this.listaProve.setEnabled(true);
+        }
+    }//GEN-LAST:event_flagActionPerformed
 
     /**
     * @param args the command line arguments

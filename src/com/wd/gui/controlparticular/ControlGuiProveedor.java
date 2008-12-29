@@ -4,6 +4,8 @@ import com.wd.dominio.Proveedor;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
+import java.util.Collection;
+import java.util.Vector;
 
 /**
  * Manejador de la interfaz gráfica para Proveedor
@@ -67,5 +69,16 @@ public class ControlGuiProveedor {
         } else {
             controlador.mostrarMensaje("Error: Todos los campos son requeridos", 1);
         }
+    }
+
+    public Vector traerTodosLosProveedores () {
+        Vector<Proveedor> resultado = null;
+        Collection<Proveedor> proveedores = null;
+        proveedores = controlG.todosLosProveedores();
+        resultado = new Vector<Proveedor>();
+        for (Proveedor prove : proveedores) {
+            resultado.add(prove);
+        }
+        return resultado;
     }
 }
