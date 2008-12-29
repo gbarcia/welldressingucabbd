@@ -276,9 +276,4 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
             }
         }
     }
-
-    public void prueba(){
-
-        this.listaPrueba.addi
-    }
 }
