@@ -265,8 +265,7 @@ public class VentanaConsultarCentro extends javax.swing.JFrame {
         }
 
         for (CentroDistribucion centro : vecCentros){
-            if(centro.getLugarId() == ciudadesAux.elementAt(select).getId()){
-                System.out.println("selected index: "+select);
+            if(centro.getLugarId() == ciudadesAux.elementAt(select).getId()){                
                 Vector info = new Vector();
                 info.addElement(centro.getCodigo());
                 info.addElement(centro.getNombre());
