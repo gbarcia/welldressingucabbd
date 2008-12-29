@@ -23,6 +23,11 @@ public class VentanaConsultaEdicionProveedor2 extends javax.swing.JFrame {
     public VentanaConsultaEdicionProveedor2(Proveedor prove) {
         initComponents();
         this.labelRif.setText(prove.getRif());
+        this.jTContactoNombre.setText(prove.getNombreContacto());
+        this.jTContactoApellido.setText(prove.getApellidoContacto());
+        this.jTtelf.setText(prove.getTelefono());
+        this.jTnombre.setText(prove.getNombre());
+        this.jAdireccion.setText(prove.getDireccion());
     }
 
     /** This method is called from within the constructor to
