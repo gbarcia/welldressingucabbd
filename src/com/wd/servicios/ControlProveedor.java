@@ -107,4 +107,28 @@ public class ControlProveedor {
             return resultado;
         }
     }
+
+    /**
+     * Operacion para borrar un proveedor del sistema
+     * @param rif String rif del proveedor a eliminar
+     * @return resultado boolean de exito o no de la operacion
+     */
+    public boolean eliminarProveedor (String rif) {
+        boolean resultado = false;
+        int rowA = 0;
+        try {
+             bitacora.info("Iniciando operacion para eliminar proveedor " + rif);
+            rowA = sqlMap.delete("borrarProveedor", rif);
+            if (rowA > 0) {
+                bitacora.info("proveedor " + rif + " eliminado con exito");
+                resultado = true;
+            }
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: "
+                    + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
 }
