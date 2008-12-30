@@ -1,6 +1,6 @@
 package com.wd.dominio;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Entidad encarga de almacenar la informacion de un producto. Refiere al nombre
