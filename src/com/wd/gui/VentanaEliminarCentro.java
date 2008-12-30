@@ -23,9 +23,13 @@ public class VentanaEliminarCentro extends javax.swing.JFrame {
 
     private Vector<CentroDistribucion> vecCentros;
 
+    private Vector<CentroDistribucion> vecCentrosAux;
+
     private ControlGuiLugar controlLugar;
 
     private ControlGuiCentroDistribucion controlCentro;
+
+    private ControlGui controlGeneral;
 
     /** Creates new form VentanaEliminarCentro */
     public VentanaEliminarCentro(Vector<Lugar> result) {
@@ -41,6 +45,7 @@ public class VentanaEliminarCentro extends javax.swing.JFrame {
         dm.addColumn("Dirección");
 
         vecCentros = new Vector();
+        vecCentrosAux = new Vector();
         ciudadesAux = new Vector();
         ciudades = new Vector();
         estados = new Vector();
@@ -224,7 +229,24 @@ public class VentanaEliminarCentro extends javax.swing.JFrame {
     }//GEN-LAST:event_comboCiudadActionPerformed
 
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
-        // TODO add your handling code here:
+       int select = -1;
+       int selectTabla = -1;
+       int resultado = -1;
+
+       this.controlGeneral =  new ControlGui ();
+       resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
+       "que desea realizar esta operación?");
+       if (resultado == 0){
+            selectTabla = this.jTable1.getSelectedRow();
+            if (selectTabla != -1){
+                CentroDistribucion auxCent = new CentroDistribucion();
+                auxCent = this.vecCentrosAux.elementAt(selectTabla);
+                controlCentro.eliminarCentrodelSistema(auxCent);
+            }
+            vecCentros = this.controlCentro.traerTodosLosCentros();
+            select = this.comboCiudad.getSelectedIndex();
+            this.llenarTabla(select);
+        }
     }//GEN-LAST:event_buttonEliminarActionPerformed
 
     private void buttonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCerrarActionPerformed
@@ -281,9 +303,17 @@ public class VentanaEliminarCentro extends javax.swing.JFrame {
         for (int i = 0; i < dm.getRowCount(); i++) {
             this.dm.removeRow(i);
         }
-
+        this.vecCentrosAux.removeAllElements();
+        System.out.println("size:   "+this.vecCentrosAux.size());
         for (CentroDistribucion centro : vecCentros){
             if(centro.getLugarId() == ciudadesAux.elementAt(select).getId()){
+                vecCentrosAux.addElement(centro);
+            }
+        }
+        System.out.println("size2:   "+this.vecCentrosAux.size());
+        for (CentroDistribucion centro : vecCentrosAux){
+            //if(centro.getLugarId() == ciudadesAux.elementAt(select).getId()){
+                //vecCentrosAux.addElement(centro);
                 Vector info = new Vector();
                 info.addElement(centro.getCodigo());
                 info.addElement(centro.getNombre());
@@ -291,7 +321,7 @@ public class VentanaEliminarCentro extends javax.swing.JFrame {
                 info.addElement(centro.getDireccion());
                 dm.addRow(info);
                 this.jTable1.setModel(dm);
-            }
+            //}
         }
     }
 }
