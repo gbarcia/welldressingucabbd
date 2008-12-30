@@ -68,4 +68,45 @@ public class ControlCentroDistribucion {
         }
 
     }
+
+    /**
+     * Metodo eliminar un Centro de Distribucion del sistema
+     * @return int resultado de la operacion
+     */
+    public int eliminarCentro(CentroDistribucion centro) {
+        int resultado = 0;
+        try {
+            resultado = sqlMap.delete("borrarCentro",centro);
+            bitacora.info("Centro Distribución: " + centro.getCodigo() +
+            " eliminado con éxito");
+            //resultado = 1;
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+
+    }
+
+    /**
+     * Metodo para modificar cualquier atributo de un centro de distribucion
+     * @param centro objeto centroDistribucion a modificar
+     * @return resultado de la operacion
+     */
+    public boolean modificarCentro(CentroDistribucion centro){
+        boolean resultado = false;
+        try {
+            sqlMap.update("modificarCentro", centro);
+            bitacora.info("Centro de Distribucion: " + centro.getCodigo() +
+            " modificado con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("Centro de Distribucion: " + centro.getCodigo()+
+            " operacion" + " fallida porque: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
 }
