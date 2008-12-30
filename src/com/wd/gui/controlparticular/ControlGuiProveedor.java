@@ -72,10 +72,10 @@ public class ControlGuiProveedor {
         }
     }
 
-     /** operacion para traer todos los proveedores registrados en el sistema
+    /** operacion para traer todos los proveedores registrados en el sistema
      * @return resultado coleccion de todos los proveedores registrados en el sistema
      */
-    public Collection<Proveedor> traerTodosLosProveedores () {
+    public Collection<Proveedor> traerTodosLosProveedores() {
         Collection<Proveedor> resultado = null;
         resultado = controlG.todosLosProveedores();
         return resultado;
@@ -85,7 +85,7 @@ public class ControlGuiProveedor {
      * @param rif String del rif del proveedor a consultar
      * @return resultado Proveedor Objeto proveedor con la informacion solicitada
      */
-    private Proveedor consultarProveedor (String rif) {
+    private Proveedor consultarProveedor(String rif) {
         Proveedor resultado = null;
         resultado = controlG.consultarProveedor(rif);
         return resultado;
@@ -95,12 +95,11 @@ public class ControlGuiProveedor {
      * la nueva ventana que presenta la informacion pertinente de ese proveedor
      * @param rif String del rif del proveedor a consulta
      */
-    public void iniciarVentanaConsulta (String rif) {
+    public void iniciarVentanaConsulta(String rif) {
         Proveedor proveedorC = this.consultarProveedor(rif);
         if (proveedorC != null) {
             this.controlador.iniciarCerrarVentanaConsultaProve2(true, proveedorC);
-        }
-        else {
+        } else {
             controlador.mostrarMensaje("Error: El proveedor " + rif + "no existe", 1);
         }
     }
@@ -108,7 +107,7 @@ public class ControlGuiProveedor {
     /** Operacion para traer todas las ciudades
      * @return Collection con todas las ciudades
      */
-    public Collection<Lugar> obtenerTodosLosLugares () {
+    public Collection<Lugar> obtenerTodosLosLugares() {
         Collection<Lugar> resultado = null;
         resultado = controlG.traerTodosLosLuagres(2);
         return resultado;
@@ -118,7 +117,7 @@ public class ControlGuiProveedor {
      * @param rif el rif del proveedor a consultar sus productos
      * @return Collection con todos los productos para ese proveedor
      */
-    public Collection<Producto> todosLosProductosProveedor (String rif) {
+    public Collection<Producto> todosLosProductosProveedor(String rif) {
         Collection<Producto> resultado = null;
         resultado = controlG.consultaProductosProveedor(rif);
         return resultado;
@@ -150,6 +149,45 @@ public class ControlGuiProveedor {
             }
         } else {
             controlador.mostrarMensaje("Error: Todos los campos son requeridos", 1);
+        }
+    }
+
+    /**
+     * Operacion para saber si existe o no un proveedor en el sistema
+     * @param rif String rif del proveedor a eliminar
+     * @return resultado boolean true si existe false no existe
+     */
+    private boolean esExistenteProveedor(String rif) {
+        boolean resultado = false;
+        Proveedor p = controlG.consultarProveedor(rif);
+        if (p != null) {
+            resultado = true;
+        }
+        return resultado;
+    }
+
+    /**
+     * Operacion para borrar un proveedor del sistema
+     * @param rif String rif del proveedor a eliminar
+     */
+    public void eliminarProveedorSistema(String rif) {
+        boolean resultado = false;
+        boolean existe = false;
+        String mensajeRes = "Error: EL provedor " + rif + " que intenta borrar" +
+                "esta en registros historiales importantes, por tanto no se" +
+                "recimienda su eliminacion parcial, contacte a su administrador" +
+                "para más informacion";
+        existe = this.esExistenteProveedor(rif);
+        if (existe) {
+            resultado = controlG.eliminarProveedor(rif);
+            if (resultado) {
+                controlador.mostrarMensaje("Proveedor " + rif + " eliminado con éxito", 0);
+            } else {
+                controlador.mostrarMensaje(mensajeRes, 1);
+            }
+        } // en if existe
+        else if (!existe) {
+            controlador.mostrarMensaje("Error: EL proveedor " + rif + " no existe", 1);
         }
     }
 }

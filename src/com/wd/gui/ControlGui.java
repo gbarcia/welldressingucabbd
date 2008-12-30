@@ -77,6 +77,9 @@ public class ControlGui {
     /** Variable de la ventana para editar o consultar proveedor 2*/
     private VentanaConsultaEdicionProveedor2 ventanaConsulEdipro2;
 
+    /** Variable de la ventana para eliminar un proveedor*/
+    private VentanaEliminarProveedor ventanaEliminarProve;
+
 /** Constructor del ControlGui */
     public ControlGui() {
     }
@@ -97,6 +100,15 @@ public class ControlGui {
     public void iniciarCerrarVentanaConsultaProve2(boolean var, Proveedor prove) {
         this.ventanaConsulEdipro2 = new VentanaConsultaEdicionProveedor2(prove);
         this.ventanaConsulEdipro2.setVisible(var);
+    }
+
+    /**
+* metodo para ocultar o mostrar la ventana para borrar un proveedor del sistema
+* @param var booleano que indica si mostrar o no la ventana
+*/
+    public void iniciarCerrarVentanaEliminarProve (boolean var) {
+        this.ventanaEliminarProve = new VentanaEliminarProveedor();
+        this.ventanaEliminarProve.setVisible(var);
     }
 
 /**
