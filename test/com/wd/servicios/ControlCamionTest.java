@@ -113,7 +113,7 @@ public class ControlCamionTest {
                 System.out.println(camion.getId() + " " + camion.getPlaca() 
                         + " " + camion.getModelo() + " " + camion.getColor() 
                         + " " + camion.getEstado() + " " + camion.getCapacidad() 
-                        + " " + camion.getCENTRO_DISTRIBUCION_id());
+                        + " " + camion.getCentroDistribucionCodigo());
             }
 //            assertEquals(expResult, result);
             // TODO review the generated test code and remove the default call to fail.
