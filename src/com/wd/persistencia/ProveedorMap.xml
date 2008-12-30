@@ -67,5 +67,9 @@
         LUGAR_id = #lugarID#
         WHERE rif = #rif#
     </update>
+
+    <delete id="borrarProveedor" parameterClass="String">
+        DELETE FROM EMPRESA_SERVICIO WHERE rif = #value#
+    </delete>
        
     </sqlMap>
