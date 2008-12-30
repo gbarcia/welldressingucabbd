@@ -32,6 +32,8 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlProveedor controlProveedor;
     /** Variable para trabajar con el controlador de los productos*/
     private ControlProducto controlProducto;
+     /** Variable para trabajar con el controlador de los camiones*/
+    private ControlCamion controlCamion;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
