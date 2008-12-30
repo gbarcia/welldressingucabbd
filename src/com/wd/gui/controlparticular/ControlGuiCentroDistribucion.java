@@ -68,4 +68,17 @@ public class ControlGuiCentroDistribucion {
         controlador.mostrarMensaje("Operacion fallida", 1);
     }
 
+    /**
+     * Metodo para modificar un centro de distribucion del sistema
+     * @param centro objeto CentroDistribucion a modificar
+     */
+    public void modificarCentrodelSistema(CentroDistribucion centro) {
+        boolean resultado = ControlGeneral.getInstance().modificarCentro(centro);
+        if (resultado){
+            controlador.mostrarMensaje("Centro modificado con éxito", 0);
+        }else{
+            controlador.mostrarMensaje("Operación fallida",1);
+        }
+    }
+
 }

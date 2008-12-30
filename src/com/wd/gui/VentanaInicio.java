@@ -257,6 +257,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroMantenimiento.add(menuCentroRegistro);
 
         menuCentroEditar.setText("Editar un centro");
+        menuCentroEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroEditarActionPerformed(evt);
+            }
+        });
         menuCentroMantenimiento.add(menuCentroEditar);
 
         menuCentroConsultar.setText("Consultar un centro");
@@ -751,6 +756,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniciarCerrarVentanaEliminarProve(true);
     }//GEN-LAST:event_menuServiciosProvedoresEliminarActionPerformed
+
+    private void menuCentroEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroEditarActionPerformed
+        Vector<Lugar> result = null;
+        this.controlGuiLugar = new ControlGuiLugar();
+        result = this.controlGuiLugar.traerTodosLosLugares(1);
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaModificarCentro(true, result);
+    }//GEN-LAST:event_menuCentroEditarActionPerformed
 
     /**
     * @param args the command line arguments
