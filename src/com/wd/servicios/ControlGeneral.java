@@ -652,4 +652,15 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+
+    /**
+     * Operacion para borrar un proveedor del sistema
+     * @param rif String rif del proveedor a eliminar
+     * @return resultado boolean de exito o no de la operacion
+     */
+    public boolean eliminarProveedor (String rif) {
+        boolean resultado = false;
+        resultado = controlProveedor.eliminarProveedor(rif);
+        return resultado;
+    }
 }
