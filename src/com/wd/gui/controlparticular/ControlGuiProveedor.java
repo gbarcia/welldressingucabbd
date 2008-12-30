@@ -1,5 +1,7 @@
 package com.wd.gui.controlparticular;
 
+import com.wd.dominio.Lugar;
+import com.wd.dominio.Producto;
 import com.wd.dominio.Proveedor;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
@@ -101,5 +103,24 @@ public class ControlGuiProveedor {
         else {
             controlador.mostrarMensaje("Error: El proveedor " + rif + "no existe", 1);
         }
+    }
+
+    /** Operacion para traer todas las ciudades
+     * @return Collection con todas las ciudades
+     */
+    public Collection<Lugar> obtenerTodosLosLugares () {
+        Collection<Lugar> resultado = null;
+        resultado = controlG.traerTodosLosLuagres(2);
+        return resultado;
+    }
+
+    /** Operacion para traer todos los productos de un determinado proveedor
+     * @param rif el rif del proveedor a consultar sus productos
+     * @return Collection con todos los productos para ese proveedor
+     */
+    public Collection<Producto> todosLosProductosProveedor (String rif) {
+        Collection<Producto> resultado = null;
+        resultado = controlG.consultaProductosProveedor(rif);
+        return resultado;
     }
 }

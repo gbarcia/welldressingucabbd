@@ -11,13 +11,25 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Lugar;
+import com.wd.dominio.Producto;
 import com.wd.dominio.Proveedor;
+import com.wd.gui.controlparticular.ControlGuiProveedor;
+import java.util.Collection;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author gerardo
  */
 public class VentanaConsultaEdicionProveedor2 extends javax.swing.JFrame {
+
+    private Collection<Lugar> ciudades;
+
+    private ControlGuiProveedor control = new ControlGuiProveedor();
+
+    private Collection<Producto> productos;
 
     /** Creates new form VentanaConsultaEdicionProveedor2 */
     public VentanaConsultaEdicionProveedor2(Proveedor prove) {
@@ -28,6 +40,42 @@ public class VentanaConsultaEdicionProveedor2 extends javax.swing.JFrame {
         this.jTtelf.setText(prove.getTelefono());
         this.jTnombre.setText(prove.getNombre());
         this.jAdireccion.setText(prove.getDireccion());
+
+        ciudades = control.obtenerTodosLosLugares();
+         Proveedor ciudad = null;
+        for (Lugar l : ciudades) {
+            this.jComboCiudad.addItem(l.getNombrePropio());
+            if (prove.getLugarID() == l.getId()) {
+                ciudad = prove;
+            }
+        }
+
+        this.jComboCiudad.setSelectedItem(ciudad.getNombreCiudad());
+
+        this.productos = control.todosLosProductosProveedor(prove.getRif());
+        Vector<Producto> vec = new Vector (this.productos);
+
+        DefaultTableModel dm1 = new DefaultTableModel();
+        dm1.addColumn("Id");
+        dm1.addColumn("Nombre");
+        dm1.addColumn("Descripcion");
+        dm1.addColumn("Costo");
+        dm1.addColumn("Creacion");
+        dm1.addColumn("Ult modif");
+
+        for (Producto p : vec) {
+            Vector info = new Vector();
+            
+            info.addElement(p.getId());
+            info.addElement(p.getNombre());
+            info.addElement(p.getDescripcion());
+            info.addElement(p.getPrecio());
+            info.addElement(p.getFecha_creacion());
+            info.addElement(p.getFecha_ultima_modificacion());
+            dm1.addRow(info);
+        }
+
+        this.jTable1.setModel(dm1);
     }
 
     /** This method is called from within the constructor to
@@ -80,7 +128,7 @@ public class VentanaConsultaEdicionProveedor2 extends javax.swing.JFrame {
         jAdireccion.setRows(5);
         jScrollPane1.setViewportView(jAdireccion);
 
-        labelRif.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        labelRif.setFont(new java.awt.Font("DejaVu Sans", 1, 12));
         labelRif.setForeground(new java.awt.Color(59, 130, 59));
         labelRif.setText("jLabel8");
 
@@ -180,10 +228,7 @@ public class VentanaConsultaEdicionProveedor2 extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
