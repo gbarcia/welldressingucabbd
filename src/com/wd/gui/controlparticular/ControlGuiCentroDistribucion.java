@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Vector;
 
 public class ControlGuiCentroDistribucion {
-    /** variable para el manejo de la entidad horario */
+    /** variable para el manejo de la entidad CentroDistribucion */
     private CentroDistribucion centro;
 
 /** variable para el manejo de la instancia del controlador GUI */
