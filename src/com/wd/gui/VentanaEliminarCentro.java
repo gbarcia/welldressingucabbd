@@ -304,24 +304,21 @@ public class VentanaEliminarCentro extends javax.swing.JFrame {
             this.dm.removeRow(i);
         }
         this.vecCentrosAux.removeAllElements();
-        System.out.println("size:   "+this.vecCentrosAux.size());
+
         for (CentroDistribucion centro : vecCentros){
             if(centro.getLugarId() == ciudadesAux.elementAt(select).getId()){
                 vecCentrosAux.addElement(centro);
             }
         }
-        System.out.println("size2:   "+this.vecCentrosAux.size());
+
         for (CentroDistribucion centro : vecCentrosAux){
-            //if(centro.getLugarId() == ciudadesAux.elementAt(select).getId()){
-                //vecCentrosAux.addElement(centro);
-                Vector info = new Vector();
-                info.addElement(centro.getCodigo());
-                info.addElement(centro.getNombre());
-                info.addElement(centro.getTelefono());
-                info.addElement(centro.getDireccion());
-                dm.addRow(info);
-                this.jTable1.setModel(dm);
-            //}
+            Vector info = new Vector();
+            info.addElement(centro.getCodigo());
+            info.addElement(centro.getNombre());
+            info.addElement(centro.getTelefono());
+            info.addElement(centro.getDireccion());
+            dm.addRow(info);
+            this.jTable1.setModel(dm);
         }
     }
 }
