@@ -133,13 +133,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuServiciosVigilanciaEliminar = new javax.swing.JMenuItem();
         menuServiciosProvedores = new javax.swing.JMenu();
         menuServiciosProvedoresAgregar = new javax.swing.JMenuItem();
-        menuServiciosProvedoresEditar = new javax.swing.JMenu();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JSeparator();
-        jMenuItem20 = new javax.swing.JMenuItem();
-        jMenuItem21 = new javax.swing.JMenuItem();
-        jMenuItem22 = new javax.swing.JMenuItem();
-        jMenuItem23 = new javax.swing.JMenuItem();
         menuServiciosProvedoresConsultar = new javax.swing.JMenuItem();
         menuServiciosProvedoresEliminar = new javax.swing.JMenuItem();
         menuServiciosProvedorSeparador = new javax.swing.JSeparator();
@@ -503,32 +496,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         menuServiciosProvedores.add(menuServiciosProvedoresAgregar);
 
-        menuServiciosProvedoresEditar.setText("Editar proveedor");
-
-        jMenuItem17.setText("Editar informacion");
-        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem17ActionPerformed(evt);
-            }
-        });
-        menuServiciosProvedoresEditar.add(jMenuItem17);
-        menuServiciosProvedoresEditar.add(jSeparator2);
-
-        jMenuItem20.setText("Agregar productos");
-        menuServiciosProvedoresEditar.add(jMenuItem20);
-
-        jMenuItem21.setText("Editar productos");
-        menuServiciosProvedoresEditar.add(jMenuItem21);
-
-        jMenuItem22.setText("Consultar productos");
-        menuServiciosProvedoresEditar.add(jMenuItem22);
-
-        jMenuItem23.setText("Eliminar productos");
-        menuServiciosProvedoresEditar.add(jMenuItem23);
-
-        menuServiciosProvedores.add(menuServiciosProvedoresEditar);
-
-        menuServiciosProvedoresConsultar.setText("Consultar proveedor");
+        menuServiciosProvedoresConsultar.setText("Consultar o Editar proveedor");
         menuServiciosProvedoresConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuServiciosProvedoresConsultarActionPerformed(evt);
@@ -537,6 +505,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuServiciosProvedores.add(menuServiciosProvedoresConsultar);
 
         menuServiciosProvedoresEliminar.setText("Eliminar proveedor");
+        menuServiciosProvedoresEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuServiciosProvedoresEliminarActionPerformed(evt);
+            }
+        });
         menuServiciosProvedores.add(menuServiciosProvedoresEliminar);
         menuServiciosProvedores.add(menuServiciosProvedorSeparador);
 
@@ -761,11 +734,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui.iniciarVentanaAgregarProveedor(true, result);
     }//GEN-LAST:event_menuServiciosProvedoresAgregarActionPerformed
 
-    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
-        this.controlGeneralGui = new ControlGui();
-        this.controlGeneralGui.iniciarVentanaEdiConProveedor1(true);
-    }//GEN-LAST:event_jMenuItem17ActionPerformed
-
     private void menuServiciosProvedoresConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuServiciosProvedoresConsultarActionPerformed
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniciarVentanaEdiConProveedor1(true);
@@ -778,6 +746,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniciarVentanaEliminarCentro(true, result);
     }//GEN-LAST:event_menuCentroEliminarActionPerformed
+
+    private void menuServiciosProvedoresEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuServiciosProvedoresEliminarActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarCerrarVentanaEliminarProve(true);
+    }//GEN-LAST:event_menuServiciosProvedoresEliminarActionPerformed
 
     /**
     * @param args the command line arguments
@@ -793,12 +766,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MenuProductosAgregar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem20;
-    private javax.swing.JMenuItem jMenuItem21;
-    private javax.swing.JMenuItem jMenuItem22;
-    private javax.swing.JMenuItem jMenuItem23;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JMenuItem menuAgregarEmpleadoTienda;
     private javax.swing.JMenuItem menuArcecaDe;
     private javax.swing.JMenu menuArchivo;
@@ -882,7 +849,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu menuServiciosProvedores;
     private javax.swing.JMenuItem menuServiciosProvedoresAgregar;
     private javax.swing.JMenuItem menuServiciosProvedoresConsultar;
-    private javax.swing.JMenu menuServiciosProvedoresEditar;
     private javax.swing.JMenuItem menuServiciosProvedoresEliminar;
     private javax.swing.JSeparator menuServiciosSeparador;
     private javax.swing.JMenu menuServiciosVigilancia;
