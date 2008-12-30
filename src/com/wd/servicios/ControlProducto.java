@@ -26,7 +26,7 @@ public class ControlProducto {
      * @throws java.io.IOException
      */
     public ControlProducto() throws IOException{
-        this.bitacora.info("Iniciando controlador de producto");
+        this.bitacora.info("Iniciando controlador de Producto");
         String resource = "com/wd/configuracion/configuracionIbatis.xml";
         Reader reader = Resources.getResourceAsReader(resource);
         this.sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);

@@ -26,7 +26,7 @@ public class ControlTienda {
      * @throws java.io.IOException
      */
     public ControlTienda() throws IOException {
-        this.bitacora.info("Iniciando controlador de tienda");
+        this.bitacora.info("Iniciando controlador de Tienda");
         String resource = "com/wd/configuracion/configuracionIbatis.xml";
         Reader reader = Resources.getResourceAsReader(resource);
         this.sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);

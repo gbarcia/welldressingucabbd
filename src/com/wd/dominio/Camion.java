@@ -26,7 +26,7 @@ public class Camion {
     private int capacidad;
 
     /** variable de Centro de Distribucion*/
-    private int CENTRO_DISTRIBUCION_id;
+    private Integer CENTRO_DISTRIBUCION_codigo;
 
     /**
      * Contructor de la clase
@@ -46,14 +46,14 @@ public class Camion {
      * el camion
      */
     public Camion(int id, String placa, String modelo, String color, String estado,
-            int capacidad, int CENTRO_DISTRIBUCION_id) {
+            int capacidad, Integer CENTRO_DISTRIBUCION_id) {
         this.id = id;
         this.placa = placa;
         this.modelo = modelo;
         this.color = color;
         this.estado = estado;
         this.capacidad = capacidad;
-        this.CENTRO_DISTRIBUCION_id = CENTRO_DISTRIBUCION_id;
+        this.CENTRO_DISTRIBUCION_codigo = CENTRO_DISTRIBUCION_id;
     }
 
     /**
@@ -143,15 +143,15 @@ public class Camion {
     /**
      * @return el Centro de Distribucion del camion
      */
-    public int getCENTRO_DISTRIBUCION_id() {
-        return CENTRO_DISTRIBUCION_id;
+    public Integer getCENTRO_DISTRIBUCION_id() {
+        return CENTRO_DISTRIBUCION_codigo;
     }
 
     /**
      * @param CENTRO_DISTRIBUCION_id el Centro de Distribucion del camion
      */
-    public void setCENTRO_DISTRIBUCION_id(int CENTRO_DISTRIBUCION_id) {
-        this.CENTRO_DISTRIBUCION_id = CENTRO_DISTRIBUCION_id;
+    public void setCENTRO_DISTRIBUCION_id(Integer CENTRO_DISTRIBUCION_id) {
+        this.CENTRO_DISTRIBUCION_codigo = CENTRO_DISTRIBUCION_id;
     }
     
 }
