@@ -27,8 +27,7 @@
   </select>
 
   <delete id="borrarCentro" parameterClass="centroDistribucion">
-      DELETE FROM CENTRO_DISTRIBUCION
-      WHERE codigo=#codigo#
+      DELETE FROM CENTRO_DISTRIBUCION WHERE codigo=#codigo#
   </delete>
 
   <update id="modificarCentro" parameterClass="centroDistribucion">

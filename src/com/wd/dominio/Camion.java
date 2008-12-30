@@ -26,7 +26,7 @@ public class Camion {
     private int capacidad;
 
     /** variable de Centro de Distribucion*/
-    private Integer CENTRO_DISTRIBUCION_codigo;
+    private Integer centroDistribucionCodigo;
 
     /**
      * Contructor de la clase
@@ -53,7 +53,7 @@ public class Camion {
         this.color = color;
         this.estado = estado;
         this.capacidad = capacidad;
-        this.CENTRO_DISTRIBUCION_codigo = CENTRO_DISTRIBUCION_id;
+        this.centroDistribucionCodigo = CENTRO_DISTRIBUCION_id;
     }
 
     /**
@@ -143,15 +143,15 @@ public class Camion {
     /**
      * @return el Centro de Distribucion del camion
      */
-    public Integer getCENTRO_DISTRIBUCION_id() {
-        return CENTRO_DISTRIBUCION_codigo;
+    public Integer getCentroDistribucionCodigo() {
+        return centroDistribucionCodigo;
     }
 
     /**
      * @param CENTRO_DISTRIBUCION_id el Centro de Distribucion del camion
      */
-    public void setCENTRO_DISTRIBUCION_id(Integer CENTRO_DISTRIBUCION_id) {
-        this.CENTRO_DISTRIBUCION_codigo = CENTRO_DISTRIBUCION_id;
+    public void setCentroDistribucionCodigo(Integer CENTRO_DISTRIBUCION_id) {
+        this.centroDistribucionCodigo = CENTRO_DISTRIBUCION_id;
     }
     
 }
