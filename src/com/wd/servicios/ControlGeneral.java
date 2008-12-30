@@ -9,6 +9,7 @@ import com.wd.dominio.Proveedor;
 import com.wd.dominio.Tienda;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -128,6 +129,26 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlTienda = new ControlTienda();
             this.bitacora.info("ControlTienda iniciado correctamente");
             this.controlTienda.agregarTienda(tienda);
+            resultado = true;
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlTienda por " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para modificar una Tienda
+     * @param tienda la tienda a modificar
+     * @return resultado de la operacion
+     */
+    public boolean modificarTienda(Tienda tienda){
+        boolean resultado = false;
+        try {
+            this.controlTienda = new ControlTienda();
+            this.bitacora.info("ControlTienda iniciado correctamente");
+            this.controlTienda.modificarTienda(tienda);
             resultado = true;
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlTienda por " + ex.getMessage());
