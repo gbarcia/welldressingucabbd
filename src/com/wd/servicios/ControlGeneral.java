@@ -175,6 +175,48 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Metodo para  eliminar un centro de distribucion
+     * @param centro objeto centroDistribucion a eliminar
+     * @return int resultado de la operación
+     */
+    public int eliminarCentro(CentroDistribucion centro) {
+        int resultado = 0;
+        try {
+            this.controlCentroDistribucion = new ControlCentroDistribucion();
+            bitacora.info("Control Centro de Distribucion" +
+            " Iniciado correctamente");
+            controlCentroDistribucion.eliminarCentro(centro);
+            resultado = 1;
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
+            resultado = 0;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para modificar un Centro de Distribucion
+     * @param centro objeto CentroDistribucion a modificar
+     * @return boolean resultado de la operacion
+     */
+    public boolean modificarCentro(CentroDistribucion centro) {
+        boolean resultado = false;
+        try{
+            this.controlCentroDistribucion = new ControlCentroDistribucion();
+            bitacora.info("Control CentroDistribucion iniciado correctamente");
+            controlCentroDistribucion.modificarCentro(centro);
+            resultado = true;
+        }catch(IOException ex){
+            bitacora.error("No se pudo iniciar el control departamento por "
+            + ex.getMessage());
+            resultado = false;
+        }finally{
+            return resultado;
+        }
+    }
+
+    /**
      * Metodo para Agregar un nuevo Departamento
      * @param departamento el nuevo departamento a agregar
      * @return boolean resultado de la operación

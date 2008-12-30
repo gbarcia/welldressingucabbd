@@ -25,5 +25,18 @@
       c.direccion Direccion, c.LUGAR_id LugarId
       FROM CENTRO_DISTRIBUCION c;
   </select>
+
+  <delete id="borrarCentro" parameterClass="centroDistribucion">
+      DELETE FROM CENTRO_DISTRIBUCION
+      WHERE codigo=#codigo#
+  </delete>
+
+  <update id="modificarCentro" parameterClass="centroDistribucion">
+      UPDATE CENTRO_DISTRIBUCION SET
+      NOMBRE = #nombre#,
+      TELEFONO = #telefono#,
+      DIRECCION = #direccion#
+      WHERE CODIGO = #codigo#
+  </update>
   
 </sqlMap>
