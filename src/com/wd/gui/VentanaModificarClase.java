@@ -211,12 +211,12 @@ public class VentanaModificarClase extends javax.swing.JFrame {
     }//GEN-LAST:event_comboClaseActionPerformed
 
     private void buttonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModificarActionPerformed
-        int resultado = -1;
+       int resultado = -1;
        String nombre = "";
        String descripcion = "";
        this.controlGeneral =  new ControlGui ();
        resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
-               "que desea realizar esta operación?");
+       "que desea realizar esta operación?");
        if (resultado == 0) {
            int codigo = -1;
            int codigoDpto = -1;

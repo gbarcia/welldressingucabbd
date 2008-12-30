@@ -26,6 +26,9 @@ public class ControlGui {
     /** Variable de la ventana eliminar centro*/
     private VentanaEliminarCentro ventanaEliminarCentro;
 
+    /** Variable de la ventana modificar centro*/
+    private VentanaModificarCentro ventanaModificarCentro;
+
     /** Variable de la ventana agregar departamento*/
     private VentanaAgregarDepartamento ventanaAgregarDepartamento;
 
@@ -146,6 +149,15 @@ public class ControlGui {
     public void iniciarVentanaEliminarCentro (boolean var, Vector result){
         ventanaEliminarCentro = new VentanaEliminarCentro(result);
         ventanaEliminarCentro.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de modificar centros
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaModificarCentro (boolean var, Vector result){
+        ventanaModificarCentro = new VentanaModificarCentro(result);
+        ventanaModificarCentro.setVisible(var);
     }
 
     /**
