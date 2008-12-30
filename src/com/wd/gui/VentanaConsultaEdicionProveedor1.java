@@ -112,7 +112,7 @@ public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Editar");
+        jButton1.setText("Consultar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -195,6 +195,7 @@ public class VentanaConsultaEdicionProveedor1 extends javax.swing.JFrame {
             Proveedor p = (Proveedor) aux.get(indiceSeleccionado);
             control.iniciarVentanaConsulta(p.getRif());
         }
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
