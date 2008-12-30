@@ -14,23 +14,23 @@
     <result property="color" column="color" />
     <result property="estado" column="estado" />
     <result property="capacidad" column="capacidad" />
-    <result property="CENTRO_DISTRIBUCION_id" column="CENTRO_DISTRIBUCION_id" />
+    <result property="CENTRO_DISTRIBUCION_codigo" column="CENTRO_DISTRIBUCION_codigo" />
   </resultMap>
 
   <insert id="agregarCamion" parameterClass="camion">
-    INSERT INTO camion (id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_id)
-    VALUES (null, #placa#, #modelo#, #color#, #estado#, #capacidad#, #CENTRO_DISTRIBUCION_id#)
+    INSERT INTO camion (id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_codigo)
+    VALUES (null, #placa#, #modelo#, #color#, #estado#, #capacidad#, #CENTRO_DISTRIBUCION_codigo#)
   </insert>
 
   <select id="consultarCamion" parameterClass="int" resultClass="camion">
-    SELECT id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_id
+    SELECT id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_codigo
     FROM camion
     WHERE id = #id#
   </select>
 
   <update id="modificarCamion" parameterClass="camion">
     UPDATE camion
-    SET placa = #placa#, modelo = #modelo#, color = #color#, estado = #estado#, capacidad = #capacidad#, CENTRO_DISTRIBUCION_id = #CENTRO_DISTRIBUCION_id#
+    SET placa = #placa#, modelo = #modelo#, color = #color#, estado = #estado#, capacidad = #capacidad#, CENTRO_DISTRIBUCION_codigo = #CENTRO_DISTRIBUCION_codigo#
     WHERE id = #id#
   </update>
 
@@ -40,7 +40,7 @@
   </delete>
 
   <select id="consultarCamiones" resultMap="resultMapCamion">
-    SELECT id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_id
+    SELECT id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_codigo
     FROM camion
   </select>
 
