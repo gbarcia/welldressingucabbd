@@ -31,6 +31,7 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         comboEstado = new javax.swing.JComboBox();
         comboCiudad = new javax.swing.JComboBox();
@@ -64,9 +65,11 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
         campoDireccion.setRows(5);
         jScrollPane1.setViewportView(campoDireccion);
 
+        buttonGroup1.add(radioTienda);
         radioTienda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         radioTienda.setText("Tienda");
 
+        buttonGroup1.add(radioCentro);
         radioCentro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         radioCentro.setText("Centro Distribución");
 
@@ -247,6 +250,7 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonCancelar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField campoApellidoPer;
     private javax.swing.JTextArea campoDireccion;
     private javax.swing.JTextField campoNombre;
