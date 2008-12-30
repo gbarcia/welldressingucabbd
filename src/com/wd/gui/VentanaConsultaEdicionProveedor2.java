@@ -71,6 +71,9 @@ public class VentanaConsultaEdicionProveedor2 extends javax.swing.JFrame {
             info.addElement(p.getDescripcion());
             info.addElement(p.getPrecio());
             info.addElement(p.getFecha_creacion());
+            if (p.getFecha_ultima_modificacion() == null)
+            info.addElement("--");
+            else
             info.addElement(p.getFecha_ultima_modificacion());
             dm1.addRow(info);
         }
