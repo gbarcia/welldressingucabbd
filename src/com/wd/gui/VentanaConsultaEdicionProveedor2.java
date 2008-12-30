@@ -31,9 +31,14 @@ public class VentanaConsultaEdicionProveedor2 extends javax.swing.JFrame {
 
     private Collection<Producto> productos;
 
+    private String rifProve;
+
     /** Creates new form VentanaConsultaEdicionProveedor2 */
     public VentanaConsultaEdicionProveedor2(Proveedor prove) {
         initComponents();
+
+        this.rifProve = prove.getRif();
+
         this.labelRif.setText(prove.getRif());
         this.jTContactoNombre.setText(prove.getNombreContacto());
         this.jTContactoApellido.setText(prove.getApellidoContacto());
@@ -242,6 +247,11 @@ public class VentanaConsultaEdicionProveedor2 extends javax.swing.JFrame {
         );
 
         jButton1.setText("Guardar Cambios");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cerrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -292,8 +302,23 @@ public class VentanaConsultaEdicionProveedor2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nombreProveedor = this.jTnombre.getText();
+        String telefonoProve   = this.jTtelf.getText();
+        Integer ciudad         = this.jComboCiudad.getSelectedIndex();
+        String direccion       = this.jAdireccion.getText();
+        String nombreCon       = this.jTContactoNombre.getText();
+        String apellidoCon     = this.jTContactoApellido.getText();
+
+        Vector<Lugar> vec = new Vector(ciudades);
+        Lugar ciudadP = vec.get(ciudad);
+
+        control.editarProveedorEnElSistema(this.rifProve, nombreProveedor, telefonoProve,
+                direccion, nombreCon, apellidoCon, ciudadP.getId());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
     * @param args the command line arguments
