@@ -25,6 +25,22 @@ public class EmpresaVigilancia {
     /** variable que contiene el apellido de la persona de contacto*/
     private String apellidoContacto;
 
+    public EmpresaVigilancia() {
+    }
+
+    public EmpresaVigilancia(String rif, String nombre, String telefono,
+    String direccion, Integer lugarId, String nombreContacto,
+    String apellidoContacto){
+        this.rif = rif;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.lugarId = lugarId;
+        this.nombreContacto = nombreContacto;
+        this.apellidoContacto = apellidoContacto;
+    }
+
+
     /** metodo para obtener el apellido de la persona de contacto
      * @return String apellido del contacto
      */
