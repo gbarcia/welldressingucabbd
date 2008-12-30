@@ -117,4 +117,11 @@ public interface IfaceControlGeneral {
      * @return resultado Coleccion de objetos Proveedor
      */
     public Collection<Proveedor> todosLosProveedores();
+
+    /**
+     * Operacion para borrar un proveedor del sistema
+     * @param rif String rif del proveedor a eliminar
+     * @return resultado boolean de exito o no de la operacion
+     */
+    public boolean eliminarProveedor (String rif);
 }
