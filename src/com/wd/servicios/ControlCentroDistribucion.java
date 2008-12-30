@@ -58,7 +58,7 @@ public class ControlCentroDistribucion {
         Collection<CentroDistribucion> coleccionCentros = null;
         try {
             bitacora.info("Iniciando operacion para traer todos los " +
-            "Departamentos");
+            "Centros de distribucion");
             coleccionCentros = sqlMap.queryForList("TodosLosCentros");
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
