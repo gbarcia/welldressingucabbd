@@ -2,6 +2,7 @@ package com.wd.servicios;
 
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
+import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
 import com.wd.dominio.Producto;
@@ -35,6 +36,8 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlProducto controlProducto;
      /** Variable para trabajar con el controlador de los camiones*/
     private ControlCamion controlCamion;
+    /** Variable para trabajar con el controlador de las empresas de vigilancia*/
+    private ControlEmpresaVigilancia controlEmpresaVigilancia;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
@@ -662,5 +665,85 @@ public class ControlGeneral implements IfaceControlGeneral {
         boolean resultado = false;
         resultado = controlProveedor.eliminarProveedor(rif);
         return resultado;
+    }
+
+     /**
+    * Operacion para agregar una empresa de vigilancia al sistema
+    * @param emp la Empresa de Vigilancia a registrar
+    * @return boolean resultado de la operacion
+    */
+    public boolean agregarEmpresaVigilancia(EmpresaVigilancia emp) {
+         boolean resultado = false;
+        try {
+            this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
+            bitacora.info("Control EmpresaVigilancia Iniciado correctamente");
+            resultado = controlEmpresaVigilancia.agregarEmpresaVigilancia(emp);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar control empresa de vigilancia" +
+            " por " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+    * Operacion para editar una empresa vigilancia en el sistema
+    * @param emp la Empresa Vigilancia a registrar
+    * @return boolean resultado de la operacion
+    */
+    public boolean modificarEmpresaVigilancia (EmpresaVigilancia emp) {
+         boolean resultado = false;
+        try {
+            this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
+            bitacora.info("Control Empresa Vigilancia Iniciado correctamente");
+            resultado = controlEmpresaVigilancia.modificarEmpresaVigilancia(emp);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar control Empresa Vigilancia" +
+            " por " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para eliminar una empresa de vigilancia del sistema
+     * @param rif String rif de la empresa de vigilancia a eliminar
+     * @return resultado int 1 de exito o  0 no de la operacion
+     */
+    public int eliminarEmpresaVigilancia (String rif) {
+        int resultado = 0;
+        try {
+            this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
+            bitacora.info("Control EmpresaVigilancia Iniciado correctamente");
+            controlEmpresaVigilancia.eliminarEmpresa(rif);
+            resultado = 1;
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar controlEmpresa de Vigilancia" +
+            " por " + ex.getMessage());
+            resultado = 0;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para consultar todos los proveedores registrados en el sistema
+     * @return resultado Coleccion de objetos Proveedor
+     */
+    public Collection<EmpresaVigilancia> todasLasEmpresas() {
+        Collection<EmpresaVigilancia> resultado = null;
+        try {
+            this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
+            bitacora.info("Control Empresa Vigilancia Iniciado correctamente");
+            resultado = controlEmpresaVigilancia.traerTodasLasEmpresas();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el controlEmpresa de Vigilancia" +
+            " por " + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
     }
 }
