@@ -173,10 +173,10 @@ public class ControlGuiProveedor {
     public void eliminarProveedorSistema(String rif) {
         boolean resultado = false;
         boolean existe = false;
-        String mensajeRes = "Error: EL provedor " + rif + " que intenta borrar" +
-                "esta en registros historiales importantes, por tanto no se" +
-                "recimienda su eliminacion parcial, contacte a su administrador" +
-                "para más informacion";
+        String mensajeRes = "Error: EL provedor " + rif + " que intenta borrar \n" +
+                " esta en registros historiales importantes, por tanto no se\n" +
+                " recomienda su eliminacion parcial, contacte a su administrador\n" +
+                " para más informacion";
         existe = this.esExistenteProveedor(rif);
         if (existe) {
             resultado = controlG.eliminarProveedor(rif);

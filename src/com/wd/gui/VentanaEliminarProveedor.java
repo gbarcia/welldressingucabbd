@@ -195,6 +195,7 @@ public class VentanaEliminarProveedor extends javax.swing.JFrame {
             Proveedor p = (Proveedor) aux.get(indiceSeleccionado);
             control.eliminarProveedorSistema(p.getRif());
         }
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
