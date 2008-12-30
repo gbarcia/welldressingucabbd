@@ -177,6 +177,23 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+    
+    /**
+     * Metodo para consultar todas las tiendas
+     * @return todas las Tiendas
+     */
+    public Collection traerTodasLasTienda(){
+        Collection<Tienda> tiendas = null;
+        try {
+            this.controlTienda = new ControlTienda();
+            bitacora.info("ControlTienda iniciado correctamente");
+            tiendas = controlTienda.consultarTiendas();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlTienda por " + ex.getMessage());
+        } finally {
+            return tiendas;
+        }
+    }
 
     /**
      * Metodo para Agregar un nuevo Centro de Distribución
