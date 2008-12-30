@@ -159,6 +159,26 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Metodo para eliminar una tienda
+     * @param codigo el codigo de la tienda
+     * @return resultado de la operacion
+     */
+    public boolean eliminarTienda(int codigo){
+        boolean resultado = false;
+        try {
+            this.controlTienda = new ControlTienda();
+            this.bitacora.info("ControlTienda iniciado correctamente");
+            this.controlTienda.eliminarTienda(codigo);
+            resultado = true;
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlTienda por " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Metodo para Agregar un nuevo Centro de Distribución
      * @param centro el nuevo centro a agregar
      * @return boolean resultado de la operación
