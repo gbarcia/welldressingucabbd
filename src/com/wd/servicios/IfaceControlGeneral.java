@@ -29,6 +29,26 @@ public interface IfaceControlGeneral {
      */
     public  boolean agregarTienda(Tienda tienda);
 
+    /**
+     * Metodo para modificar una Tienda
+     * @param tienda la tienda a modificar
+     * @return resultado de la operacion
+     */
+    public boolean modificarTienda(Tienda tienda);
+
+    /**
+     * Metodo para eliminar una tienda
+     * @param codigo el codigo de la tienda
+     * @return resultado de la operacion
+     */
+    public boolean eliminarTienda(int codigo);
+
+    /**
+     * Metodo para consultar todas las tiendas
+     * @return todas las Tiendas
+     */
+    public Collection traerTodasLasTienda();
+
      /**
       * Metodo para buscar todos los horarios del sistema
       * @return Collection todos los horarios registrados
