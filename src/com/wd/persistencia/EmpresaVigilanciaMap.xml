@@ -56,7 +56,7 @@
         nombre_contacto = #nombreContacto#,
         apellido_contacto = #apellidoContacto#,
         direccion = #direccion#,
-        LUGAR_id = #lugarID#
+        LUGAR_id = #lugarId#
         WHERE rif = #rif#
     </update>
 
