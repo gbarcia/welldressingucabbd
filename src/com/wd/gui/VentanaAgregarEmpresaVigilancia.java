@@ -1,15 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * VentanaAgregarEmpresaVigilancia.java
- *
- * Created on 30/12/2008, 03:57:02 PM
- */
-
 package com.wd.gui;
+
+import com.wd.dominio.CentroDistribucion;
+import com.wd.dominio.Lugar;
+import com.wd.dominio.Tienda;
+import com.wd.gui.controlparticular.ControlGuiCentroDistribucion;
+import com.wd.gui.controlparticular.ControlGuiLugar;
+import java.util.Vector;
 
 /**
  *
@@ -17,9 +13,41 @@ package com.wd.gui;
  */
 public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
 
+    private Vector<Lugar> estados;
+
+    private Vector<Lugar> ciudades;
+
+    private Vector<Lugar> ciudadesAux;
+
+    private Vector<CentroDistribucion> vecCentros;
+
+    private Vector <Tienda> vecTiendas;
+
+    private ControlGuiLugar controlLugar;
+
+    private ControlGuiCentroDistribucion controlCentro;
+
     /** Creates new form VentanaAgregarEmpresaVigilancia */
-    public VentanaAgregarEmpresaVigilancia() {
+    public VentanaAgregarEmpresaVigilancia(Vector<Lugar> result) {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+
+
+        vecCentros = new Vector();
+        ciudadesAux = new Vector();
+        ciudades = new Vector();
+        estados = new Vector();
+
+        controlCentro = new ControlGuiCentroDistribucion();
+        vecCentros = controlCentro.traerTodosLosCentros();
+
+        estados = result;
+
+        for (Lugar lugar : result){
+            this.comboEstado.addItem(lugar.getNombrePropio());
+        }
     }
 
     /** This method is called from within the constructor to
@@ -61,49 +89,71 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nueva Empresa de Vigilancia", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
+        comboEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEstadoActionPerformed(evt);
+            }
+        });
+
         campoDireccion.setColumns(20);
         campoDireccion.setRows(5);
         jScrollPane1.setViewportView(campoDireccion);
 
         buttonGroup1.add(radioTienda);
-        radioTienda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        radioTienda.setFont(new java.awt.Font("Tahoma", 1, 11));
         radioTienda.setText("Tienda");
+        radioTienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioTiendaActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(radioCentro);
         radioCentro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        radioCentro.setSelected(true);
         radioCentro.setText("Centro Distribución");
+        radioCentro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioCentroActionPerformed(evt);
+            }
+        });
 
-        labelTiendaCentro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelTiendaCentro.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelTiendaCentro.setText("jLabel1");
 
-        buttonAgregar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonAgregar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonAgregar.setText("Agregar");
+        buttonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAgregarActionPerformed(evt);
+            }
+        });
 
-        buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonCancelar.setText("Cancelar");
 
-        labelEstado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelEstado.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelEstado.setText("Estado");
 
-        labelCiudad.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCiudad.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelCiudad.setText("Ciudad");
 
-        labelRif.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelRif.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelRif.setText("RIF");
 
-        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombre.setText("Nombre");
 
-        labelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelTelefono.setText("Teléfono");
 
-        labelNombrePer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombrePer.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombrePer.setText("Nombre Persona de Contacto");
 
-        labelApellidoPer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelApellidoPer.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelApellidoPer.setText("Apellido Persona de Contacto");
 
-        labelDireccion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDireccion.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDireccion.setText("Dirección");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -150,18 +200,16 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
                                     .addComponent(comboCiudad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(campoApellidoPer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                                    .addComponent(comboEstado, 0, 203, Short.MAX_VALUE))
-                                .addContainerGap())
+                                    .addComponent(comboEstado, 0, 203, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(83, 83, 83)
-                                .addComponent(radioTienda)
-                                .addContainerGap())))
+                                .addComponent(radioTienda))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(labelTiendaCentro)
                         .addGap(130, 130, 130)
-                        .addComponent(comboTiendaCentro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addComponent(comboTiendaCentro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,13 +284,48 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
+        int select = -1;
+        select = this.comboEstado.getSelectedIndex();
+        Lugar estadoDueño = new Lugar();
+        estadoDueño = estados.elementAt(select);
+        cargarCiudades(estadoDueño);
+    }//GEN-LAST:event_comboEstadoActionPerformed
+
+    private void radioCentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCentroActionPerformed
+        if (this.radioCentro.isSelected()){
+            this.comboTiendaCentro.removeAllItems();
+            this.labelTiendaCentro.setText("Centros de Distribución");
+            for (CentroDistribucion centro : vecCentros) {
+                this.comboTiendaCentro.addItem(centro.getNombre());
+            }
+        }
+    }//GEN-LAST:event_radioCentroActionPerformed
+
+    private void radioTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioTiendaActionPerformed
+        if (this.radioTienda.isSelected()){
+            this.comboTiendaCentro.removeAllItems();
+            this.labelTiendaCentro.setText("Tiendas");
+            for (Tienda tienda : vecTiendas) {
+                this.comboTiendaCentro.addItem(tienda.getNombre());
+            }
+        }
+    }//GEN-LAST:event_radioTiendaActionPerformed
+
+    private void buttonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAgregarActionPerformed
+
     /**
     * @param args the command line arguments
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Vector<Lugar> result) {
+                new VentanaAgregarEmpresaVigilancia(result).setVisible(true);
+            }
             public void run() {
-                new VentanaAgregarEmpresaVigilancia().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet.");
             }
         });
     }
@@ -275,4 +358,21 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioTienda;
     // End of variables declaration//GEN-END:variables
 
+    public void cargarCiudades(Lugar Estado){
+        this.comboCiudad.removeAllItems();
+        this.ciudadesAux.removeAllElements();
+
+        int codigoEstado = -1;
+        codigoEstado = Estado.getId();
+
+        controlLugar = new ControlGuiLugar();
+        ciudades = controlLugar.traerTodosLosLugares(2);
+
+        for (Lugar lugar : ciudades) {
+            if (lugar.getLugarID() == codigoEstado){
+                ciudadesAux.addElement(lugar);
+                this.comboCiudad.addItem(lugar.getNombrePropio());
+            }
+        }
+    }
 }
