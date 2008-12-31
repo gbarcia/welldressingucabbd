@@ -41,7 +41,7 @@ public class ControlGui {
     /** Variable de la ventana modificar departamentos*/
     private VentanaModificarDepartamento ventanaModificarDepartamento;
 
-/** Variable de la ventana ver horarios*/
+    /** Variable de la ventana ver horarios*/
     private VentanaConsultaHorarios ventanaConsultaHorarios;
 
     /** Variable de la ventana ver los lugares*/
@@ -82,6 +82,9 @@ public class ControlGui {
 
     /** Variable de la ventana para eliminar un proveedor*/
     private VentanaEliminarProveedor ventanaEliminarProve;
+
+    /** Variable de la ventana para agregar una Tienda*/
+    private VentanaAgregarTienda ventanaAgregarTienda;
 
 /** Constructor del ControlGui */
     public ControlGui() {
@@ -337,4 +340,15 @@ public class ControlGui {
         return JOptionPane.showConfirmDialog(null, mensaje, "CONFIRMACION",
                     JOptionPane.OK_CANCEL_OPTION);
     }
+    
+    /**
+     * Metodo para mostrar u ocultar la ventana para gregar una Tienda
+     * @param var indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaAgregarTienda (boolean var, Collection horarios,
+            Collection estados, Collection ciudades, Collection empresas){
+        ventanaAgregarTienda = new VentanaAgregarTienda(horarios, estados, ciudades, empresas);
+        ventanaAgregarTienda.setVisible(var);
+    }
+
 }
