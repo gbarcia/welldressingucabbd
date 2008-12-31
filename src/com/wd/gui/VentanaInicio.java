@@ -7,6 +7,7 @@
 package com.wd.gui;
 
 import com.wd.dominio.Departamento;
+import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
 import com.wd.gui.controlparticular.ControlGuiCentroDistribucion;
@@ -181,6 +182,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuMantenimientoTienda.setText("Mantenimiento");
 
         menuRegistrarTienda.setText("Registro de tienda");
+        menuRegistrarTienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRegistrarTiendaActionPerformed(evt);
+            }
+        });
         menuMantenimientoTienda.add(menuRegistrarTienda);
 
         menuEditarTienda.setText("Editar una tienda");
@@ -764,6 +770,26 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniciarVentanaModificarCentro(true, result);
     }//GEN-LAST:event_menuCentroEditarActionPerformed
+
+    private void menuRegistrarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRegistrarTiendaActionPerformed
+        Vector<Horario> horarios = null;
+        Vector<Lugar> estados = null;
+        Vector<Lugar> ciudades = null;
+        Vector<EmpresaVigilancia> empresas = null;
+
+        this.controlGuiHorario = new ControlGuiHorario();
+        this.controlGuiLugar = new ControlGuiLugar();
+//        this.controlGuiEmpresaVigilancia = new ControlGuiEmpresaVigilancia();
+
+        horarios = this.controlGuiHorario.traerTodosLosHorarios();
+        estados = this.controlGuiLugar.traerTodosLosLugares(1);
+        ciudades = this.controlGuiLugar.traerTodosLosLugares(2);
+//        empresas = this.controlGuiEmpresaVigilancia.traerBlahBlah();
+
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaAgregarTienda(true, horarios, estados, ciudades, empresas);
+
+    }//GEN-LAST:event_menuRegistrarTiendaActionPerformed
 
     /**
     * @param args the command line arguments
