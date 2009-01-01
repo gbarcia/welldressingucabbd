@@ -6,6 +6,7 @@
     <sqlMap namespace="Empleado">
 
    <typeAlias alias="empleado" type="com.wd.dominio.Empleado"/>
+   <typeAlias alias="historial" type="com.wd.dominio.HistorialEmpleado"/>
 
    <insert id="agregarEmpleado" parameterClass="empleado">
         INSERT INTO EMPLEADO (
