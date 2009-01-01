@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+    <sqlMap namespace="Empleado">
+
+   <typeAlias alias="empleado" type="com.wd.dominio.Empleado"/>
+
+   <insert id="agregarEmpleado" parameterClass="empleado">
+        INSERT INTO EMPLEADO (
+        ci,
+        nombre,
+        apellido,
+        fecha_nac,
+        telefono,
+        estado_civ,
+        sexo,
+        nivel_est,
+        direccion,
+        tipo,
+        LUGAR_id)
+        VALUES (18027622, 'MARIA ALEJANDRA', 'URIBE MARTELO', '1987-01-01',
+        '04129513436', 0, 'F', 2, 'BOULEVARD EL CAFETAL, EDIFICIO ARAMIS,
+        APARTAMENTO 42, EL CAFETAL', 0, 4);
+    </insert>
+
+   </sqlMap>
