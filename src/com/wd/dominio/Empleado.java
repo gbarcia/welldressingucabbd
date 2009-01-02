@@ -109,6 +109,10 @@ public class Empleado {
         this.historial.add(he);
     }
 
+    private void establecerHistorial () {
+        
+    }
+
     public String getApellido() {
         return apellido;
     }
