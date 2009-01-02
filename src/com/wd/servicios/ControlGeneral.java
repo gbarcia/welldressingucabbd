@@ -1,5 +1,6 @@
 package com.wd.servicios;
 
+import com.wd.dominio.Camion;
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.EmpresaVigilancia;
@@ -746,4 +747,167 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+    
+    /**
+     * Metodo para agragar un Producto
+     * @param producto
+     * @return resultado de la operacion
+     */
+    public boolean agregarProducto(Producto producto) {
+        boolean resultado = false;
+        try {
+            this.controlProducto = new ControlProducto();
+            this.bitacora.info("ControlProducto iniciado correctamente");
+           this.controlProducto.agregarProducto(producto);
+            resultado = true;
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlProducto por "
+                    + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para eliminar un producto
+     * @param producto
+     * @return resultado de la operacion
+     */
+    public boolean modificarProducto(Producto producto){
+        boolean resultado = false;
+        try {
+            this.controlProducto = new ControlProducto();
+            this.bitacora.info("ControlProducto iniciado correctamente");
+            this.controlProducto.agregarProducto(producto);
+            resultado = true;
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlProducto por "
+                    + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para eliminar un producto
+     * @param id
+     * @return resultado de la operacion
+     */
+    public boolean eliminarProducto(int id){
+        boolean resultado = false;
+        try {
+            this.controlProducto = new ControlProducto();
+            this.bitacora.info("ControlProducto iniciado correctamente");
+            this.controlProducto.eliminarProducto(id);
+            resultado = true;
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlProducto por "
+                    + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para consultar todos los productos
+     * @return coleccion de productos
+     */
+    public Collection traerTodosLosProductos(){
+        Collection<Producto> productos = null;
+        try {
+            this.controlProducto = new ControlProducto();
+            bitacora.info("ControlProducto iniciado correctamente");
+            productos = this.controlProducto.consultarProductos();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlProducto por "
+                    + ex.getMessage());
+        } finally {
+            return productos;
+        }
+    }
+
+    /**
+     * Metodo para agregar un Camion
+     * @param camion
+     * @return resultado de la operacion
+     */
+    public boolean agregarCamion (Camion camion) {
+        boolean resultado = false;
+        try {
+            this.controlCamion = new ControlCamion();
+            this.bitacora.info("ControlCamion iniciado correctamente");
+            this.controlCamion.agregarCamion(camion);
+            resultado = true;
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlCamion por "
+                    + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para modificar un camion
+     * @param camion
+     * @return resultado de la operacion
+     */
+    public boolean modificarCamion(Camion camion){
+        boolean resultado = false;
+        try {
+            this.controlCamion = new ControlCamion();
+            this.bitacora.info("ControlCamion iniciado correctamente");
+            this.controlCamion.modificarCamion(camion);
+            resultado = true;
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlCamion por "
+                    + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para eliminar un camion
+     * @param id
+     * @return resultado de la operacion
+     */
+    public boolean eliminarCamion(int id){
+        boolean resultado = false;
+        try {
+            this.controlCamion = new ControlCamion();
+            this.bitacora.info("ControlCamion iniciado correctamente");
+            this.controlCamion.eliminarCamion(id);
+            resultado = true;
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlCamion por "
+                    + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para consultar todos los camiones
+     * @return coleccion de camiones
+     */
+    public Collection traerTodosLosCamiones(){
+        Collection<Camion> camiones = null;
+        try {
+            this.controlCamion = new ControlCamion();
+            bitacora.info("ControlCamion iniciado correctamente");
+            camiones = this.controlCamion.consultarCamiones();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlCamion por "
+                    + ex.getMessage());
+        } finally {
+            return camiones;
+        }
+    }
+
 }
