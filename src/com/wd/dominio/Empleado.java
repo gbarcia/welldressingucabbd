@@ -104,13 +104,49 @@ public class Empleado {
         this.ciudadVive = ciudadVive;
     }
 
-    private void nuevoObjetoHistorial () {
-        HistorialEmpleado he = new HistorialEmpleado();
-        this.historial.add(he);
+    public Empleado(int cedula, String nombre, String apellido, Date fechaNacimiento,
+            String telefono, int estadoCivil, String sexo, int nivelEstudios,
+            String direccion, int tipo, int lugarId, String ciudadVive,
+            Collection<HistorialEmpleado> historial) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.telefono = telefono;
+        this.estadoCivil = estadoCivil;
+        this.sexo = sexo;
+        this.nivelEstudios = nivelEstudios;
+        this.direccion = direccion;
+        this.tipo = tipo;
+        this.lugarId = lugarId;
+        this.ciudadVive = ciudadVive;
+        this.historial = historial;
     }
 
-    private void establecerHistorial () {
-        
+    public Empleado(int cedula, String nombre, String apellido, Date fechaNacimiento,
+            String telefono, int estadoCivil, String sexo, int nivelEstudios,
+            String direccion, int tipo, int lugarId, String ciudadVive, Date fechaInicio,
+            Date fechaFin,String rifEmpresa) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.telefono = telefono;
+        this.estadoCivil = estadoCivil;
+        this.sexo = sexo;
+        this.nivelEstudios = nivelEstudios;
+        this.direccion = direccion;
+        this.tipo = tipo;
+        this.lugarId = lugarId;
+        this.ciudadVive = ciudadVive;
+        this.nuevoObjetoHistorial(fechaFin, fechaFin, rifEmpresa, tipo);
+    }
+
+    private void nuevoObjetoHistorial (Date fechaIni,Date fechaFin, String rifEmpresa,
+            int cargo) {
+        HistorialEmpleado he = new HistorialEmpleado(this.cedula,rifEmpresa,fechaIni,
+                fechaFin,cargo);
+        this.historial.add(he);
     }
 
     public String getApellido() {
@@ -118,7 +154,7 @@ public class Empleado {
     }
 
     public void setApellido(String apellido) {
-        this.apellido = apellido;
+        this.apellido = apellido.toUpperCase();
     }
 
     public int getCedula() {
@@ -134,7 +170,7 @@ public class Empleado {
     }
 
     public void setCiudadVive(String ciudadVive) {
-        this.ciudadVive = ciudadVive;
+        this.ciudadVive = ciudadVive.toUpperCase();
     }
 
     public String getDireccion() {
@@ -142,7 +178,7 @@ public class Empleado {
     }
 
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.direccion = direccion.toUpperCase();
     }
 
     public int getEstadoCivil() {
@@ -190,7 +226,7 @@ public class Empleado {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre = nombre.toUpperCase();
     }
 
     public String getSexo() {
@@ -198,7 +234,7 @@ public class Empleado {
     }
 
     public void setSexo(String sexo) {
-        this.sexo = sexo;
+        this.sexo = sexo.toUpperCase();
     }
 
     public String getTelefono() {
@@ -206,7 +242,7 @@ public class Empleado {
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        this.telefono = telefono.toUpperCase();
     }
 
     public int getTipo() {
