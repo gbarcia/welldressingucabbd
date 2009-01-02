@@ -1,5 +1,6 @@
 package com.wd.servicios;
 
+import com.wd.dominio.Camion;
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.Horario;
@@ -144,4 +145,59 @@ public interface IfaceControlGeneral {
      * @return resultado boolean de exito o no de la operacion
      */
     public boolean eliminarProveedor (String rif);
+
+    /**
+     * Metodo para agragar un Producto
+     * @param producto
+     * @return resultado de la operacion
+     */
+    public boolean agregarProducto(Producto producto);
+
+    /**
+     * Metodo para eliminar un producto
+     * @param producto
+     * @return resultado de la operacion
+     */
+    public boolean modificarProducto(Producto producto);
+
+    /**
+     * Metodo para eliminar un producto
+     * @param id
+     * @return resultado de la operacion
+     */
+    public boolean eliminarProducto(int id);
+
+    /**
+     * Metodo para consultar todos los productos
+     * @return coleccion de productos
+     */
+    public Collection traerTodosLosProductos();
+
+     /**
+     * Metodo para agregar un Camion
+     * @param camion
+     * @return resultado de la operacion
+     */
+    public boolean agregarCamion (Camion camion);
+
+    /**
+     * Metodo para modificar un camion
+     * @param camion
+     * @return resultado de la operacion
+     */
+    public boolean modificarCamion(Camion camion);
+
+    /**
+     * Metodo para eliminar un camion
+     * @param id
+     * @return resultado de la operacion
+     */
+    public boolean eliminarCamion(int id);
+
+     /**
+     * Metodo para consultar todos los camiones
+     * @return coleccion de camiones
+     */
+    public Collection traerTodosLosCamiones();
+
 }
