@@ -67,9 +67,23 @@ public class Empleado {
     /** coleccion con todos sus historiales */
     private Collection<HistorialEmpleado> historial;
 
+    /** constructor por defecto */
     public Empleado() {
     }
 
+    /** Constructor de empleado Regular 1
+     *  Para instanciaciones de objeto empleado donde no sea relevante su historial
+     * @param cedula int el numero de cedula
+     * @param nombre String el nombre del empleado
+     * @param fechaNacimiento Date la fecha de nacimiento del empleado
+     * @param telefono String el numero de telefono del empleado
+     * @param estadoCivil int el estado civil del empleado
+     * @param sexo String el sexo del empleado
+     * @param nivelEstudios int el nivel de estudios del empleado
+     * @param direccion Strind direccion del empleado
+     * @param tipo int el cargo del empleado
+     * @param lugarId int el indice del lugar donde vive el empleado
+     */
     public Empleado(int cedula, String nombre, String apellido, Date fechaNacimiento,
             String telefono, int estadoCivil, String sexo, int nivelEstudios,
             String direccion, int tipo, int lugarId) {
@@ -86,6 +100,21 @@ public class Empleado {
         this.lugarId = lugarId;
     }
 
+      /** Constructor de empleado Regular 2
+     *  Para instanciaciones de objeto empleado donde no sea relevante su historial
+     *  y ademas queremos conocer el nombre de la ciudad donde vive
+     * @param cedula int el numero de cedula
+     * @param nombre String el nombre del empleado
+     * @param fechaNacimiento Date la fecha de nacimiento del empleado
+     * @param telefono String el numero de telefono del empleado
+     * @param estadoCivil int el estado civil del empleado
+     * @param sexo String el sexo del empleado
+     * @param nivelEstudios int el nivel de estudios del empleado
+     * @param direccion Strind direccion del empleado
+     * @param tipo int el cargo del empleado
+     * @param lugarId int el indice del lugar donde vive el empleado
+     * @param ciudadVive String nombre de la ciudad donde vive
+     */
     public Empleado(int cedula, String nombre, String apellido, Date
             fechaNacimiento, String telefono, int estadoCivil, String sexo,
             int nivelEstudios, String direccion, int tipo, int lugarId,
@@ -104,6 +133,22 @@ public class Empleado {
         this.ciudadVive = ciudadVive;
     }
 
+      /** Constructor de empleado Regular 3
+     *  Para instanciaciones de objeto empleado donde sea relevante conocer el
+     *  historial del empleado y ademas conocer el nombre de la ciudad donde vive
+     * @param cedula int el numero de cedula
+     * @param nombre String el nombre del empleado
+     * @param fechaNacimiento Date la fecha de nacimiento del empleado
+     * @param telefono String el numero de telefono del empleado
+     * @param estadoCivil int el estado civil del empleado
+     * @param sexo String el sexo del empleado
+     * @param nivelEstudios int el nivel de estudios del empleado
+     * @param direccion Strind direccion del empleado
+     * @param tipo int el cargo del empleado
+     * @param lugarId int el indice del lugar donde vive el empleado
+     * @param ciudadVive String nombre de la ciudad donde vive
+     * @param historial Coleccion con todos los historiales del empleado
+     */
     public Empleado(int cedula, String nombre, String apellido, Date fechaNacimiento,
             String telefono, int estadoCivil, String sexo, int nivelEstudios,
             String direccion, int tipo, int lugarId, String ciudadVive,
@@ -123,10 +168,29 @@ public class Empleado {
         this.historial = historial;
     }
 
+      /** Constructor de empleado Regular 4
+     * Para instanciaciones de objeto empleado durante el momento del registro
+     * del sistema o actualizaciones donde se registrara un nuevo historial
+     * @param cedula int el numero de cedula
+     * @param nombre String el nombre del empleado
+     * @param fechaNacimiento Date la fecha de nacimiento del empleado
+     * @param telefono String el numero de telefono del empleado
+     * @param estadoCivil int el estado civil del empleado
+     * @param sexo String el sexo del empleado
+     * @param nivelEstudios int el nivel de estudios del empleado
+     * @param direccion Strind direccion del empleado
+     * @param tipo int el cargo del empleado
+     * @param lugarId int el indice del lugar donde vive el empleado
+     * @param ciudadVive String nombre de la ciudad donde vive
+     * @param fechaInicio Date la fecha de inicio de historial del empleado
+     * @param fechaFin Date la fecha de fin de historial del empleado
+     * @param rifEmpresa el rif de la empresa donde trabajara el empleado
+     * @param nombreEmpresa el nombre de la empresa donde trabara el empleado
+     */
     public Empleado(int cedula, String nombre, String apellido, Date fechaNacimiento,
             String telefono, int estadoCivil, String sexo, int nivelEstudios,
             String direccion, int tipo, int lugarId, String ciudadVive, Date fechaInicio,
-            Date fechaFin,String rifEmpresa) {
+            Date fechaFin,String rifEmpresa, String nombreEmpresa) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -139,13 +203,13 @@ public class Empleado {
         this.tipo = tipo;
         this.lugarId = lugarId;
         this.ciudadVive = ciudadVive;
-        this.nuevoObjetoHistorial(fechaFin, fechaFin, rifEmpresa, tipo);
+        this.nuevoObjetoHistorial(fechaFin, fechaFin, rifEmpresa, tipo,nombreEmpresa);
     }
 
     private void nuevoObjetoHistorial (Date fechaIni,Date fechaFin, String rifEmpresa,
-            int cargo) {
+            int cargo, String nombreEmpresa) {
         HistorialEmpleado he = new HistorialEmpleado(this.cedula,rifEmpresa,fechaIni,
-                fechaFin,cargo);
+                fechaFin,cargo,nombreEmpresa);
         this.historial.add(he);
     }
 

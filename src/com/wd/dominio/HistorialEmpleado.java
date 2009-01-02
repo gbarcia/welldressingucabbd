@@ -14,6 +14,8 @@ public class HistorialEmpleado {
 
     private String rif;
 
+    private String nombreEmpresa;
+
     private Date fechaInicio;
 
     private Date fechaFin;
@@ -24,7 +26,7 @@ public class HistorialEmpleado {
     }
 
     public HistorialEmpleado(int cedula, String rif, Date fechaInicio,
-            Date fechaFin, int cargo) {
+            Date fechaFin, int cargo, String nombreEmpresa) {
         this.cedula = cedula;
         this.rif = rif;
         this.fechaInicio = fechaInicio;
