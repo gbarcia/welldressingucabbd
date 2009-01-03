@@ -206,6 +206,15 @@ public class Empleado {
         this.nuevoObjetoHistorial(fechaFin, fechaFin, rifEmpresa, tipo,nombreEmpresa);
     }
 
+    /**
+     * Metodo para crear un nuevo objeto historial y guardalo en la coleccion de historiales
+     * esta operacion es valida en los casos donde se tenga que agregar historial nuevo
+     * @param cargo int el cargo del empleado
+     * @param nombreEmpresa String nombre de la empresa
+     * @param fechaIni Date la fecha de inicio de historial del empleado
+     * @param fechaFin Date la fecha de fin de historial del empleado
+     * @param rifEmpresa el rif de la empresa donde trabajara el empleado
+     */
     private void nuevoObjetoHistorial (Date fechaIni,Date fechaFin, String rifEmpresa,
             int cargo, String nombreEmpresa) {
         HistorialEmpleado he = new HistorialEmpleado(this.cedula,rifEmpresa,fechaIni,
