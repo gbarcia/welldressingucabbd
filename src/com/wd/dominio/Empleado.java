@@ -78,26 +78,39 @@ public class Empleado {
      * @param fechaNacimiento Date la fecha de nacimiento del empleado
      * @param telefono String el numero de telefono del empleado
      * @param estadoCivil int el estado civil del empleado
+     *    0 para soltero
+     *    1 para casado
+     *    2 para divorciado
+     *    3 para viudo
      * @param sexo String el sexo del empleado
+     *  M para masculino
+     *  F para feminino
      * @param nivelEstudios int el nivel de estudios del empleado
+     *  0 para ninguno
+     *  1 para educacion primaria
+     *  2 para educacion secundaria
+     *  3 para educacion superior
      * @param direccion Strind direccion del empleado
      * @param tipo int el cargo del empleado
+     *  0 para gerente
+     *  1 para empleado regular
+     *  2 para conductor
      * @param lugarId int el indice del lugar donde vive el empleado
      */
     public Empleado(int cedula, String nombre, String apellido, Date fechaNacimiento,
             String telefono, int estadoCivil, String sexo, int nivelEstudios,
             String direccion, int tipo, int lugarId) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
-        this.estadoCivil = estadoCivil;
-        this.sexo = sexo;
-        this.nivelEstudios = nivelEstudios;
-        this.direccion = direccion;
-        this.tipo = tipo;
-        this.lugarId = lugarId;
+        this.setCedula(cedula);
+        this.setNombre(nombre);
+        this.setApellido(apellido);
+        this.setFechaNacimiento(fechaNacimiento);
+        this.setTelefono(telefono);
+        this.setEstadoCivil(estadoCivil);
+        this.setSexo(sexo);
+        this.setNivelEstudios(nivelEstudios);
+        this.setDireccion(direccion);
+        this.setTipo(tipo);
+        this.setLugarId(lugarId);
     }
 
       /** Constructor de empleado Regular 2
@@ -108,10 +121,23 @@ public class Empleado {
      * @param fechaNacimiento Date la fecha de nacimiento del empleado
      * @param telefono String el numero de telefono del empleado
      * @param estadoCivil int el estado civil del empleado
+     *  0 para soltero
+     *  1 para casado
+     *  2 para divorciado
+     *  3 para viudo
      * @param sexo String el sexo del empleado
+     *  M para masculino
+     *  F para feminino
      * @param nivelEstudios int el nivel de estudios del empleado
+     *  0 para ninguno
+     *  1 para educacion primaria
+     *  2 para educacion secundaria
+     *  3 para educacion superior
      * @param direccion Strind direccion del empleado
      * @param tipo int el cargo del empleado
+     *  0 para gerente
+     *  1 para empleado regular
+     *  2 para conductor
      * @param lugarId int el indice del lugar donde vive el empleado
      * @param ciudadVive String nombre de la ciudad donde vive
      */
@@ -119,18 +145,18 @@ public class Empleado {
             fechaNacimiento, String telefono, int estadoCivil, String sexo,
             int nivelEstudios, String direccion, int tipo, int lugarId,
             String ciudadVive) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
-        this.estadoCivil = estadoCivil;
-        this.sexo = sexo;
-        this.nivelEstudios = nivelEstudios;
-        this.direccion = direccion;
-        this.tipo = tipo;
-        this.lugarId = lugarId;
-        this.ciudadVive = ciudadVive;
+        this.setCedula(cedula);
+        this.setNombre(nombre);
+        this.setApellido(apellido);
+        this.setFechaNacimiento(fechaNacimiento);
+        this.setTelefono(telefono);
+        this.setEstadoCivil(estadoCivil);
+        this.setSexo(sexo);
+        this.setNivelEstudios(nivelEstudios);
+        this.setDireccion(direccion);
+        this.setTipo(tipo);
+        this.setLugarId(lugarId);
+        this.setCiudadVive(ciudadVive);
     }
 
       /** Constructor de empleado Regular 3
@@ -141,10 +167,23 @@ public class Empleado {
      * @param fechaNacimiento Date la fecha de nacimiento del empleado
      * @param telefono String el numero de telefono del empleado
      * @param estadoCivil int el estado civil del empleado
+     *  0 para soltero
+     *  1 para casado
+     *  2 para divorciado
+     *  3 para viudo
      * @param sexo String el sexo del empleado
+     *  M para masculino
+     *  F para feminino
      * @param nivelEstudios int el nivel de estudios del empleado
+     *  0 para ninguno
+     *  1 para educacion primaria
+     *  2 para educacion secundaria
+     *  3 para educacion superior
      * @param direccion Strind direccion del empleado
      * @param tipo int el cargo del empleado
+     *  0 para gerente
+     *  1 para empleado regular
+     *  2 para conductor
      * @param lugarId int el indice del lugar donde vive el empleado
      * @param ciudadVive String nombre de la ciudad donde vive
      * @param historial Coleccion con todos los historiales del empleado
@@ -153,19 +192,19 @@ public class Empleado {
             String telefono, int estadoCivil, String sexo, int nivelEstudios,
             String direccion, int tipo, int lugarId, String ciudadVive,
             Collection<HistorialEmpleado> historial) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
-        this.estadoCivil = estadoCivil;
-        this.sexo = sexo;
-        this.nivelEstudios = nivelEstudios;
-        this.direccion = direccion;
-        this.tipo = tipo;
-        this.lugarId = lugarId;
-        this.ciudadVive = ciudadVive;
-        this.historial = historial;
+        this.setCedula(cedula);
+        this.setNombre(nombre);
+        this.setApellido(apellido);
+        this.setFechaNacimiento(fechaNacimiento);
+        this.setTelefono(telefono);
+        this.setEstadoCivil(estadoCivil);
+        this.setSexo(sexo);
+        this.setNivelEstudios(nivelEstudios);
+        this.setDireccion(direccion);
+        this.setTipo(tipo);
+        this.setLugarId(lugarId);
+        this.setCiudadVive(ciudadVive);
+        this.setHistorial(historial);
     }
 
       /** Constructor de empleado Regular 4
@@ -176,10 +215,23 @@ public class Empleado {
      * @param fechaNacimiento Date la fecha de nacimiento del empleado
      * @param telefono String el numero de telefono del empleado
      * @param estadoCivil int el estado civil del empleado
+     *  0 para soltero
+     *  1 para casado
+     *  2 para divorciado
+     *  3 para viudo
      * @param sexo String el sexo del empleado
+     *  M para masculino
+     *  F para feminino
      * @param nivelEstudios int el nivel de estudios del empleado
+     *  0 para ninguno
+     *  1 para educacion primaria
+     *  2 para educacion secundaria
+     *  3 para educacion superior
      * @param direccion Strind direccion del empleado
      * @param tipo int el cargo del empleado
+     *  0 para gerente
+     *  1 para empleado regular
+     *  2 para conductor
      * @param lugarId int el indice del lugar donde vive el empleado
      * @param ciudadVive String nombre de la ciudad donde vive
      * @param fechaInicio Date la fecha de inicio de historial del empleado
@@ -191,18 +243,18 @@ public class Empleado {
             String telefono, int estadoCivil, String sexo, int nivelEstudios,
             String direccion, int tipo, int lugarId, String ciudadVive, Date fechaInicio,
             Date fechaFin,String rifEmpresa, String nombreEmpresa) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
-        this.estadoCivil = estadoCivil;
-        this.sexo = sexo;
-        this.nivelEstudios = nivelEstudios;
-        this.direccion = direccion;
-        this.tipo = tipo;
-        this.lugarId = lugarId;
-        this.ciudadVive = ciudadVive;
+        this.setCedula(cedula);
+        this.setNombre(nombre);
+        this.setApellido(apellido);
+        this.setFechaNacimiento(fechaNacimiento);
+        this.setTelefono(telefono);
+        this.setEstadoCivil(estadoCivil);
+        this.setSexo(sexo);
+        this.setNivelEstudios(nivelEstudios);
+        this.setDireccion(direccion);
+        this.setTipo(tipo);
+        this.setLugarId(lugarId);
+        this.setCiudadVive(ciudadVive);
         this.nuevoObjetoHistorial(fechaFin, fechaFin, rifEmpresa, tipo,nombreEmpresa);
     }
 
@@ -210,6 +262,9 @@ public class Empleado {
      * Metodo para crear un nuevo objeto historial y guardalo en la coleccion de historiales
      * esta operacion es valida en los casos donde se tenga que agregar historial nuevo
      * @param cargo int el cargo del empleado
+     *  0 para gerente
+     *  1 para empleado regular
+     *  2 para conductor
      * @param nombreEmpresa String nombre de la empresa
      * @param fechaIni Date la fecha de inicio de historial del empleado
      * @param fechaFin Date la fecha de fin de historial del empleado
