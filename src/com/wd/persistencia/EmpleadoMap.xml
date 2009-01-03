@@ -21,9 +21,18 @@
         direccion,
         tipo,
         LUGAR_id)
-        VALUES (18027622, 'MARIA ALEJANDRA', 'URIBE MARTELO', '1987-01-01',
-        '04129513436', 0, 'F', 2, 'BOULEVARD EL CAFETAL, EDIFICIO ARAMIS,
-        APARTAMENTO 42, EL CAFETAL', 0, 4);
+        VALUES (#cedula#, #nombre#, #apellido#, #fechaNacimiento#, #telefono#,
+        #estadoCivil#, #sexo#, #nivelEstudios#,#direccion#, #tipo#, #lugarId#);
+    </insert>
+
+    <insert id="agregarHistorial" parameterClass="historial">
+        INSERT INTO NOMINA_TIENDA (
+        EMPLEADO_ci,
+        TIENDA_codigo,
+        fecha_ini,
+        fecha_fin,
+        cargo)
+        VALUES (#cedula#, #rif#, #fechaInicio#, #fechaFin#, #cargo#);
     </insert>
 
    </sqlMap>
