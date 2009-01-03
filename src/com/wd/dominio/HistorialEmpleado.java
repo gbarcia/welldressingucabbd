@@ -13,7 +13,7 @@ public class HistorialEmpleado {
     /** cedula del empleado*/
     private int cedula;
 
-    /** codigo de la tienda donde trabaja o trabajo el empleado*/
+    /** codigo de la tienda o centro donde trabaja o trabajo el empleado*/
     private int codigo;
 
     /** nombre de la empresa donde trabaja o trabajo el empleado*/
