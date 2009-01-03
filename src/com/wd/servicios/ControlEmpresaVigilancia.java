@@ -70,7 +70,7 @@ public class ControlEmpresaVigilancia {
 
     /**
      * Metodo eliminar una Empresa de Vigilancia del sistema
-     * @param  String rif de la empresa a eliminar
+     * @param  rif String de la empresa a eliminar
      * @return int resultado de la operacion
      */
     public int eliminarEmpresa(String rif) {
