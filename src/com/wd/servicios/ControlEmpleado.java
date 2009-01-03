@@ -30,6 +30,11 @@ public class ControlEmpleado {
         sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
     }
 
+    /**
+     * Operacion para agregar un empleado al sistema junto con su historial
+     * @param emp el empleado a registrar
+     * @return boolean resultado de la operacion
+     */
     public boolean agregarEmpleado(Empleado emp) {
         boolean resultado = false;
         Integer pk = -1;
