@@ -13,8 +13,8 @@ public class HistorialEmpleado {
     /** cedula del empleado*/
     private int cedula;
 
-    /** rif de la tienda donde trabaja o trabajo el empleado*/
-    private String rif;
+    /** codigo de la tienda donde trabaja o trabajo el empleado*/
+    private int codigo;
 
     /** nombre de la empresa donde trabaja o trabajo el empleado*/
     private String nombreEmpresa;
@@ -37,17 +37,17 @@ public class HistorialEmpleado {
      * @param cedula int el numero de cedula
      * @param fechaInicio Date la fecha de inicio de historial del empleado
      * @param fechaFin Date la fecha de fin de historial del empleado
-     * @param rif el rif de la empresa donde trabajara el empleado
+     * @param codigo el codigo de la empresa donde trabajara el empleado
      * @param nombreEmpresa el nombre de la empresa donde trabara el empleado
      * @param cargo int el cargo del empleado
      *  0 para gerente
      *  1 para empleado regular
      *  2 para conductor
      */
-    public HistorialEmpleado(int cedula, String rif, Date fechaInicio,
+    public HistorialEmpleado(int cedula, int codigo, Date fechaInicio,
             Date fechaFin, int cargo, String nombreEmpresa) {
         this.cedula = cedula;
-        this.rif = rif;
+        this.codigo = codigo;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.cargo = cargo;
@@ -86,12 +86,12 @@ public class HistorialEmpleado {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getRif() {
-        return rif;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setRif(String rif) {
-        this.rif = rif;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
      public String getNombreEmpresa() {

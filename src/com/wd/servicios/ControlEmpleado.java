@@ -37,21 +37,17 @@ public class ControlEmpleado {
      */
     public boolean agregarEmpleado(Empleado emp) {
         boolean resultado = false;
-        Integer pk = -1;
-        Integer pk2 = -1;
         Collection<HistorialEmpleado> historial = null;
         try {
-            pk = (Integer) sqlMap.insert("agregarEmpleado", emp);
-            bitacora.info("Empleado: " + pk + " agregado con éxito");
-            if (pk != -1) {
+            sqlMap.insert("agregarEmpleado", emp);
+            bitacora.info("Empleado: " + emp.getNombre() + " agregado con éxito");
                 historial = emp.getHistorial();
                 for (HistorialEmpleado object : historial) {
-                    pk2 = (Integer) sqlMap.insert("agregarHistorial", object);
-                     bitacora.info("Historial Empleado: " + pk +
+                     sqlMap.insert("agregarHistorial", object);
+                     bitacora.info("Historial Empleado: " + emp.getNombre() +
                                    " agregado con éxito");
                 }
-                resultado = true;
-            }
+                resultado = true;            
         } catch (SQLException ex) {
              bitacora.error("No se pudo operar " + emp.getNombre() +
                      " porque " + ex.getMessage());
