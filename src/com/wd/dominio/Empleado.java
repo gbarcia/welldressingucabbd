@@ -2,6 +2,7 @@ package com.wd.dominio;
 
 import java.sql.Date;
 import java.util.Collection;
+import java.util.Vector;
 
 /**
  * Entidad para el manejo de la información de empleado para el sistema
@@ -65,7 +66,7 @@ public class Empleado {
     private String ciudadVive;
     
     /** coleccion con todos sus historiales */
-    private Collection<HistorialEmpleado> historial;
+    private Collection<HistorialEmpleado> historial = new Vector<HistorialEmpleado>();
 
     /** constructor por defecto */
     public Empleado() {
@@ -236,13 +237,13 @@ public class Empleado {
      * @param ciudadVive String nombre de la ciudad donde vive
      * @param fechaInicio Date la fecha de inicio de historial del empleado
      * @param fechaFin Date la fecha de fin de historial del empleado
-     * @param rifEmpresa el rif de la empresa donde trabajara el empleado
+     * @param codigo el codigo de la empresa donde trabajara el empleado
      * @param nombreEmpresa el nombre de la empresa donde trabara el empleado
      */
     public Empleado(int cedula, String nombre, String apellido, Date fechaNacimiento,
             String telefono, int estadoCivil, String sexo, int nivelEstudios,
             String direccion, int tipo, int lugarId, String ciudadVive, Date fechaInicio,
-            Date fechaFin,String rifEmpresa, String nombreEmpresa) {
+            Date fechaFin,int codigo, String nombreEmpresa) {
         this.setCedula(cedula);
         this.setNombre(nombre);
         this.setApellido(apellido);
@@ -255,7 +256,7 @@ public class Empleado {
         this.setTipo(tipo);
         this.setLugarId(lugarId);
         this.setCiudadVive(ciudadVive);
-        this.nuevoObjetoHistorial(fechaFin, fechaFin, rifEmpresa, tipo,nombreEmpresa);
+        this.nuevoObjetoHistorial(fechaInicio, fechaFin, codigo, tipo,nombreEmpresa);
     }
 
     /**
@@ -268,11 +269,11 @@ public class Empleado {
      * @param nombreEmpresa String nombre de la empresa
      * @param fechaIni Date la fecha de inicio de historial del empleado
      * @param fechaFin Date la fecha de fin de historial del empleado
-     * @param rifEmpresa el rif de la empresa donde trabajara el empleado
+     * @param codigo el codigo de la empresa donde trabajara el empleado
      */
-    private void nuevoObjetoHistorial (Date fechaIni,Date fechaFin, String rifEmpresa,
+    private void nuevoObjetoHistorial (Date fechaIni,Date fechaFin, int codigo,
             int cargo, String nombreEmpresa) {
-        HistorialEmpleado he = new HistorialEmpleado(this.cedula,rifEmpresa,fechaIni,
+        HistorialEmpleado he = new HistorialEmpleado(this.cedula,codigo,fechaIni,
                 fechaFin,cargo,nombreEmpresa);
         this.historial.add(he);
     }

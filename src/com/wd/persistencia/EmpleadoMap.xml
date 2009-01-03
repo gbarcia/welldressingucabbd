@@ -32,7 +32,7 @@
         fecha_ini,
         fecha_fin,
         cargo)
-        VALUES (#cedula#, #rif#, #fechaInicio#, #fechaFin#, #cargo#);
+        VALUES (#cedula#, #codigo#, #fechaInicio#, #fechaFin#, #cargo#);
     </insert>
 
    </sqlMap>

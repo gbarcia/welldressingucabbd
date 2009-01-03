@@ -53,7 +53,7 @@ public class ControlEmpleadoTest {
         Empleado emp = null;
         Date a = new Date(0);
         Date fe =new Date(1000);
-        emp = new Empleado(1234, "JOHN", "OLIVIERI",a, "22222", 0, "M", 0, "DIR", 0, 2, "L", fe, null, "1", "a");
+        emp = new Empleado(12345, "JOHN", "OLIVIERI",a, "22222", 0, "M", 0, "DIR", 0, 2, "L", fe, null, 1, "a");
         ControlEmpleado instance = null;
         try {
             instance = new ControlEmpleado();
