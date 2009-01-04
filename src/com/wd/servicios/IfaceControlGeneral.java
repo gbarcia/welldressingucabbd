@@ -3,6 +3,7 @@ package com.wd.servicios;
 import com.wd.dominio.Camion;
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
+import com.wd.dominio.Empleado;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
 import com.wd.dominio.Producto;
@@ -200,4 +201,10 @@ public interface IfaceControlGeneral {
      */
     public Collection traerTodosLosCamiones();
 
+    /**
+     * Operacion para agregar un empleado al sistema junto con su historial
+     * @param emp el empleado a registrar
+     * @return boolean resultado de la operacion
+     */
+    public boolean agregarEmpleado(Empleado emp);
 }
