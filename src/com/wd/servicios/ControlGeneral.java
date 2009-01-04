@@ -3,6 +3,7 @@ package com.wd.servicios;
 import com.wd.dominio.Camion;
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
+import com.wd.dominio.Empleado;
 import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
@@ -11,7 +12,6 @@ import com.wd.dominio.Proveedor;
 import com.wd.dominio.Tienda;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -39,6 +39,8 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlCamion controlCamion;
     /** Variable para trabajar con el controlador de las empresas de vigilancia*/
     private ControlEmpresaVigilancia controlEmpresaVigilancia;
+    /** Variable para trabajar con el controlador de los empleados*/
+    private ControlEmpleado controlEmpleado;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
@@ -907,6 +909,26 @@ public class ControlGeneral implements IfaceControlGeneral {
                     + ex.getMessage());
         } finally {
             return camiones;
+        }
+    }
+
+     /**
+     * Operacion para agregar un empleado al sistema junto con su historial
+     * @param emp el empleado a registrar
+     * @return boolean resultado de la operacion
+     */
+    public boolean agregarEmpleado(Empleado emp) {
+        boolean resultado = false;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.agregarEmpleado(emp);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por "
+                    + ex.getMessage());
+        }
+        finally {
+            return resultado;
         }
     }
 
