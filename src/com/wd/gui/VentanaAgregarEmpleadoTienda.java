@@ -230,7 +230,7 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
 
         jLabel11.setText("Cargo:");
 
-        jcCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "gerente", "empleado regular", "conductor" }));
+        jcCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "gerente", "empleado regular" }));
 
         jLabel12.setText("Tienda donde trabajará:");
 
