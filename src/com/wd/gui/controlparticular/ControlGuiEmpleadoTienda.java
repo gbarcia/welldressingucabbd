@@ -7,6 +7,7 @@ import com.wd.dominio.Tienda;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
+import java.sql.Date;
 import java.util.Collection;
 
 /**
@@ -25,6 +26,15 @@ public class ControlGuiEmpleadoTienda {
     /** constructor que inicia el control general GUI */
     public ControlGuiEmpleadoTienda() {
         this.controlador = new ControlGui();
+    }
+
+    public void registrarNuevoEmpleado (int cedula, String nombre, String apellido,
+            Date fechaNacimiento, String telefono, int estadoCivil, String sexo,
+            int nivelEstudios, String direccion, int tipo, int lugarId, String ciudadVive,
+            int codigo, String nombreEmpresa) {
+        empleado = new Empleado(cedula, nombre, apellido, fechaNacimiento, telefono,
+                estadoCivil, sexo, nivelEstudios, direccion, tipo, lugarId,
+                ciudadVive, null, null, codigo, nombreEmpresa);
     }
 
     /** Operacion para traer todas las ciudades
