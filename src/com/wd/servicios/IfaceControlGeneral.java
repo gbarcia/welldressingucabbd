@@ -206,5 +206,5 @@ public interface IfaceControlGeneral {
      * @param emp el empleado a registrar
      * @return boolean resultado de la operacion
      */
-    public boolean agregarEmpleado(Empleado emp);
+    public boolean agregarEmpleadoTienda(Empleado emp);
 }

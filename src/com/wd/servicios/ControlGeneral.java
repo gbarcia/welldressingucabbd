@@ -917,12 +917,12 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param emp el empleado a registrar
      * @return boolean resultado de la operacion
      */
-    public boolean agregarEmpleado(Empleado emp) {
+    public boolean agregarEmpleadoTienda(Empleado emp) {
         boolean resultado = false;
         try {
             this.controlEmpleado = new ControlEmpleado();
             bitacora.info("Control empleado iniciado correctamente");
-            resultado = controlEmpleado.agregarEmpleado(emp);
+            resultado = controlEmpleado.agregarEmpleadoTienda(emp);
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar el ControlEmpleado por "
                     + ex.getMessage());
