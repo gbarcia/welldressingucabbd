@@ -27,22 +27,89 @@ public class ControlGuiEmpleadoTienda {
         this.controlador = new ControlGui();
     }
 
-    /** Operacion para registrar un Empleado en el sistema
-     *  
+    /** Operacion para conocer si un string es número
+     * @return resultado boolean si es numero o no
      */
-    public void registrarNuevoEmpleado(int cedula, String nombre, String apellido,
+    private boolean isNumber(String arg) {
+        boolean resultado = false;
+        try {
+            Integer number = Integer.parseInt(arg);
+            resultado = true;
+        } catch (NumberFormatException e) {
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**Operacion para validar el formulario de registro
+     * @param cedula int numero de cedula
+     * @param nombre String nombre del empleado
+     * @param apellido String apellido del empleado
+     * @param telefono String telefono del empleado
+     * @param direccion String direccion del empleado
+     * @return resultado boolean si es valido o no
+     */
+    private boolean validarForm(String cedula, String nombre, String apellido,
+            String telefono, String direccion) {
+        boolean resultado = true;
+        if (cedula.equals("") ||
+                nombre.equals("") ||
+                apellido.equals("") ||
+                telefono.equals("") ||
+                direccion.equals("")) {
+            resultado = false;
+        }
+        return resultado;
+    }
+
+    /**Operacion para registrar un Empleado en el sistema
+     * operacion para registrar un nuevo empleado en el sistema
+     * @param cedula int numero de cedula
+     * @param nombre String nombre del empleado
+     * @param apellido String apellido del empleado
+     * @param fechaNacimiento java.sql.Date la fecha de nacimiento del empleado
+     * @param telefono String telefono del empleado
+     * @param estadoCivil int estado civil del empleado
+     * @param sexo String sexo del empleado
+     * @param nivelEstudios int nivel de estudios del empleado
+     * @param direccion String direccion del empleado
+     * @param tipo int tipo de cargo del empleado
+     * @param lugarId int el indice de la ciudad donde vive el empleado
+     * @param ciudadVive String nombre de la ciudad donde vive el empleado
+     * @param codigo int codigo de la tienda donde trabajara el empleado
+     * @param nombreEmpresa String nombre de la empresa o tienda donde trabajara
+     * el empleado
+     */
+    public void registrarNuevoEmpleado(String cedula, String nombre, String apellido,
             java.sql.Date fechaNacimiento, String telefono, int estadoCivil, String sexo,
             int nivelEstudios, String direccion, int tipo, int lugarId, String ciudadVive,
             int codigo, String nombreEmpresa) {
         boolean resultado = false;
         boolean datosValidos = false;
-        Date fecha = new Date();
-        java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime()); //Obteniendo la fecha actual
-        empleado = new Empleado(cedula, nombre, apellido, fechaNacimiento, telefono,
-                estadoCivil, sexo, nivelEstudios, direccion, tipo, lugarId,
-                ciudadVive, fechaSQL, null, codigo, nombreEmpresa);
-        resultado = controlG.agregarEmpleadoTienda(empleado);
-
+        boolean esNumero = false;
+        esNumero = this.isNumber(cedula);
+        if (esNumero) {
+            datosValidos = this.validarForm(sexo, nombre, apellido, telefono, direccion);
+            int ci = Integer.parseInt(cedula); // conviertiendo la cedula en numero entero
+            if (datosValidos) {
+                Date fecha = new Date();
+                java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime()); //Obteniendo la fecha actual
+                empleado = new Empleado(ci, nombre, apellido, fechaNacimiento, telefono,
+                        estadoCivil, sexo, nivelEstudios, direccion, tipo, lugarId,
+                        ciudadVive, fechaSQL, null, codigo, nombreEmpresa);
+                resultado = controlG.agregarEmpleadoTienda(empleado);
+                if (resultado) {
+                     controlador.mostrarMensaje("Empleado " + nombre + " agregado con éxito", 0);
+                } else if (!resultado) {
+                    controlador.mostrarMensaje("Operacion fallida", 1);
+                }
+            } else if (!datosValidos) {
+                controlador.mostrarMensaje("Error: Todos los campos son requeridos", 1);
+            }
+        } else if (!esNumero) {
+            controlador.mostrarMensaje("Error: el campo cedula debe ser número", 1);
+        }
     }
 
     /** Operacion para traer todas las ciudades
