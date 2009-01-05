@@ -11,15 +11,32 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Lugar;
+import com.wd.dominio.Tienda;
+import com.wd.gui.controlparticular.ControlGuiEmpleadoTienda;
+import com.wd.servicios.ControlGeneral;
+import com.wd.servicios.IfaceControlGeneral;
+import java.util.Collection;
+
 /**
  *
  * @author gerardo
  */
 public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
 
+    private ControlGuiEmpleadoTienda controlGui;
+    private IfaceControlGeneral controlG = ControlGeneral.getInstance();
+
     /** Creates new form VentanaAgregarEmpleadoTienda */
     public VentanaAgregarEmpleadoTienda() {
         initComponents();
+
+        Collection<Lugar> ciudades = controlG.traerTodosLosLuagres(2);
+        Collection<Tienda> tiendas = controlG.traerTodasLasTienda();
+
+        for (Tienda tienda : tiendas) {
+            this.jcTienda.addItem(tienda.getNombre());
+        }
     }
 
     /** This method is called from within the constructor to
@@ -79,6 +96,11 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
         jLabel5.setText("Sexo:");
 
         jrMasculino.setText("Masculino");
+        jrMasculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrMasculinoActionPerformed(evt);
+            }
+        });
 
         jrFemenino.setText("Feminino");
         jrFemenino.addActionListener(new java.awt.event.ActionListener() {
@@ -273,7 +295,9 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jrFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrFemeninoActionPerformed
-        // TODO add your handling code here:
+        if (jrFemenino.isSelected()) {
+            this.jrMasculino.setSelected(false);
+        }
 }//GEN-LAST:event_jrFemeninoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -283,6 +307,12 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jrMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMasculinoActionPerformed
+        if (jrMasculino.isSelected()) {
+            this.jrFemenino.setSelected(false);
+        }
+    }//GEN-LAST:event_jrMasculinoActionPerformed
 
     /**
     * @param args the command line arguments

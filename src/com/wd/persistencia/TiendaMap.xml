@@ -43,7 +43,7 @@
 
   <select id="consultarTiendas" resultMap="resultMapTienda">
     SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
-    FROM tienda
+    FROM TIENDA
   </select>
 
 </sqlMap>
