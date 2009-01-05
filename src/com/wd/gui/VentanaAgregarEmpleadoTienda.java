@@ -16,7 +16,9 @@ import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiEmpleadoTienda;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
+import java.util.Date;
 import java.util.Collection;
+import java.util.Vector;
 
 /**
  *
@@ -26,6 +28,8 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
 
     private ControlGuiEmpleadoTienda controlGui;
     private IfaceControlGeneral controlG = ControlGeneral.getInstance();
+    private Collection<Lugar> Cciudades;
+    private Collection<Tienda> Ctienda;
 
     /** Creates new form VentanaAgregarEmpleadoTienda */
     public VentanaAgregarEmpleadoTienda() {
@@ -37,6 +41,19 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
         for (Tienda tienda : tiendas) {
             this.jcTienda.addItem(tienda.getNombre());
         }
+
+        for (Lugar ciudad : ciudades) {
+            this.jcUbicacion.addItem(ciudad.getNombrePropio());
+        }
+
+        this.controlGui = new ControlGuiEmpleadoTienda();
+        
+         Date fecha = new Date();
+         java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime()); //Obteniendo la fecha actual
+        this.jfFechaNac.setDate(fechaSQL);
+
+        this.Cciudades = ciudades;
+        this.Ctienda = tiendas;
     }
 
     /** This method is called from within the constructor to
@@ -92,6 +109,8 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
         jLabel3.setText("Cedula de Identidad:");
 
         jLabel4.setText("Fecha Nacimiento:");
+
+        jfFechaNac.setDateFormatString("yyyy/MM/dd");
 
         jLabel5.setText("Sexo:");
 
@@ -301,7 +320,36 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
 }//GEN-LAST:event_jrFemeninoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String nombreEmpleado        = this.jtNombre.getText();
+        String apellidoEmpleado      = this.jtApellido.getText();
+        String cedulaEmpleado        = this.jtCedula.getText();
+        String direccionEmpleado     = this.jtDireccion.getText();
+        String telefonoEmpleado      = this.jtTelefono.getText();
+        Date fechaNac                = this.jfFechaNac.getDate();
+        String sexo                  ="";
+        java.sql.Date fechaEmpleado = new java.sql.Date(fechaNac.getTime()); // Conviertiendo de java.util.Date a java.sql.date
+        //Para determinar el sexo
+        if (this.jrFemenino.isSelected()) sexo = "F";
+        else sexo = "M";
+        int cargo = this.jcCargo.getSelectedIndex();
+        int nivelEstudios = this.jcNivelEstudios.getSelectedIndex();
+        int estadoCivil = this.jcEdoCivil.getSelectedIndex();
+
+        int indiceCiudad = this.jcUbicacion.getSelectedIndex();
+        int indiceTienda = this.jcTienda.getSelectedIndex();
+
+        Vector<Lugar> ciudades = new Vector(this.Cciudades);
+        Lugar ciudadSeleccionada = ciudades.get(indiceCiudad);
+        int ciudadEmpleado = ciudadSeleccionada.getId();
+
+        Vector<Tienda> tiendas = new Vector (this.Ctienda);
+        Tienda tiendaSeleccionada = tiendas.get(indiceTienda);
+        int tiendaDondeTrabajara = tiendaSeleccionada.getCodigo();
+
+        this.controlGui.registrarNuevoEmpleado(cedulaEmpleado, nombreEmpleado,
+                apellidoEmpleado, fechaEmpleado,telefonoEmpleado, estadoCivil,
+                sexo, nivelEstudios, direccionEmpleado, cargo, ciudadEmpleado,
+                "", tiendaDondeTrabajara, "");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
