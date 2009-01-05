@@ -1,4 +1,3 @@
-
 package com.wd.gui.controlparticular;
 
 import com.wd.dominio.Empleado;
@@ -7,7 +6,7 @@ import com.wd.dominio.Tienda;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Collection;
 
 /**
@@ -28,13 +27,22 @@ public class ControlGuiEmpleadoTienda {
         this.controlador = new ControlGui();
     }
 
-    public void registrarNuevoEmpleado (int cedula, String nombre, String apellido,
-            Date fechaNacimiento, String telefono, int estadoCivil, String sexo,
+    /** Operacion para registrar un Empleado en el sistema
+     *  
+     */
+    public void registrarNuevoEmpleado(int cedula, String nombre, String apellido,
+            java.sql.Date fechaNacimiento, String telefono, int estadoCivil, String sexo,
             int nivelEstudios, String direccion, int tipo, int lugarId, String ciudadVive,
             int codigo, String nombreEmpresa) {
+        boolean resultado = false;
+        boolean datosValidos = false;
+        Date fecha = new Date();
+        java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime()); //Obteniendo la fecha actual
         empleado = new Empleado(cedula, nombre, apellido, fechaNacimiento, telefono,
                 estadoCivil, sexo, nivelEstudios, direccion, tipo, lugarId,
-                ciudadVive, null, null, codigo, nombreEmpresa);
+                ciudadVive, fechaSQL, null, codigo, nombreEmpresa);
+        resultado = controlG.agregarEmpleado(empleado);
+
     }
 
     /** Operacion para traer todas las ciudades
@@ -54,5 +62,4 @@ public class ControlGuiEmpleadoTienda {
         resultado = controlG.traerTodasLasTienda();
         return resultado;
     }
-
 }
