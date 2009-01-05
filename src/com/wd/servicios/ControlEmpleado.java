@@ -35,7 +35,7 @@ public class ControlEmpleado {
      * @param emp el empleado a registrar
      * @return boolean resultado de la operacion
      */
-    public boolean agregarEmpleado(Empleado emp) {
+    public boolean agregarEmpleadoTienda(Empleado emp) {
         boolean resultado = false;
         Collection<HistorialEmpleado> historial = null;
         try {

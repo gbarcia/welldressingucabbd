@@ -41,7 +41,7 @@ public class ControlGuiEmpleadoTienda {
         empleado = new Empleado(cedula, nombre, apellido, fechaNacimiento, telefono,
                 estadoCivil, sexo, nivelEstudios, direccion, tipo, lugarId,
                 ciudadVive, fechaSQL, null, codigo, nombreEmpresa);
-        resultado = controlG.agregarEmpleado(empleado);
+        resultado = controlG.agregarEmpleadoTienda(empleado);
 
     }
 
