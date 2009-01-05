@@ -86,6 +86,9 @@ public class ControlGui {
     /** Variable de la ventana para agregar una Tienda*/
     private VentanaAgregarTienda ventanaAgregarTienda;
 
+    /** Variable de la ventana para agregar un Empleado*/
+    private VentanaAgregarEmpleadoTienda ventanaAgregarEmpTienda;
+
 /** Constructor del ControlGui */
     public ControlGui() {
     }
@@ -98,6 +101,14 @@ public class ControlGui {
         ventanaInicio.setVisible(var);    
     }
 
+/**
+* metodo para ocultar o mostrar la ventana de agregar empleado tienda
+* @param var booleano que indica si mostrar o no la ventana
+*/
+    public void iniciarCerrarVentanaAgEmpTienda (boolean var) {
+        this.ventanaAgregarEmpTienda = new VentanaAgregarEmpleadoTienda();
+        this.ventanaAgregarEmpTienda.setVisible(var);
+    }
 /**
 * metodo para ocultar o mostrar la ventana de editarConsultar proveedor 2
 * @param var booleano que indica si mostrar o no la ventana
