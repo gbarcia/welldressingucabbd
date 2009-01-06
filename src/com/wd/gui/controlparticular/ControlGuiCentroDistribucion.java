@@ -61,10 +61,10 @@ public class ControlGuiCentroDistribucion {
      */
     public void  eliminarCentrodelSistema (CentroDistribucion centro){
         int resultado = ControlGeneral.getInstance().eliminarCentro(centro);
-        if (resultado==1) {
+        if (resultado == 1) {
         controlador.mostrarMensaje("Centro eliminado con éxito",0);
         }
-        else  if (resultado==0)
+        else  if (resultado == 0)
         controlador.mostrarMensaje("Operacion fallida", 1);
     }
 

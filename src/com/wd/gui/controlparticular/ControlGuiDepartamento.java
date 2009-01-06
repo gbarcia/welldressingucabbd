@@ -72,10 +72,10 @@ public class ControlGuiDepartamento {
      */
     public void  eliminarSubClasedelSistema (Departamento Subclase){
         int resultado = ControlGeneral.getInstance().eliminarSubClase(Subclase);
-        if (resultado==1) {
+        if (resultado == 1) {
         controlador.mostrarMensaje("Departamento eliminado con éxito",0);
         }
-        else  if (resultado==0)
+        else  if (resultado == 0)
         controlador.mostrarMensaje("Operacion fallida", 1);
     }
 
