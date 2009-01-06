@@ -182,11 +182,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuMantenimientoTienda.setText("Mantenimiento");
 
         menuRegistrarTienda.setText("Registro de tienda");
-        menuRegistrarTienda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuRegistrarTiendaActionPerformed(evt);
-            }
-        });
         menuMantenimientoTienda.add(menuRegistrarTienda);
 
         menuEditarTienda.setText("Editar una tienda");
@@ -367,6 +362,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductosMantenimiento.setText("Mantenimiento");
 
         MenuProductosAgregar.setText("Agregar producto");
+        MenuProductosAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuProductosAgregarActionPerformed(evt);
+            }
+        });
         menuProductosMantenimiento.add(MenuProductosAgregar);
 
         menuProductosEditar.setText("Editar producto");
@@ -776,30 +776,18 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui.iniciarVentanaModificarCentro(true, result);
     }//GEN-LAST:event_menuCentroEditarActionPerformed
 
-    private void menuRegistrarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRegistrarTiendaActionPerformed
-        Vector<Horario> horarios = null;
-        Vector<Lugar> estados = null;
-        Vector<Lugar> ciudades = null;
-        Vector<EmpresaVigilancia> empresas = null;
-
-        this.controlGuiHorario = new ControlGuiHorario();
-        this.controlGuiLugar = new ControlGuiLugar();
-//        this.controlGuiEmpresaVigilancia = new ControlGuiEmpresaVigilancia();
-
-        horarios = this.controlGuiHorario.traerTodosLosHorarios();
-        estados = this.controlGuiLugar.traerTodosLosLugares(1);
-        ciudades = this.controlGuiLugar.traerTodosLosLugares(2);
-//        empresas = this.controlGuiEmpresaVigilancia.traerBlahBlah();
-
-        this.controlGeneralGui = new ControlGui();
-        this.controlGeneralGui.iniciarVentanaAgregarTienda(true, horarios, estados, ciudades, empresas);
-
-    }//GEN-LAST:event_menuRegistrarTiendaActionPerformed
-
     private void menuAgregarEmpleadoTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAgregarEmpleadoTiendaActionPerformed
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniciarCerrarVentanaAgEmpTienda(true);
     }//GEN-LAST:event_menuAgregarEmpleadoTiendaActionPerformed
+
+    private void MenuProductosAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuProductosAgregarActionPerformed
+        Vector<Departamento> departamentos = null;
+        this.controlGuiDepartamento = new ControlGuiDepartamento();
+        departamentos = this.controlGuiDepartamento.traerTodosLosDepartamentos();
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaAgregarProducto(true);
+    }//GEN-LAST:event_MenuProductosAgregarActionPerformed
 
     /**
     * @param args the command line arguments

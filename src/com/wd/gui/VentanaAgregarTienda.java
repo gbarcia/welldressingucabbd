@@ -11,15 +11,7 @@
 
 package com.wd.gui;
 
-import com.wd.dominio.EmpresaVigilancia;
-import com.wd.dominio.Horario;
-import com.wd.dominio.Lugar;
-import com.wd.gui.controlparticular.ControlGuiEmpresaVigilancia;
-import com.wd.gui.controlparticular.ControlGuiHorario;
-import com.wd.gui.controlparticular.ControlGuiLugar;
 import com.wd.gui.controlparticular.ControlGuiTienda;
-import java.util.Collection;
-import java.util.Vector;
 
 /**
  *
@@ -29,34 +21,11 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     
     private ControlGuiTienda controlTienda;
 
-    private ControlGuiHorario controlHorario;
-    
-    private ControlGuiLugar controlLugar;
-    
-    private ControlGuiEmpresaVigilancia controlEmpresaVigilancia;
-
     private ControlGui controlGeneral;
 
-    private Collection<Horario> horarios;
-
-    private Collection<Lugar> estados;
-    
-    private Collection<Lugar> ciudades;
-
-    private Collection<EmpresaVigilancia> empresas;
-
     /** Creates new form VentanaNuevaTienda */
-    public VentanaAgregarTienda(Collection<Horario> horarios, Collection<Lugar> estados,
-            Collection<Lugar> ciudades, Collection<EmpresaVigilancia> empresas) {
+    public VentanaAgregarTienda() {
         initComponents();
-        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
-        java.awt.Image imagen = getToolkit().getImage(url);
-        setIconImage (imagen);
-
-        this.horarios = horarios;
-        this.estados = estados;
-        this.ciudades = ciudades;
-        this.empresas = empresas;
     }
 
     /** This method is called from within the constructor to
@@ -351,12 +320,8 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run(Vector<Horario> horarios, Vector<Lugar> estados,
-            Vector<Lugar> ciudades, Vector<EmpresaVigilancia> empresas) {
-                new VentanaAgregarTienda(horarios, estados, ciudades, empresas).setVisible(true);
-            }
             public void run() {
-                throw new UnsupportedOperationException("Not supported yet.");
+                new VentanaAgregarTienda().setVisible(true);
             }
         });
     }

@@ -45,9 +45,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Registro de tienda"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuRegistrarTiendaActionPerformed"/>
-                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuEditarTienda">
                   <Properties>
@@ -326,6 +323,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Agregar producto"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuProductosAgregarActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuProductosEditar">
                   <Properties>

@@ -89,6 +89,9 @@ public class ControlGui {
     /** Variable de la ventana para agregar un Empleado*/
     private VentanaAgregarEmpleadoTienda ventanaAgregarEmpTienda;
 
+    /** Variable de la ventana para agregar un producto*/
+    private VentanaAgregarProducto ventanaAgregarProducto;
+    
 /** Constructor del ControlGui */
     public ControlGui() {
     }
@@ -342,6 +345,20 @@ public class ControlGui {
     }
 
     /**
+     * Metodo para mostrar u ocultar la ventana para gregar una Tienda
+     * @param var indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaAgregarTienda (boolean var){
+        this.ventanaAgregarTienda = new VentanaAgregarTienda();
+        this.ventanaAgregarTienda.setVisible(var);
+    }
+    
+    public void iniciarVentanaAgregarProducto(boolean var){
+        this.ventanaAgregarProducto = new VentanaAgregarProducto();
+        this.ventanaAgregarProducto.setVisible(var);
+    }
+    
+    /**
     * Operacion para realizar una confirmacion. Despliega en la pantalla una ventana
     * de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
     * @param mensaje mensaje a mostrar
@@ -350,16 +367,6 @@ public class ControlGui {
     public int dialogoConfirmacion (String mensaje) {
         return JOptionPane.showConfirmDialog(null, mensaje, "CONFIRMACION",
                     JOptionPane.OK_CANCEL_OPTION);
-    }
-    
-    /**
-     * Metodo para mostrar u ocultar la ventana para gregar una Tienda
-     * @param var indica si mostrar o no la ventana
-     */
-    public void iniciarVentanaAgregarTienda (boolean var, Collection horarios,
-            Collection estados, Collection ciudades, Collection empresas){
-        ventanaAgregarTienda = new VentanaAgregarTienda(horarios, estados, ciudades, empresas);
-        ventanaAgregarTienda.setVisible(var);
     }
 
 }
