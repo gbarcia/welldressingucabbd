@@ -7,6 +7,7 @@ import com.wd.dominio.Empleado;
 import com.wd.dominio.HistorialEmpleado;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Date;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Vector;
@@ -93,7 +94,7 @@ public class ControlEmpleado {
             bitacora.info("Empleado: " + cedula + " buscado con éxito");
             historial = this.consultarHistorialEmpleado(cedula);
             if (historial != null) {
-                bitacora.info("Historia de : " + cedula + " buscado con éxito");
+                bitacora.info("Historia de : " + cedula + " se agregara a la coleccion");
                 resultado.setHistorial(historial);
             }
         } catch (SQLException ex) {
@@ -150,6 +151,36 @@ public class ControlEmpleado {
         try {
             bitacora.info("Iniciando operacion para buscar el historial del empleado: " + cedula);
             resultado = sqlMap.queryForList("consultaHistorialEmpleado", cedula);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para actualizar el historial de un empleado. Metodo usado para
+     * el momento de promocion o de transferencia entre empleados
+     * @param cedula int numero de cedula del empleado
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean actualizarHistorialEmpleadoTienda(int cedula) {
+        boolean resultado = false;
+        Empleado emp = this.consultarEmpleado(cedula);
+        Collection<HistorialEmpleado> historial = emp.getHistorial();
+        int longitud = historial.size();
+        Vector<HistorialEmpleado> vec = new Vector(historial);
+        HistorialEmpleado he = vec.get(longitud - 1);
+        Date fecha = new Date();
+        java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime()); //Obteniendo la fecha actual
+        he.setFechaFin(fechaSQL);
+        try {
+            bitacora.info("Iniciando operacion para actualizar historial de: " + cedula);
+            int ra = sqlMap.update("actualizarHistorial", he);
+            if (ra > 0) {
+                resultado = true;
+            }
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
                     " porque " + ex.getMessage());

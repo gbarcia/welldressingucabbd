@@ -199,4 +199,119 @@ public class ControlEmpleadoTest {
         //fail("The test case is a prototype.");
     }
 
+    /**
+     * Test of agregarEmpleadoTienda method, of class ControlEmpleado.
+     */
+//    @Test
+//    public void testAgregarEmpleadoTienda() {
+//        System.out.println("agregarEmpleadoTienda");
+//        Empleado emp = null;
+//        ControlEmpleado instance = new ControlEmpleado();
+//        boolean expResult = false;
+//        boolean result = instance.agregarEmpleadoTienda(emp);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of editarEmpleadoTienda method, of class ControlEmpleado.
+//     */
+//    @Test
+//    public void testEditarEmpleadoTienda_Empleado() {
+//        System.out.println("editarEmpleadoTienda");
+//        Empleado emp = null;
+//        ControlEmpleado instance = new ControlEmpleado();
+//        boolean expResult = false;
+//        boolean result = instance.editarEmpleadoTienda(emp);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of consultarEmpleado method, of class ControlEmpleado.
+//     */
+    @Test
+    public void testConsultarEmpleado_Integer() {
+        System.out.println("consultarEmpleado Prueba");
+        Integer cedula = 11111;
+        ControlEmpleado instance = null;
+        try {
+            instance = new ControlEmpleado();
+        } catch (IOException ex) {
+            Logger.getLogger(ControlEmpleadoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Empleado result = instance.consultarEmpleado(cedula);
+        assertNotNull(result);
+        for (HistorialEmpleado h : result.getHistorial()) {
+            System.out.println(h.getCedula());
+        }
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+//
+//    /**
+//     * Test of traerTodosLosEmpleados method, of class ControlEmpleado.
+//     */
+//    @Test
+//    public void testTraerTodosLosEmpleados1() {
+//        System.out.println("traerTodosLosEmpleados");
+//        ControlEmpleado instance = new ControlEmpleado();
+//        Collection<Empleado> expResult = null;
+//        Collection<Empleado> result = instance.traerTodosLosEmpleados();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of traerTodosLosEmpleadosTienda method, of class ControlEmpleado.
+//     */
+//    @Test
+//    public void testTraerTodosLosEmpleadosTienda1() {
+//        System.out.println("traerTodosLosEmpleadosTienda");
+//        ControlEmpleado instance = new ControlEmpleado();
+//        Collection<Empleado> expResult = null;
+//        Collection<Empleado> result = instance.traerTodosLosEmpleadosTienda();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of consultarHistorialEmpleado method, of class ControlEmpleado.
+//     */
+//    @Test
+//    public void testConsultarHistorialEmpleado_Integer() {
+//        System.out.println("consultarHistorialEmpleado");
+//        Integer cedula = null;
+//        ControlEmpleado instance = new ControlEmpleado();
+//        Collection<HistorialEmpleado> expResult = null;
+//        Collection<HistorialEmpleado> result = instance.consultarHistorialEmpleado(cedula);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of actualizarHistorialEmpleadoTienda method, of class ControlEmpleado.
+     */
+    @Test
+    public void testActualizarHistorialEmpleadoTienda() {
+        System.out.println("actualizarHistorialEmpleadoTienda");
+        int cedula = 11111;
+        ControlEmpleado instance = null;
+        try {
+            instance = new ControlEmpleado();
+        } catch (IOException ex) {
+            Logger.getLogger(ControlEmpleadoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        boolean expResult = true;
+        boolean result = instance.actualizarHistorialEmpleadoTienda(cedula);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
 }

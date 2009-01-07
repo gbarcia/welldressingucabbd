@@ -29,8 +29,8 @@
     <result property="cargo"          column="cargo" />
     <result property="nombreEmpresa"  column="tienda" />
     <result property="nombreEmpleado" column="nombre" />
-    <result property="cedula"         column="codigoTienda" />
-    <result property="codigo"         column="cedula" />
+    <result property="cedula"         column="cedula" />
+    <result property="codigo"         column="codigoTienda" />
   </resultMap>
 
    <insert id="agregarEmpleado" parameterClass="empleado">
@@ -105,6 +105,13 @@
        n.fecha_ini fechainicio, n.fecha_fin fechafin, n.cargo cargo
        FROM EMPLEADO e, TIENDA t, NOMINA_TIENDA n
        WHERE t.codigo = n.TIENDA_codigo AND e.ci = n.EMPLEADO_ci AND ci= #value#
+       ORDER BY fechainicio
     </select>
+
+    <update id="actualizarHistorial" parameterClass="historial">
+        UPDATE NOMINA_TIENDA SET fecha_fin = #fechaFin#
+        WHERE EMPLEADO_ci = #cedula# AND TIENDA_codigo = #codigo# AND
+        fecha_ini = #fechaInicio#
+    </update>
 
    </sqlMap>
