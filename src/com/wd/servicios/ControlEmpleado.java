@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.logging.Level;
+import java.util.Vector;
 import org.apache.log4j.Logger;
 
 /**
@@ -80,15 +80,22 @@ public class ControlEmpleado {
     }
 
     /**
-     * Operacion para consultar un empleado en el sistema
+     * Operacion para consultar un empleado y su historial en el sistema
      * @param cedula Int numero de cedula del empleado a buscar
-     * @return resultado Objeto empleado con la información o null si no existe
+     * @return resultado Objeto empleado con la información inclutendo su historial
+     * o null si no existe
      */
     public Empleado consultarEmpleado(Integer cedula) {
         Empleado resultado = null;
+        Collection<HistorialEmpleado> historial = null;
         try {
             resultado = (Empleado) sqlMap.queryForObject("buscarEmpleado", cedula);
             bitacora.info("Empleado: " + cedula + " buscado con éxito");
+            historial = this.consultarHistorialEmpleado(cedula);
+            if (historial != null) {
+                bitacora.info("Historia de : " + cedula + " buscado con éxito");
+                resultado.setHistorial(historial);
+            }
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " + cedula +
                     " porque " + ex.getMessage());
@@ -105,7 +112,8 @@ public class ControlEmpleado {
         Collection<Empleado> resultado = null;
         try {
             bitacora.info("Iniciando operacion para traer todos los empleados");
-            resultado = sqlMap.queryForList("todosLosEmpleados");
+            Collection<Empleado> resultadoP = sqlMap.queryForList("todosLosEmpleados");
+            resultado = this.agregarHistorialListaEmpleados(resultadoP);
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
                     " porque " + ex.getMessage());
@@ -122,7 +130,8 @@ public class ControlEmpleado {
         Collection<Empleado> resultado = null;
         try {
             bitacora.info("Iniciando operacion para traer todos los empleados de las tiendas");
-            resultado = sqlMap.queryForList("todosLosEmpleadosTiendas");
+            Collection<Empleado> resultadoP = sqlMap.queryForList("todosLosEmpleadosTiendas");
+            resultado = this.agregarHistorialListaEmpleados(resultadoP);
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
                     " porque " + ex.getMessage());
@@ -147,5 +156,22 @@ public class ControlEmpleado {
         } finally {
             return resultado;
         }
+    }
+
+    /**
+     * Operacion para agregar a cada objeto emplado de una lista de empleados
+     * su historial correspondiente
+     * @param coleccion la coleccion inicial de objetos empleado sin historial
+     * @return Coleccion de objetos Empleado con su correspondiente historial
+     */
+    private Collection<Empleado> agregarHistorialListaEmpleados(Collection<Empleado> coleccion) {
+        Collection<Empleado> resultado = new Vector();
+        for (Empleado empleado : coleccion) {
+            int cedula = empleado.getCedula();
+            Collection<HistorialEmpleado> historial = this.consultarHistorialEmpleado(cedula);
+            empleado.setHistorial(historial);
+            resultado.add(empleado);
+        }
+        return resultado;
     }
 }

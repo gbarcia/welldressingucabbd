@@ -24,11 +24,13 @@
   </resultMap>
 
    <resultMap id="historialMap" class="historial">   
-    <result property="fechaInicio"   column="fechainicio" />
-    <result property="fechaFin"      column="fechafin" />
-    <result property="cargo"         column="cargo" />
-    <result property="nombreEmpresa" column="tienda" />
+    <result property="fechaInicio"    column="fechainicio" />
+    <result property="fechaFin"       column="fechafin" />
+    <result property="cargo"          column="cargo" />
+    <result property="nombreEmpresa"  column="tienda" />
     <result property="nombreEmpleado" column="nombre" />
+    <result property="cedula"         column="codigoTienda" />
+    <result property="codigo"         column="cedula" />
   </resultMap>
 
    <insert id="agregarEmpleado" parameterClass="empleado">
@@ -99,8 +101,8 @@
     </select>
 
     <select id="consultaHistorialEmpleado" parameterClass="int" resultMap="historialMap">
-       SELECT e.nombre nombre, t.nombre tienda, n.fecha_ini fechainicio,
-       n.fecha_fin fechafin, n.cargo cargo
+       SELECT e.nombre nombre,e.ci cedula, t.nombre tienda,t.codigo codigoTienda, 
+       n.fecha_ini fechainicio, n.fecha_fin fechafin, n.cargo cargo
        FROM EMPLEADO e, TIENDA t, NOMINA_TIENDA n
        WHERE t.codigo = n.TIENDA_codigo AND e.ci = n.EMPLEADO_ci AND ci= #value#
     </select>
