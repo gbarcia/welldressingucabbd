@@ -71,7 +71,7 @@ public class ControlGuiDepartamento {
      * @param Subclase Departamento Subclase a eliminar
      */
     public void  eliminarSubClasedelSistema (Departamento Subclase){
-        int resultado = ControlGeneral.getInstance().eliminarSubClase(Subclase);
+        int resultado = ControlGeneral.getInstance().eliminarSubClase(Subclase);        
         if (resultado == 1) {
         controlador.mostrarMensaje("Departamento eliminado con éxito",0);
         }
@@ -151,11 +151,14 @@ public class ControlGuiDepartamento {
      */
     public void  eliminarClasedelSistema (Departamento clase){
         int resultado = ControlGeneral.getInstance().eliminarClase(clase);
+        System.out.println("resultado-->"+resultado);
         if (resultado==1) {
-        controlador.mostrarMensaje("Departamento eliminado con éxito",0);
+        controlador.mostrarMensaje("Departamento eliminado con éxito",0);        
         }
         else  if (resultado==0)
-        controlador.mostrarMensaje("Operacion fallida", 1);
+        controlador.mostrarMensaje("Operacion fallida, problemas de referencia " +
+        "elimine las subclases asociadas a esta clase primero " +
+        "y luego intente de nuevo", 1);
     }
 
     /**
@@ -182,6 +185,8 @@ public class ControlGuiDepartamento {
         controlador.mostrarMensaje("Departamento eliminado con éxito",0);
         }
         else  if (resultado==0)
-        controlador.mostrarMensaje("Operacion fallida", 1);
+        controlador.mostrarMensaje("Operacion fallida, Problemas de referencia:" +
+        " Este departamento tiene clases asociadas, primero eliminelas" +
+        " y luego intente de nuevo", 1);
     }
 }

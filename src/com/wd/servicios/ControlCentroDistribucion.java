@@ -76,12 +76,13 @@ public class ControlCentroDistribucion {
     public int eliminarCentro(CentroDistribucion centro) {
         int resultado = 0;
         try {
-            resultado = sqlMap.delete("borrarCentro",centro);
+            sqlMap.delete("borrarCentro",centro);
             bitacora.info("Centro Distribución: " + centro.getCodigo() +
             " eliminado con éxito");
-            //resultado = 1;
+            resultado = 1;
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+            resultado = 0;
         }
         finally {
             return resultado;

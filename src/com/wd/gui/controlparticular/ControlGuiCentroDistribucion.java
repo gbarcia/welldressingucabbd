@@ -65,7 +65,9 @@ public class ControlGuiCentroDistribucion {
         controlador.mostrarMensaje("Centro eliminado con éxito",0);
         }
         else  if (resultado == 0)
-        controlador.mostrarMensaje("Operacion fallida", 1);
+        controlador.mostrarMensaje("Operacion fallida, Problemas de refencia" +
+        " elimine todo lo asociado a este centro y luego" +
+        " intente de nuevo", 1);
     }
 
     /**
