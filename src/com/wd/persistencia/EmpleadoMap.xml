@@ -35,4 +35,18 @@
         VALUES (#cedula#, #codigo#, #fechaInicio#, #fechaFin#, #cargo#);
     </insert>
 
+    <update id="actualizarEmpleado" parameterClass="empleado">
+        UPDATE EMPLEADO SET nombre= #nombre#,
+        apellido = #apellido#,
+        fecha_nac = #fechaNacimiento#,
+        telefono = #telefono#,
+        estado_civ = #estadoCivil#,
+        sexo = #sexo#,
+        nivel_est = #nivelEstudios#,
+        direccion = #direccion#,
+        tipo = #tipo#,
+        LUGAR_id = #lugarId#
+        WHERE ci = #cedula#
+    </update>
+
    </sqlMap>
