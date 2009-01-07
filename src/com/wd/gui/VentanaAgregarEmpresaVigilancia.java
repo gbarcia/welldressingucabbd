@@ -355,7 +355,7 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
 
        this.controlGeneral =  new ControlGui ();
        resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
-               "que desea realizar esta operación?");
+       "que desea realizar esta operación?");
        if (resultado == 0) {
            selectCity = this.comboCiudad.getSelectedIndex();
            lugarId = this.ciudadesAux.elementAt(selectCity).getId();
@@ -371,7 +371,8 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
            controlEmpresa.agregarEmpresaVigilancia(newEmp);
 
            selectCentTien = this.comboTiendaCentro.getSelectedIndex();
-           Servicio newServ = new Servicio();           
+           Servicio newServ = new Servicio();
+           
            if (this.radioSelected == 0){
                centroCodigo = this.vecCentros.elementAt(selectCentTien).getCodigo();
                newServ.setCentroDistribucionCodigo(centroCodigo);
