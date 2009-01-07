@@ -4,6 +4,7 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.wd.dominio.EmpresaVigilancia;
+import com.wd.dominio.Servicio;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
@@ -42,6 +43,22 @@ public class ControlEmpresaVigilancia {
             resultado = true;
         } catch (SQLException ex) {
             bitacora.error("Empresa de Vigilancia: " +emp.getRif() +
+            " operacion" + " fallida porque: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    public boolean agregarServicio(Servicio serv){
+        boolean resultado = false;
+        try {
+            sqlMap.insert("agregarServicio", serv);
+            bitacora.info("Empresa de Vigilancia: " + serv.getEmpresaServicioRif() +
+            " agregada con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("Empresa de Vigilancia: " +serv.getEmpresaServicioRif()+
             " operacion" + " fallida porque: " + ex.getMessage());
             resultado = false;
         } finally {

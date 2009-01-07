@@ -5,6 +5,7 @@ package com.wd.gui.controlparticular;
  * @author Gabylis
  */
 import com.wd.dominio.EmpresaVigilancia;
+import com.wd.dominio.Servicio;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import java.util.Collection;
@@ -27,6 +28,19 @@ public class ControlGuiEmpresaVigilancia {
         boolean resultado = ControlGeneral.getInstance().agregarEmpresaVigilancia(emp);
         if (resultado) {
         controlador.mostrarMensaje("Centro de Distribución agregado con éxito",0);
+        }
+        else controlador.mostrarMensaje("Operacion fallida", 1);
+    }
+
+    /**
+     * Metodo para asociar una empresa de vigilancia a un centro de distribucion
+     * o a una tienda
+     * @param serv Servicio a agregar
+     */
+    public void agregarServicio(Servicio serv){
+        boolean resultado = ControlGeneral.getInstance().agregarServicio(serv);
+        if (resultado) {
+        controlador.mostrarMensaje("Empresa de vigilancia asociada con éxito",0);
         }
         else controlador.mostrarMensaje("Operacion fallida", 1);
     }

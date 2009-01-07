@@ -7,6 +7,13 @@
 
    <typeAlias alias="empresaVigilancia" type="com.wd.dominio.EmpresaVigilancia"/>
 
+   <typeAlias alias="servicio" type="com.wd.dominio.Servicio"/>
+
+    <insert id="agregarServicio" parameterClass="servicio">
+        INSERT INTO SERVICIO (EMPRESA_SERVICIO_rif,CENTRO_DISTRIBUCION_codigo)
+        VALUES (#empresaServicioRif#,#centroDistribucionCodigo#)
+    </insert>
+
   <resultMap id="buscarEmpresa" class="empresaVigilancia">
     <result property="rif" column="RIF" />
     <result property="nombre" column="NOMBRE" />

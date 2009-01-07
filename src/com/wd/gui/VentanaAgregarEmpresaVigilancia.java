@@ -1,10 +1,14 @@
 package com.wd.gui;
 
 import com.wd.dominio.CentroDistribucion;
+import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.Lugar;
+import com.wd.dominio.Servicio;
 import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiCentroDistribucion;
+import com.wd.gui.controlparticular.ControlGuiEmpresaVigilancia;
 import com.wd.gui.controlparticular.ControlGuiLugar;
+import com.wd.gui.controlparticular.ControlGuiTienda;
 import java.util.Vector;
 
 /**
@@ -17,6 +21,8 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
 
     private Vector<Lugar> ciudades;
 
+    private ControlGui controlGeneral;
+
     private Vector<Lugar> ciudadesAux;
 
     private Vector<CentroDistribucion> vecCentros;
@@ -26,6 +32,12 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
     private ControlGuiLugar controlLugar;
 
     private ControlGuiCentroDistribucion controlCentro;
+    
+    private ControlGuiTienda controlTienda;
+
+    private ControlGuiEmpresaVigilancia controlEmpresa;
+
+    private int radioSelected = -1;
 
     /** Creates new form VentanaAgregarEmpresaVigilancia */
     public VentanaAgregarEmpresaVigilancia(Vector<Lugar> result) {
@@ -34,7 +46,7 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
         java.awt.Image imagen = getToolkit().getImage(url);
         setIconImage (imagen);
 
-
+        vecTiendas = new Vector();
         vecCentros = new Vector();
         ciudadesAux = new Vector();
         ciudades = new Vector();
@@ -43,10 +55,18 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
         controlCentro = new ControlGuiCentroDistribucion();
         vecCentros = controlCentro.traerTodosLosCentros();
 
+        controlTienda = new ControlGuiTienda();
+        vecTiendas = controlTienda.consultarTiendas();
+
         estados = result;
 
         for (Lugar lugar : result){
             this.comboEstado.addItem(lugar.getNombrePropio());
+        }
+
+        this.labelTiendaCentro.setText("Centros De Distribución");
+        for (CentroDistribucion centro : vecCentros) {
+            this.comboTiendaCentro.addItem(centro.getNombre());
         }
     }
 
@@ -109,7 +129,7 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(radioCentro);
-        radioCentro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        radioCentro.setFont(new java.awt.Font("Tahoma", 1, 11));
         radioCentro.setSelected(true);
         radioCentro.setText("Centro Distribución");
         radioCentro.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +151,11 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
 
         buttonCancelar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonCancelar.setText("Cancelar");
+        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelarActionPerformed(evt);
+            }
+        });
 
         labelEstado.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelEstado.setText("Estado");
@@ -187,7 +212,9 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
                                     .addComponent(labelCiudad)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(radioCentro)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelTiendaCentro)
+                                    .addComponent(radioCentro))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -205,9 +232,7 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
                                 .addGap(83, 83, 83)
                                 .addComponent(radioTienda))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(labelTiendaCentro)
-                        .addGap(130, 130, 130)
+                        .addGap(215, 215, 215)
                         .addComponent(comboTiendaCentro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -299,6 +324,7 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
             for (CentroDistribucion centro : vecCentros) {
                 this.comboTiendaCentro.addItem(centro.getNombre());
             }
+            radioSelected = 0;
         }
     }//GEN-LAST:event_radioCentroActionPerformed
 
@@ -309,12 +335,76 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
             for (Tienda tienda : vecTiendas) {
                 this.comboTiendaCentro.addItem(tienda.getNombre());
             }
+            radioSelected = 1;
         }
     }//GEN-LAST:event_radioTiendaActionPerformed
 
     private void buttonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarActionPerformed
-        // TODO add your handling code here:
+       int resultado = -1;
+       int selectCity = -1;
+       int selectCentTien = -1;
+       int lugarId = 0;
+       int centroCodigo = -1;
+       int tiendaCodigo = -1;
+       String rif = "";
+       String nombre = "";
+       String telefono = "";
+       String direccion = "";
+       String nombrePer = "";
+       String apellidoPer = "";
+
+       this.controlGeneral =  new ControlGui ();
+       resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
+               "que desea realizar esta operación?");
+       if (resultado == 0) {
+           selectCity = this.comboCiudad.getSelectedIndex();
+           lugarId = this.ciudadesAux.elementAt(selectCity).getId();
+           rif = this.campoRif.getText().toUpperCase();
+           nombre = this.campoNombre.getText().toUpperCase();
+           nombrePer = this.campoNombrePer.getText().toUpperCase();
+           apellidoPer = this.campoApellidoPer.getText().toUpperCase();
+           telefono   = this.campoTelefono.getText().toUpperCase();
+           direccion  = this.campoDireccion.getText().toUpperCase();
+           this.controlEmpresa = new ControlGuiEmpresaVigilancia();
+           EmpresaVigilancia newEmp = new EmpresaVigilancia(rif,nombre,telefono,
+           direccion,lugarId,nombrePer,apellidoPer);
+           controlEmpresa.agregarEmpresaVigilancia(newEmp);
+
+           selectCentTien = this.comboTiendaCentro.getSelectedIndex();
+           Servicio newServ = new Servicio();           
+           if (this.radioSelected == 0){
+               centroCodigo = this.vecCentros.elementAt(selectCentTien).getCodigo();
+               newServ.setCentroDistribucionCodigo(centroCodigo);
+               newServ.setEmpresaServicioRif(rif);
+               controlEmpresa.agregarServicio(newServ);
+           }else if (this.radioSelected == 1){
+               String nombreTienda = "";
+               int tamaño = -1;
+               int horarioId = -1;
+               int ciudadId = -1;
+               String direccionTienda = "";
+               String telefonoTienda = "";
+               String correo = "";
+               
+               tiendaCodigo = this.vecTiendas.elementAt(selectCentTien).getCodigo();
+               nombreTienda = this.vecTiendas.elementAt(selectCentTien).getNombre();
+               tamaño = this.vecTiendas.elementAt(selectCentTien).getTamano();
+               horarioId = this.vecTiendas.elementAt(selectCentTien).getHORARIO_id();
+               telefonoTienda = this.vecTiendas.elementAt(selectCentTien).getTelefono();
+               correo = this.vecTiendas.elementAt(selectCentTien).getCorreo();
+               ciudadId = this.vecTiendas.elementAt(selectCentTien).getLUGAR_id();
+               direccionTienda = this.vecTiendas.elementAt(selectCentTien).getDireccion();
+                              
+               controlTienda.modificarTienda(tiendaCodigo,nombreTienda,tamaño,
+               horarioId,telefonoTienda,correo,ciudadId,direccionTienda,rif);               
+           }
+       }
+       this.reiniciarFields();
     }//GEN-LAST:event_buttonAgregarActionPerformed
+
+    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonCancelarActionPerformed
 
     /**
     * @param args the command line arguments
@@ -374,5 +464,15 @@ public class VentanaAgregarEmpresaVigilancia extends javax.swing.JFrame {
                 this.comboCiudad.addItem(lugar.getNombrePropio());
             }
         }
+    }
+
+    public void reiniciarFields(){
+        this.campoRif.setText("");
+        this.campoNombre.setText("");
+        this.campoNombre.setText("");
+        this.campoNombrePer.setText("");
+        this.campoApellidoPer.setText("");
+        this.campoDireccion.setText("");
+        this.campoTelefono.setText("");
     }
 }
