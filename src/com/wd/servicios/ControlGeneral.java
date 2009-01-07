@@ -249,11 +249,9 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlCentroDistribucion = new ControlCentroDistribucion();
             bitacora.info("Control Centro de Distribucion" +
             " Iniciado correctamente");
-            controlCentroDistribucion.eliminarCentro(centro);
-            resultado = 1;
+            resultado = controlCentroDistribucion.eliminarCentro(centro);
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
-            resultado = 0;
         } finally {
             return resultado;
         }
@@ -327,11 +325,10 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento Iniciado correctamente");
-            controlDepartamento.eliminarDepartamento(departamento);
-            resultado = 1;
+            resultado = controlDepartamento.eliminarDepartamento(departamento);
+            
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
-            resultado = 0;
         } finally {
             return resultado;
         }
@@ -478,11 +475,11 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento Iniciado correctamente");
-            controlDepartamento.eliminarClase(clase);
-            resultado = 1;
+            resultado = controlDepartamento.eliminarClase(clase);
+            //resultado = 1;
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
-            resultado = 0;
+            //resultado = 0;
         } finally {
             return resultado;
         }

@@ -76,12 +76,13 @@ public class ControlDepartamento {
     public int eliminarDepartamento (Departamento dpto) {
         int resultado = 0;
         try {
-            resultado = sqlMap.delete("borrarDepartamento",dpto);            
+            sqlMap.delete("borrarDepartamento",dpto);            
             bitacora.info("Departamento: " + dpto.getCodigo() +
             " eliminado con éxito");
-            //resultado = 1;
+            resultado = 1;
         } catch (SQLException ex) {
-            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());            
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+            resultado = 0;
         }
         finally {
             return resultado;
@@ -159,9 +160,10 @@ public class ControlDepartamento {
             resultado = sqlMap.delete("borrarSubClase",subclase);
             bitacora.info("SubClase: " + subclase.getCodigo() +
             " eliminada con éxito");
-            //resultado = 1;
+            resultado = 1;
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+            resultado = 0;
         }
         finally {
             return resultado;
@@ -235,14 +237,16 @@ public class ControlDepartamento {
     public int eliminarClase (Departamento clase) {
         int resultado = 0;
         try {
-            resultado = sqlMap.delete("borrarClase",clase);
+            sqlMap.delete("borrarClase",clase);
             bitacora.info("Clase: " + clase.getCodigo() +
-            " eliminada con éxito");
-            //resultado = 1;
+            " eliminada con éxito");            
+            resultado = 1;
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+            resultado = 0;
         }
         finally {
+            System.out.println("resultado coNTROL DPTO-->"+resultado);
             return resultado;
         }
     }
