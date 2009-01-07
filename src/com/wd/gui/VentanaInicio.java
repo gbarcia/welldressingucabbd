@@ -61,7 +61,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuNominaTienda = new javax.swing.JMenu();
         menuAgregarEmpleadoTienda = new javax.swing.JMenuItem();
         menuEditarEmpleadoTienda = new javax.swing.JMenuItem();
-        menuConsultarEmpleadoTienda = new javax.swing.JMenuItem();
         menuEliminarEmpleadoTienda = new javax.swing.JMenuItem();
         menuSeparadorTienda = new javax.swing.JSeparator();
         menuTransferirEmpleadoTienda = new javax.swing.JMenuItem();
@@ -205,11 +204,13 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         menuNominaTienda.add(menuAgregarEmpleadoTienda);
 
-        menuEditarEmpleadoTienda.setText("Editar un empleado");
+        menuEditarEmpleadoTienda.setText("Consultar o editar empleado");
+        menuEditarEmpleadoTienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditarEmpleadoTiendaActionPerformed(evt);
+            }
+        });
         menuNominaTienda.add(menuEditarEmpleadoTienda);
-
-        menuConsultarEmpleadoTienda.setText("Consultar un empleado");
-        menuNominaTienda.add(menuConsultarEmpleadoTienda);
 
         menuEliminarEmpleadoTienda.setText("Eliminar un empleado");
         menuNominaTienda.add(menuEliminarEmpleadoTienda);
@@ -802,6 +803,11 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui.iniciarVentanaAgregarEmpresaVigilancia(true,result);
     }//GEN-LAST:event_menuServiciosVigilanciaAgregarActionPerformed
 
+    private void menuEditarEmpleadoTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarEmpleadoTiendaActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarCerrarVentanaConsultaEmpTienda(true);
+    }//GEN-LAST:event_menuEditarEmpleadoTiendaActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -851,7 +857,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu menuCentros;
     private javax.swing.JMenuItem menuConsultaCentrosTienda;
     private javax.swing.JMenuItem menuConsultaInventarioTienda;
-    private javax.swing.JMenuItem menuConsultarEmpleadoTienda;
     private javax.swing.JMenuItem menuConsultarTienda;
     private javax.swing.JMenuItem menuEditarEmpleadoTienda;
     private javax.swing.JMenuItem menuEditarTienda;
