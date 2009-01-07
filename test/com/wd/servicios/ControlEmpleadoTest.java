@@ -121,6 +121,9 @@ public class ControlEmpleadoTest {
         Empleado result = instance.consultarEmpleado(cedula);
         assertNotNull(result);
         System.out.println(result.getNombre());
+        for (HistorialEmpleado emp : result.getHistorial()) {
+           System.out.println(emp.getFechaInicio());
+       }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -141,6 +144,10 @@ public class ControlEmpleadoTest {
         assertNotNull(result);
         for (Empleado empleado : result) {
             System.out.println(empleado.getNombre());
+            Collection<HistorialEmpleado> histo = empleado.getHistorial();
+            for (HistorialEmpleado historialEmpleado : histo) {
+                System.out.println(historialEmpleado.getCargo());
+            }
         }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -184,6 +191,9 @@ public class ControlEmpleadoTest {
         assertNotNull(result);
         for (HistorialEmpleado historialEmpleado : result) {
             System.out.println(historialEmpleado.getNombreEmpleado());
+            System.out.println(historialEmpleado.getCedula());
+            System.out.println(historialEmpleado.getCodigo());
+            System.out.println(historialEmpleado.getNombreEmpresa());
         }
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
