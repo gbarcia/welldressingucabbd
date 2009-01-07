@@ -27,6 +27,9 @@ public class HistorialEmpleado {
 
     /** cargo ejercido durante el perido de trabajo*/
     private int cargo;
+    
+    /** nombre del empleado*/
+    private String nombreEmpleado;
 
     /** Constructor por defecto*/
     public HistorialEmpleado() {
@@ -100,5 +103,13 @@ public class HistorialEmpleado {
 
     public void setNombreEmpresa(String nombreEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
+    }
+    
+        public String getNombreEmpleado() {
+        return nombreEmpleado;
+    }
+
+    public void setNombreEmpleado(String nombreEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
     }
 }

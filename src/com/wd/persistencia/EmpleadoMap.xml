@@ -8,6 +8,29 @@
    <typeAlias alias="empleado" type="com.wd.dominio.Empleado"/>
    <typeAlias alias="historial" type="com.wd.dominio.HistorialEmpleado"/>
 
+   <resultMap id="empleadoMap" class="empleado">
+    <result property="cedula"          column="cedula" />
+    <result property="nombre"          column="nombre" />
+    <result property="apellido"        column="apellido" />
+    <result property="fechaNacimiento" column="nacimiento" />
+    <result property="telefono"        column="telefono" />
+    <result property="estadoCivil"     column="estadoCivil" />
+    <result property="sexo"            column="sexo" />
+    <result property="nivelEstudios"   column="nivelEstudios" />
+    <result property="direccion"       column="direccion" />
+    <result property="tipo"            column="cargo" />
+    <result property="lugarId"         column="lugarId" />
+    <result property="ciudadVive"      column="nombreCiudad" />
+  </resultMap>
+
+   <resultMap id="historialMap" class="historial">   
+    <result property="fechaInicio"   column="fechainicio" />
+    <result property="fechaFin"      column="fechafin" />
+    <result property="cargo"         column="cargo" />
+    <result property="nombreEmpresa" column="tienda" />
+    <result property="nombreEmpleado" column="nombre" />
+  </resultMap>
+
    <insert id="agregarEmpleado" parameterClass="empleado">
         INSERT INTO EMPLEADO (
         ci,
@@ -48,5 +71,38 @@
         LUGAR_id = #lugarId#
         WHERE ci = #cedula#
     </update>
+
+    <select id="buscarEmpleado" parameterClass="int" resultMap="empleadoMap">
+        SELECT emp.ci cedula, emp.nombre nombre, emp.apellido apellido, emp.fecha_nac nacimiento,
+        emp.telefono telefono,emp.estado_civ estadoCivil, emp.sexo sexo, emp.nivel_est nivelEstudios,
+        emp.direccion direccion, emp.tipo cargo,emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l
+        WHERE emp.LUGAR_id = l.id AND emp.ci = #value#
+    </select>
+
+    <select id="todosLosEmpleados" resultMap="empleadoMap">
+        SELECT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
+        emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l
+        WHERE emp.LUGAR_id = l.id ORDER BY apellido,nombre
+    </select>
+
+    <select id="todosLosEmpleadosTiendas" resultMap="empleadoMap">
+        SELECT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
+        emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l,NOMINA_TIENDA nt
+        WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci ORDER BY apellido,nombre
+    </select>
+
+    <select id="consultaHistorialEmpleado" parameterClass="int" resultMap="historialMap">
+       SELECT e.nombre nombre, t.nombre tienda, n.fecha_ini fechainicio,
+       n.fecha_fin fechafin, n.cargo cargo
+       FROM EMPLEADO e, TIENDA t, NOMINA_TIENDA n
+       WHERE t.codigo = n.TIENDA_codigo AND e.ci = n.EMPLEADO_ci AND ci= #value#
+    </select>
 
    </sqlMap>
