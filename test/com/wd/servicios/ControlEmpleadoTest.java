@@ -99,7 +99,7 @@ public class ControlEmpleadoTest {
             Logger.getLogger(ControlEmpleadoTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         boolean expResult = true;
-        boolean result = instance.editarEmpleadoTienda(emp);
+        boolean result = instance.editarEmpleado(emp);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
@@ -118,7 +118,7 @@ public class ControlEmpleadoTest {
         } catch (IOException ex) {
             Logger.getLogger(ControlEmpleadoTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Empleado result = instance.consultarEmpleado(cedula);
+        Empleado result = instance.consultarEmpleadoTienda(cedula);
         assertNotNull(result);
         System.out.println(result.getNombre());
         for (HistorialEmpleado emp : result.getHistorial()) {
@@ -187,7 +187,7 @@ public class ControlEmpleadoTest {
         } catch (IOException ex) {
             Logger.getLogger(ControlEmpleadoTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Collection<HistorialEmpleado> result = instance.consultarHistorialEmpleado(cedula);
+        Collection<HistorialEmpleado> result = instance.consultarHistorialEmpleadoTienda(cedula);
         assertNotNull(result);
         for (HistorialEmpleado historialEmpleado : result) {
             System.out.println(historialEmpleado.getNombreEmpleado());
@@ -242,7 +242,7 @@ public class ControlEmpleadoTest {
         } catch (IOException ex) {
             Logger.getLogger(ControlEmpleadoTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Empleado result = instance.consultarEmpleado(cedula);
+        Empleado result = instance.consultarEmpleadoTienda(cedula);
         assertNotNull(result);
         for (HistorialEmpleado h : result.getHistorial()) {
             System.out.println(h.getCedula());
