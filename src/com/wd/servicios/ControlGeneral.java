@@ -688,6 +688,11 @@ public class ControlGeneral implements IfaceControlGeneral {
         }
     }
 
+    /**
+    * Operacion para asociar una empresa de vigilancia a un centro de distribucion
+    * @param serv Servicio a registrar
+    * @return boolean resultado de la operacion
+    */
     public boolean agregarServicio(Servicio serv) {
          boolean resultado = false;
         try {
