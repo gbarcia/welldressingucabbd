@@ -4,6 +4,7 @@ import com.wd.dominio.Camion;
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.Empleado;
+import com.wd.dominio.HistorialEmpleado;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
 import com.wd.dominio.Producto;
@@ -207,4 +208,46 @@ public interface IfaceControlGeneral {
      * @return boolean resultado de la operacion
      */
     public boolean agregarEmpleadoTienda(Empleado emp);
+
+    /**
+     * Operacion para actualizar la informacion de un empleado en el sistema
+     * @param emp el empleado a registrar
+     * @return boolean resultado de la operacion
+     */
+    public boolean editarEmpleado(Empleado emp);
+
+     /**
+     * Operacion para consultar un empleado y su historial en el sistema
+     * @param cedula Int numero de cedula del empleado a buscar
+     * @return resultado Objeto empleado con la información inclutendo su historial
+     * o null si no existe
+     */
+    public Empleado consultarEmpleadoTienda(Integer cedula);
+
+    /**
+     * Operacion para consultar todos los empleados del sistema
+     * @return Coleccion de objetos Empleado
+     */
+    public Collection<Empleado> traerTodosLosEmpleados();
+
+    /**
+     * Operacion para consultar todos los empleados de las tiendas
+     * @return Coleccion de objetos Empleado
+     */
+    public Collection<Empleado> traerTodosLosEmpleadosTienda();
+
+    /**
+     * Operacion para consultar el historial de un determinado empleado
+     * @param cedula Int el numero de cedula del empleado
+     * @return Coleccion de objetos HistorialEmpleado
+     */
+    public Collection<HistorialEmpleado> consultarHistorialEmpleadoTienda(Integer cedula);
+
+    /**
+     * Operacion para actualizar el historial de un empleado. Metodo usado para
+     * el momento de promocion o de transferencia entre empleados
+     * @param cedula int numero de cedula del empleado
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean actualizarHistorialEmpleadoTienda(int cedula);
 }
