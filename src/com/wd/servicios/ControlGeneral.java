@@ -9,6 +9,7 @@ import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
 import com.wd.dominio.Producto;
 import com.wd.dominio.Proveedor;
+import com.wd.dominio.Servicio;
 import com.wd.dominio.Tienda;
 import java.io.IOException;
 import java.util.Collection;
@@ -678,6 +679,21 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
             bitacora.info("Control EmpresaVigilancia Iniciado correctamente");
             resultado = controlEmpresaVigilancia.agregarEmpresaVigilancia(emp);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar control empresa de vigilancia" +
+            " por " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    public boolean agregarServicio(Servicio serv) {
+         boolean resultado = false;
+        try {
+            this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
+            bitacora.info("Control EmpresaVigilancia Iniciado correctamente");
+            resultado = controlEmpresaVigilancia.agregarServicio(serv);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar control empresa de vigilancia" +
             " por " + ex.getMessage());
