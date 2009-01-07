@@ -27,7 +27,7 @@ public class ControlGuiEmpresaVigilancia {
     public void agregarEmpresaVigilancia(EmpresaVigilancia emp){
         boolean resultado = ControlGeneral.getInstance().agregarEmpresaVigilancia(emp);
         if (resultado) {
-        controlador.mostrarMensaje("Centro de Distribución agregado con éxito",0);
+        controlador.mostrarMensaje("Empresa de vigilancia agregada con éxito",0);
         }
         else controlador.mostrarMensaje("Operacion fallida", 1);
     }

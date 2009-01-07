@@ -50,12 +50,17 @@ public class ControlEmpresaVigilancia {
         }
     }
 
+    /**
+    * Operacion para asociar una empresa de vigilancia a un centro de distribucion
+    * @param serv Servicio a registrar
+    * @return boolean resultado de la operacion
+    */
     public boolean agregarServicio(Servicio serv){
         boolean resultado = false;
         try {
             sqlMap.insert("agregarServicio", serv);
-            bitacora.info("Empresa de Vigilancia: " + serv.getEmpresaServicioRif() +
-            " agregada con éxito");
+            bitacora.info("Empresa de Vigilancia:" + serv.getEmpresaServicioRif() +
+            " asociada a un centro de distribucion con éxito");
             resultado = true;
         } catch (SQLException ex) {
             bitacora.error("Empresa de Vigilancia: " +serv.getEmpresaServicioRif()+
