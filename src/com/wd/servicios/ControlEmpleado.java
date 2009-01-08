@@ -59,15 +59,22 @@ public class ControlEmpleado {
     }
 
     /**
-     * Operacion para actualizar la informacion de un empleado en el sistema
+     * Operacion para actualizar la informacion de un empleado en el sistema     
      * @param emp el empleado a registrar
      * @return boolean resultado de la operacion
      */
-    public boolean editarEmpleado(Empleado emp) {
+    public boolean editarEmpleado(Empleado emp) { //OJO SOLO TIENDAS
+        Collection<HistorialEmpleado> historial = null;
         boolean resultado = false;
         int nra = -1;
         try {
             nra = sqlMap.update("actualizarEmpleado", emp);
+             historial = emp.getHistorial();
+            for (HistorialEmpleado object : historial) {
+                sqlMap.insert("agregarHistorial", object);
+                bitacora.info("Historial Empleado: " + emp.getNombre() +
+                        " agregado con éxito");
+            }
             if (nra != -1) {
                 resultado = true;
                 bitacora.info("Empleado: " + emp.getNombre() + " actualizado con éxito");
