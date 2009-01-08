@@ -92,7 +92,7 @@
     </select>
 
     <select id="todosLosEmpleadosTiendas" resultMap="empleadoMap">
-        SELECT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        SELECT DISTINCT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
         emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
         emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
         emp.LUGAR_id lugarId, l.nombre nombreCiudad
