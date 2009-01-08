@@ -94,9 +94,8 @@ public class ControlEmpresaVigilanciaTest {
         String rif = "J-34356";
         ControlEmpresaVigilancia instance = new ControlEmpresaVigilancia();
         //Collection<Servicio> expResult = null;
-        Collection<Servicio> result = instance.traerLosServicios(rif);
-        System.out.println("si.v.v"+result.size());
-        //assertNotNull(result);
+        Collection<Servicio> result = instance.traerLosServicios(rif);        
+        assertNotNull(result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

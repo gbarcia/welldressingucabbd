@@ -408,7 +408,7 @@ public class VentanaConsultarEmpresaVigilancia extends javax.swing.JFrame {
     }
 
     public void cargarComboCentros(String rif){
-        /*this.comboCentros.removeAllItems();
+        this.comboCentros.removeAllItems();
         int idCentro = -1;
         Vector<Servicio> servicios = new Vector();
 
@@ -422,7 +422,10 @@ public class VentanaConsultarEmpresaVigilancia extends javax.swing.JFrame {
                     this.comboCentros.addItem(centro.getNombre());
                 }
             }
-        }*/
+        }
+        if (this.comboCentros.getItemCount() == 0 ){
+            this.comboCentros.addItem("0 Centros Asociados a la empresa");
+        }
     }
 }
 
