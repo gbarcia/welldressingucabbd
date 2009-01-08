@@ -99,7 +99,7 @@ public class ControlEmpresaVigilancia {
         Collection<Servicio> coleccionServs = null;
         try {
             bitacora.info("Iniciando operacion para traer los Servicios");
-            coleccionServs = sqlMap.queryForList("traerLosServicios",rif);
+            coleccionServs = sqlMap.queryForList("buscarServicios",rif);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
         }
