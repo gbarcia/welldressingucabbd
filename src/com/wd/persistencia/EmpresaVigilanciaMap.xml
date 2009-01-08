@@ -23,13 +23,7 @@
         SELECT s.EMPRESA_SERVICIO_rif EMPRESASERVICIORIF,
         s.CENTRO_DISTRIBUCION_codigo CENTRODISTRIBUCIONCODIGO
         FROM SERVICIO s
-        WHERE s.EMPRESA_SERVICIO_rif = #value#
-    </select>    
-    <select id ="traerLosServicios" parameterClass ="String"  resultMap="buscarServicios">
-        SELECT s.EMPRESA_SERVICIO_rif EMPRESA_SERVICIO_RIF,
-        s.CENTRO_DISTRIBUCION_codigo CENTRO_DISTRIBUCION_CODIGO
-        FROM SERVICIO s
-        WHERE s.EMPRESA_SERVICIO_rif = #value#
+        
     </select>
 
       <resultMap id="traerTodasLasEmpresas" class="empresaVigilancia">
@@ -40,12 +34,7 @@
         <result property="apellidoContacto" column="APELLIDO_CONTACTO" />
         <result property="direccion" column="DIRECCION" />
         <result property="lugarId" column="IDLUGAR" />
-      </resultMap>
-
-    <resultMap id="buscarServicios" class="servicio">
-        <result property="empresaServicioRif" column="EMPRESA_SERVICIO_RIF" />
-        <result property="centroDistribucionCodigo" column="CENTRO_DISTRIBUCION_CODIGO" />
-      </resultMap>
+      </resultMap>    
 
     <insert id="agregarEmpresa" parameterClass="empresaVigilancia">
         INSERT INTO EMPRESA_SERVICIO
