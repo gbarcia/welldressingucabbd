@@ -710,6 +710,27 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Operacion para consultar todos los servicios de una empresa de vigilancia
+     * registrados en el sistema
+     * @param rif String RIF de la empresa de vigilancia que presta el servicio
+     * @return resultado Coleccion de objetos Proveedor
+     */
+    public Collection<Servicio> todosLosServicios(String rif) {
+        Collection<Servicio> resultado = null;
+        try {
+            this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
+            bitacora.info("Control Empresa Vigilancia Iniciado correctamente");
+            resultado = controlEmpresaVigilancia.traerLosServicios(rif);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el controlEmpresa de Vigilancia" +
+            " por " + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
+
+    /**
     * Operacion para editar una empresa vigilancia en el sistema
     * @param emp la Empresa Vigilancia a registrar
     * @return boolean resultado de la operacion

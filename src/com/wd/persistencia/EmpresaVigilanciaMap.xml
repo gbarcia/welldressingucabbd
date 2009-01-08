@@ -14,15 +14,27 @@
         VALUES (#empresaServicioRif#,#centroDistribucionCodigo#)
     </insert>
 
-  <resultMap id="buscarEmpresa" class="empresaVigilancia">
-    <result property="rif" column="RIF" />
-    <result property="nombre" column="NOMBRE" />
-    <result property="telefono" column="TELEFONO" />
-    <result property="nombreContacto" column="NOMBRECONTACTO" />
-    <result property="apellidoContacto" column="APELLIDO_CONTACTO" />
-    <result property="direccion" column="DIRECCION" />
-    <result property="lugarId" column="IDLUGAR" />
-  </resultMap>
+    <select id ="traerLosServicios" parameterClass ="String"  resultMap="buscarServicios">
+        SELECT s.EMPRESA_SERVICIO_rif EMPRESA_SERVICIO_RIF,
+        s.CENTRO_DISTRIBUCION_codigo CENTRO_DISTRIBUCION_CODIGO
+        FROM SERVICIO s
+        WHERE s.EMPRESA_SERVICIO_rif = #value#
+    </select>
+
+    <resultMap id="buscarServicios" class="servicio">
+        <result property="empresaServicioRif" column="EMPRESA_SERVICIO_RIF" />
+        <result property="centroDistribucionCodigo" column="CENTRO_DISTRIBUCION_CODIGO" />
+      </resultMap>
+
+      <resultMap id="buscarEmpresa" class="empresaVigilancia">
+        <result property="rif" column="RIF" />
+        <result property="nombre" column="NOMBRE" />
+        <result property="telefono" column="TELEFONO" />
+        <result property="nombreContacto" column="NOMBRECONTACTO" />
+        <result property="apellidoContacto" column="APELLIDO_CONTACTO" />
+        <result property="direccion" column="DIRECCION" />
+        <result property="lugarId" column="IDLUGAR" />
+      </resultMap>
 
   <resultMap id="traerTodasLasEmpresas" class="empresaVigilancia">
     <result property="rif" column="rif" />

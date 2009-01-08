@@ -91,6 +91,25 @@ public class ControlEmpresaVigilancia {
     }
 
     /**
+     * Metodo para buscar todas las empresas de vigilancia de un centro de dist.
+     * @param rif String RIF de la empresa de vigilancia que presta el servicio
+     * @return Collection todos los servicios registrados
+     */
+    public Collection<Servicio> traerLosServicios (String rif) {
+        Collection<Servicio> coleccionServs = null;
+        try {
+            bitacora.info("Iniciando operacion para traer los Servicios");
+            coleccionServs = sqlMap.queryForList("traerLosServicios",rif);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccionServs;
+        }
+
+    }
+
+    /**
      * Metodo eliminar una Empresa de Vigilancia del sistema
      * @param  rif String de la empresa a eliminar
      * @return int resultado de la operacion

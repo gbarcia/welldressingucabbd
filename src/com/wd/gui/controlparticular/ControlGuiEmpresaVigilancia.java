@@ -34,7 +34,6 @@ public class ControlGuiEmpresaVigilancia {
 
     /**
      * Metodo para asociar una empresa de vigilancia a un centro de distribucion
-     * o a una tienda
      * @param serv Servicio a agregar
      */
     public void agregarServicio(Servicio serv){
@@ -43,6 +42,21 @@ public class ControlGuiEmpresaVigilancia {
         controlador.mostrarMensaje("Empresa de vigilancia asociada con éxito",0);
         }
         else controlador.mostrarMensaje("Operacion fallida", 1);
+    }
+
+     /**
+    * Metodo para buscar todos los servicios que presta una empresa de vigilancia
+    * @param rif String RIF de la empresa de vigilancia que presta el servicio
+    * @return Vector vector con todos los objetos EmpresaVigilancia del sistema
+    */
+    public Vector traerTodosLosServicios(String rif) {
+        Vector<Servicio> vectorResult = null;
+        Collection<Servicio> coleccion = ControlGeneral.getInstance().todosLosServicios(rif);
+        vectorResult = new Vector();
+        for (Servicio serv : coleccion) {
+            vectorResult.add(serv);
+        }
+        return vectorResult;
     }
 
     /**
