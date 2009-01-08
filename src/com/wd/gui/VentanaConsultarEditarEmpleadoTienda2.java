@@ -26,7 +26,7 @@ import java.util.Vector;
  */
 public class VentanaConsultarEditarEmpleadoTienda2 extends javax.swing.JFrame {
 
-    private ControlGuiEmpleadoTienda controlGui;
+    private ControlGuiEmpleadoTienda controlGui = new ControlGuiEmpleadoTienda();
     private IfaceControlGeneral controlG = ControlGeneral.getInstance();
     private Collection<Lugar> Cciudades;
     private Empleado empleado;
