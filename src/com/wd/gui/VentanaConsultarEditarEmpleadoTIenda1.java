@@ -25,6 +25,7 @@ public class VentanaConsultarEditarEmpleadoTIenda1 extends javax.swing.JFrame {
 
     private Collection<Empleado> Cemp;
     private ControlGuiEmpleadoTienda control = new ControlGuiEmpleadoTienda();
+    private ControlGui controlGui = new ControlGui();
 
     /** Creates new form VentanaConsultarEditarEmpleadoTIenda1 */
     public VentanaConsultarEditarEmpleadoTIenda1() {
@@ -191,15 +192,12 @@ public class VentanaConsultarEditarEmpleadoTIenda1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (this.flag.isSelected()) {
             String cedula = this.jtCedula.getText();
-            //control.iniciarVentanaConsulta(rif);
-            System.out.println(cedula);
+            int cedulap = Integer.parseInt(cedula);
         }
         else {
             int indiceSeleccionado = this.jlEmpleados.getSelectedIndex();
             Vector aux = new Vector(Cemp);
             Empleado p = (Empleado) aux.get(indiceSeleccionado);
-            //control.iniciarVentanaConsulta(p.getRif());
-            System.out.println(p.getCedula());
         }
         //this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
