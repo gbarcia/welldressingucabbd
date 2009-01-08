@@ -129,4 +129,22 @@ public class ControlGuiEmpleadoTienda {
         resultado = controlG.traerTodasLasTienda();
         return resultado;
     }
+
+    /** Operacion para traer todos los empleados que trabajan en las tiendas
+     * @return Collection con todas los Empleados de Tiendas
+     */
+    public Collection<Empleado> traerTodosEmpTiendas () {
+        Collection<Empleado> resultado = null;
+        resultado = controlG.traerTodosLosEmpleadosTienda();
+        return resultado;
+    }
+
+    /** Operacion para consultar un empleado
+     * @return resultado Objeto Empleado con su historial
+     */
+    public Empleado consultarEmpleado (int cedula) {
+        Empleado resultado = null;
+        resultado = controlG.consultarEmpleadoTienda(cedula);
+        return resultado;
+    }
 }

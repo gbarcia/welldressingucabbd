@@ -11,15 +11,31 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Empleado;
+import com.wd.gui.controlparticular.ControlGuiEmpleadoTienda;
+import java.util.Collection;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author gerardo
  */
 public class VentanaConsultarEditarEmpleadoTIenda1 extends javax.swing.JFrame {
 
+    private Collection<Empleado> Cemp;
+    private ControlGuiEmpleadoTienda control = new ControlGuiEmpleadoTienda();
+
     /** Creates new form VentanaConsultarEditarEmpleadoTIenda1 */
     public VentanaConsultarEditarEmpleadoTIenda1() {
         initComponents();
+        this.jPanel2.setVisible(false);
+        Cemp = control.traerTodosEmpTiendas();
+        DefaultListModel modelo = new DefaultListModel();
+        for (Empleado emp : Cemp) {
+            modelo.addElement(emp.getApellido() + ", " + emp.getNombre());
+        }
+        this.jlEmpleados.setModel(modelo);
     }
 
     /** This method is called from within the constructor to
@@ -98,8 +114,18 @@ public class VentanaConsultarEditarEmpleadoTIenda1 extends javax.swing.JFrame {
         );
 
         jButton1.setText("Consultar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,8 +174,35 @@ public class VentanaConsultarEditarEmpleadoTIenda1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void flagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flagActionPerformed
-        // TODO add your handling code here:
+        if (this.flag.isSelected()) {
+            this.jPanel2.setVisible(true);
+            this.jlEmpleados.setEnabled(false);
+        }
+        else {
+            this.jPanel2.setVisible(false);
+            this.jlEmpleados.setEnabled(true);
+        }
 }//GEN-LAST:event_flagActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (this.flag.isSelected()) {
+            String cedula = this.jtCedula.getText();
+            //control.iniciarVentanaConsulta(rif);
+            System.out.println(cedula);
+        }
+        else {
+            int indiceSeleccionado = this.jlEmpleados.getSelectedIndex();
+            Vector aux = new Vector(Cemp);
+            Empleado p = (Empleado) aux.get(indiceSeleccionado);
+            //control.iniciarVentanaConsulta(p.getRif());
+            System.out.println(p.getCedula());
+        }
+        //this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
     * @param args the command line arguments

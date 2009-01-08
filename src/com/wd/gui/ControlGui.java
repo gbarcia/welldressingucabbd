@@ -97,6 +97,9 @@ public class ControlGui {
 
     /** Variable de la ventana para editar o consultar un empleado tienda*/
     private VentanaConsultarEditarEmpleadoTIenda1 ventanaConsEdiEmpTienda;
+
+     /** Variable de la ventana para editar o consultar un empleado tienda 2*/
+    private VentanaConsultarEditarEmpleadoTienda2 ventanaConsEdiEmpTienda2;
     
 /** Constructor del ControlGui */
     public ControlGui() {
@@ -119,13 +122,22 @@ public class ControlGui {
         this.ventanaAgregarEmpTienda.setVisible(var);
     }
 
-    /**
+/**
 * metodo para ocultar o mostrar la ventana de consultar editar empleado tienda
 * @param var booleano que indica si mostrar o no la ventana
 */
     public void iniciarCerrarVentanaConsultaEmpTienda (boolean var) {
         this.ventanaConsEdiEmpTienda = new VentanaConsultarEditarEmpleadoTIenda1();
         this.ventanaConsEdiEmpTienda.setVisible(var);
+    }
+
+    /**
+* metodo para ocultar o mostrar la ventana de consultar editar empleado tienda2
+* @param var booleano que indica si mostrar o no la ventana
+*/
+    public void iniciarCerrarVentanaConsultaEmpTienda2 (boolean var, int cedula) {
+        this.ventanaConsEdiEmpTienda2 = new VentanaConsultarEditarEmpleadoTienda2(cedula);
+        this.ventanaConsEdiEmpTienda2.setVisible(var);
     }
 /**
 * metodo para ocultar o mostrar la ventana de editarConsultar proveedor 2
