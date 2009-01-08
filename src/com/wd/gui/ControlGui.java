@@ -92,11 +92,14 @@ public class ControlGui {
     /** Variable de la ventana para agregar un producto*/
     private VentanaAgregarProducto ventanaAgregarProducto;
 
-    /** Variable de la ventana para agregar un empresa de vigilancia*/
+    /** Variable de la ventana para agregar una empresa de vigilancia*/
     private VentanaAgregarEmpresaVigilancia ventanaAgregarEmpresaVigilancia;
 
     /** Variable de la ventana para editar o consultar un empleado tienda*/
     private VentanaConsultarEditarEmpleadoTIenda1 ventanaConsEdiEmpTienda;
+
+    /** Variable de la ventana para consiltar una empresa de vigilancia*/
+    private VentanaConsultarEmpresaVigilancia ventanaConsultarEmpresaVigilancia;
     
 /** Constructor del ControlGui */
     public ControlGui() {
@@ -381,6 +384,15 @@ public class ControlGui {
     public void iniciarVentanaAgregarEmpresaVigilancia (boolean var, Vector result){
         ventanaAgregarEmpresaVigilancia = new VentanaAgregarEmpresaVigilancia(result);
         ventanaAgregarEmpresaVigilancia.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de consultar empresa de vigilancia
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaConsultarEmpresaVigilancia (boolean var, Vector result){
+        ventanaConsultarEmpresaVigilancia = new VentanaConsultarEmpresaVigilancia(result);
+        ventanaConsultarEmpresaVigilancia.setVisible(var);
     }
     
     /**
