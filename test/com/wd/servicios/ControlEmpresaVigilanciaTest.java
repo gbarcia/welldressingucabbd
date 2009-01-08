@@ -6,6 +6,7 @@
 package com.wd.servicios;
 
 import com.wd.dominio.EmpresaVigilancia;
+import com.wd.dominio.Servicio;
 import java.io.IOException;
 import java.util.Collection;
 import org.junit.After;
@@ -43,18 +44,32 @@ public class ControlEmpresaVigilanciaTest {
     /**
      * Test of agregarEmpresaVigilancia method, of class ControlEmpresaVigilancia.
      */
-    @Test
-    public void testAgregarEmpresaVigilancia() throws IOException {
+    /*@Test
+    public void testAgregarEmpresaVigilancia() {
         System.out.println("agregarEmpresaVigilancia");
-        EmpresaVigilancia emp = new EmpresaVigilancia("pepe","nombre","telefono",
-    "dir",2,"nombreCont","apellidoContacto");
+        EmpresaVigilancia emp = null;
         ControlEmpresaVigilancia instance = new ControlEmpresaVigilancia();
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.agregarEmpresaVigilancia(emp);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of agregarServicio method, of class ControlEmpresaVigilancia.
+     */
+    /*@Test
+    public void testAgregarServicio() {
+        System.out.println("agregarServicio");
+        Servicio serv = null;
+        ControlEmpresaVigilancia instance = new ControlEmpresaVigilancia();
+        boolean expResult = false;
+        boolean result = instance.agregarServicio(serv);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }*/
 
     /**
      * Test of traerTodasLasEmpresas method, of class ControlEmpresaVigilancia.
@@ -71,34 +86,48 @@ public class ControlEmpresaVigilanciaTest {
     }
 
     /**
-     * Test of eliminarEmpresa method, of class ControlEmpresaVigilancia.
+     * Test of traerLosServicios method, of class ControlEmpresaVigilancia.
      */
     @Test
-    public void testEliminarEmpresa() throws IOException {
-        System.out.println("eliminarEmpresa");
-        String rif = "pepe";
+    public void testTraerLosServicios() throws IOException {
+        System.out.println("traerLosServicios");
+        String rif = "J-34356";
         ControlEmpresaVigilancia instance = new ControlEmpresaVigilancia();
-        int expResult = 1;
-        int result = instance.eliminarEmpresa(rif);
-        assertEquals(expResult, result);
+        //Collection<Servicio> expResult = null;
+        Collection<Servicio> result = instance.traerLosServicios(rif);
+        assertNotNull(result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
     /**
+     * Test of eliminarEmpresa method, of class ControlEmpresaVigilancia.
+     */
+    /*@Test
+    public void testEliminarEmpresa() {
+        System.out.println("eliminarEmpresa");
+        String rif = "";
+        ControlEmpresaVigilancia instance = new ControlEmpresaVigilancia();
+        int expResult = 0;
+        int result = instance.eliminarEmpresa(rif);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
      * Test of modificarEmpresaVigilancia method, of class ControlEmpresaVigilancia.
      */
-    @Test
-    public void testModificarEmpresaVigilancia() throws IOException {
+    /*@Test
+    public void testModificarEmpresaVigilancia() {
         System.out.println("modificarEmpresaVigilancia");
-        EmpresaVigilancia emp = new EmpresaVigilancia("J-174-836-7","nombre","telefono",
-    "dir",2,"nombreCont","apellidoContacto");
+        EmpresaVigilancia emp = null;
         ControlEmpresaVigilancia instance = new ControlEmpresaVigilancia();
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.modificarEmpresaVigilancia(emp);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+        fail("The test case is a prototype.");
+    }*/
 
 }

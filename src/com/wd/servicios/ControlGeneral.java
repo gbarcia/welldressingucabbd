@@ -709,7 +709,7 @@ public class ControlGeneral implements IfaceControlGeneral {
         }
     }
 
-    /**
+     /**
      * Operacion para consultar todos los servicios de una empresa de vigilancia
      * registrados en el sistema
      * @param rif String RIF de la empresa de vigilancia que presta el servicio

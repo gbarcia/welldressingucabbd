@@ -51,6 +51,7 @@ public class VentanaConsultarEmpresaVigilancia extends javax.swing.JFrame {
         vecTiendas = new Vector();
         vecCentros = new Vector();
         vecEmps = new Vector();
+        vecEmpsAux = new Vector();
         ciudadesAux = new Vector();
         ciudades = new Vector();
         estados = new Vector();
@@ -402,18 +403,26 @@ public class VentanaConsultarEmpresaVigilancia extends javax.swing.JFrame {
             }            
         }
         if (this.comboTiendas.getItemCount() == 0){
-            this.comboTiendas.addItem("Sin tiendas asociadas");
+            this.comboTiendas.addItem("0 tiendas asociadas");
         }
     }
 
     public void cargarComboCentros(String rif){
-        this.comboCentros.removeAllItems();
+        /*this.comboCentros.removeAllItems();
         int idCentro = -1;
         Vector<Servicio> servicios = new Vector();
 
         servicios = this.controlEmpresa.traerTodosLosServicios(rif);
+        System.out.println("rif-->"+rif);
 
-
-
+        for (Servicio servicio : servicios) {
+            idCentro = servicio.getCentroDistribucionCodigo();
+            for (CentroDistribucion centro : vecCentros){
+                if (centro.getCodigo() == idCentro){
+                    this.comboCentros.addItem(centro.getNombre());
+                }
+            }
+        }*/
     }
 }
+
