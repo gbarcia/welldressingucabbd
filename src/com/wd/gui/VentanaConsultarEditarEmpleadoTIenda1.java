@@ -192,14 +192,17 @@ public class VentanaConsultarEditarEmpleadoTIenda1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (this.flag.isSelected()) {
             String cedula = this.jtCedula.getText();
-            int cedulap = Integer.parseInt(cedula);
+            control.iniciarVentanaConsulta(cedula);
         }
         else {
             int indiceSeleccionado = this.jlEmpleados.getSelectedIndex();
             Vector aux = new Vector(Cemp);
             Empleado p = (Empleado) aux.get(indiceSeleccionado);
+            Integer a = p.getCedula();
+            String cel = a.toString();
+            control.iniciarVentanaConsulta(cel);
         }
-        //this.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
