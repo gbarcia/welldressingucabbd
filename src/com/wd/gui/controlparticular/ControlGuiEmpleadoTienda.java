@@ -1,8 +1,8 @@
 package com.wd.gui.controlparticular;
 
 import com.wd.dominio.Empleado;
+import com.wd.dominio.HistorialEmpleado;
 import com.wd.dominio.Lugar;
-import com.wd.dominio.Proveedor;
 import com.wd.dominio.Tienda;
 import com.wd.gui.ControlGui;
 import com.wd.gui.VentanaConsultarEditarEmpleadoTienda2;
@@ -171,6 +171,23 @@ public class ControlGuiEmpleadoTienda {
         }
     }
 
+    /** Operacion para actualizar un empleado en el sistema
+     * @param flag parametro donde se indica si se va a cambiar de cargo un empleado
+     * @param cedula int numero de cedula del empleado
+     * @param nombre String nombre del empleado
+     * @param apellido String apellido del empleado
+     * @param fechaNacimiento java.sql.Date la fecha de nacimiento del empleado
+     * @param telefono String telefono del empleado
+     * @param estadoCivil int estado civil del empleado
+     * @param sexo String sexo del empleado
+     * @param nivelEstudios int nivel de estudios del empleado
+     * @param direccion String direccion del empleado
+     * @param tipo int tipo de cargo del empleado
+     * @param lugarId int el indice de la ciudad donde vive el empleado
+     * @param ciudadVive String nombre de la ciudad donde vive el empleado
+     * @param codigo int codigo de la tienda donde trabajara el empleado
+     * @param nombreEmpresa String nombre de la empresa o tienda donde trabajara
+     */
     public void actualizarEmpleado(boolean flag, int cedula, String nombre, String apellido,
             java.sql.Date fechaNacimiento, String telefono, int estadoCivil, String sexo,
             int nivelEstudios, String direccion, int tipo, int lugarId, String ciudadVive,
@@ -191,6 +208,9 @@ public class ControlGuiEmpleadoTienda {
                     resultado = controlG.actualizarHistorialEmpleadoTienda(cedula);
                     if (resultado) {
                         resultadoAct = controlG.editarEmpleado(empleado);
+                        for (HistorialEmpleado he : empleado.getHistorial()) {
+                            controlG.agregarObjetoHistorialEmpleadoTienda(he);
+                        }
                         if (resultadoAct) {
                             controlador.mostrarMensaje("Empleado " + nombre + " actualizado con éxito", 0);
                         }
