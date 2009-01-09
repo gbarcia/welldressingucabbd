@@ -202,6 +202,7 @@ public class VentanaEliminarEmpleado extends javax.swing.JFrame {
             String cel = a.toString();
             control.eliminarEmpleadoDelSistema(cel);
         }
+        this.jtCedula.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
