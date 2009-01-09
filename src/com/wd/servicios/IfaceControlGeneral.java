@@ -17,20 +17,20 @@ import java.util.Collection;
  * @author Gerardo Barcia
  */
 public interface IfaceControlGeneral {
-    
+
     /**
      * Metodo para agregar un nuevo Horario
      * @param horario objeto horario a insertar
      * @return boolean resultado de la operacion
      */
-    public boolean agregarNuevoHorario (Horario horario);
+    public boolean agregarNuevoHorario(Horario horario);
 
     /**
      * Metodo para agregar una nueva Tienda
      * @param tienda la tienda a agregar
      * @return valor boolean de resultado de la operacion
      */
-    public  boolean agregarTienda(Tienda tienda);
+    public boolean agregarTienda(Tienda tienda);
 
     /**
      * Metodo para modificar una Tienda
@@ -52,74 +52,75 @@ public interface IfaceControlGeneral {
      */
     public Collection traerTodasLasTienda();
 
-     /**
-      * Metodo para buscar todos los horarios del sistema
-      * @return Collection todos los horarios registrados
-      */
-     public Collection traerTodosLosHorarios ();
-     /**
-      * Metodo para agregar un nuevo Centro de Distribucion
-      * @param centro objeto CentroDistribucion a insertar
-      * @return boolean resultado de la operacion
-      */
-     public boolean agregarCentroDistribucion(CentroDistribucion centro);
+    /**
+     * Metodo para buscar todos los horarios del sistema
+     * @return Collection todos los horarios registrados
+     */
+    public Collection traerTodosLosHorarios();
 
-     /**
-      * Metodo para agregar un nuevo Departamento
-      * @param departamento objeto Departamento a insertar
-      * @return boolean resultado de la operacion
-      */
-     public boolean agregarDepartamento(Departamento departamento);
+    /**
+     * Metodo para agregar un nuevo Centro de Distribucion
+     * @param centro objeto CentroDistribucion a insertar
+     * @return boolean resultado de la operacion
+     */
+    public boolean agregarCentroDistribucion(CentroDistribucion centro);
 
-     /**
-      * Metodo para buscar todos los departamentos del sistema
-      * @return Collection todos los departamentos registrados
-      */
-     public Collection traerTodosLosDepartamentos();
+    /**
+     * Metodo para agregar un nuevo Departamento
+     * @param departamento objeto Departamento a insertar
+     * @return boolean resultado de la operacion
+     */
+    public boolean agregarDepartamento(Departamento departamento);
 
-     /**
+    /**
+     * Metodo para buscar todos los departamentos del sistema
+     * @return Collection todos los departamentos registrados
+     */
+    public Collection traerTodosLosDepartamentos();
+
+    /**
      * Metodo para Eliminar un Departamento
      * @param departamento el departamento a eliminar
      * @return boolean resultado de la operación
      */
     public int eliminarDepartamento(Departamento departamento);
 
-     /**
+    /**
      * Metodo para modificar un Departamento
      * @param newDpto objeto Departamento a modificar
      * @return boolean resultado de la operacion
      */
     public boolean modificarDepartamento(Departamento newDpto);
 
-     /**
+    /**
      * Metodo para  traer todos los lugares. Tiene dos operaciones en una
      * la primera para traer todos los estados y la segunda todas las ciudades
      * con sus correspondientes estados
      * @param operacion int 1: trae todos los estados, 2: trae todas las ciudades
      * @return Collection coleccion de objetos Lugar
      */
-     public Collection<Lugar> traerTodosLosLuagres(int operacion);
+    public Collection<Lugar> traerTodosLosLuagres(int operacion);
 
-     /**
+    /**
      * Metodo para Agregar un lugar Nuevo
      * @param newLugar el nuevo lugar a agregar
      * @return boolean resultado de la operación
      */
-    public boolean  agregarLugar (Lugar newLugar);
+    public boolean agregarLugar(Lugar newLugar);
 
-     /**
-    * Operacion para agregar un proveedor al sistema
-    * @param proveedor el proveedor a registrar
-    * @return boolean resultado de la operacion
-    */
-    public boolean agregarProveedor (Proveedor proveedor);
+    /**
+     * Operacion para agregar un proveedor al sistema
+     * @param proveedor el proveedor a registrar
+     * @return boolean resultado de la operacion
+     */
+    public boolean agregarProveedor(Proveedor proveedor);
 
-     /**
+    /**
      * Metodo para consultar productos para un determinado proveedor
      * @param rif String con el rif del proveedor a consultar los productos
      * @return resultado coleccion de productos
      */
-    public Collection<Producto> consultaProductosProveedor (String rif);
+    public Collection<Producto> consultaProductosProveedor(String rif);
 
     /**
      * Operacion para editar un proveedor en el sistema
@@ -128,12 +129,12 @@ public interface IfaceControlGeneral {
      */
     public boolean editarProveedor(Proveedor proveedor);
 
-     /**
+    /**
      * Operacion para consultar un proveedor en el sistema
      * @param rif String rif del proveedor a consultar
      * @return resultado Proveedor con los datos de la consulta
      */
-    public Proveedor consultarProveedor (String rif);
+    public Proveedor consultarProveedor(String rif);
 
     /**
      * Operacion para consultar todos los proveedores registrados en el sistema
@@ -146,7 +147,7 @@ public interface IfaceControlGeneral {
      * @param rif String rif del proveedor a eliminar
      * @return resultado boolean de exito o no de la operacion
      */
-    public boolean eliminarProveedor (String rif);
+    public boolean eliminarProveedor(String rif);
 
     /**
      * Metodo para agragar un Producto
@@ -175,12 +176,12 @@ public interface IfaceControlGeneral {
      */
     public Collection traerTodosLosProductos();
 
-     /**
+    /**
      * Metodo para agregar un Camion
      * @param camion
      * @return resultado de la operacion
      */
-    public boolean agregarCamion (Camion camion);
+    public boolean agregarCamion(Camion camion);
 
     /**
      * Metodo para modificar un camion
@@ -196,7 +197,7 @@ public interface IfaceControlGeneral {
      */
     public boolean eliminarCamion(int id);
 
-     /**
+    /**
      * Metodo para consultar todos los camiones
      * @return coleccion de camiones
      */
@@ -216,7 +217,7 @@ public interface IfaceControlGeneral {
      */
     public boolean editarEmpleado(Empleado emp);
 
-     /**
+    /**
      * Operacion para consultar un empleado y su historial en el sistema
      * @param cedula Int numero de cedula del empleado a buscar
      * @return resultado Objeto empleado con la información inclutendo su historial
@@ -257,4 +258,11 @@ public interface IfaceControlGeneral {
      * @return boolean de exito o no de la operacion
      */
     public boolean agregarObjetoHistorialEmpleadoTienda(HistorialEmpleado he);
+
+    /**
+     * Operacion para borrar un empleado en el sistema
+     * @param cedula int el numero de cedula del empleado que se quiere borrar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean borrarEmpleado(int cedula);
 }
