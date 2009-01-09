@@ -55,6 +55,9 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     /** Creates new form VentanaNuevaTienda */
     public VentanaAgregarTienda() {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
         this.inicializarControles();
         this.inicializarVectores();
         this.llenarComboBoxes();
@@ -395,10 +398,10 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         int index = this.jComboBox_horarios.getSelectedIndex();
         if (index != -1){
             this.horario_seleccion = this.horarios.get(index);
-//            System.out.println("Horario: " + this.horario_seleccion.getId());
+            System.out.println("Horario: " + this.horario_seleccion.getId());
         } else {
             this.horario_seleccion = null;
-//            System.out.println("Horario: no hay seleccion");
+            System.out.println("Horario: no hay seleccion");
         }
     }//GEN-LAST:event_jComboBox_horariosActionPerformed
 
@@ -407,10 +410,10 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         if (index != -1){
             this.estado_seleccion = this.estados.get(index);
             this.llenarCiudades(this.estado_seleccion.getId());
-//            System.out.println("Estado: " + this.estado_seleccion.getId());
+            System.out.println("Estado: " + this.estado_seleccion.getId());
         } else {
             this.estado_seleccion = null;
-//            System.out.println("Estado: no hay seleccion");
+            System.out.println("Estado: no hay seleccion");
         }
     }//GEN-LAST:event_jComboBox_estadosActionPerformed
 
@@ -418,10 +421,10 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         int index = this.jComboBox_ciudades.getSelectedIndex();
         if (index != -1){
             this.ciudad_seleccion = this.ciudades.get(index);
-//            System.out.println("Ciudad: " + this.ciudad_seleccion.getId());
+            System.out.println("Ciudad: " + this.ciudad_seleccion.getId());
         } else {
             this.ciudad_seleccion = null;
-//            System.out.println("Ciudad: no hay seleccion");
+            System.out.println("Ciudad: no hay seleccion");
         }
     }//GEN-LAST:event_jComboBox_ciudadesActionPerformed
 
@@ -429,10 +432,10 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         int index = this.jComboBox_empresas.getSelectedIndex();
         if (index != -1){
             this.empresa_seleccion = this.empresas.get(index);
-//            System.out.println("Empresa: " + this.empresa_seleccion.getRif());
+            System.out.println("Empresa: " + this.empresa_seleccion.getRif());
         } else {
             this.empresa_seleccion = null;
-//            System.out.println("Empresa: no hay seleccion");
+            System.out.println("Empresa: no hay seleccion");
         }
     }//GEN-LAST:event_jComboBox_empresasActionPerformed
 
