@@ -23,7 +23,7 @@
         SELECT s.EMPRESA_SERVICIO_rif EMPRESASERVICIORIF,
         s.CENTRO_DISTRIBUCION_codigo CENTRODISTRIBUCIONCODIGO
         FROM SERVICIO s
-        
+        WHERE s.EMPRESA_SERVICIO_rif = #value#
     </select>
 
       <resultMap id="traerTodasLasEmpresas" class="empresaVigilancia">

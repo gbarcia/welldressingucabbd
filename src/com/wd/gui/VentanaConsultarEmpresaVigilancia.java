@@ -106,6 +106,7 @@ public class VentanaConsultarEmpresaVigilancia extends javax.swing.JFrame {
         labelCentros = new javax.swing.JLabel();
 
         setTitle("Consultar Empresa de Vigilancia");
+        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar Empresa de Vigilancia", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
@@ -137,41 +138,41 @@ public class VentanaConsultarEmpresaVigilancia extends javax.swing.JFrame {
 
         campoDireccion.setColumns(20);
         campoDireccion.setEditable(false);
-        campoDireccion.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        campoDireccion.setFont(new java.awt.Font("Tahoma", 0, 13));
         campoDireccion.setRows(5);
         jScrollPane1.setViewportView(campoDireccion);
 
-        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonCerrar.setText("Cerrar");
 
-        labelEstado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelEstado.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelEstado.setText("Estado");
 
-        labelCiudad.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCiudad.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelCiudad.setText("Ciudad");
 
-        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombre.setText("Empresa de Vigilancia");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel3.setText("RIF");
 
-        labelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelTelefono.setText("Teléfono");
 
-        labelNombrePer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombrePer.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombrePer.setText("Nombre Persona Contacto");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel1.setText("Apellido Persona Contacto");
 
-        labelDireccion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDireccion.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDireccion.setText("Dirección");
 
-        labelTiendas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelTiendas.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelTiendas.setText("Tiendas");
 
-        labelCentros.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCentros.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelCentros.setText("Centros De Distribución");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -393,6 +394,10 @@ public class VentanaConsultarEmpresaVigilancia extends javax.swing.JFrame {
                 this.comboNombre.addItem(emp.getNombre());
             }
         }
+        if (this.comboNombre.getItemCount() == 0){
+            this.comboCentros.removeAllItems();
+            this.comboTiendas.removeAllItems();
+        }
     }
 
     public void cargarComboTiendas(String rif){
@@ -413,7 +418,7 @@ public class VentanaConsultarEmpresaVigilancia extends javax.swing.JFrame {
         Vector<Servicio> servicios = new Vector();
 
         servicios = this.controlEmpresa.traerTodosLosServicios(rif);
-        System.out.println("rif-->"+rif);
+        System.out.println("size-->"+servicios.size());
 
         for (Servicio servicio : servicios) {
             idCentro = servicio.getCentroDistribucionCodigo();
