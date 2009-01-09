@@ -11,7 +11,14 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.EmpresaVigilancia;
+import com.wd.dominio.Horario;
+import com.wd.dominio.Lugar;
+import com.wd.gui.controlparticular.ControlGuiEmpresaVigilancia;
+import com.wd.gui.controlparticular.ControlGuiHorario;
+import com.wd.gui.controlparticular.ControlGuiLugar;
 import com.wd.gui.controlparticular.ControlGuiTienda;
+import java.util.Vector;
 
 /**
  *
@@ -19,13 +26,55 @@ import com.wd.gui.controlparticular.ControlGuiTienda;
  */
 public class VentanaAgregarTienda extends javax.swing.JFrame {
     
-    private ControlGuiTienda controlTienda;
+    private ControlGui control_general;
 
-    private ControlGui controlGeneral;
+    private ControlGuiTienda control_gui_tienda;
+
+    private ControlGuiHorario control_gui_horario;
+
+    private Vector<Horario> horarios;
+
+    private Horario horario_seleccion;
+
+    private ControlGuiLugar control_gui_lugar;
+
+    private Vector<Lugar> estados;
+
+    private Lugar estado_seleccion;
+
+    private Vector<Lugar> ciudades;
+
+    private Lugar ciudad_seleccion;
+
+    private ControlGuiEmpresaVigilancia control_gui_empresa;
+
+    private Vector<EmpresaVigilancia> empresas;
+
+    private EmpresaVigilancia empresa_seleccion;
 
     /** Creates new form VentanaNuevaTienda */
     public VentanaAgregarTienda() {
         initComponents();
+        this.inicializarControles();
+        this.inicializarVectores();
+        this.llenarComboBoxes();
+    }
+
+    /** Metodo para inicaliazar Controles */
+    public void inicializarControles(){
+        this.control_general = new ControlGui();
+        this.control_gui_tienda = new ControlGuiTienda();
+        this.control_gui_horario = new ControlGuiHorario();
+        this.control_gui_lugar = new ControlGuiLugar();
+        this.control_gui_empresa = new ControlGuiEmpresaVigilancia();
+    }
+
+    /** Metodo par iniciaclizar vectores */
+    public void inicializarVectores(){
+        this.horarios = this.control_gui_horario.traerTodosLosHorarios();
+        this.estados = this.control_gui_lugar.traerTodosLosLugares(1);
+        this.ciudades = this.control_gui_lugar.traerTodosLosLugares(2);
+        this.empresas = this.control_gui_empresa.traerTodasLasEmpresas();
     }
 
     /** This method is called from within the constructor to
@@ -39,31 +88,32 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField_nombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextField_tamano = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBoxHorarios = new javax.swing.JComboBox();
+        jComboBox_horarios = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
-        jTextField4 = new javax.swing.JTextField();
+        jTextField_telefono = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextField_correo = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBoxEstados = new javax.swing.JComboBox();
-        jComboBoxCiudades = new javax.swing.JComboBox();
+        jComboBox_estados = new javax.swing.JComboBox();
+        jComboBox_ciudades = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jTextPane_direccion = new javax.swing.JTextPane();
         jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBoxEmpresasVigilancia = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jComboBox_empresas = new javax.swing.JComboBox();
+        jButton_registrar = new javax.swing.JButton();
+        jButton_cancelar = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -73,20 +123,24 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Información de la Tienda"));
         jPanel2.setPreferredSize(new java.awt.Dimension(350, 263));
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(200, 20));
+        jTextField_nombre.setPreferredSize(new java.awt.Dimension(200, 20));
 
-        jLabel1.setText("Nombre");
+        jLabel1.setText("Nombre [*]");
 
-        jLabel2.setText("Tamaño");
+        jLabel2.setText("Tamaño [*]");
 
-        jTextField2.setPreferredSize(new java.awt.Dimension(200, 20));
+        jTextField_tamano.setPreferredSize(new java.awt.Dimension(200, 20));
 
         jLabel4.setText("m²");
 
-        jLabel3.setText("Horario");
+        jLabel3.setText("Horario [*]");
 
-        jComboBoxHorarios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxHorarios.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox_horarios.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox_horarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_horariosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -95,51 +149,51 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                        .addComponent(jTextField_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField_tamano, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel4))
-                            .addComponent(jComboBoxHorarios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jComboBox_horarios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_tamano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBoxHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_horarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Información de la Tienda"));
         jPanel3.setPreferredSize(new java.awt.Dimension(350, 263));
 
-        jTextField4.setPreferredSize(new java.awt.Dimension(200, 20));
+        jTextField_telefono.setPreferredSize(new java.awt.Dimension(200, 20));
 
-        jLabel5.setText("Teléfono");
+        jLabel5.setText("Teléfono [*]");
 
-        jLabel6.setText("Correo Electrónico");
+        jLabel6.setText("Correo Electrónico [*]");
 
-        jTextField5.setPreferredSize(new java.awt.Dimension(200, 20));
+        jTextField_correo.setPreferredSize(new java.awt.Dimension(200, 20));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -150,23 +204,23 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(jTextField_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addComponent(jTextField_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -174,20 +228,28 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Locación de la Tienda"));
         jPanel4.setPreferredSize(new java.awt.Dimension(350, 263));
 
-        jLabel7.setText("Estado");
+        jLabel7.setText("Estado [*]");
 
-        jLabel8.setText("Ciudad");
+        jLabel8.setText("Ciudad [*]");
 
-        jComboBoxEstados.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxEstados.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox_estados.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox_estados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_estadosActionPerformed(evt);
+            }
+        });
 
-        jComboBoxCiudades.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxCiudades.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox_ciudades.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox_ciudades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_ciudadesActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(200, 66));
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(jTextPane_direccion);
 
-        jLabel9.setText("Dirección");
+        jLabel9.setText("Dirección [*]");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -198,32 +260,32 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(85, 85, 85)
-                        .addComponent(jComboBoxEstados, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jComboBox_estados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9))
-                        .addGap(75, 75, 75)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxCiudades, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox_ciudades, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxEstados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(jComboBox_estados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxCiudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8)
+                    .addComponent(jComboBox_ciudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -232,8 +294,12 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
         jLabel10.setText("Empresa de Vigilancia");
 
-        jComboBoxEmpresasVigilancia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxEmpresasVigilancia.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox_empresas.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox_empresas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_empresasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -243,7 +309,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(jComboBoxEmpresasVigilancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox_empresas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -251,13 +317,20 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jComboBoxEmpresasVigilancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_empresas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Registrar");
+        jButton_registrar.setText("Registrar");
+        jButton_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_registrarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cancelar");
+        jButton_cancelar.setText("Cancelar");
+
+        jLabel11.setText("[*] Campos obligatorios");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -266,21 +339,24 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_cancelar)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton_registrar))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(190, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,8 +366,8 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton_registrar)
+                    .addComponent(jButton_cancelar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -315,6 +391,66 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBox_horariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_horariosActionPerformed
+        int index = this.jComboBox_horarios.getSelectedIndex();
+        if (index != -1){
+            this.horario_seleccion = this.horarios.get(index);
+//            System.out.println("Horario: " + this.horario_seleccion.getId());
+        } else {
+            this.horario_seleccion = null;
+//            System.out.println("Horario: no hay seleccion");
+        }
+    }//GEN-LAST:event_jComboBox_horariosActionPerformed
+
+    private void jComboBox_estadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_estadosActionPerformed
+        int index = this.jComboBox_estados.getSelectedIndex();
+        if (index != -1){
+            this.estado_seleccion = this.estados.get(index);
+            this.llenarCiudades(this.estado_seleccion.getId());
+//            System.out.println("Estado: " + this.estado_seleccion.getId());
+        } else {
+            this.estado_seleccion = null;
+//            System.out.println("Estado: no hay seleccion");
+        }
+    }//GEN-LAST:event_jComboBox_estadosActionPerformed
+
+    private void jComboBox_ciudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ciudadesActionPerformed
+        int index = this.jComboBox_ciudades.getSelectedIndex();
+        if (index != -1){
+            this.ciudad_seleccion = this.ciudades.get(index);
+//            System.out.println("Ciudad: " + this.ciudad_seleccion.getId());
+        } else {
+            this.ciudad_seleccion = null;
+//            System.out.println("Ciudad: no hay seleccion");
+        }
+    }//GEN-LAST:event_jComboBox_ciudadesActionPerformed
+
+    private void jComboBox_empresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_empresasActionPerformed
+        int index = this.jComboBox_empresas.getSelectedIndex();
+        if (index != -1){
+            this.empresa_seleccion = this.empresas.get(index);
+//            System.out.println("Empresa: " + this.empresa_seleccion.getRif());
+        } else {
+            this.empresa_seleccion = null;
+//            System.out.println("Empresa: no hay seleccion");
+        }
+    }//GEN-LAST:event_jComboBox_empresasActionPerformed
+
+    private void jButton_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registrarActionPerformed
+        if (this.validarFormulario()){
+        this.control_gui_tienda.agregarTienda(this.jTextField_nombre.getText(),
+                Integer.parseInt(this.jTextField_tamano.getText()),
+                this.horario_seleccion.getId(),
+                this.jTextField_telefono.getText(),
+                this.jTextField_correo.getText(),
+                this.ciudad_seleccion.getId(),
+                this.jTextPane_direccion.getText(),
+                this.empresa_seleccion.getRif());
+        } else {
+            this.control_general.mostrarMensaje("Existen errores en los datos. Verifiquelos e intentelo nuevamente.", 1);
+        }
+    }//GEN-LAST:event_jButton_registrarActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -327,14 +463,15 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBoxCiudades;
-    private javax.swing.JComboBox jComboBoxEmpresasVigilancia;
-    private javax.swing.JComboBox jComboBoxEstados;
-    private javax.swing.JComboBox jComboBoxHorarios;
+    private javax.swing.JButton jButton_cancelar;
+    private javax.swing.JButton jButton_registrar;
+    private javax.swing.JComboBox jComboBox_ciudades;
+    private javax.swing.JComboBox jComboBox_empresas;
+    private javax.swing.JComboBox jComboBox_estados;
+    private javax.swing.JComboBox jComboBox_horarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -349,14 +486,76 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextField jTextField_correo;
+    private javax.swing.JTextField jTextField_nombre;
+    private javax.swing.JTextField jTextField_tamano;
+    private javax.swing.JTextField jTextField_telefono;
+    private javax.swing.JTextPane jTextPane_direccion;
     // End of variables declaration//GEN-END:variables
 
-    private void llenarComboBoxEstados(){
-        
+    private void llenarHorarios(){
+        this.jComboBox_horarios.removeAllItems();
+        for (Horario horario : this.horarios){
+           this.jComboBox_horarios.addItem(horario.getDiaIni()
+                   + " - " + horario.getDiaFin() + " : " +
+                   horario.getHoraIni() + " - " + horario.getHoraFin());
+        }
     }
+
+    private void llenarEstados(){
+        this.jComboBox_estados.removeAllItems();
+        for (Lugar estado : this.estados){
+           this.jComboBox_estados.addItem(estado.getNombrePropio());
+        }
+    }
+
+    private void llenarCiudades(int lugar_id){
+        this.jComboBox_ciudades.removeAllItems();
+        for (Lugar ciudad : this.ciudades){
+            if (ciudad.getLugarID() == lugar_id)
+                this.jComboBox_ciudades.addItem(ciudad.getNombrePropio());
+        }
+    }
+
+    private void llenarEmpresas(){
+        this.jComboBox_empresas.removeAllItems();
+        this.empresas.add(0, new EmpresaVigilancia());
+        for (EmpresaVigilancia empresa : this.empresas){
+            if (empresa.getRif() == null){
+                this.jComboBox_empresas.addItem("NINGUNA");
+            } else {
+                this.jComboBox_empresas.addItem(empresa.getRif() + ": " +
+                    empresa.getNombre());
+            }
+        }
+    }
+
+    private void llenarComboBoxes(){
+        this.llenarHorarios();
+        this.llenarEstados();
+        this.llenarEmpresas();
+    }
+
+    private boolean  validarFormulario(){
+        if (this.jTextField_nombre.getText().isEmpty()) return false;
+        if (this.jTextField_tamano.getText().isEmpty()) return false;
+        if (!this.esEntero(this.jTextField_tamano.getText())) return false;
+        if (this.jComboBox_horarios.getSelectedIndex() == -1) return false;
+        if (this.jTextField_telefono.getText().isEmpty()) return false;
+        if (!this.esEntero(this.jTextField_telefono.getText())) return false;
+        if (this.jTextField_correo.getText().isEmpty()) return false;
+        if (this.jComboBox_ciudades.getSelectedIndex() == -1) return false;
+        if (this.jTextPane_direccion.getText().isEmpty()) return false;
+        return true;
+    }
+
+    public boolean esEntero(String string){
+        try {
+            Integer.parseInt(string);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
