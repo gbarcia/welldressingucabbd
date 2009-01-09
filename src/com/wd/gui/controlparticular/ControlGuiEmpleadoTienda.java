@@ -248,7 +248,7 @@ public class ControlGuiEmpleadoTienda {
         boolean esNumero = false;
         boolean resultado = false;
         String mensaje = "¿Está seguro que desea borrar el empleado " + cedula +
-                " ?. Este procedimiento borrara todos sus registros de historial";
+                " ?. \n Este procedimiento borrara todos sus registros de historial";
         esNumero = this.isNumber(cedula);
         if (esNumero) {
             Integer ced = Integer.parseInt(cedula);
@@ -256,7 +256,7 @@ public class ControlGuiEmpleadoTienda {
             if (confirmacion == 0) {
                 resultado = controlG.borrarEmpleado(ced);
                 if (resultado) {
-                    controlador.mostrarMensaje("Empleado " + cedula + "borrado con éxito", 0);
+                    controlador.mostrarMensaje("Empleado " + cedula + " borrado con éxito", 0);
                 } else if (!resultado) {
                     controlador.mostrarMensaje("Operacion fallida", 1);
                 }
