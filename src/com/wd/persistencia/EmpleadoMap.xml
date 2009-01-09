@@ -114,4 +114,12 @@
         fecha_ini = #fechaInicio#
     </update>
 
+    <delete id="borrarHistorialEmpleadoTienda" parameterClass="int">
+        DELETE FROM NOMINA_TIENDA WHERE EMPLEADO_ci = #value#
+    </delete>
+
+    <delete id="borrarEmpleado" parameterClass="int">
+        DELETE FROM EMPLEADO WHERE ci = #value#
+    </delete>
+
    </sqlMap>
