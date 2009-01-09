@@ -11,6 +11,7 @@ import java.util.Date;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Vector;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -216,6 +217,51 @@ public class ControlEmpleado {
             bitacora.info("Iniciando operacion para agregar objeto Historial " + he.getCedula());
             sqlMap.insert("agregarHistorial", he);
             resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para borrar el historial de un empleado en el sistema
+     * @param cedula int el numero de cedula del empleado que se quiere borrar
+     * el historial
+     * @return boolean de exito o no de la operacion
+     */
+    private boolean borrarHistorialEmpleadoTienda(int cedula) {
+        boolean resultado = false;
+        int nra = -1;
+        try {
+            bitacora.info("Iniciando operacion para eliminar historial de " + cedula);
+            nra = sqlMap.delete("borrarHistorialEmpleadoTienda", cedula);
+            if (nra > 0) {
+                resultado = true;
+            }
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+     /**
+     * Operacion para borrar un empleado en el sistema
+     * @param cedula int el numero de cedula del empleado que se quiere borrar   
+     * @return boolean de exito o no de la operacion
+     */
+    public  boolean borrarEmpleado(int cedula) {
+        boolean resultado = false;
+        int nra = -1;
+        try {
+            bitacora.info("Iniciando operacion para borrar empleado: " + cedula);
+            nra = sqlMap.delete("borrarEmpleado", cedula);
+            if (nra > 0) {
+                resultado = this.borrarHistorialEmpleadoTienda(cedula);
+            }
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
                     " porque " + ex.getMessage());
