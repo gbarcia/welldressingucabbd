@@ -240,4 +240,26 @@ public class ControlGuiEmpleadoTienda {
             controlador.mostrarMensaje("Error: Todos los campos son requeridos", 1);
         }
     }
+
+    public void eliminarEmpleadoDelSistema(String cedula) {
+        boolean esNumero = false;
+        boolean resultado = false;
+        String mensaje = "¿Está seguro que desea borrar el empleado " + cedula +
+                " ?. Este procedimiento borrara todos sus registros de historial";
+        esNumero = this.isNumber(cedula);
+        if (esNumero) {
+            Integer ced = Integer.parseInt(cedula);
+            int confirmacion = controlador.dialogoConfirmacion(mensaje);
+            if (confirmacion == 0) {
+                resultado = controlG.borrarEmpleado(ced);
+                if (resultado) {
+                    controlador.mostrarMensaje("Empleado " + cedula + "borrado con éxito", 0);
+                } else if (!resultado) {
+                    controlador.mostrarMensaje("Operacion fallida", 1);
+                }
+            }
+        } else if (!esNumero) {
+            controlador.mostrarMensaje("Error: el campo cedula debe ser número", 1);
+        }
+    }
 }
