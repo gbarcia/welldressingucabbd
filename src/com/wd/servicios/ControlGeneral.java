@@ -37,7 +37,7 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlProveedor controlProveedor;
     /** Variable para trabajar con el controlador de los productos*/
     private ControlProducto controlProducto;
-     /** Variable para trabajar con el controlador de los camiones*/
+    /** Variable para trabajar con el controlador de los camiones*/
     private ControlCamion controlCamion;
     /** Variable para trabajar con el controlador de las empresas de vigilancia*/
     private ControlEmpresaVigilancia controlEmpresaVigilancia;
@@ -80,8 +80,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             controlHorario.agregarNuevoHorario(horario);
             resultado = true;
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el control horario por "
-            + ex.getMessage());
+            bitacora.error("No se pudo iniciar el control horario por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -95,16 +94,15 @@ public class ControlGeneral implements IfaceControlGeneral {
      */
     public boolean modificarDepartamento(Departamento newDpto) {
         boolean resultado = false;
-        try{
+        try {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento iniciado correctamente");
             controlDepartamento.modificarDepartamento(newDpto);
             resultado = true;
-        }catch(IOException ex){
-            bitacora.error("No se pudo iniciar el control horario por "
-            + ex.getMessage());
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el control horario por " + ex.getMessage());
             resultado = false;
-        }finally{
+        } finally {
             return resultado;
         }
     }
@@ -151,7 +149,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param tienda la tienda a modificar
      * @return resultado de la operacion
      */
-    public boolean modificarTienda(Tienda tienda){
+    public boolean modificarTienda(Tienda tienda) {
         boolean resultado = false;
         try {
             this.controlTienda = new ControlTienda();
@@ -171,7 +169,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param codigo el codigo de la tienda
      * @return resultado de la operacion
      */
-    public boolean eliminarTienda(int codigo){
+    public boolean eliminarTienda(int codigo) {
         boolean resultado = false;
         try {
             this.controlTienda = new ControlTienda();
@@ -185,12 +183,12 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
-    
+
     /**
      * Metodo para consultar todas las tiendas
      * @return todas las Tiendas
      */
-    public Collection traerTodasLasTienda(){
+    public Collection traerTodasLasTienda() {
         Collection<Tienda> tiendas = null;
         try {
             this.controlTienda = new ControlTienda();
@@ -250,7 +248,7 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlCentroDistribucion = new ControlCentroDistribucion();
             bitacora.info("Control Centro de Distribucion" +
-            " Iniciado correctamente");
+                    " Iniciado correctamente");
             resultado = controlCentroDistribucion.eliminarCentro(centro);
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
@@ -266,16 +264,15 @@ public class ControlGeneral implements IfaceControlGeneral {
      */
     public boolean modificarCentro(CentroDistribucion centro) {
         boolean resultado = false;
-        try{
+        try {
             this.controlCentroDistribucion = new ControlCentroDistribucion();
             bitacora.info("Control CentroDistribucion iniciado correctamente");
             controlCentroDistribucion.modificarCentro(centro);
             resultado = true;
-        }catch(IOException ex){
-            bitacora.error("No se pudo iniciar el control departamento por "
-            + ex.getMessage());
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el control departamento por " + ex.getMessage());
             resultado = false;
-        }finally{
+        } finally {
             return resultado;
         }
     }
@@ -328,7 +325,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento Iniciado correctamente");
             resultado = controlDepartamento.eliminarDepartamento(departamento);
-            
+
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
         } finally {
@@ -336,7 +333,7 @@ public class ControlGeneral implements IfaceControlGeneral {
         }
     }
 
-     /**
+    /**
      * Metodo para  traer todos los lugares. Tiene dos operaciones en una
      * la primera para traer todos los estados y la segunda todas las ciudades
      * con sus correspondientes estados
@@ -365,7 +362,7 @@ public class ControlGeneral implements IfaceControlGeneral {
                 }
             }
         } catch (IOException ex) {
-             bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
+            bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
         } finally {
             return resultado;
         }
@@ -376,7 +373,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param newLugar el nuevo lugar a agregar
      * @return boolean resultado de la operación
      */
-    public boolean  agregarLugar (Lugar newLugar) {
+    public boolean agregarLugar(Lugar newLugar) {
         boolean resultado = false;
         try {
             this.controlLugar = new ControlLugar();
@@ -386,8 +383,7 @@ public class ControlGeneral implements IfaceControlGeneral {
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar control lugar por " + ex.getMessage());
             resultado = false;
-        }
-        finally {
+        } finally {
             return resultado;
         }
     }
@@ -419,16 +415,15 @@ public class ControlGeneral implements IfaceControlGeneral {
      */
     public boolean modificarClase(Departamento newClase) {
         boolean resultado = false;
-        try{
+        try {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento iniciado correctamente");
             controlDepartamento.modificarClase(newClase);
             resultado = true;
-        }catch(IOException ex){
-            bitacora.error("No se pudo iniciar el control departamento por "
-            + ex.getMessage());
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el control departamento por " + ex.getMessage());
             resultado = false;
-        }finally{
+        } finally {
             return resultado;
         }
     }
@@ -438,23 +433,22 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @return Collection todos las clases registradas
      */
     /*public Collection traerTodasLasClases(){
-        Collection<Departamento> departamentos = null;
-        try {
-            this.controlDepartamento = new ControlDepartamento();
-            bitacora.info("Control Departamento Iniciado correctamente");
-            departamentos = controlDepartamento.traerTodosLasClases();
-        } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar el control departamento por " + ex.getMessage());
-        } finally {
-            return departamentos;
-        }
+    Collection<Departamento> departamentos = null;
+    try {
+    this.controlDepartamento = new ControlDepartamento();
+    bitacora.info("Control Departamento Iniciado correctamente");
+    departamentos = controlDepartamento.traerTodosLasClases();
+    } catch (IOException ex) {
+    bitacora.info("No se pudo iniciar el control departamento por " + ex.getMessage());
+    } finally {
+    return departamentos;
+    }
     }*/
-
     /**
      * Metodo para buscar todos las clases del sistema
      * @return Collection todos las clases registradas
      */
-    public Collection traerTodasLasClases(Departamento dueño){
+    public Collection traerTodasLasClases(Departamento dueño) {
         Collection<Departamento> departamentos = null;
         try {
             this.controlDepartamento = new ControlDepartamento();
@@ -478,10 +472,10 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento Iniciado correctamente");
             resultado = controlDepartamento.eliminarClase(clase);
-            //resultado = 1;
+        //resultado = 1;
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar control departamento por " + ex.getMessage());
-            //resultado = 0;
+        //resultado = 0;
         } finally {
             return resultado;
         }
@@ -514,16 +508,15 @@ public class ControlGeneral implements IfaceControlGeneral {
      */
     public boolean modificarSubClase(Departamento newSubClase) {
         boolean resultado = false;
-        try{
+        try {
             this.controlDepartamento = new ControlDepartamento();
             bitacora.info("Control Departamento iniciado correctamente");
             controlDepartamento.modificarSubClase(newSubClase);
             resultado = true;
-        }catch(IOException ex){
-            bitacora.error("No se pudo iniciar el control departamento por "
-            + ex.getMessage());
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el control departamento por " + ex.getMessage());
             resultado = false;
-        }finally{
+        } finally {
             return resultado;
         }
     }
@@ -565,17 +558,17 @@ public class ControlGeneral implements IfaceControlGeneral {
         }
     }
 
-     /**
-    * Operacion para agregar un proveedor al sistema
-    * @param proveedor el proveedor a registrar
-    * @return boolean resultado de la operacion
-    */
-    public boolean agregarProveedor (Proveedor proveedor) {
-         boolean resultado = false;
+    /**
+     * Operacion para agregar un proveedor al sistema
+     * @param proveedor el proveedor a registrar
+     * @return boolean resultado de la operacion
+     */
+    public boolean agregarProveedor(Proveedor proveedor) {
+        boolean resultado = false;
         try {
             this.controlProveedor = new ControlProveedor();
             bitacora.info("Control Proveedor Iniciado correctamente");
-            resultado = controlProveedor.agregarProveedor(proveedor);        
+            resultado = controlProveedor.agregarProveedor(proveedor);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar control proveedor por " + ex.getMessage());
             resultado = false;
@@ -585,12 +578,12 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
-    * Operacion para editar un proveedor en el sistema
-    * @param proveedor el proveedor a registrar
-    * @return boolean resultado de la operacion
-    */
-    public boolean editarProveedor (Proveedor proveedor) {
-         boolean resultado = false;
+     * Operacion para editar un proveedor en el sistema
+     * @param proveedor el proveedor a registrar
+     * @return boolean resultado de la operacion
+     */
+    public boolean editarProveedor(Proveedor proveedor) {
+        boolean resultado = false;
         try {
             this.controlProveedor = new ControlProveedor();
             bitacora.info("Control Proveedor Iniciado correctamente");
@@ -603,12 +596,12 @@ public class ControlGeneral implements IfaceControlGeneral {
         }
     }
 
-     /**
+    /**
      * Metodo para buscar todos las Productos para un determinado proveedor
      * @param rif String del rif del proveedor a buscar sus productos
      * @return Collection todos los productos para el proveedor
      */
-     public Collection<Producto> consultaProductosProveedor (String rif) {
+    public Collection<Producto> consultaProductosProveedor(String rif) {
         Collection<Producto> resultado = null;
         try {
             this.controlProducto = new ControlProducto();
@@ -626,7 +619,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param rif String rif del proveedor a consultar
      * @return resultado Proveedor con los datos de la consulta
      */
-    public Proveedor consultarProveedor (String rif) {
+    public Proveedor consultarProveedor(String rif) {
         Proveedor resultado = null;
         try {
             this.controlProveedor = new ControlProveedor();
@@ -634,8 +627,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             resultado = this.controlProveedor.consultarProveedor(rif);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar el control proveedor por " + ex.getMessage());
-        }
-        finally {
+        } finally {
             return resultado;
         }
     }
@@ -652,8 +644,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             resultado = controlProveedor.todosLosProveedores();
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar el control proveedor por " + ex.getMessage());
-        }
-        finally {
+        } finally {
             return resultado;
         }
     }
@@ -663,26 +654,26 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param rif String rif del proveedor a eliminar
      * @return resultado boolean de exito o no de la operacion
      */
-    public boolean eliminarProveedor (String rif) {
+    public boolean eliminarProveedor(String rif) {
         boolean resultado = false;
         resultado = controlProveedor.eliminarProveedor(rif);
         return resultado;
     }
 
-     /**
-    * Operacion para agregar una empresa de vigilancia al sistema
-    * @param emp la Empresa de Vigilancia a registrar
-    * @return boolean resultado de la operacion
-    */
+    /**
+     * Operacion para agregar una empresa de vigilancia al sistema
+     * @param emp la Empresa de Vigilancia a registrar
+     * @return boolean resultado de la operacion
+     */
     public boolean agregarEmpresaVigilancia(EmpresaVigilancia emp) {
-         boolean resultado = false;
+        boolean resultado = false;
         try {
             this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
             bitacora.info("Control EmpresaVigilancia Iniciado correctamente");
             resultado = controlEmpresaVigilancia.agregarEmpresaVigilancia(emp);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar control empresa de vigilancia" +
-            " por " + ex.getMessage());
+                    " por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -690,26 +681,26 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
-    * Operacion para asociar una empresa de vigilancia a un centro de distribucion
-    * @param serv Servicio a registrar
-    * @return boolean resultado de la operacion
-    */
+     * Operacion para asociar una empresa de vigilancia a un centro de distribucion
+     * @param serv Servicio a registrar
+     * @return boolean resultado de la operacion
+     */
     public boolean agregarServicio(Servicio serv) {
-         boolean resultado = false;
+        boolean resultado = false;
         try {
             this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
             bitacora.info("Control EmpresaVigilancia Iniciado correctamente");
             resultado = controlEmpresaVigilancia.agregarServicio(serv);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar control empresa de vigilancia" +
-            " por " + ex.getMessage());
+                    " por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
         }
     }
 
-     /**
+    /**
      * Operacion para consultar todos los servicios de una empresa de vigilancia
      * registrados en el sistema
      * @param rif String RIF de la empresa de vigilancia que presta el servicio
@@ -723,27 +714,26 @@ public class ControlGeneral implements IfaceControlGeneral {
             resultado = controlEmpresaVigilancia.traerLosServicios(rif);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar el controlEmpresa de Vigilancia" +
-            " por " + ex.getMessage());
-        }
-        finally {
+                    " por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
 
     /**
-    * Operacion para editar una empresa vigilancia en el sistema
-    * @param emp la Empresa Vigilancia a registrar
-    * @return boolean resultado de la operacion
-    */
-    public boolean modificarEmpresaVigilancia (EmpresaVigilancia emp) {
-         boolean resultado = false;
+     * Operacion para editar una empresa vigilancia en el sistema
+     * @param emp la Empresa Vigilancia a registrar
+     * @return boolean resultado de la operacion
+     */
+    public boolean modificarEmpresaVigilancia(EmpresaVigilancia emp) {
+        boolean resultado = false;
         try {
             this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
             bitacora.info("Control Empresa Vigilancia Iniciado correctamente");
             resultado = controlEmpresaVigilancia.modificarEmpresaVigilancia(emp);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar control Empresa Vigilancia" +
-            " por " + ex.getMessage());
+                    " por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -755,7 +745,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param rif String rif de la empresa de vigilancia a eliminar
      * @return resultado int 1 de exito o  0 no de la operacion
      */
-    public int eliminarEmpresaVigilancia (String rif) {
+    public int eliminarEmpresaVigilancia(String rif) {
         int resultado = 0;
         try {
             this.controlEmpresaVigilancia = new ControlEmpresaVigilancia();
@@ -764,7 +754,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             resultado = 1;
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar controlEmpresa de Vigilancia" +
-            " por " + ex.getMessage());
+                    " por " + ex.getMessage());
             resultado = 0;
         } finally {
             return resultado;
@@ -783,13 +773,12 @@ public class ControlGeneral implements IfaceControlGeneral {
             resultado = controlEmpresaVigilancia.traerTodasLasEmpresas();
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar el controlEmpresa de Vigilancia" +
-            " por " + ex.getMessage());
-        }
-        finally {
+                    " por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
-    
+
     /**
      * Metodo para agragar un Producto
      * @param producto
@@ -800,11 +789,10 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlProducto = new ControlProducto();
             this.bitacora.info("ControlProducto iniciado correctamente");
-           this.controlProducto.agregarProducto(producto);
+            this.controlProducto.agregarProducto(producto);
             resultado = true;
         } catch (IOException ex) {
-            this.bitacora.error("No se pudo iniciar el ControlProducto por "
-                    + ex.getMessage());
+            this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -816,7 +804,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param producto
      * @return resultado de la operacion
      */
-    public boolean modificarProducto(Producto producto){
+    public boolean modificarProducto(Producto producto) {
         boolean resultado = false;
         try {
             this.controlProducto = new ControlProducto();
@@ -824,8 +812,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlProducto.agregarProducto(producto);
             resultado = true;
         } catch (IOException ex) {
-            this.bitacora.error("No se pudo iniciar el ControlProducto por "
-                    + ex.getMessage());
+            this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -837,7 +824,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param id
      * @return resultado de la operacion
      */
-    public boolean eliminarProducto(int id){
+    public boolean eliminarProducto(int id) {
         boolean resultado = false;
         try {
             this.controlProducto = new ControlProducto();
@@ -845,8 +832,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlProducto.eliminarProducto(id);
             resultado = true;
         } catch (IOException ex) {
-            this.bitacora.error("No se pudo iniciar el ControlProducto por "
-                    + ex.getMessage());
+            this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -857,15 +843,14 @@ public class ControlGeneral implements IfaceControlGeneral {
      * Metodo para consultar todos los productos
      * @return coleccion de productos
      */
-    public Collection traerTodosLosProductos(){
+    public Collection traerTodosLosProductos() {
         Collection<Producto> productos = null;
         try {
             this.controlProducto = new ControlProducto();
             bitacora.info("ControlProducto iniciado correctamente");
             productos = this.controlProducto.consultarProductos();
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar el ControlProducto por "
-                    + ex.getMessage());
+            bitacora.info("No se pudo iniciar el ControlProducto por " + ex.getMessage());
         } finally {
             return productos;
         }
@@ -876,7 +861,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param camion
      * @return resultado de la operacion
      */
-    public boolean agregarCamion (Camion camion) {
+    public boolean agregarCamion(Camion camion) {
         boolean resultado = false;
         try {
             this.controlCamion = new ControlCamion();
@@ -884,8 +869,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlCamion.agregarCamion(camion);
             resultado = true;
         } catch (IOException ex) {
-            this.bitacora.error("No se pudo iniciar el ControlCamion por "
-                    + ex.getMessage());
+            this.bitacora.error("No se pudo iniciar el ControlCamion por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -897,7 +881,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param camion
      * @return resultado de la operacion
      */
-    public boolean modificarCamion(Camion camion){
+    public boolean modificarCamion(Camion camion) {
         boolean resultado = false;
         try {
             this.controlCamion = new ControlCamion();
@@ -905,8 +889,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlCamion.modificarCamion(camion);
             resultado = true;
         } catch (IOException ex) {
-            this.bitacora.error("No se pudo iniciar el ControlCamion por "
-                    + ex.getMessage());
+            this.bitacora.error("No se pudo iniciar el ControlCamion por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -918,7 +901,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param id
      * @return resultado de la operacion
      */
-    public boolean eliminarCamion(int id){
+    public boolean eliminarCamion(int id) {
         boolean resultado = false;
         try {
             this.controlCamion = new ControlCamion();
@@ -926,8 +909,7 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlCamion.eliminarCamion(id);
             resultado = true;
         } catch (IOException ex) {
-            this.bitacora.error("No se pudo iniciar el ControlCamion por "
-                    + ex.getMessage());
+            this.bitacora.error("No se pudo iniciar el ControlCamion por " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -938,21 +920,20 @@ public class ControlGeneral implements IfaceControlGeneral {
      * Metodo para consultar todos los camiones
      * @return coleccion de camiones
      */
-    public Collection traerTodosLosCamiones(){
+    public Collection traerTodosLosCamiones() {
         Collection<Camion> camiones = null;
         try {
             this.controlCamion = new ControlCamion();
             bitacora.info("ControlCamion iniciado correctamente");
             camiones = this.controlCamion.consultarCamiones();
         } catch (IOException ex) {
-            bitacora.info("No se pudo iniciar el ControlCamion por "
-                    + ex.getMessage());
+            bitacora.info("No se pudo iniciar el ControlCamion por " + ex.getMessage());
         } finally {
             return camiones;
         }
     }
 
-     /**
+    /**
      * Operacion para agregar un empleado al sistema junto con su historial
      * @param emp el empleado a registrar
      * @return boolean resultado de la operacion
@@ -964,10 +945,8 @@ public class ControlGeneral implements IfaceControlGeneral {
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.agregarEmpleadoTienda(emp);
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el ControlEmpleado por "
-                    + ex.getMessage());
-        }
-        finally {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
@@ -984,10 +963,8 @@ public class ControlGeneral implements IfaceControlGeneral {
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.editarEmpleado(emp);
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el ControlEmpleado por "
-                    + ex.getMessage());
-        }
-        finally {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
@@ -1005,10 +982,8 @@ public class ControlGeneral implements IfaceControlGeneral {
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.consultarEmpleadoTienda(cedula);
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el ControlEmpleado por "
-                    + ex.getMessage());
-        }
-        finally {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
@@ -1018,16 +993,14 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @return Coleccion de objetos Empleado (sin historial)
      */
     public Collection<Empleado> traerTodosLosEmpleados() {
-         Collection<Empleado> resultado = null;
+        Collection<Empleado> resultado = null;
         try {
             this.controlEmpleado = new ControlEmpleado();
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.traerTodosLosEmpleados();
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el ControlEmpleado por "
-                    + ex.getMessage());
-        }
-        finally {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
@@ -1043,10 +1016,8 @@ public class ControlGeneral implements IfaceControlGeneral {
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.traerTodosLosEmpleadosTienda();
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el ControlEmpleado por "
-                    + ex.getMessage());
-        }
-        finally {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
@@ -1063,10 +1034,8 @@ public class ControlGeneral implements IfaceControlGeneral {
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.consultarHistorialEmpleadoTienda(cedula);
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el ControlEmpleado por "
-                    + ex.getMessage());
-        }
-        finally {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
@@ -1084,10 +1053,8 @@ public class ControlGeneral implements IfaceControlGeneral {
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.actualizarHistorialEmpleadoTienda(cedula);
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el ControlEmpleado por "
-                    + ex.getMessage());
-        }
-        finally {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
@@ -1104,10 +1071,26 @@ public class ControlGeneral implements IfaceControlGeneral {
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.agregarObjetoHistorialEmpleadoTienda(he);
         } catch (IOException ex) {
-            bitacora.error("No se pudo iniciar el ControlEmpleado por "
-                    + ex.getMessage());
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
         }
-        finally {
+    }
+
+    /**
+     * Operacion para borrar un empleado en el sistema
+     * @param cedula int el numero de cedula del empleado que se quiere borrar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean borrarEmpleado(int cedula) {
+        boolean resultado = false;
+         try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.borrarEmpleado(cedula);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }
