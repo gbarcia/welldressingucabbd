@@ -45,7 +45,7 @@ public class ControlEmpleado {
             bitacora.info("Empleado: " + emp.getNombre() + " agregado con éxito");
             historial = emp.getHistorial();
             for (HistorialEmpleado object : historial) {
-                sqlMap.insert("agregarHistorial", object);
+                this.agregarObjetoHistorialEmpleadoTienda(object);
                 bitacora.info("Historial Empleado: " + emp.getNombre() +
                         " agregado con éxito");
             }
@@ -63,19 +63,12 @@ public class ControlEmpleado {
      * @param emp el empleado a registrar
      * @return boolean resultado de la operacion
      */
-    public boolean editarEmpleado(Empleado emp) { //OJO SOLO TIENDAS
-        Collection<HistorialEmpleado> historial = null;
+    public boolean editarEmpleado(Empleado emp) {
         boolean resultado = false;
         int nra = -1;
         try {
             nra = sqlMap.update("actualizarEmpleado", emp);
-             historial = emp.getHistorial();
-            for (HistorialEmpleado object : historial) {
-                sqlMap.insert("agregarHistorial", object);
-                bitacora.info("Historial Empleado: " + emp.getNombre() +
-                        " agregado con éxito");
-            }
-            if (nra != -1) {
+            if (nra != 0) {
                 resultado = true;
                 bitacora.info("Empleado: " + emp.getNombre() + " actualizado con éxito");
             }
@@ -210,5 +203,24 @@ public class ControlEmpleado {
             resultado.add(empleado);
         }
         return resultado;
+    }
+
+    /**
+     * Operacion para agregar un nuevo objeto historial a un empleado en el sistema
+     * @param he Objeto de tipo historial Empleado que se quiere agregar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean agregarObjetoHistorialEmpleadoTienda(HistorialEmpleado he) {
+        boolean resultado = false;
+        try {
+            bitacora.info("Iniciando operacion para agregar objeto Historial " + he.getCedula());
+            sqlMap.insert("agregarHistorial", he);
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
     }
 }

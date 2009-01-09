@@ -1091,4 +1091,24 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+
+    /**
+     * Operacion para agregar un nuevo objeto historial a un empleado en el sistema
+     * @param he Objeto de tipo historial Empleado que se quiere agregar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean agregarObjetoHistorialEmpleadoTienda(HistorialEmpleado he) {
+        boolean resultado = false;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.agregarObjetoHistorialEmpleadoTienda(he);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por "
+                    + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
 }

@@ -250,4 +250,11 @@ public interface IfaceControlGeneral {
      * @return boolean de exito o no de la operacion
      */
     public boolean actualizarHistorialEmpleadoTienda(int cedula);
+
+    /**
+     * Operacion para agregar un nuevo objeto historial a un empleado en el sistema
+     * @param he Objeto de tipo historial Empleado que se quiere agregar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean agregarObjetoHistorialEmpleadoTienda(HistorialEmpleado he);
 }
