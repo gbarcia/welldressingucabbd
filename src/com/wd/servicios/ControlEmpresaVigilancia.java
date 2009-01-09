@@ -119,7 +119,29 @@ public class ControlEmpresaVigilancia {
         try {
             resultado = sqlMap.delete("eliminarEmpresa",rif);
             bitacora.info("Empresa de Vigilancia: " + rif +
-            " eliminada con éxito");
+            " eliminada con éxito");            
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+
+    }
+
+    /**
+     * Metodo eliminar una servicio de empresa de Vigilancia del sistema
+     * para que pueda ser reasignado a la hora de querer eliminar una empresa
+     * de vigilancia en especifico
+     * @param  rif String de la empresa a eliminar
+     * @return int resultado de la operacion
+     */
+    public int eliminarServicio(Servicio serv) {
+        int resultado = 0;
+        try {
+            resultado = sqlMap.delete("eliminarervicio",serv);
+            bitacora.info("Servicio eliminado: " + serv.getEmpresaServicioRif() +
+            serv.getCentroDistribucionCodigo()+" reasignada con éxito");
             //resultado = 1;
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
