@@ -88,6 +88,19 @@ public class ControlGuiEmpresaVigilancia {
     }
 
     /**
+     * Metodo para elimnar un servicio de una empresa de vigilancia del sistema
+     * @param serv objeto Servicio a eliminar
+     */
+    public void eliminarServicio(Servicio serv) {
+        int resultado = ControlGeneral.getInstance().eliminarServicio(serv);
+        if (resultado == 1){
+            controlador.mostrarMensaje("Servicio Eliminado con éxito", 0);
+        }else{
+            controlador.mostrarMensaje("Operación fallida",1);
+        }
+    }
+
+    /**
      * Metodo para eliminar una empresa de vigilancia del sistema
      * @param rif String rif de la EmpresaVigilancia a eliminar
      */
