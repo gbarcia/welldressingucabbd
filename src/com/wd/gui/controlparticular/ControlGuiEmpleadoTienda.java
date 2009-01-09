@@ -241,6 +241,9 @@ public class ControlGuiEmpleadoTienda {
         }
     }
 
+    /** Operacion para borrar un empleado del sistema
+     * @param cedula String de la cedula del empleado a borrar
+     */
     public void eliminarEmpleadoDelSistema(String cedula) {
         boolean esNumero = false;
         boolean resultado = false;
