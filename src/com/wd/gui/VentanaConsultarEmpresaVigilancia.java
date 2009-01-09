@@ -397,6 +397,11 @@ public class VentanaConsultarEmpresaVigilancia extends javax.swing.JFrame {
         if (this.comboNombre.getItemCount() == 0){
             this.comboCentros.removeAllItems();
             this.comboTiendas.removeAllItems();
+            this.campoRif.setText("");
+            this.campoTelefono.setText("");
+            this.campoNombrePer.setText("");
+            this.campoApellidoPer.setText("");
+            this.campoDireccion.setText("");
         }
     }
 
