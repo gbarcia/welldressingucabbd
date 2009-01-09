@@ -13,150 +13,132 @@ public class ControlGui {
 
     /** variable de la ventana de inicio*/
     private VentanaInicio ventanaInicio = new VentanaInicio();
-
     /** variable de la ventana agregar nuevo horario*/
     private VentanaNuevoHorario ventanaNuevoHorario;
-
     /** Variable de la ventana agregar centro*/
     private VentanaAgregarCentro ventanaAgregarCentro;
-
     /** Variable de la ventana consultar centro*/
     private VentanaConsultarCentro ventanaConsultarCentro;
-
     /** Variable de la ventana eliminar centro*/
     private VentanaEliminarCentro ventanaEliminarCentro;
-
     /** Variable de la ventana modificar centro*/
     private VentanaModificarCentro ventanaModificarCentro;
-
     /** Variable de la ventana agregar departamento*/
     private VentanaAgregarDepartamento ventanaAgregarDepartamento;
-
     /** Variable de la ventana consultar departamentos*/
     private VentanaConsultarDepartamentos ventanaConsultarDepartamentos;
-
     /** Variable de la ventana eliminar departamentos*/
     private VentanaEliminarDepartamento ventanaEliminarDepartamento;
-
     /** Variable de la ventana modificar departamentos*/
     private VentanaModificarDepartamento ventanaModificarDepartamento;
-
     /** Variable de la ventana ver horarios*/
     private VentanaConsultaHorarios ventanaConsultaHorarios;
-
     /** Variable de la ventana ver los lugares*/
     private VentanaConsultarLugares ventanaConsultaLugares;
-
     /** Variable de la ventana agregar Clase*/
     private VentanaAgregarClase ventanaAgregarClase;
-    
     /** Variable de la ventana consultar Clase*/
     private VentanaConsultarClase ventanaConsultarClase;
-
     /** Variable de la ventana eliminar Clase*/
     private VentanaEliminarClase ventanaEliminarClase;
-    
     /** Variable de la ventana modificar Clase*/
     private VentanaModificarClase ventanaModificarClase;
-
     /** Variable de la ventana agregar SubClase*/
     private VentanaAgregarSubClase ventanaAgregarSubClase;
-
     /** Variable de la ventana eliminar SubClase*/
     private VentanaEliminarSubClase ventanaEliminarSubClase;
-
     /** Variable de la ventana modificar SubClase*/
     private VentanaModificarSubClase ventanaModificarSubClase;
-
     /** Variable de la ventana para agregar un lugar*/
     private VentanaAgregarLugar ventanaAgregarLugar;
-
-     /** Variable de la ventana para agregar un provedor*/
+    /** Variable de la ventana para agregar un provedor*/
     private VentanaAgregarProveedor ventanaAgregarproveedor;
-
     /** Variable de la ventana para editar o consultar proveedor 1*/
     private VentanaConsultaEdicionProveedor1 ventanaConsulEdipro;
-
     /** Variable de la ventana para editar o consultar proveedor 2*/
     private VentanaConsultaEdicionProveedor2 ventanaConsulEdipro2;
-
     /** Variable de la ventana para eliminar un proveedor*/
     private VentanaEliminarProveedor ventanaEliminarProve;
-
     /** Variable de la ventana para agregar una Tienda*/
     private VentanaAgregarTienda ventanaAgregarTienda;
-
     /** Variable de la ventana para agregar un Empleado*/
     private VentanaAgregarEmpleadoTienda ventanaAgregarEmpTienda;
-
     /** Variable de la ventana para agregar un producto*/
     private VentanaAgregarProducto ventanaAgregarProducto;
-
     /** Variable de la ventana para agregar una empresa de vigilancia*/
     private VentanaAgregarEmpresaVigilancia ventanaAgregarEmpresaVigilancia;
-
     /** Variable de la ventana para editar o consultar un empleado tienda*/
     private VentanaConsultarEditarEmpleadoTIenda1 ventanaConsEdiEmpTienda;
-
     /** Variable de la ventana para consiltar una empresa de vigilancia*/
     private VentanaConsultarEmpresaVigilancia ventanaConsultarEmpresaVigilancia;
-    
-/** Constructor del ControlGui */
+    /** Variable de la ventana para eliminar un empleado*/
+    private VentanaEliminarEmpleado venEliminarEmp;
+
+    /** Constructor del ControlGui */
     public ControlGui() {
     }
 
-/**
-* metodo para ocultar o mostrar la ventana de inicio
- * @param var booleano que indica si mostrar o no la ventana
-*/
+    /**
+     * metodo para ocultar o mostrar la ventana de inicio
+     * @param var booleano que indica si mostrar o no la ventana
+     */
     public void iniciarCerrarVentanaInicio(boolean var) {
-        ventanaInicio.setVisible(var);    
+        ventanaInicio.setVisible(var);
     }
 
-/**
-* metodo para ocultar o mostrar la ventana de agregar empleado tienda
-* @param var booleano que indica si mostrar o no la ventana
-*/
-    public void iniciarCerrarVentanaAgEmpTienda (boolean var) {
+    /**
+     * metodo para ocultar o mostrar la ventana de agregar empleado tienda
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarCerrarVentanaAgEmpTienda(boolean var) {
         this.ventanaAgregarEmpTienda = new VentanaAgregarEmpleadoTienda();
         this.ventanaAgregarEmpTienda.setVisible(var);
     }
 
-/**
-* metodo para ocultar o mostrar la ventana de consultar editar empleado tienda
-* @param var booleano que indica si mostrar o no la ventana
-*/
-    public void iniciarCerrarVentanaConsultaEmpTienda (boolean var) {
+    /**
+     * metodo para ocultar o mostrar la ventana de eliminar empleado
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarCerrarVentanaEliminarEmp(boolean var) {
+        this.venEliminarEmp = new VentanaEliminarEmpleado();
+        this.venEliminarEmp.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de consultar editar empleado tienda
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarCerrarVentanaConsultaEmpTienda(boolean var) {
         this.ventanaConsEdiEmpTienda = new VentanaConsultarEditarEmpleadoTIenda1();
         this.ventanaConsEdiEmpTienda.setVisible(var);
     }
 
-/**
-* metodo para ocultar o mostrar la ventana de editarConsultar proveedor 2
-* @param var booleano que indica si mostrar o no la ventana
-* @param prove Objeto proveedor con la informacion a mostrar
-*/
+    /**
+     * metodo para ocultar o mostrar la ventana de editarConsultar proveedor 2
+     * @param var booleano que indica si mostrar o no la ventana
+     * @param prove Objeto proveedor con la informacion a mostrar
+     */
     public void iniciarCerrarVentanaConsultaProve2(boolean var, Proveedor prove) {
         this.ventanaConsulEdipro2 = new VentanaConsultaEdicionProveedor2(prove);
         this.ventanaConsulEdipro2.setVisible(var);
     }
 
     /**
-* metodo para ocultar o mostrar la ventana para borrar un proveedor del sistema
-* @param var booleano que indica si mostrar o no la ventana
-*/
-    public void iniciarCerrarVentanaEliminarProve (boolean var) {
+     * metodo para ocultar o mostrar la ventana para borrar un proveedor del sistema
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarCerrarVentanaEliminarProve(boolean var) {
         this.ventanaEliminarProve = new VentanaEliminarProveedor();
         this.ventanaEliminarProve.setVisible(var);
     }
 
-/**
-* metodo para ocultar o mostrar la ventana de agregar nuevo horario
- * @param var booleano que indica si mostrar o no la ventana
-*/
-    public void iniciarVentanaNuevoHorario (boolean var) {
+    /**
+     * metodo para ocultar o mostrar la ventana de agregar nuevo horario
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaNuevoHorario(boolean var) {
         ventanaNuevoHorario = new VentanaNuevoHorario();
-        ventanaNuevoHorario.setVisible(var);      
+        ventanaNuevoHorario.setVisible(var);
     }
 
     /**
@@ -164,7 +146,7 @@ public class ControlGui {
      * @param var booleano que indica si mostrar o no la ventana
 
      */
-    public void iniciarVentanaAgregarCentro (boolean var,Vector result) {
+    public void iniciarVentanaAgregarCentro(boolean var, Vector result) {
         ventanaAgregarCentro = new VentanaAgregarCentro(result);
         ventanaAgregarCentro.setVisible(var);
     }
@@ -173,7 +155,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de consultar centros
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaConsultarCentro (boolean var, Vector result){
+    public void iniciarVentanaConsultarCentro(boolean var, Vector result) {
         ventanaConsultarCentro = new VentanaConsultarCentro(result);
         ventanaConsultarCentro.setVisible(var);
     }
@@ -182,7 +164,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de eliminar centros
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaEliminarCentro (boolean var, Vector result){
+    public void iniciarVentanaEliminarCentro(boolean var, Vector result) {
         ventanaEliminarCentro = new VentanaEliminarCentro(result);
         ventanaEliminarCentro.setVisible(var);
     }
@@ -191,7 +173,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de modificar centros
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaModificarCentro (boolean var, Vector result){
+    public void iniciarVentanaModificarCentro(boolean var, Vector result) {
         ventanaModificarCentro = new VentanaModificarCentro(result);
         ventanaModificarCentro.setVisible(var);
     }
@@ -200,7 +182,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de ver horarios
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaConsultarHorario (boolean var, Vector result) {
+    public void iniciarVentanaConsultarHorario(boolean var, Vector result) {
         ventanaConsultaHorarios = new VentanaConsultaHorarios(result);
         ventanaConsultaHorarios.setVisible(var);
     }
@@ -209,7 +191,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de consultar departamentos
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaConsultarDepartamentos (boolean var, Vector result) {
+    public void iniciarVentanaConsultarDepartamentos(boolean var, Vector result) {
         ventanaConsultarDepartamentos = new VentanaConsultarDepartamentos(result);
         ventanaConsultarDepartamentos.setVisible(var);
     }
@@ -218,7 +200,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de elimianar departamentos
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaEliminarDepartamento (boolean var, Vector result) {
+    public void iniciarVentanaEliminarDepartamento(boolean var, Vector result) {
         ventanaEliminarDepartamento = new VentanaEliminarDepartamento(result);
         ventanaEliminarDepartamento.setVisible(var);
     }
@@ -229,18 +211,18 @@ public class ControlGui {
      * @param result1 Vector con los resultados de los estados
      * @param result2 Vector con los resultados de las ciudades
      */
-    public void iniciarVentanaConsultaLugares (boolean var, Vector result1,
+    public void iniciarVentanaConsultaLugares(boolean var, Vector result1,
             Vector result2) {
         this.ventanaConsultaLugares = new VentanaConsultarLugares(result1, result2);
         this.ventanaConsultaLugares.setVisible(var);
     }
 
     /**
-    * Operacion para mostrar un mensaje de salida en pantalla
-    * @param mensaje mensaje a mostrar
-    * @param tipo tipo de mensaje a mostrar. Si es "1" es un mensaje de error,
-    * y "0" si el mensaje es de informacion
-    */
+     * Operacion para mostrar un mensaje de salida en pantalla
+     * @param mensaje mensaje a mostrar
+     * @param tipo tipo de mensaje a mostrar. Si es "1" es un mensaje de error,
+     * y "0" si el mensaje es de informacion
+     */
     public void mostrarMensaje(String mensaje, int tipo) {
         if (tipo == 0) {
             JOptionPane.showMessageDialog(null, mensaje, "Resultado",
@@ -248,7 +230,7 @@ public class ControlGui {
         } else if (tipo == 1) {
             JOptionPane.showMessageDialog(null, mensaje, "Resultado",
                     JOptionPane.ERROR_MESSAGE);
-        } 
+        }
     }
 
     /**
@@ -256,7 +238,7 @@ public class ControlGui {
      * @param var booleano que indica si mostrar o no la ventana
 
      */
-    public void iniciarVentanaAgregarDepartamento (boolean var) {
+    public void iniciarVentanaAgregarDepartamento(boolean var) {
         ventanaAgregarDepartamento = new VentanaAgregarDepartamento();
         ventanaAgregarDepartamento.setVisible(var);
     }
@@ -266,7 +248,7 @@ public class ControlGui {
      * @param var booleano que indica si mostrar o no la ventana
 
      */
-    public void iniciarVentanaModificarDepartamento (boolean var, Vector result) {
+    public void iniciarVentanaModificarDepartamento(boolean var, Vector result) {
         ventanaModificarDepartamento = new VentanaModificarDepartamento(result);
         ventanaModificarDepartamento.setVisible(var);
     }
@@ -275,16 +257,16 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de agregar clases
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaAgregarClase (boolean var, Vector result) {
+    public void iniciarVentanaAgregarClase(boolean var, Vector result) {
         ventanaAgregarClase = new VentanaAgregarClase(result);
         ventanaAgregarClase.setVisible(var);
     }
-    
+
     /**
      * Metodo para ocultar o mostrar la ventana de consultar clases
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaConsultarClase (boolean var, Vector result){
+    public void iniciarVentanaConsultarClase(boolean var, Vector result) {
         ventanaConsultarClase = new VentanaConsultarClase(result);
         ventanaConsultarClase.setVisible(var);
     }
@@ -293,7 +275,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de eliminar clases
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaEliminarClase (boolean var, Vector result){
+    public void iniciarVentanaEliminarClase(boolean var, Vector result) {
         ventanaEliminarClase = new VentanaEliminarClase(result);
         ventanaEliminarClase.setVisible(var);
     }
@@ -302,7 +284,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de modificar clases
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaModificarClase (boolean var, Vector result){
+    public void iniciarVentanaModificarClase(boolean var, Vector result) {
         ventanaModificarClase = new VentanaModificarClase(result);
         ventanaModificarClase.setVisible(var);
     }
@@ -311,7 +293,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de agregar subclases
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaAgregarSubClase (boolean var, Vector result){
+    public void iniciarVentanaAgregarSubClase(boolean var, Vector result) {
         ventanaAgregarSubClase = new VentanaAgregarSubClase(result);
         ventanaAgregarSubClase.setVisible(var);
     }
@@ -320,7 +302,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de agregar subclases
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaEliminarSubClase (boolean var, Vector result){
+    public void iniciarVentanaEliminarSubClase(boolean var, Vector result) {
         ventanaEliminarSubClase = new VentanaEliminarSubClase(result);
         ventanaEliminarSubClase.setVisible(var);
     }
@@ -329,7 +311,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de modificar subclases
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaModificarSubClase (boolean var, Vector result){
+    public void iniciarVentanaModificarSubClase(boolean var, Vector result) {
         ventanaModificarSubClase = new VentanaModificarSubClase(result);
         ventanaModificarSubClase.setVisible(var);
     }
@@ -339,7 +321,7 @@ public class ControlGui {
      * @param var booleano que indica si mostrar o no la ventana
      * @param result Coleccion con todos los estados
      */
-    public void iniciarVentanaAgregarLugar (boolean var, Collection result){
+    public void iniciarVentanaAgregarLugar(boolean var, Collection result) {
         ventanaAgregarLugar = new VentanaAgregarLugar(result);
         ventanaAgregarLugar.setVisible(var);
     }
@@ -349,7 +331,7 @@ public class ControlGui {
      * @param var booleano que indica si mostrar o no la ventana
      * @param result Coleccion con todos las ciudades
      */
-    public void iniciarVentanaAgregarProveedor (boolean var, Collection result){
+    public void iniciarVentanaAgregarProveedor(boolean var, Collection result) {
         ventanaAgregarproveedor = new VentanaAgregarProveedor(result);
         ventanaAgregarproveedor.setVisible(var);
     }
@@ -358,7 +340,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana para editar o mostrar proveedor
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaEdiConProveedor1 (boolean var){
+    public void iniciarVentanaEdiConProveedor1(boolean var) {
         ventanaConsulEdipro = new VentanaConsultaEdicionProveedor1();
         ventanaConsulEdipro.setVisible(var);
     }
@@ -367,12 +349,12 @@ public class ControlGui {
      * Metodo para mostrar u ocultar la ventana para gregar una Tienda
      * @param var indica si mostrar o no la ventana
      */
-    public void iniciarVentanaAgregarTienda (boolean var){
+    public void iniciarVentanaAgregarTienda(boolean var) {
         this.ventanaAgregarTienda = new VentanaAgregarTienda();
         this.ventanaAgregarTienda.setVisible(var);
     }
-    
-    public void iniciarVentanaAgregarProducto(boolean var){
+
+    public void iniciarVentanaAgregarProducto(boolean var) {
         this.ventanaAgregarProducto = new VentanaAgregarProducto();
         this.ventanaAgregarProducto.setVisible(var);
     }
@@ -381,7 +363,7 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de agregar empresa de vigilancia
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaAgregarEmpresaVigilancia (boolean var, Vector result){
+    public void iniciarVentanaAgregarEmpresaVigilancia(boolean var, Vector result) {
         ventanaAgregarEmpresaVigilancia = new VentanaAgregarEmpresaVigilancia(result);
         ventanaAgregarEmpresaVigilancia.setVisible(var);
     }
@@ -390,20 +372,19 @@ public class ControlGui {
      * Metodo para ocultar o mostrar la ventana de consultar empresa de vigilancia
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaConsultarEmpresaVigilancia (boolean var, Vector result){
+    public void iniciarVentanaConsultarEmpresaVigilancia(boolean var, Vector result) {
         ventanaConsultarEmpresaVigilancia = new VentanaConsultarEmpresaVigilancia(result);
         ventanaConsultarEmpresaVigilancia.setVisible(var);
     }
-    
-    /**
-    * Operacion para realizar una confirmacion. Despliega en la pantalla una ventana
-    * de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
-    * @param mensaje mensaje a mostrar
-    * @return int 0 si se apreto aceptar y 2 si se apreto cancelar
-    */
-    public int dialogoConfirmacion (String mensaje) {
-        return JOptionPane.showConfirmDialog(null, mensaje, "CONFIRMACION",
-                    JOptionPane.OK_CANCEL_OPTION);
-    }
 
+    /**
+     * Operacion para realizar una confirmacion. Despliega en la pantalla una ventana
+     * de confirmacion donde aparece una opcion de "aceptar" o "cancelar"
+     * @param mensaje mensaje a mostrar
+     * @return int 0 si se apreto aceptar y 2 si se apreto cancelar
+     */
+    public int dialogoConfirmacion(String mensaje) {
+        return JOptionPane.showConfirmDialog(null, mensaje, "CONFIRMACION",
+                JOptionPane.OK_CANCEL_OPTION);
+    }
 }
