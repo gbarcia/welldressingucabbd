@@ -134,11 +134,9 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlTienda = new ControlTienda();
             this.bitacora.info("ControlTienda iniciado correctamente");
-            this.controlTienda.agregarTienda(tienda);
-            resultado = true;
+            resultado = this.controlTienda.agregarTienda(tienda);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlTienda por " + ex.getMessage());
-            resultado = false;
         } finally {
             return resultado;
         }
@@ -154,11 +152,9 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlTienda = new ControlTienda();
             this.bitacora.info("ControlTienda iniciado correctamente");
-            this.controlTienda.modificarTienda(tienda);
-            resultado = true;
+            resultado = this.controlTienda.modificarTienda(tienda);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlTienda por " + ex.getMessage());
-            resultado = false;
         } finally {
             return resultado;
         }
@@ -174,11 +170,9 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlTienda = new ControlTienda();
             this.bitacora.info("ControlTienda iniciado correctamente");
-            this.controlTienda.eliminarTienda(codigo);
-            resultado = true;
+            resultado = this.controlTienda.eliminarTienda(codigo);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlTienda por " + ex.getMessage());
-            resultado = false;
         } finally {
             return resultado;
         }
@@ -811,11 +805,9 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlProducto = new ControlProducto();
             this.bitacora.info("ControlProducto iniciado correctamente");
-            this.controlProducto.agregarProducto(producto);
-            resultado = true;
+            resultado = this.controlProducto.agregarProducto(producto);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
-            resultado = false;
         } finally {
             return resultado;
         }
@@ -831,11 +823,9 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlProducto = new ControlProducto();
             this.bitacora.info("ControlProducto iniciado correctamente");
-            this.controlProducto.agregarProducto(producto);
-            resultado = true;
+            resultado = this.controlProducto.agregarProducto(producto);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
-            resultado = false;
         } finally {
             return resultado;
         }
@@ -851,11 +841,9 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlProducto = new ControlProducto();
             this.bitacora.info("ControlProducto iniciado correctamente");
-            this.controlProducto.eliminarProducto(id);
-            resultado = true;
+            resultado = this.controlProducto.eliminarProducto(id);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
-            resultado = false;
         } finally {
             return resultado;
         }
@@ -888,11 +876,9 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlCamion = new ControlCamion();
             this.bitacora.info("ControlCamion iniciado correctamente");
-            this.controlCamion.agregarCamion(camion);
-            resultado = true;
+            resultado = this.controlCamion.agregarCamion(camion);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlCamion por " + ex.getMessage());
-            resultado = false;
         } finally {
             return resultado;
         }
@@ -908,11 +894,9 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlCamion = new ControlCamion();
             this.bitacora.info("ControlCamion iniciado correctamente");
-            this.controlCamion.modificarCamion(camion);
-            resultado = true;
+            resultado = this.controlCamion.modificarCamion(camion);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlCamion por " + ex.getMessage());
-            resultado = false;
         } finally {
             return resultado;
         }
@@ -928,8 +912,7 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlCamion = new ControlCamion();
             this.bitacora.info("ControlCamion iniciado correctamente");
-            this.controlCamion.eliminarCamion(id);
-            resultado = true;
+            resultado = this.controlCamion.eliminarCamion(id);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlCamion por " + ex.getMessage());
             resultado = false;

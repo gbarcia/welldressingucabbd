@@ -4,9 +4,9 @@
  */
 
 /*
- * VentanaAgregarTienda.java
+ * VentanaModificarTienda.java
  *
- * Created on Jan 10, 2009, 2:23:13 AM
+ * Created on Jan 10, 2009, 11:55:04 AM
  */
 
 package com.wd.gui;
@@ -26,7 +26,7 @@ import javax.swing.DefaultComboBoxModel;
  *
  * @author Johnny
  */
-public class VentanaAgregarTienda extends javax.swing.JFrame {
+public class VentanaModificarTienda extends javax.swing.JFrame {
 
     private ControlGui control_general;
 
@@ -39,7 +39,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     private ControlGuiLugar control_gui_lugar;
 
     private Vector<Lugar> ciudades;
-    
+
     private ControlGuiEmpresaVigilancia control_gui_empresa;
 
     private Vector<EmpresaVigilancia> empresas;
@@ -48,8 +48,8 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
     Tienda tienda;
 
-    /** Creates new form VentanaAgregarTienda */
-    public VentanaAgregarTienda() {
+    /** Creates new form VentanaModificarTienda */
+    public VentanaModificarTienda() {
         initComponents();
         java.net.URL url = getClass().getResource("Iconos/icon_016.png");
         java.awt.Image imagen = getToolkit().getImage(url);
@@ -57,7 +57,8 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         this.initControles();
         this.initVectores();
         this.llenarComboBoxes();
-       
+        if (this.jComboBox_tiendas.getSelectedIndex() != -1)
+                this.jComboBox_tiendas.setSelectedIndex(0);
     }
 
     public void initControles(){
@@ -69,12 +70,14 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     }
 
     public void initVectores(){
+        this.tiendas = this.control_gui_tienda.consultarTiendas();
         this.empresas = this.control_gui_empresa.traerTodasLasEmpresas();
         this.horarios = this.control_gui_horario.traerTodosLosHorarios();
         this.ciudades = this.control_gui_lugar.traerTodosLosLugares(2);
     }
 
     public void llenarComboBoxes(){
+        this.llenarTiendas();
         this.llenarHorarios();
         this.llenarEmpresas();
         this.llenarCiudades();
@@ -115,19 +118,14 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         jButton_registar = new javax.swing.JButton();
         jButton_cancelar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jPanel22 = new javax.swing.JPanel();
+        jComboBox_tiendas = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Agregar Tienda");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
+        setTitle("Modificar Tienda");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Tienda"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Modificar Tienda"));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Información de la Tienda"));
 
@@ -155,7 +153,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox_horarios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -198,11 +196,11 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                         .addComponent(jTextField_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                         .addComponent(jTextField_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -228,6 +226,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         });
 
         jTextArea_direccion.setColumns(20);
+        jTextArea_direccion.setLineWrap(true);
         jTextArea_direccion.setRows(5);
         jScrollPane1.setViewportView(jTextArea_direccion);
 
@@ -244,11 +243,11 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addComponent(jComboBox_ciudades, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -282,7 +281,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jComboBox_empresas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -295,7 +294,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton_registar.setText("Registrar");
+        jButton_registar.setText("Modificar");
         jButton_registar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_registarActionPerformed(evt);
@@ -311,21 +310,50 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
         jLabel10.setText("Los datos marcados [*] son obligatorios.");
 
+        jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione una Tienda"));
+
+        jComboBox_tiendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_tiendassActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Tiendas");
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(jComboBox_tiendas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_tiendas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton_cancelar)
                         .addGap(18, 18, 18)
                         .addComponent(jButton_registar)))
@@ -334,6 +362,8 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,7 +377,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_registar)
                     .addComponent(jButton_cancelar))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -372,15 +402,15 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
     private void jComboBox_horariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_horariosActionPerformed
 
-    }//GEN-LAST:event_jComboBox_horariosActionPerformed
+}//GEN-LAST:event_jComboBox_horariosActionPerformed
 
     private void jComboBox_ciudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ciudadesActionPerformed
 
-    }//GEN-LAST:event_jComboBox_ciudadesActionPerformed
+}//GEN-LAST:event_jComboBox_ciudadesActionPerformed
 
     private void jComboBox_empresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_empresasActionPerformed
 
-    }//GEN-LAST:event_jComboBox_empresasActionPerformed
+}//GEN-LAST:event_jComboBox_empresasActionPerformed
 
     private void jButton_registarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registarActionPerformed
         if (this.formularioValido()){
@@ -388,7 +418,8 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
             if (this.jComboBox_empresas.getSelectedIndex() == 0) empresaRif = null;
             else empresaRif = this.empresas.get(this.jComboBox_empresas.getSelectedIndex() - 1).getRif();
             System.out.println(empresaRif);
-            this.control_gui_tienda.agregarTienda(this.jTextField_nombre.getText(),
+            this.control_gui_tienda.modificarTienda(this.tienda.getCodigo(),
+                    this.jTextField_nombre.getText(),
                     Integer.parseInt(this.jTextField_tamano.getText()),
                     this.jComboBox_horarios.getSelectedIndex() + 1,
                     this.jTextField_telefono.getText(),
@@ -399,19 +430,16 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         } else {
             this.control_general.mostrarMensaje("Verifique los datos e intentelo nuevamente", 1);
         }
-    }//GEN-LAST:event_jButton_registarActionPerformed
+}//GEN-LAST:event_jButton_registarActionPerformed
 
     private void jButton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelarActionPerformed
-       this.setVisible(false);
-    }//GEN-LAST:event_jButton_cancelarActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       this.setVisible(false);
-    }//GEN-LAST:event_formWindowClosing
-
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         this.setVisible(false);
-    }//GEN-LAST:event_formWindowClosed
+}//GEN-LAST:event_jButton_cancelarActionPerformed
+
+    private void jComboBox_tiendassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_tiendassActionPerformed
+        this.tienda = this.tiendas.get(this.jComboBox_tiendas.getSelectedIndex());
+        this.llenarInformacion();
+}//GEN-LAST:event_jComboBox_tiendassActionPerformed
 
     /**
     * @param args the command line arguments
@@ -419,7 +447,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAgregarTienda().setVisible(true);
+                new VentanaModificarTienda().setVisible(true);
             }
         });
     }
@@ -430,8 +458,10 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox_ciudades;
     private javax.swing.JComboBox jComboBox_empresas;
     private javax.swing.JComboBox jComboBox_horarios;
+    private javax.swing.JComboBox jComboBox_tiendas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -442,6 +472,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -453,7 +484,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_telefono;
     // End of variables declaration//GEN-END:variables
 
-    public boolean formularioValido(){
+     public boolean formularioValido(){
         if (this.jTextField_nombre.getText().isEmpty()) return false;
         if (this.jTextField_tamano.getText().isEmpty()) return false;
         if (!this.control_gui_tienda.esEntero(this.jTextField_tamano.getText())) return false;
@@ -464,6 +495,34 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         if (this.jTextArea_direccion.getText().isEmpty()) return  false;
         if (this.jComboBox_empresas.getSelectedIndex() == -1) return false;
         return true;
+    }
+
+    private void llenarInformacion(){
+        this.jTextField_nombre.setText(this.tienda.getNombre());
+        this.jTextField_tamano.setText(Integer.toString(this.tienda.getTamano()));
+        this.jComboBox_horarios.setSelectedIndex(this.tienda.getHORARIO_id() - 1);
+        this.jTextField_telefono.setText(this.tienda.getTelefono());
+        this.jTextField_correo.setText(this.tienda.getCorreo());
+        Vector<Lugar> todasCiudades = this.control_gui_lugar.traerTodosLosLugares(2);
+        for (int i = 0; i < todasCiudades.size(); i++) {
+            if (todasCiudades.get(i).getId() == tienda.getLUGAR_id())
+                this.jComboBox_ciudades.setSelectedIndex(i);
+        }
+        this.jTextArea_direccion.setText(this.tienda.getDireccion());
+        Vector<EmpresaVigilancia> todasEmpresas = this.control_gui_empresa.traerTodasLasEmpresas();
+        for (int i = 0; i < todasEmpresas.size(); i++) {
+            if (todasEmpresas.get(i).getRif().equals(tienda.getEMPRESA_SERVICIO_rif()))
+                this.jComboBox_empresas.setSelectedIndex(i);
+        }
+    }
+
+    private void llenarTiendas(){
+        Vector<String> modeloComboBox = new Vector<String>();
+        for (Tienda tienda_seleccion : tiendas){
+            modeloComboBox.add(tienda_seleccion.getNombre());
+        }
+        this.jComboBox_tiendas.setModel(
+                new DefaultComboBoxModel(modeloComboBox.toArray()));
     }
 
     private void llenarHorarios(){
@@ -483,6 +542,4 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 new DefaultComboBoxModel(this.control_gui_tienda.modeloEmpresas(empresas));
         this.jComboBox_empresas.setModel(modelo);
     }
-
-
 }

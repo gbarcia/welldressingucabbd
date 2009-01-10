@@ -49,7 +49,8 @@ public class VentanaConsultarTienda extends javax.swing.JFrame {
         this.control_gui_empresa = new ControlGuiEmpresaVigilancia();
         this.tiendas = this.control_gui_tienda.consultarTiendas();
         this.llenarComboBoxTiendas();
-//        this.llenarInformacion();
+        if (this.jComboBox_tiendas.getSelectedIndex() != -1)
+                this.jComboBox_tiendas.setSelectedIndex(0);
     }
 
     private void llenarComboBoxTiendas(){
@@ -98,7 +99,8 @@ public class VentanaConsultarTienda extends javax.swing.JFrame {
         jComboBox_tiendas = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consultar Tienda");
 
         jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Tienda"));
 
@@ -271,7 +273,7 @@ public class VentanaConsultarTienda extends javax.swing.JFrame {
             }
         });
 
-        jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder("Información de la Tienda"));
+        jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione una Tienda"));
 
         jComboBox_tiendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
