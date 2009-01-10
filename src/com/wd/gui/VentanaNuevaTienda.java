@@ -24,7 +24,7 @@ import java.util.Vector;
  *
  * @author Johnny
  */
-public class VentanaAgregarTienda extends javax.swing.JFrame {
+public class VentanaNuevaTienda extends javax.swing.JFrame {
     
     private ControlGui control_general;
 
@@ -42,6 +42,8 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
     private Lugar estado_seleccion;
 
+    private Vector<Lugar> todas_las_ciudades;
+
     private Vector<Lugar> ciudades;
 
     private Lugar ciudad_seleccion;
@@ -53,7 +55,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     private EmpresaVigilancia empresa_seleccion;
 
     /** Creates new form VentanaNuevaTienda */
-    public VentanaAgregarTienda() {
+    public VentanaNuevaTienda() {
         initComponents();
         java.net.URL url = getClass().getResource("Iconos/icon_016.png");
         java.awt.Image imagen = getToolkit().getImage(url);
@@ -76,7 +78,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     public void inicializarVectores(){
         this.horarios = this.control_gui_horario.traerTodosLosHorarios();
         this.estados = this.control_gui_lugar.traerTodosLosLugares(1);
-        this.ciudades = this.control_gui_lugar.traerTodosLosLugares(2);
+        this.todas_las_ciudades = this.control_gui_lugar.traerTodosLosLugares(2);
         this.empresas = this.control_gui_empresa.traerTodasLasEmpresas();
     }
 
@@ -119,6 +121,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agregar Tienda");
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Tienda"));
@@ -410,7 +413,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         if (index != -1){
             this.estado_seleccion = this.estados.get(index);
             this.llenarCiudades(this.estado_seleccion.getId());
-            System.out.println("Estado: " + this.estado_seleccion.getId());
+            System.out.println("Estado: " + this.estado_seleccion.getId() + " " + this.estado_seleccion.getNombrePropio());
         } else {
             this.estado_seleccion = null;
             System.out.println("Estado: no hay seleccion");
@@ -421,7 +424,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         int index = this.jComboBox_ciudades.getSelectedIndex();
         if (index != -1){
             this.ciudad_seleccion = this.ciudades.get(index);
-            System.out.println("Ciudad: " + this.ciudad_seleccion.getId());
+            System.out.println("Ciudad: " + this.ciudad_seleccion.getId()+ " " + this.ciudad_seleccion.getNombrePropio());
         } else {
             this.ciudad_seleccion = null;
             System.out.println("Ciudad: no hay seleccion");
@@ -450,7 +453,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                 this.jTextPane_direccion.getText(),
                 this.empresa_seleccion.getRif());
         } else {
-            this.control_general.mostrarMensaje("Existen errores en los datos. Verifiquelos e intentelo nuevamente.", 1);
+//            this.control_general.mostrarMensaje("Existen errores en los datos. Verifiquelos e intentelo nuevamente.", 1);
         }
     }//GEN-LAST:event_jButton_registrarActionPerformed
 
@@ -460,7 +463,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAgregarTienda().setVisible(true);
+                new VentanaNuevaTienda().setVisible(true);
             }
         });
     }
@@ -496,6 +499,9 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane_direccion;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Metodo para llenar el jComboBox de horarios
+     */
     private void llenarHorarios(){
         this.jComboBox_horarios.removeAllItems();
         for (Horario horario : this.horarios){
@@ -505,6 +511,9 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo para llenar el jComboBox de Estados
+     */
     private void llenarEstados(){
         this.jComboBox_estados.removeAllItems();
         for (Lugar estado : this.estados){
@@ -512,14 +521,26 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         }
     }
 
-    private void llenarCiudades(int lugar_id){
+    /**
+     * Metodo para llenar el jComboBox de Ciudades.
+     * Las Ciudades van a depender del Estado seleccionado previamente.
+     * @param lugar_id el identificador del Estado.
+     */
+    private void llenarCiudades(int estado_id){
+        this.seleccionarCiudades(estado_id);
         this.jComboBox_ciudades.removeAllItems();
         for (Lugar ciudad : this.ciudades){
-            if (ciudad.getLugarID() == lugar_id)
-                this.jComboBox_ciudades.addItem(ciudad.getNombrePropio());
+            this.jComboBox_ciudades.addItem(ciudad.getNombrePropio());
         }
+//        for (Lugar ciudad : this.todas_las_ciudades){
+//            if (ciudad.getLugarID() == estado_id)
+//                this.jComboBox_ciudades.addItem(ciudad.getNombrePropio());
+//        }
     }
 
+    /**
+     * Metodo para llenar el jComboBox de Empresas de Vigilancia
+     */
     private void llenarEmpresas(){
         this.jComboBox_empresas.removeAllItems();
         this.empresas.add(0, new EmpresaVigilancia());
@@ -533,31 +554,83 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo para invocar a los metodos de llenado de cada jComboBox
+     */
     private void llenarComboBoxes(){
         this.llenarHorarios();
         this.llenarEstados();
         this.llenarEmpresas();
     }
 
+    /**
+     * Metodo para validar el llenado correcto del formulario
+     * @return la validez del formulario
+     */
     private boolean  validarFormulario(){
-        if (this.jTextField_nombre.getText().isEmpty()) return false;
-        if (this.jTextField_tamano.getText().isEmpty()) return false;
-        if (!this.esEntero(this.jTextField_tamano.getText())) return false;
-        if (this.jComboBox_horarios.getSelectedIndex() == -1) return false;
-        if (this.jTextField_telefono.getText().isEmpty()) return false;
-        if (!this.esEntero(this.jTextField_telefono.getText())) return false;
-        if (this.jTextField_correo.getText().isEmpty()) return false;
-        if (this.jComboBox_ciudades.getSelectedIndex() == -1) return false;
-        if (this.jTextPane_direccion.getText().isEmpty()) return false;
+        if (this.jTextField_nombre.getText().isEmpty()){
+            this.control_general.mostrarMensaje("Debe indicar una valor para Nombre", 1);
+            return false;
+        }
+        if (this.jTextField_tamano.getText().isEmpty()){
+            this.control_general.mostrarMensaje("Debe indicar una valor para Tamaño", 1);
+            return false;
+        }
+        if (!this.esEntero(this.jTextField_tamano.getText())){
+            this.control_general.mostrarMensaje("El valor de Tamaño debe ser un número  entero", 1);
+            return false;
+        }
+        if (this.jComboBox_horarios.getSelectedIndex() == -1){
+            this.control_general.mostrarMensaje("Debe seleccionar un Horario", 1);
+            return false;
+        }
+        if (this.jTextField_telefono.getText().isEmpty()){
+            this.control_general.mostrarMensaje("Debe indicar una valor para Teléfono", 1);
+            return false;
+        }
+//        if (!this.esEntero(this.jTextField_telefono.getText())){
+//            this.control_general.mostrarMensaje("El valor de Teléfono debe contener dígitos unicamente", 1);
+//            return false;
+//        }
+        if (this.jTextField_correo.getText().isEmpty()){
+            this.control_general.mostrarMensaje("Debe indicar una valor para Correo Electrónico", 1);
+            return false;
+        }
+        if (this.jComboBox_ciudades.getSelectedIndex() == -1){
+            this.control_general.mostrarMensaje("Debe seleccionar una Ciudad", 1);
+            return false;
+        }
+        if (this.jTextPane_direccion.getText().isEmpty()){
+            this.control_general.mostrarMensaje("Debe indicar una valor para Dirección", 1);
+            return false;
+        }
         return true;
     }
 
+    /**
+     * Metodo que verifica que un String contenga solo digitos.
+     * @param string el string a verificar
+     * @return
+     */
     public boolean esEntero(String string){
         try {
             Integer.parseInt(string);
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    /**
+     * metodo para deleccionar todas las Ciudades de un Estado
+     * @param estado_id el id del Estado
+     */
+    public void seleccionarCiudades(int estado_id){
+        this.ciudades = new Vector<Lugar>();
+        for (Lugar ciudad : this.todas_las_ciudades) {
+            if (ciudad.getLugarID() == estado_id){
+                this.ciudades.add(ciudad);
+            }
         }
     }
 
