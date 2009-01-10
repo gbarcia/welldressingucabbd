@@ -104,7 +104,7 @@ public class ControlGuiEmpresaVigilancia {
      * Metodo para eliminar una empresa de vigilancia del sistema
      * @param rif String rif de la EmpresaVigilancia a eliminar
      */
-    public void  eliminarCentrodelSistema (String rif){
+    public void  eliminarEmpresadelSistema (String rif){
         int resultado = ControlGeneral.getInstance().eliminarEmpresaVigilancia(rif);
         if (resultado==1) {
         controlador.mostrarMensaje("Centro eliminado con éxito",0);

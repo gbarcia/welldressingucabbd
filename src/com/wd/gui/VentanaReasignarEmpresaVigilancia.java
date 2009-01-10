@@ -364,7 +364,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
             info.addElement(tienda.getNombre());
             info.addElement(tienda.getTelefono());
             info.addElement(tienda.getCorreo());
-            info.addElement(empName);
+            info.addElement(empOnDelete.getNombre());
             dm2.addRow(info);
             this.tablaTiendas.setModel(dm2);
         }
