@@ -145,6 +145,11 @@
                 <Property name="text" type="java.lang.String" value="Asignar Centro"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Asignar o renovar vigilancia"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JSeparator" name="menuTiendasSeparador">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuEstadisticasTienda">
@@ -302,6 +307,11 @@
             <MenuItem class="javax.swing.JMenuItem" name="menuCentroAsignarProvedores">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Asignar Provedores"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Asignar o renovar Vigilancia"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JSeparator" name="menuCentroSeparador">

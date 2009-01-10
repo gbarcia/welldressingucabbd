@@ -72,6 +72,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuPedidosTienda = new javax.swing.JMenuItem();
         menuSeparadorDosTienda = new javax.swing.JSeparator();
         menuAsignarCentroTienda = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuTiendasSeparador = new javax.swing.JSeparator();
         menuEstadisticasTienda = new javax.swing.JMenuItem();
         menuCentros = new javax.swing.JMenu();
@@ -100,6 +101,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroCamionEliminar = new javax.swing.JMenuItem();
         menuCentroCamionAgregarCamionSuelto = new javax.swing.JMenuItem();
         menuCentroAsignarProvedores = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuCentroSeparador = new javax.swing.JSeparator();
         menuCentroEstadisticas = new javax.swing.JMenuItem();
         menuProductos = new javax.swing.JMenu();
@@ -254,6 +256,9 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuAsignarCentroTienda.setText("Asignar Centro");
         menuTiendas.add(menuAsignarCentroTienda);
+
+        jMenuItem2.setText("Asignar o renovar vigilancia");
+        menuTiendas.add(jMenuItem2);
         menuTiendas.add(menuTiendasSeparador);
 
         menuEstadisticasTienda.setText("Estadisticas");
@@ -361,6 +366,9 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentroAsignarProvedores.setText("Asignar Provedores");
         menuCentros.add(menuCentroAsignarProvedores);
+
+        jMenuItem1.setText("Asignar o renovar Vigilancia");
+        menuCentros.add(jMenuItem1);
         menuCentros.add(menuCentroSeparador);
 
         menuCentroEstadisticas.setText("Estadisticas");
@@ -868,6 +876,8 @@ public class VentanaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MenuProductosAgregar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem menuAgregarEmpleadoTienda;
     private javax.swing.JMenuItem menuArcecaDe;
     private javax.swing.JMenu menuArchivo;
