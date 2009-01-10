@@ -120,7 +120,7 @@ public class VentanaEliminarEmpresaVigilancia extends javax.swing.JFrame {
         labelCentros = new javax.swing.JLabel();
         buttonEliminar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eliminar Empresa de Vigilancia", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
@@ -356,6 +356,7 @@ public class VentanaEliminarEmpresaVigilancia extends javax.swing.JFrame {
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
        int select = -1;
        int selectTabla = -1;
+       int selectCity = -1;
        int resultado = -1;
 
        this.controlGeneral =  new ControlGui ();
@@ -367,6 +368,9 @@ public class VentanaEliminarEmpresaVigilancia extends javax.swing.JFrame {
            "Vigilancia a sus Tiendas y Centros de Distribución Asociados", "Info",1);
            this.iniciarVentanaReasignarEmpresaVigilancia(true);
            this.controlEmpresa.eliminarEmpresadelSistema(empOnDelete.getRif());
+           
+           selectCity = this.comboCiudad.getSelectedIndex();
+           this.cargarComboEmpresa(this.ciudadesAux.elementAt(selectCity).getId());
         }
     }//GEN-LAST:event_buttonEliminarActionPerformed
 
@@ -487,7 +491,7 @@ public class VentanaEliminarEmpresaVigilancia extends javax.swing.JFrame {
     }
 
     public void iniciarVentanaReasignarEmpresaVigilancia(boolean var){
-        ventanaReasignarEmpresaVigilancia  = new VentanaReasignarEmpresaVigilancia(empOnDelete,vecEmpsAux,vecTiendasAux,vecCentrosAux);
+        ventanaReasignarEmpresaVigilancia  = new VentanaReasignarEmpresaVigilancia(empOnDelete,vecEmps,vecTiendasAux,vecCentrosAux);
         this.ventanaReasignarEmpresaVigilancia.setVisible(var);
     }
 }

@@ -45,6 +45,8 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
         vecTiendas = new Vector();
         vecEmps = new Vector();
 
+        vecEmps.remove(empOnDelete);
+
         vecCentros = centros;
         vecTiendas = tiendas;
         vecEmps = emps;
@@ -92,7 +94,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
         buttonReasignarTiendas = new javax.swing.JButton();
         buttonReasignarCentros = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)), "Reasignación de Empresa de Vigilancia", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
@@ -161,7 +163,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
         labelEmps.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelEmps.setText("Empresas de Vigilancia Disponibles");
 
-        buttonReasignarTiendas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonReasignarTiendas.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonReasignarTiendas.setText("Reasignar Empresa");
         buttonReasignarTiendas.setToolTipText("Reasignar Empresa de Vigilancia de una Tienda");
         buttonReasignarTiendas.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +172,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
             }
         });
 
-        buttonReasignarCentros.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonReasignarCentros.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonReasignarCentros.setText("Reasignar Empresa");
         buttonReasignarCentros.setToolTipText("Reasignar Empresa De Vigilancia de un Centro de Distribución");
         buttonReasignarCentros.addActionListener(new java.awt.event.ActionListener() {
