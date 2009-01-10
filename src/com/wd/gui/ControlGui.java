@@ -60,7 +60,7 @@ public class ControlGui {
     /** Variable de la ventana para eliminar un proveedor*/
     private VentanaEliminarProveedor ventanaEliminarProve;
     /** Variable de la ventana para agregar una Tienda*/
-    private VentanaAgregarTienda ventanaAgregarTienda;
+    private VentanaNuevaTienda ventanaAgregarTienda;
     /** Variable de la ventana para agregar un Empleado*/
     private VentanaAgregarEmpleadoTienda ventanaAgregarEmpTienda;
     /** Variable de la ventana para agregar un producto*/
@@ -352,7 +352,7 @@ public class ControlGui {
      * @param var indica si mostrar o no la ventana
      */
     public void iniciarVentanaAgregarTienda(boolean var) {
-        this.ventanaAgregarTienda = new VentanaAgregarTienda();
+        this.ventanaAgregarTienda = new VentanaNuevaTienda();
         this.ventanaAgregarTienda.setVisible(var);
     }
 
