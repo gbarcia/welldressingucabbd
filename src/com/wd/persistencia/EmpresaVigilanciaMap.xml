@@ -29,7 +29,7 @@
     <delete id ="eliminarServicio" parameterClass="servicio">
         DELETE FROM SERVICIO
         WHERE EMPRESA_SERVICIO_rif = #empresaServicioRif# AND
-        CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo#
+        <isNotNull>CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo#</isNotNull>
     </delete>
 
       <resultMap id="traerTodasLasEmpresas" class="empresaVigilancia">
