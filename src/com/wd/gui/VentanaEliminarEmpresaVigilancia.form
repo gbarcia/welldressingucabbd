@@ -31,10 +31,9 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,104 +54,115 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelEstado" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelCiudad" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelNombreEmp" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelRif" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelTelefono" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelNombrePer" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelApellidoPer" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelTiendas" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelCentros" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+                          <Component id="buttonEliminar" min="-2" pref="153" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="labelDireccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="labelCentros" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                                  <Component id="comboCentros" pref="280" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="labelTiendas" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
+                                  <Component id="comboTiendas" pref="280" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="labelTelefono" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelNombrePer" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelDireccion" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelApellidoPer" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelEstado" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelCiudad" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelNombreEmp" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelRif" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jScrollPane1" pref="280" max="32767" attributes="0"/>
+                                      <Component id="campoTelefono" alignment="0" pref="280" max="32767" attributes="0"/>
+                                      <Component id="campoRif" alignment="0" pref="280" max="32767" attributes="0"/>
+                                      <Component id="comboNombre" alignment="1" pref="280" max="32767" attributes="1"/>
+                                      <Component id="comboCiudad" alignment="1" pref="280" max="32767" attributes="1"/>
+                                      <Component id="comboEstado" alignment="0" pref="280" max="32767" attributes="1"/>
+                                      <Component id="campoNombrePer" alignment="0" pref="280" max="32767" attributes="0"/>
+                                      <Component id="campoApellidoPer" alignment="0" pref="280" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="campoTelefono" alignment="0" pref="280" max="32767" attributes="0"/>
-                      <Component id="campoRif" alignment="0" pref="280" max="32767" attributes="0"/>
-                      <Component id="comboNombre" alignment="1" pref="280" max="32767" attributes="1"/>
-                      <Component id="comboCiudad" alignment="1" pref="280" max="32767" attributes="1"/>
-                      <Component id="comboEstado" alignment="0" pref="280" max="32767" attributes="1"/>
-                      <Component id="campoNombrePer" alignment="0" pref="280" max="32767" attributes="0"/>
-                      <Component id="comboCentros" alignment="0" pref="280" max="32767" attributes="0"/>
-                      <Component id="comboTiendas" alignment="0" pref="280" max="32767" attributes="0"/>
-                      <Component id="campoApellidoPer" alignment="0" pref="280" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" alignment="1" pref="280" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
-                  <Component id="buttonEliminar" min="-2" pref="153" max="-2" attributes="0"/>
-                  <EmptySpace pref="185" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="comboEstado" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelEstado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="comboCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="comboNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelNombreEmp" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoRif" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelRif" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoNombrePer" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelNombrePer" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoApellidoPer" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelApellidoPer" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboTiendas" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelTiendas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="comboCentros" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelCentros" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="comboNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelNombreEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="campoRif" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelRif" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="campoTelefono" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="campoNombrePer" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="campoApellidoPer" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelApellidoPer" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="labelDireccion" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+                          <Component id="labelTelefono" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="labelNombrePer" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="labelDireccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboTiendas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelTiendas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboCentros" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelCentros" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
                   <Component id="buttonEliminar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -164,6 +174,9 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboEstadoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="comboCiudad">
           <Properties>
@@ -171,6 +184,9 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboCiudadActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="comboNombre">
           <Properties>
@@ -178,6 +194,9 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboNombreActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campoRif">
           <Properties>
@@ -316,6 +335,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEliminarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

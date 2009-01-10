@@ -503,6 +503,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar servicio de vigilancia"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuServiciosVigilanciaEliminarActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>

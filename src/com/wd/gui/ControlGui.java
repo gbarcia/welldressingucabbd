@@ -73,6 +73,8 @@ public class ControlGui {
     private VentanaConsultarEmpresaVigilancia ventanaConsultarEmpresaVigilancia;
     /** Variable de la ventana para eliminar un empleado*/
     private VentanaEliminarEmpleado venEliminarEmp;
+    /** Variable de la ventana para eliminar una empresa de vigilancia*/
+    private VentanaEliminarEmpresaVigilancia ventanaEliminarEmpresaVigilancia;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -375,6 +377,15 @@ public class ControlGui {
     public void iniciarVentanaConsultarEmpresaVigilancia(boolean var, Vector result) {
         ventanaConsultarEmpresaVigilancia = new VentanaConsultarEmpresaVigilancia(result);
         ventanaConsultarEmpresaVigilancia.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de eliminar empresa de vigilancia
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaEliminarEmpresaVigilancia(boolean var, Vector result) {
+        ventanaEliminarEmpresaVigilancia = new VentanaEliminarEmpresaVigilancia(result);
+        ventanaEliminarEmpresaVigilancia.setVisible(var);
     }
 
     /**
