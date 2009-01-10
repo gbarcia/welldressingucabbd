@@ -43,57 +43,15 @@ public class ControlGuiAgregarVigilanciaCentro {
         return this.controlG.traerTodosLosCentros();
     }
 
-    /** Operacion para comprar si el centro ya esta vigilado
-     * @param rif el rif de la empresa de vigilancia
-     * @param codigoCentro el codigo del centro de distribucion a comprobar
-     * @return boolean si el centro ya esta vigilado o no
-     */
-    private boolean esCentroSinVigilancia(String rif, int codigoCentro) {
-        boolean resultado = true;
-        Collection<Servicio> servicios;
-        servicios = this.controlG.todosLosServicios(rif);
-        for (Servicio servicioT : servicios) {
-            if (servicioT.getCentroDistribucionCodigo() == codigoCentro) {
-                resultado = false;
-            }
-        }
-        return resultado;
-    }
-
-    /** Operacion para borrar una empresa de vigilancia de un centro
-     * @param rif el rif de la empresa de vigilancia
-     * @param codigoCentro el codigo del centro de distribucion a comprobar
-     * @return boolean si el centro ya esta vigilado o no
-     */
-    private boolean BorrarCentroVigilancia(int codigoCentro) {
-        boolean resultado = false;
-        int e = -1;
-        this.servicio = new Servicio(codigoCentro, null);
-        e = controlG.eliminarServicio(servicio);
-        if (e == 1) {
-            resultado = true;
-        }
-        return resultado;
-    }
-
     /** Operacion para agregar o renovar una empresa de vigilancia a un centro
      * @param rif el rif de la empresa de vigilancia
      * @param codigoCentro el codigo del centro de distribucion a comprobaro
      */
     public void agregarActualizarVigilanciaCentro(String rif, int codigoCentro) {
         boolean resultado = false;
-        boolean sinVigilancia = true;
         boolean borrado = false;
         this.servicio = new Servicio(codigoCentro, rif);
-        sinVigilancia = this.esCentroSinVigilancia(rif, codigoCentro);
-        if (sinVigilancia) {
-            resultado = controlG.agregarServicio(servicio);
-        } else if (!sinVigilancia) {
-            borrado = this.BorrarCentroVigilancia(codigoCentro);
-            if (borrado) {
-                resultado = controlG.agregarServicio(servicio);
-            }
-        }
+        resultado = controlG.agregarServicio(servicio);
         if (resultado) {
             controlador.mostrarMensaje("Actualizada Empresa de Vigilancia: " + rif + "\n" + "para centro: " + codigoCentro, 0);
         } else if (!resultado) {
