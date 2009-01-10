@@ -1,5 +1,8 @@
 package com.wd.gui.controlparticular;
 
+import com.wd.dominio.EmpresaVigilancia;
+import com.wd.dominio.Horario;
+import com.wd.dominio.Lugar;
 import com.wd.dominio.Tienda;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
@@ -103,6 +106,73 @@ public class ControlGuiTienda {
             vectorTiendas.add(tiendas);
         }
         return vectorTiendas;
+    }
+
+    /**
+     * Metodo para crear el modelo que llena en jComboBox de Horarios
+     * @return
+     */
+    public Object[] modeloHorarios(Vector<Horario> horarios){
+        Vector<String> modeloComboBox = new Vector<String>();
+        for (Horario horario : horarios){
+            modeloComboBox.add(horario.getDiaIni() + " - " + horario.getDiaFin()
+                    + " : " + horario.getHoraIni() + " - " + horario.getHoraFin());
+        }
+        return modeloComboBox.toArray();
+    }
+
+    /**
+     * Metodo para crear el modelo que llena en jComboBox de Ciudades,
+     * dependiendo del Estado.
+     * @param ciudades collecion de ciudades
+     * @return
+     */
+    public Object[] modeloCiudades(Vector<Lugar> ciudades){
+        Vector<String> modeloComboBox = new Vector<String>();
+        for (Lugar ciudad : ciudades){
+            modeloComboBox.add(ciudad.getNombrePropio());
+        }
+        return modeloComboBox.toArray();
+    }
+
+    /**
+     * Metodo para crear el modelo que llena en jComboBox de Estados
+     * @return
+     */
+    public Object[] modeloEmpresas(Vector<EmpresaVigilancia> empresas){
+        Vector<String> modeloComboBox = new Vector<String>();
+        modeloComboBox.add("NINGUNO");
+        for (EmpresaVigilancia empresa : empresas){
+            modeloComboBox.add(empresa.getRif() + ": " + empresa.getNombre());
+        }
+        return modeloComboBox.toArray();
+    }
+
+    /**
+     * Metodo que verifica que un String contenga un numero entero
+     * @param string el string a verificar
+     * @return
+     */
+    public boolean esEntero(String string){
+        try {
+            Integer.parseInt(string);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Metodo que verifica que un String contenga solo digitos
+     * @param string
+     * @return
+     */
+    public boolean esNumerico(String string){
+    for (int i = 0; i < string.length(); i++) {
+        if (!Character.isDigit(string.charAt(i)))
+            return false;
+        }
+        return true;
     }
 
 }

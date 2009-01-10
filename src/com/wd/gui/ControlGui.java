@@ -60,7 +60,7 @@ public class ControlGui {
     /** Variable de la ventana para eliminar un proveedor*/
     private VentanaEliminarProveedor ventanaEliminarProve;
     /** Variable de la ventana para agregar una Tienda*/
-    private VentanaNuevaTienda ventanaAgregarTienda;
+    private VentanaAgregarTienda ventanaAgregarTienda;
     /** Variable de la ventana para agregar un Empleado*/
     private VentanaAgregarEmpleadoTienda ventanaAgregarEmpTienda;
     /** Variable de la ventana para agregar un producto*/
@@ -77,7 +77,8 @@ public class ControlGui {
     private VentanaEliminarEmpresaVigilancia ventanaEliminarEmpresaVigilancia;
     /** Variable de la ventana para asignar vigilancia a un centro*/
     private VentanaAgregarEmpVIgilanciaCentro ventanaAgRenoVicen;
-
+    /** Variable para la ventana para consultar tienda*/
+    private VentanaConsultarTienda ventanaConsultarTienda;
     /** Constructor del ControlGui */
     public ControlGui() {
     }
@@ -363,7 +364,7 @@ public class ControlGui {
      * @param var indica si mostrar o no la ventana
      */
     public void iniciarVentanaAgregarTienda(boolean var) {
-        this.ventanaAgregarTienda = new VentanaNuevaTienda();
+        this.ventanaAgregarTienda = new VentanaAgregarTienda();
         this.ventanaAgregarTienda.setVisible(var);
     }
 
@@ -397,6 +398,11 @@ public class ControlGui {
     public void iniciarVentanaEliminarEmpresaVigilancia(boolean var, Vector result) {
         ventanaEliminarEmpresaVigilancia = new VentanaEliminarEmpresaVigilancia(result);
         ventanaEliminarEmpresaVigilancia.setVisible(var);
+    }
+
+    public void iniciarVentanaConsultarTienda(boolean var) {
+        this.ventanaConsultarTienda = new VentanaConsultarTienda();
+        this.ventanaConsultarTienda.setVisible(true);
     }
 
     /**
