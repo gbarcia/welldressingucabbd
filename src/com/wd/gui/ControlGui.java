@@ -79,6 +79,7 @@ public class ControlGui {
     private VentanaAgregarEmpVIgilanciaCentro ventanaAgRenoVicen;
     /** Variable para la ventana para consultar tienda*/
     private VentanaConsultarTienda ventanaConsultarTienda;
+    private VentanaModificarEmpresaVigilancia ventanaModificarEmpresaVigilancia;
     /** Constructor del ControlGui */
     public ControlGui() {
     }
@@ -403,6 +404,15 @@ public class ControlGui {
     public void iniciarVentanaConsultarTienda(boolean var) {
         this.ventanaConsultarTienda = new VentanaConsultarTienda();
         this.ventanaConsultarTienda.setVisible(true);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de modificar empresa de vigilancia
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaModificarEmpresaVigilancia(boolean var, Vector result) {
+        ventanaModificarEmpresaVigilancia = new VentanaModificarEmpresaVigilancia(result);
+        ventanaModificarEmpresaVigilancia.setVisible(var);
     }
 
     /**
