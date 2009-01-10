@@ -763,7 +763,7 @@ public class ControlGeneral implements IfaceControlGeneral {
 
     /**
      * Operacion para eliminar un servicio de empresa de vigilancia del sistema
-     * @param rif String rif de la empresa de vigilancia a eliminar
+     * @param serv Objeto servicio a eliminar
      * @return resultado int 1 de exito o  0 no de la operacion
      */
     public int eliminarServicio(Servicio serv) {

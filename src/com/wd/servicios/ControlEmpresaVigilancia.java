@@ -133,7 +133,7 @@ public class ControlEmpresaVigilancia {
      * Metodo eliminar una servicio de empresa de Vigilancia del sistema
      * para que pueda ser reasignado a la hora de querer eliminar una empresa
      * de vigilancia en especifico
-     * @param  rif String de la empresa a eliminar
+     * @param  serv Objeto servicio a eliminar
      * @return int resultado de la operacion
      */
     public int eliminarServicio(Servicio serv) {
