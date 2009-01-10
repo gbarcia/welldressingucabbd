@@ -75,6 +75,8 @@ public class ControlGui {
     private VentanaEliminarEmpleado venEliminarEmp;
     /** Variable de la ventana para eliminar una empresa de vigilancia*/
     private VentanaEliminarEmpresaVigilancia ventanaEliminarEmpresaVigilancia;
+    /** Variable de la ventana para asignar vigilancia a un centro*/
+    private VentanaAgregarEmpVIgilanciaCentro ventanaAgRenoVicen;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -95,6 +97,15 @@ public class ControlGui {
     public void iniciarCerrarVentanaAgEmpTienda(boolean var) {
         this.ventanaAgregarEmpTienda = new VentanaAgregarEmpleadoTienda();
         this.ventanaAgregarEmpTienda.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana para agregar vigilancia a un centro
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVenAgregarVigilanciaCentro(boolean var) {
+        this.ventanaAgRenoVicen = new VentanaAgregarEmpVIgilanciaCentro();
+        this.ventanaAgRenoVicen.setVisible(var);
     }
 
     /**
