@@ -46,12 +46,14 @@ public class ControlGuiTienda {
     public void agregarTienda(String nombre, int tamano, int horario_id,
             String telefono , String correo, int ciudad_id, String direccion,
             String empresa_id){
+        boolean resultado = false;
         this.tienda = new Tienda(0, nombre, tamano, telefono, correo, direccion,
                 ciudad_id, horario_id, empresa_id);
-        boolean resultado = this.controlGeneral.agregarTienda(tienda);
+        resultado = this.controlGeneral.agregarTienda(tienda);
+        System.out.println(resultado);
         if (resultado) {
             controlador.mostrarMensaje("Tienda agregada con éxito",0);
-        } else {
+        } else if (!resultado) {
             controlador.mostrarMensaje("Operacion fallida", 1);
         }
     }
@@ -110,7 +112,7 @@ public class ControlGuiTienda {
 
     /**
      * Metodo para crear el modelo que llena en jComboBox de Horarios
-     * @return
+     * @return el modelo de horarios
      */
     public Object[] modeloHorarios(Vector<Horario> horarios){
         Vector<String> modeloComboBox = new Vector<String>();
@@ -125,7 +127,7 @@ public class ControlGuiTienda {
      * Metodo para crear el modelo que llena en jComboBox de Ciudades,
      * dependiendo del Estado.
      * @param ciudades collecion de ciudades
-     * @return
+     * @return retorna el modelo de ciudades
      */
     public Object[] modeloCiudades(Vector<Lugar> ciudades){
         Vector<String> modeloComboBox = new Vector<String>();
@@ -137,7 +139,7 @@ public class ControlGuiTienda {
 
     /**
      * Metodo para crear el modelo que llena en jComboBox de Estados
-     * @return
+     * @return el modelos de empresas
      */
     public Object[] modeloEmpresas(Vector<EmpresaVigilancia> empresas){
         Vector<String> modeloComboBox = new Vector<String>();
@@ -151,7 +153,7 @@ public class ControlGuiTienda {
     /**
      * Metodo que verifica que un String contenga un numero entero
      * @param string el string a verificar
-     * @return
+     * @return si el string es entero o no
      */
     public boolean esEntero(String string){
         try {
@@ -165,7 +167,7 @@ public class ControlGuiTienda {
     /**
      * Metodo que verifica que un String contenga solo digitos
      * @param string
-     * @return
+     * @return si el string es numerico
      */
     public boolean esNumerico(String string){
     for (int i = 0; i < string.length(); i++) {

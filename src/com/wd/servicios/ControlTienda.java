@@ -47,7 +47,6 @@ public class ControlTienda {
         } catch (SQLException ex) {
             this.bitacora.error("Tienda: " + tienda.getCodigo() + " operacion " +
                     "fallida: " + ex.getMessage());
-            resultado = false;
         }finally {
             return resultado;
         }
