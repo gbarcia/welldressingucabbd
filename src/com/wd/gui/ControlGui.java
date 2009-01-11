@@ -81,6 +81,11 @@ public class ControlGui {
     private VentanaConsultarTienda ventanaConsultarTienda;
     private VentanaModificarEmpresaVigilancia ventanaModificarEmpresaVigilancia;
     /** Constructor del ControlGui */
+    private VentanaModificarTienda ventanaModificarTienda;
+    /** Constructor del ControlGui */
+    private VentanaEliminarTienda ventanaEliminarTienda;
+    /** Constructor del ControlGui */
+
     public ControlGui() {
     }
 
@@ -400,10 +405,23 @@ public class ControlGui {
         ventanaEliminarEmpresaVigilancia = new VentanaEliminarEmpresaVigilancia(result);
         ventanaEliminarEmpresaVigilancia.setVisible(var);
     }
-
+    /**
+     * metodo para ocultar o mostrar la ventana de eliminar empresa d evigilancia
+     * @param var indica si mostrar la ventana o no
+     */
     public void iniciarVentanaConsultarTienda(boolean var) {
         this.ventanaConsultarTienda = new VentanaConsultarTienda();
         this.ventanaConsultarTienda.setVisible(true);
+    }
+
+    public void iniciarVentanaModificarTienda(boolean var) {
+        this.ventanaModificarTienda = new VentanaModificarTienda();
+        this.ventanaModificarTienda.setVisible(true);
+    }
+
+    public void iniciarVentanaEliminarTienda(boolean var) {
+        this.ventanaEliminarTienda = new VentanaEliminarTienda();
+        this.ventanaEliminarTienda.setVisible(true);
     }
 
     /**

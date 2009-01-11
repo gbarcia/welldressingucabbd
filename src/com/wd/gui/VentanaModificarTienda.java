@@ -427,6 +427,8 @@ public class VentanaModificarTienda extends javax.swing.JFrame {
                     this.ciudades.get(this.jComboBox_ciudades.getSelectedIndex()).getId(),
                     this.jTextArea_direccion.getText(),
                     empresaRif);
+//            this.
+//            this.llenarComboBoxes();
         } else {
             this.control_general.mostrarMensaje("Verifique los datos e intentelo nuevamente", 1);
         }
