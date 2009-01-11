@@ -33,7 +33,6 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         this.control_gui_producto = new ControlGuiProducto();
         this.control_gui_departamento = new ControlGuiDepartamento();
         departamentos = this.control_gui_departamento.traerTodosLosDepartamentos();
-        this.llenarDepartamentos(departamentos);
     }
 
     /** This method is called from within the constructor to
@@ -53,12 +52,11 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         jTextPane_descripcion = new javax.swing.JTextPane();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jComboBox_departamentos = new javax.swing.JComboBox();
-        jComboBox_clases = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox_subclases = new javax.swing.JComboBox();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jButton_registrar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -112,32 +110,15 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Clasificación del Producto"));
         jPanel4.setPreferredSize(new java.awt.Dimension(350, 263));
 
-        jLabel7.setText("Departamento [*]");
-
-        jLabel8.setText("Clase [*]");
-
-        jComboBox_departamentos.setPreferredSize(new java.awt.Dimension(200, 20));
-        jComboBox_departamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_departamentosActionPerformed(evt);
-            }
-        });
-
-        jComboBox_clases.setPreferredSize(new java.awt.Dimension(200, 20));
-        jComboBox_clases.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_clasesActionPerformed(evt);
-            }
-        });
-
         jLabel10.setText("Subclase [*]");
 
-        jComboBox_subclases.setPreferredSize(new java.awt.Dimension(200, 20));
-        jComboBox_subclases.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_subclasesActionPerformed(evt);
-            }
-        });
+        jScrollPane2.setViewportView(jList1);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel3.setText("Seleccione todas las");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel4.setText("que apliquen.");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -147,31 +128,23 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox_departamentos, 0, 183, Short.MAX_VALUE))
-                    .addComponent(jComboBox_clases, javax.swing.GroupLayout.Alignment.TRAILING, 0, 183, Short.MAX_VALUE)
-                    .addComponent(jComboBox_subclases, javax.swing.GroupLayout.Alignment.TRAILING, 0, 183, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jComboBox_departamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox_clases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jComboBox_subclases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -193,9 +166,10 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
@@ -209,8 +183,8 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_registrar)
                     .addComponent(jButton2))
@@ -237,41 +211,6 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox_departamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_departamentosActionPerformed
-        int index = this.jComboBox_departamentos.getSelectedIndex();
-        System.out.println("jComboBox_departamentos " + index);
-        if (index != -1){
-            Departamento departamento = this.departamentos.get(index);
-            System.out.println(departamento.getCodigo() + " " + departamento.getNombre());
-            this.clases = this.control_gui_departamento.traerTodasLasClases(departamento);
-            this.llenarClases(clases);
-        } else {
-            this.llenarClases(new Vector<Departamento>());
-        }
-    }//GEN-LAST:event_jComboBox_departamentosActionPerformed
-
-    private void jComboBox_clasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_clasesActionPerformed
-        int index = this.jComboBox_clases.getSelectedIndex();
-        System.out.println("jComboBox_clases " + index);
-        if (index != -1){
-            Departamento clase = this.clases.get(index);
-            System.out.println(clase.getCodigo() + " " + clase.getNombre());
-            this.subclases = this.control_gui_departamento.traerTodasLasSubClases(clase);
-            this.llenarSubClases(subclases);
-        } else {
-            this.llenarSubClases(new Vector<Departamento>());
-        }
-    }//GEN-LAST:event_jComboBox_clasesActionPerformed
-
-    private void jComboBox_subclasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_subclasesActionPerformed
-        int index = this.jComboBox_subclases.getSelectedIndex();
-        System.out.println("jComboBox_subclases " + index);
-        if (index != -1){
-            this.subclase = this.subclases.get(index);
-            System.out.println(subclase.getCodigo() + " " + subclase.getNombre());
-        }
-    }//GEN-LAST:event_jComboBox_subclasesActionPerformed
-
     private void jButton_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registrarActionPerformed
         this.control_gui_producto.agregarProducto(this.jTextField_nombre.getText(),
                 this.jTextPane_descripcion.getText(), this.subclase.getCodigo());
@@ -291,42 +230,24 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton_registrar;
-    private javax.swing.JComboBox jComboBox_clases;
-    private javax.swing.JComboBox jComboBox_departamentos;
-    private javax.swing.JComboBox jComboBox_subclases;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField_nombre;
     private javax.swing.JTextPane jTextPane_descripcion;
     // End of variables declaration//GEN-END:variables
 
-    public void llenarDepartamentos(Vector<Departamento> departamentos){
-        this.jComboBox_departamentos.removeAllItems();
-        for (Departamento departamento : departamentos){
-           this.jComboBox_departamentos.addItem(departamento.getNombre());
-        }
-    }
-
-    public void llenarClases(Vector<Departamento> clases){
-        this.jComboBox_clases.removeAllItems();
-        for (Departamento clase : clases){
-           this.jComboBox_clases.addItem(clase.getNombre());
-        }
-    }
-
     public void llenarSubClases(Vector<Departamento> subclases){
-        this.jComboBox_subclases.removeAllItems();
-        for (Departamento subclase : subclases){
-            this.jComboBox_subclases.addItem(subclase.getNombre());
-        }
+    
     }
 
 }
