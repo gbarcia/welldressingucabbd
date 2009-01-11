@@ -14,7 +14,6 @@ package com.wd.gui;
 import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
-import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiEmpresaVigilancia;
 import com.wd.gui.controlparticular.ControlGuiHorario;
 import com.wd.gui.controlparticular.ControlGuiLugar;
@@ -44,10 +43,6 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
     private Vector<EmpresaVigilancia> empresas;
 
-    Vector<Tienda> tiendas;
-
-    Tienda tienda;
-
     /** Creates new form VentanaAgregarTienda */
     public VentanaAgregarTienda() {
         initComponents();
@@ -65,7 +60,6 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         this.control_gui_empresa = new ControlGuiEmpresaVigilancia();
         this.control_gui_horario = new ControlGuiHorario();
         this.control_gui_lugar = new ControlGuiLugar();
-        this.control_gui_tienda = new ControlGuiTienda();
     }
 
     public void initVectores(){
@@ -384,10 +378,14 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
     private void jButton_registarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registarActionPerformed
         if (this.formularioValido()){
+
             String empresaRif;
-            if (this.jComboBox_empresas.getSelectedIndex() == 0) empresaRif = null;
-            else empresaRif = this.empresas.get(this.jComboBox_empresas.getSelectedIndex() - 1).getRif();
-            System.out.println(empresaRif);
+            if (this.jComboBox_empresas.getSelectedIndex() == 0){
+                empresaRif = null;
+            } else {
+                empresaRif = this.empresas.get(this.jComboBox_empresas.getSelectedIndex() - 1).getRif();
+            }
+            
             this.control_gui_tienda.agregarTienda(this.jTextField_nombre.getText(),
                     Integer.parseInt(this.jTextField_tamano.getText()),
                     this.jComboBox_horarios.getSelectedIndex() + 1,

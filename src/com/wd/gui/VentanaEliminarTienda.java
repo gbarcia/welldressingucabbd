@@ -11,17 +11,52 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Tienda;
+import com.wd.gui.controlparticular.ControlGuiTienda;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Johnny
  */
 public class VentanaEliminarTienda extends javax.swing.JFrame {
 
+    private ControlGui control_general;
+
+    private ControlGuiTienda control_gui_tienda;
+
+    private Vector<Tienda> tiendas;
+
     /** Creates new form VentanaEliminarTienda */
     public VentanaEliminarTienda() {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+        this.initControles();
+        this.initVectores();
+        this.llenarTiendas();
     }
 
+    private void initControles(){
+        this.control_general = new ControlGui();
+        this.control_gui_tienda = new ControlGuiTienda();
+    }
+
+    private void initVectores(){
+        this.tiendas = this.control_gui_tienda.consultarTiendas();
+    }
+
+    private void llenarTiendas(){
+        Vector<String> modeloComboBox = new Vector<String>();
+        for (Tienda tienda : tiendas){
+            modeloComboBox.add(tienda.getNombre());
+        }
+        this.jComboBox_tiendas.setModel(
+                new DefaultComboBoxModel(modeloComboBox.toArray()));
+    }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -37,7 +72,8 @@ public class VentanaEliminarTienda extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Eliminar Tienda");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Eliminar Tienda"));
 
@@ -72,6 +108,11 @@ public class VentanaEliminarTienda extends javax.swing.JFrame {
         );
 
         jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -116,6 +157,13 @@ public class VentanaEliminarTienda extends javax.swing.JFrame {
     private void jComboBox_tiendassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_tiendassActionPerformed
         
 }//GEN-LAST:event_jComboBox_tiendassActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.control_gui_tienda.eliminarTienda(this.jComboBox_tiendas.getSelectedIndex() + 1);
+        this.initControles();
+        this.initVectores();
+        this.llenarTiendas();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
     * @param args the command line arguments

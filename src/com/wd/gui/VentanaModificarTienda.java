@@ -32,6 +32,10 @@ public class VentanaModificarTienda extends javax.swing.JFrame {
 
     private ControlGuiTienda control_gui_tienda;
 
+    private Vector<Tienda> tiendas;
+
+    private Tienda tienda;
+
     private ControlGuiHorario control_gui_horario;
 
     private Vector<Horario> horarios;
@@ -43,10 +47,6 @@ public class VentanaModificarTienda extends javax.swing.JFrame {
     private ControlGuiEmpresaVigilancia control_gui_empresa;
 
     private Vector<EmpresaVigilancia> empresas;
-
-    Vector<Tienda> tiendas;
-
-    Tienda tienda;
 
     /** Creates new form VentanaModificarTienda */
     public VentanaModificarTienda() {
@@ -61,19 +61,19 @@ public class VentanaModificarTienda extends javax.swing.JFrame {
                 this.jComboBox_tiendas.setSelectedIndex(0);
     }
 
-    public void initControles(){
+    private void initControles(){
         this.control_general = new ControlGui();
+        this.control_gui_tienda = new ControlGuiTienda();
         this.control_gui_empresa = new ControlGuiEmpresaVigilancia();
         this.control_gui_horario = new ControlGuiHorario();
         this.control_gui_lugar = new ControlGuiLugar();
-        this.control_gui_tienda = new ControlGuiTienda();
     }
 
-    public void initVectores(){
+    private void initVectores(){
         this.tiendas = this.control_gui_tienda.consultarTiendas();
-        this.empresas = this.control_gui_empresa.traerTodasLasEmpresas();
         this.horarios = this.control_gui_horario.traerTodosLosHorarios();
         this.ciudades = this.control_gui_lugar.traerTodosLosLugares(2);
+        this.empresas = this.control_gui_empresa.traerTodasLasEmpresas();
     }
 
     public void llenarComboBoxes(){
@@ -415,20 +415,21 @@ public class VentanaModificarTienda extends javax.swing.JFrame {
     private void jButton_registarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registarActionPerformed
         if (this.formularioValido()){
             String empresaRif;
-            if (this.jComboBox_empresas.getSelectedIndex() == 0) empresaRif = null;
-            else empresaRif = this.empresas.get(this.jComboBox_empresas.getSelectedIndex() - 1).getRif();
-            System.out.println(empresaRif);
+            if (this.jComboBox_empresas.getSelectedIndex() == 0){
+                empresaRif = null;
+            }else{
+                empresaRif = this.empresas.get(this.jComboBox_empresas.getSelectedIndex() - 1).getRif();
+            }
             this.control_gui_tienda.modificarTienda(this.tienda.getCodigo(),
                     this.jTextField_nombre.getText(),
                     Integer.parseInt(this.jTextField_tamano.getText()),
                     this.jComboBox_horarios.getSelectedIndex() + 1,
                     this.jTextField_telefono.getText(),
-                    this.jTextField_telefono.getText(),
+                    this.jTextField_correo.getText(),
                     this.ciudades.get(this.jComboBox_ciudades.getSelectedIndex()).getId(),
                     this.jTextArea_direccion.getText(),
                     empresaRif);
-//            this.
-//            this.llenarComboBoxes();
+            this.recargarVentana(this.tienda.getNombre());
         } else {
             this.control_general.mostrarMensaje("Verifique los datos e intentelo nuevamente", 1);
         }
@@ -505,23 +506,24 @@ public class VentanaModificarTienda extends javax.swing.JFrame {
         this.jComboBox_horarios.setSelectedIndex(this.tienda.getHORARIO_id() - 1);
         this.jTextField_telefono.setText(this.tienda.getTelefono());
         this.jTextField_correo.setText(this.tienda.getCorreo());
-        Vector<Lugar> todasCiudades = this.control_gui_lugar.traerTodosLosLugares(2);
-        for (int i = 0; i < todasCiudades.size(); i++) {
-            if (todasCiudades.get(i).getId() == tienda.getLUGAR_id())
+
+        for (int i = 0; i < this.ciudades.size(); i++) {
+            if (this.ciudades.get(i).getId() == tienda.getLUGAR_id())
                 this.jComboBox_ciudades.setSelectedIndex(i);
         }
+
         this.jTextArea_direccion.setText(this.tienda.getDireccion());
-        Vector<EmpresaVigilancia> todasEmpresas = this.control_gui_empresa.traerTodasLasEmpresas();
-        for (int i = 0; i < todasEmpresas.size(); i++) {
-            if (todasEmpresas.get(i).getRif().equals(tienda.getEMPRESA_SERVICIO_rif()))
+        
+        for (int i = 0; i < this.empresas.size(); i++) {
+            if (this.empresas.get(i).getRif().equals(tienda.getEMPRESA_SERVICIO_rif()))
                 this.jComboBox_empresas.setSelectedIndex(i);
         }
     }
 
     private void llenarTiendas(){
         Vector<String> modeloComboBox = new Vector<String>();
-        for (Tienda tienda_seleccion : tiendas){
-            modeloComboBox.add(tienda_seleccion.getNombre());
+        for (Tienda t : tiendas){
+            modeloComboBox.add(t.getNombre());
         }
         this.jComboBox_tiendas.setModel(
                 new DefaultComboBoxModel(modeloComboBox.toArray()));
@@ -543,5 +545,13 @@ public class VentanaModificarTienda extends javax.swing.JFrame {
         javax.swing.DefaultComboBoxModel modelo =
                 new DefaultComboBoxModel(this.control_gui_tienda.modeloEmpresas(empresas));
         this.jComboBox_empresas.setModel(modelo);
+    }
+
+    private void recargarVentana(Object item){
+        this.initControles();
+        this.initVectores();
+        this.llenarComboBoxes();
+        if (this.jComboBox_tiendas.getSelectedIndex() != -1)
+            this.jComboBox_tiendas.setSelectedIndex(0);
     }
 }

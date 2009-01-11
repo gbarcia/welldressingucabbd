@@ -28,35 +28,55 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class VentanaConsultarTienda extends javax.swing.JFrame {
 
-    ControlGuiTienda control_gui_tienda;
-    
-    ControlGuiHorario control_gui_horarios;
-    
-    ControlGuiLugar control_gui_lugar;
-    
-    ControlGuiEmpresaVigilancia control_gui_empresa;
+    private ControlGui control_general;
 
-    Vector<Tienda> tiendas;
+    private ControlGuiTienda control_gui_tienda;
 
-    Tienda tienda;
+    private Vector<Tienda> tiendas;
+
+    private Tienda tienda;
+
+    private ControlGuiHorario control_gui_horario;
+
+    private Vector<Horario> horarios;
+
+    private ControlGuiLugar control_gui_lugar;
+
+    private Vector<Lugar> ciudades;
+
+    private ControlGuiEmpresaVigilancia control_gui_empresa;
+
+    private Vector<EmpresaVigilancia> empresas;
 
     /** Creates new form VentanaConsultarTienda */
     public VentanaConsultarTienda() {
         initComponents();
-        this.control_gui_tienda = new ControlGuiTienda();
-        this.control_gui_lugar = new ControlGuiLugar();
-        this.control_gui_horarios = new ControlGuiHorario();
-        this.control_gui_empresa = new ControlGuiEmpresaVigilancia();
-        this.tiendas = this.control_gui_tienda.consultarTiendas();
-        this.llenarComboBoxTiendas();
+        this.initControles();
+        this.initVectores();
+        this.llenarTiendas();
         if (this.jComboBox_tiendas.getSelectedIndex() != -1)
                 this.jComboBox_tiendas.setSelectedIndex(0);
     }
 
-    private void llenarComboBoxTiendas(){
+    private void initControles(){
+        this.control_general = new ControlGui();
+        this.control_gui_tienda = new ControlGuiTienda();
+        this.control_gui_empresa = new ControlGuiEmpresaVigilancia();
+        this.control_gui_horario = new ControlGuiHorario();
+        this.control_gui_lugar = new ControlGuiLugar();
+    }
+
+    private void initVectores(){
+        this.tiendas = this.control_gui_tienda.consultarTiendas();
+        this.horarios = this.control_gui_horario.traerTodosLosHorarios();
+        this.ciudades = this.control_gui_lugar.traerTodosLosLugares(2);
+        this.empresas = this.control_gui_empresa.traerTodasLasEmpresas();
+    }
+
+    private void llenarTiendas(){
         Vector<String> modeloComboBox = new Vector<String>();
-        for (Tienda tienda_seleccion : tiendas){
-            modeloComboBox.add(tienda_seleccion.getNombre());
+        for (Tienda t : tiendas){
+            modeloComboBox.add(t.getNombre());
         }
         this.jComboBox_tiendas.setModel(
                 new DefaultComboBoxModel(modeloComboBox.toArray()));
@@ -408,22 +428,24 @@ public class VentanaConsultarTienda extends javax.swing.JFrame {
     private void llenarInformacion(){
         this.jTextField_nombre.setText(this.tienda.getNombre());
         this.jTextField_tamano.setText(Integer.toString(this.tienda.getTamano()));
-        Horario horario = (Horario) this.control_gui_horarios.traerTodosLosHorarios().get(this.tienda.getHORARIO_id() - 1);
+        
+        Horario horario = this.horarios.get(this.tienda.getHORARIO_id() - 1);
         this.jTextField_horario.setText(horario.getDiaIni() + " - " +
                 horario.getDiaFin() + " : " + horario.getHoraIni() + " - " + horario.getHoraFin());
+
         this.jTextField_telefono.setText(this.tienda.getTelefono());
         this.jTextField_correo.setText(this.tienda.getCorreo());
         this.jTextArea_direccion.setText(this.tienda.getDireccion());
-        Vector<Lugar> ciudades = this.control_gui_lugar.traerTodosLosLugares(2);
-        for (Lugar ciudad : ciudades) {
+        
+        for (Lugar ciudad : this.ciudades) {
             if (ciudad.getId() == tienda.getLUGAR_id())
                 this.jTextField_ciudad.setText(ciudad.getNombrePropio());
         }
+
         if  (tienda.getEMPRESA_SERVICIO_rif() == null){
             this.jTextField_empresa.setText("NINGUNA");
         }else{
-            Vector<EmpresaVigilancia> empresas = this.control_gui_empresa.traerTodasLasEmpresas();
-            for (EmpresaVigilancia empresa : empresas) {
+            for (EmpresaVigilancia empresa : this.empresas) {
                 if (empresa.getRif().equals(tienda.getEMPRESA_SERVICIO_rif()))
                     this.jTextField_empresa.setText(empresa.getRif() + " : " + empresa.getNombre());
             }
