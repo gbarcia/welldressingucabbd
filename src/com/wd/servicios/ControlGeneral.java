@@ -1123,7 +1123,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param producto el producto a eliminar
      * @return resultado de la operacion
      */
-    public boolean eliminarProducto(Producto producto) {
+    public boolean eliminarProductoDepartamento(Producto producto) {
         boolean resultado = false;
         try {
             this.controlProducto = new ControlProducto();
@@ -1153,4 +1153,21 @@ public class ControlGeneral implements IfaceControlGeneral {
         }
     }
 
+    /**
+     * Metodo para traer todas las subclases, Independientemente de su jerarquia
+     * @return todas las subclases
+     */
+    public Collection traerTodasLasSubclases() {
+        Collection<Departamento> subclases = null;
+        try {
+            this.controlProducto = new ControlProducto();
+            bitacora.info("ControlProducto iniciado correctamente");
+            subclases = this.controlDepartamento.traerTodosLasSubclases();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlProducto por " + ex.getMessage());
+        } finally {
+            return subclases;
+        }
+    }
+    
 }

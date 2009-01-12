@@ -3,8 +3,9 @@ package com.wd.gui;
 import com.wd.dominio.Departamento;
 import com.wd.gui.controlparticular.ControlGuiDepartamento;
 import com.wd.gui.controlparticular.ControlGuiProducto;
-import java.awt.event.ItemListener;
+import com.wd.gui.controlparticular.ControlGuiProductoDepartamento;
 import java.util.Vector;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -13,26 +14,43 @@ import java.util.Vector;
 public class VentanaAgregarProducto extends javax.swing.JFrame {
 
     private ControlGuiProducto control_gui_producto;
-    
-    private ControlGuiDepartamento control_gui_departamento;
-    
-    private ControlGui control_gui;
+    private ControlGuiProductoDepartamento control_gui_producto_departamento;
+    private ControlGuiDepartamento contro_gui_departamento;
 
     private Vector<Departamento> departamentos;
-
     private Vector<Departamento> clases;
-
     private Vector<Departamento> subclases;
+    private Vector<Departamento> seleccion;
 
-    private Departamento subclase;
 
     /** Creates new form VentanaAgregarProducto */
     public VentanaAgregarProducto() {
         initComponents();
-        this.control_gui = new ControlGui();
+        this.initControles();
+        this.initVectores();
+        this.llenarLista();
+    }
+
+    private void initControles(){
+        this.contro_gui_departamento = new ControlGuiDepartamento();
         this.control_gui_producto = new ControlGuiProducto();
-        this.control_gui_departamento = new ControlGuiDepartamento();
-        departamentos = this.control_gui_departamento.traerTodosLosDepartamentos();
+        this.control_gui_producto_departamento = new ControlGuiProductoDepartamento();
+    }
+
+    private void initVectores(){
+        this.departamentos = this.contro_gui_departamento.traerTodosLosDepartamentos();
+        this.clases = new Vector<Departamento>();
+        this.subclases = new Vector<Departamento>();
+        this.seleccion = new Vector<Departamento>();
+    }
+
+    private void llenarLista(){
+        this.subclases = new Vector<Departamento>(this.control_gui_producto_departamento.traerTodasLasSubclases());
+        DefaultListModel modelo = new DefaultListModel();
+        for (Departamento subclase : subclases) {
+            modelo.addElement(subclase.getNombre());
+        }
+        this.jList1.setModel(modelo);
     }
 
     /** This method is called from within the constructor to
@@ -52,11 +70,9 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         jTextPane_descripcion = new javax.swing.JTextPane();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jButton_registrar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -110,15 +126,14 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Clasificación del Producto"));
         jPanel4.setPreferredSize(new java.awt.Dimension(350, 263));
 
-        jLabel10.setText("Subclase [*]");
+        jLabel11.setText("Subclase [*]");
 
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
         jScrollPane2.setViewportView(jList1);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel3.setText("Seleccione todas las");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel4.setText("que apliquen.");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -126,26 +141,18 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel11)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jButton_registrar.setText("Registrar");
@@ -156,6 +163,11 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("[*] Campos obligatorios");
 
@@ -166,7 +178,7 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -183,8 +195,8 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_registrar)
                     .addComponent(jButton2))
@@ -202,19 +214,22 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registrarActionPerformed
-        this.control_gui_producto.agregarProducto(this.jTextField_nombre.getText(),
-                this.jTextPane_descripcion.getText(), this.subclase.getCodigo());
+        
     }//GEN-LAST:event_jButton_registrarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -231,10 +246,8 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton_registrar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
@@ -245,9 +258,5 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_nombre;
     private javax.swing.JTextPane jTextPane_descripcion;
     // End of variables declaration//GEN-END:variables
-
-    public void llenarSubClases(Vector<Departamento> subclases){
-    
-    }
 
 }

@@ -9,6 +9,7 @@ import com.wd.dominio.Producto;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
+import java.util.Collection;
 
 /**
  *
@@ -38,7 +39,7 @@ public class ControlGuiProducto {
      * @param descripcion la descripcion del producto
      * @param subclase_id el id de la subclase del producto
      */
-    public void agregarProducto(String nombre, String descripcion, int subclase_id){
+    public boolean agregarProducto(String nombre, String descripcion, int subclase_id){
         this.producto = new Producto(subclase_id, nombre, descripcion);
         boolean resultado = this.controlGeneral.agregarProducto(producto);
         if (resultado) {
@@ -46,9 +47,21 @@ public class ControlGuiProducto {
         } else {
             controlador.mostrarMensaje("Operacion fallida", 1);
         }
+            return resultado;
     }
 
-    public void validarAgregarProducto(String nombre, int subclase_id){
-
+    public Collection traerTodosLosProductos() {
+        return controlGeneral.traerTodosLosProductos();
     }
+
+    public boolean modificarProducto(Producto producto) {
+        return controlGeneral.modificarProducto(producto);
+    }
+
+    public boolean eliminarProducto(int id) {
+        return controlGeneral.eliminarProducto(id);
+    }
+
+
+
 }
