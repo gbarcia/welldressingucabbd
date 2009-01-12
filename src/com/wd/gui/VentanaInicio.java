@@ -191,12 +191,27 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuMantenimientoTienda.add(menuRegistrarTienda);
 
         menuEditarTienda.setText("Editar una tienda");
+        menuEditarTienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEditarTiendaActionPerformed(evt);
+            }
+        });
         menuMantenimientoTienda.add(menuEditarTienda);
 
         menuConsultarTienda.setText("Consultar una tienda");
+        menuConsultarTienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsultarTiendaActionPerformed(evt);
+            }
+        });
         menuMantenimientoTienda.add(menuConsultarTienda);
 
         menuEliminarTienda.setText("Eliminar una tienda");
+        menuEliminarTienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEliminarTiendaActionPerformed(evt);
+            }
+        });
         menuMantenimientoTienda.add(menuEliminarTienda);
 
         menuTiendas.add(menuMantenimientoTienda);
@@ -884,6 +899,21 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui = new ControlGui();
        this.controlGeneralGui.iniciarVentanaModificarEmpresaVigilancia(true,result);
     }//GEN-LAST:event_menuServiciosVigilanciaEditarActionPerformed
+
+    private void menuEditarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditarTiendaActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaModificarTienda(true);
+    }//GEN-LAST:event_menuEditarTiendaActionPerformed
+
+    private void menuConsultarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultarTiendaActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaConsultarTienda(true);
+    }//GEN-LAST:event_menuConsultarTiendaActionPerformed
+
+    private void menuEliminarTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEliminarTiendaActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaEliminarTienda(true);
+    }//GEN-LAST:event_menuEliminarTiendaActionPerformed
 
     /**
     * @param args the command line arguments
