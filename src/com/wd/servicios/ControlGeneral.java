@@ -1099,4 +1099,58 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+
+    /**
+     * Metodo para agregar un registro Producto-Departamento
+     * @param producto el producto a agregar
+     * @return resultado de la operacion
+     */
+    public boolean agregarProductoDepartamento(Producto producto){
+        boolean resultado = false;
+        try {
+            this.controlProducto = new ControlProducto();
+            this.bitacora.info("ControlProducto iniciado correctamente");
+            resultado = this.controlProducto.agregarProductoDepartamento(producto);
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para eliminar un registro Producto-Departamento
+     * @param producto el producto a eliminar
+     * @return resultado de la operacion
+     */
+    public boolean eliminarProducto(Producto producto) {
+        boolean resultado = false;
+        try {
+            this.controlProducto = new ControlProducto();
+            this.bitacora.info("ControlProducto iniciado correctamente");
+            resultado = this.controlProducto.eliminarProductoDepartamento(producto);
+        } catch (IOException ex) {
+            this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para consultar los registros Producto-Departamento
+     * @return todos los registros
+     */
+    public Collection traerTodosLosProductoDepartamento() {
+        Collection<Producto> productos = null;
+        try {
+            this.controlProducto = new ControlProducto();
+            bitacora.info("ControlProducto iniciado correctamente");
+            productos = this.controlProducto.consultarProductoDepartamento();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlProducto por " + ex.getMessage());
+        } finally {
+            return productos;
+        }
+    }
+
 }
