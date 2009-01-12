@@ -265,4 +265,31 @@ public interface IfaceControlGeneral {
      * @return boolean de exito o no de la operacion
      */
     public boolean borrarEmpleado(int cedula);
+
+    /**
+     * Metodo para agregar un registro Producto-Departamento
+     * @param producto el producto a agregar
+     * @return resultado de la operacion
+     */
+    public boolean agregarProductoDepartamento(Producto producto);
+
+    /**
+     * Metodo para eliminar un registro Producto-Departamento
+     * @param producto el producto a eliminar
+     * @return resultado de la operacion
+     */
+    public boolean eliminarProductoDepartamento(Producto producto);
+
+    /**
+     * Metodo para consultar los registros Producto-Departamento
+     * @return todos los registros
+     */
+    public Collection traerTodosLosProductoDepartamento();
+
+    /**
+     * Metodo para traer todas las subclases, Independientemente de su jerarquia
+     * @return todas las subclases
+     */
+    public Collection traerTodasLasSubclases();
+    
 }

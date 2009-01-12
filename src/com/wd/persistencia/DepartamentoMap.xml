@@ -89,4 +89,10 @@
       WHERE CODIGO = #codigo#
   </update>
 
+  <select id="traerTodasLasSubClases" resultMap="traerTodosLosDepartamentos">
+      SELECT d.codigo Codigo, d.nombre Nombre, d.descripcion Descripcion,
+      d.tipo Tipo,d.DEPARTAMENTO_codigo DepartamentoCodigo
+      FROM DEPARTAMENTO d
+      WHERE d.tipo = 0
+  </select>
 </sqlMap>

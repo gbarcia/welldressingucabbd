@@ -271,4 +271,22 @@ public class ControlDepartamento {
             return resultado;
         }
     }
+
+    /**
+     * Metodo para traer todas las subclases, Independientemente de su jerarquia
+     * @return todas las subclases
+     */
+    public Collection<Departamento> traerTodosLasSubclases () {
+        Collection<Departamento> coleccionClases = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos las " +
+            "Subclases");
+            coleccionClases = sqlMap.queryForList("traerTodasLasSubClases");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccionClases;
+        }
+    }
 }
