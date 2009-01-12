@@ -57,6 +57,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
     public void initControles(){
         this.control_general = new ControlGui();
+        this.control_gui_tienda = new ControlGuiTienda();
         this.control_gui_empresa = new ControlGuiEmpresaVigilancia();
         this.control_gui_horario = new ControlGuiHorario();
         this.control_gui_lugar = new ControlGuiLugar();
@@ -390,7 +391,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
                     Integer.parseInt(this.jTextField_tamano.getText()),
                     this.jComboBox_horarios.getSelectedIndex() + 1,
                     this.jTextField_telefono.getText(),
-                    this.jTextField_telefono.getText(),
+                    this.jTextField_correo.getText(),
                     this.ciudades.get(this.jComboBox_ciudades.getSelectedIndex()).getId(),
                     this.jTextArea_direccion.getText(),
                     empresaRif);
