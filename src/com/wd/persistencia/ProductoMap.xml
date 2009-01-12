@@ -22,6 +22,11 @@
     <result property="fecha_ultima_modificacion" column="fecha_ult_mod" />
   </resultMap>
 
+  <resultMap id="resultMapProductoDepartamento" class="producto">
+    <result property="id" column="PRODUCTO_id" />
+    <result property="departamentoId" column="DEPARTAMENTO_codigo" />
+  </resultMap>
+
   <insert id="agregarProducto" parameterClass="producto">
     INSERT INTO producto (id, nombre, descripcion)
     VALUES (null, #nombre#, #descripcion#)
@@ -59,6 +64,22 @@
     FROM PRODUCTO produ, PRESUPUESTO presu, EMPRESA_SERVICIO es
     WHERE produ.id = presu.PRODUCTO_id AND es.rif = presu.EMPRESA_SERVICIO_rif
     AND presu.EMPRESA_SERVICIO_rif = #value#
+  </select>
+
+  <insert id="agregarProductoDepartamento" parameterClass="producto">
+    INSERT INTO producto_departamento (PRODUCTO_id, DEPARTAMENTO_codigo)
+    VALUES (#id#, #departamentoId#)
+  </insert>
+  
+  <delete id="eliminarProductoDepartamento" parameterClass="producto">
+    DELETE FROM producto_departamento
+    WHERE PRODUCTO_id = #id#
+    AND DEPARTAMENTO_codigo = #departamentoId#
+  </delete>
+
+  <select id="consultarProductoDepartamento" resultMap="resultMapProductoDepartamento">
+    SELECT PRODUCTO_id, DEPARTAMENTO_codigo
+    FROM producto_departamento;
   </select>
 
 </sqlMap>

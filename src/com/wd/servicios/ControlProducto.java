@@ -131,4 +131,64 @@ public class ControlProducto {
         }
     }
 
+    /**
+     * Metodo para agregar registro al historial de Productos-Departamentos
+     * @param producto el producto a agregar
+     * @return resultado de la operacion
+     */
+    public boolean agregarProductoDepartamento(Producto producto){
+        boolean resultado = false;
+        try {
+            this.sqlMap.insert("agregarProductoDepartamento", producto);
+            this.bitacora.info("ProductoDepartamento: " + producto.getId() +
+                    " agregado con éxito al departamento " + producto.getDepartamentoId());
+            resultado = true;
+        } catch (SQLException ex) {
+            this.bitacora.error("ProductoDepartamento: " + producto.getId()
+                    + " operacion fallida: " + ex.getMessage()
+                    + "Departamento " + producto.getDepartamentoId());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para eliminar un registro de Producto-Departamento
+     * @param producto el producto a eliminar
+     * @return resultado de la operacion
+     */
+    public boolean eliminarProductoDepartamento(Producto producto){
+        boolean resultado = false;
+        try {
+            this.sqlMap.delete("eliminarProductoDepartamento", producto);
+            this.bitacora.info("ProductoDepartamento: " + producto.getId() +
+                    " eliminado con éxito al departamento " + producto.getDepartamentoId());
+            resultado = true;
+        } catch (SQLException ex) {
+            this.bitacora.error("ProductoDepartamento: " + producto.getId()
+                    + " operacion fallida: " + ex.getMessage()
+                    + "Departamento " + producto.getDepartamentoId());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para traer todos los productos y sus departamentos
+     * @return todos los productos y sus departamentos
+     */
+    public Collection<Producto> consultarProductoDepartamento(){
+        Collection<Producto> coleccionProductos = null;
+        try {
+            this.bitacora.info("Iniciando operacion para traer todos los departamnetos de un producto");
+            coleccionProductos = this.sqlMap.queryForList("consultarProductoDepartamento");
+        } catch (SQLException ex) {
+            this.bitacora.error("No se pudo realizar la operacion porque: " +
+                    ex.getMessage());
+        } finally {
+            return coleccionProductos;
+        }
+    }
 }

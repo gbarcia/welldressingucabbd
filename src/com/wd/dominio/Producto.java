@@ -21,11 +21,14 @@ public class Producto {
     /** variable de precio*/
     private int precio;
 
-    /** variable de fecha de creacion del proyecto*/
+    /** variable de fecha de creacion del producto*/
     private Date fecha_creacion;
 
-    /** variable de fecha de ultima moficacion del proyecto*/
+    /** variable de fecha de ultima moficacion del producto*/
     private Date fecha_ultima_modificacion;
+
+    /** variable de identificador de departamento*/
+    private int departamentoId;
 
     /**
      * Contructor de la clase
@@ -60,6 +63,11 @@ public class Producto {
         this.precio = precio;
         this.fecha_creacion = fecha_creacion;
         this.fecha_ultima_modificacion = fecha_ultima_modificacion;
+    }
+
+    public Producto(int id, int departamentoId) {
+        this.id = id;
+        this.departamentoId = departamentoId;
     }
 
     /**
@@ -145,5 +153,24 @@ public class Producto {
     public void setFecha_ultima_modificacion(Date fecha_ultima_modificacion) {
         this.fecha_ultima_modificacion = fecha_ultima_modificacion;
     }
+
+    /**
+     * Get the value of departamentoId
+     *
+     * @return the value of departamentoId
+     */
+    public int getDepartamentoId() {
+        return departamentoId;
+    }
+
+    /**
+     * Set the value of departamentoId
+     *
+     * @param departamentoId new value of departamentoId
+     */
+    public void setDepartamentoId(int departamentoId) {
+        this.departamentoId = departamentoId;
+    }
+
 
 }
