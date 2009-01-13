@@ -7,6 +7,8 @@ import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiEmpresaVigilancia;
 import com.wd.gui.controlparticular.ControlGuiTienda;
 import java.util.Vector;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,6 +35,8 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
 
     private EmpresaVigilancia empOnDelete;
 
+    private JFrame Oh;
+
     /** Creates new form VentanaReasignarEmpresaVigilancia */
     public VentanaReasignarEmpresaVigilancia(EmpresaVigilancia oldEmp,Vector<EmpresaVigilancia> emps,Vector<Tienda> tiendas,Vector<CentroDistribucion> centros) {
         initComponents();
@@ -46,7 +50,6 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
         vecEmps = new Vector();
 
         vecEmps.remove(empOnDelete);
-
         vecCentros = centros;
         vecTiendas = tiendas;
         vecEmps = emps;
@@ -263,23 +266,28 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
 
         selectTienda = this.tablaTiendas.getSelectedRow();
         Tienda auxTienda = new Tienda();
-        auxTienda = this.vecTiendas.elementAt(selectTienda);
+        
+        if (selectTienda!=-1){
+            auxTienda = this.vecTiendas.elementAt(selectTienda);
+            tiendaCodigo = auxTienda.getCodigo();
+            nombreTienda = auxTienda.getNombre();
+            tamaño = auxTienda.getTamano();
+            horarioId = auxTienda.getHORARIO_id();
+            telefonoTienda = auxTienda.getTelefono();
+            correo = auxTienda.getCorreo();
+            ciudadId = auxTienda.getLUGAR_id();
+            direccionTienda = auxTienda.getDireccion();
 
-        tiendaCodigo = auxTienda.getCodigo();
-        nombreTienda = auxTienda.getNombre();
-        tamaño = auxTienda.getTamano();
-        horarioId = auxTienda.getHORARIO_id();
-        telefonoTienda = auxTienda.getTelefono();
-        correo = auxTienda.getCorreo();
-        ciudadId = auxTienda.getLUGAR_id();
-        direccionTienda = auxTienda.getDireccion();
+            this.controlTienda = new ControlGuiTienda();
+            controlTienda.modificarTienda(tiendaCodigo,nombreTienda,tamaño,
+            horarioId,telefonoTienda,correo,ciudadId,direccionTienda,empRif);
 
-        this.controlTienda = new ControlGuiTienda();
-        controlTienda.modificarTienda(tiendaCodigo,nombreTienda,tamaño,
-        horarioId,telefonoTienda,correo,ciudadId,direccionTienda,empRif);
-
-        this.vecTiendas.remove(auxTienda);
-        this.tablaTiendas.remove(selectTienda);
+            this.vecTiendas.remove(selectTienda);
+            this.tablaTiendas.remove(selectTienda);
+        }else if(selectTienda ==-1){
+            JOptionPane.showMessageDialog(Oh, "Debe seleccionar una tienda para" +
+            "asignarle una nueva Empresa de Vigilancia", "Error",0);
+        }
     }//GEN-LAST:event_buttonReasignarTiendasActionPerformed
 
     private void buttonReasignarCentrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReasignarCentrosActionPerformed
