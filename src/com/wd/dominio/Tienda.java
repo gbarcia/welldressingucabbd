@@ -50,14 +50,14 @@ public class Tienda {
            String correo, String direccion, int LUGAR_id, int HORARIO_id,
            String EMPRESA_SERVICIO_rif) {
         this.codigo = codigo;
-        this.nombre = nombre;
+        this.nombre = nombre.toUpperCase();
         this.tamano = tamano;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.direccion = direccion;
+        this.telefono = telefono.toUpperCase();
+        this.correo = correo.toUpperCase();
+        this.direccion = direccion.toUpperCase();
         this.LUGAR_id = LUGAR_id;
         this.HORARIO_id = HORARIO_id;
-        this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif;
+        this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif.toUpperCase();
     }
 
     /**

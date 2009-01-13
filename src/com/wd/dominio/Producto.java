@@ -43,8 +43,8 @@ public class Producto {
      */
     public Producto(int id, String nombre, String descripcion) {
         this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.nombre = nombre.toUpperCase();
+        this.descripcion = descripcion.toUpperCase();
     }
 
     /**
@@ -58,8 +58,8 @@ public class Producto {
      */
     public Producto(int id, String nombre, String descripcion, int precio, Date fecha_creacion, Date fecha_ultima_modificacion) {
         this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.nombre = nombre.toUpperCase();
+        this.descripcion = descripcion.toUpperCase();
         this.precio = precio;
         this.fecha_creacion = fecha_creacion;
         this.fecha_ultima_modificacion = fecha_ultima_modificacion;
