@@ -39,9 +39,9 @@ public class ControlGuiProducto {
      * @param descripcion la descripcion del producto
      * @param subclase_id el id de la subclase del producto
      */
-    public boolean agregarProducto(String nombre, String descripcion, int subclase_id){
-        this.producto = new Producto(subclase_id, nombre, descripcion);
-        boolean resultado = this.controlGeneral.agregarProducto(producto);
+    public boolean agregarProducto(String nombre, String descripcion){
+        this.producto = new Producto(0, nombre, descripcion);
+        boolean  resultado = this.controlGeneral.agregarProducto(producto);
         if (resultado) {
             controlador.mostrarMensaje("Producto agregado con éxito",0);
         } else {
@@ -61,7 +61,5 @@ public class ControlGuiProducto {
     public boolean eliminarProducto(int id) {
         return controlGeneral.eliminarProducto(id);
     }
-
-
 
 }

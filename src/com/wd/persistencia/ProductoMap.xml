@@ -28,8 +28,8 @@
   </resultMap>
 
   <insert id="agregarProducto" parameterClass="producto">
-    INSERT INTO producto (id, nombre, descripcion)
-    VALUES (null, #nombre#, #descripcion#)
+        INSERT INTO producto (id, nombre, descripcion)
+        VALUES (LAST_INSERT_ID(), #nombre#, #descripcion#)
   </insert>
 
   <select id="consultarProducto" parameterClass="int" resultClass="producto">

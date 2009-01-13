@@ -53,6 +53,16 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         this.jList1.setModel(modelo);
     }
 
+    
+    private void seleccionarSubclases(){
+        this.seleccion = new Vector<Departamento>();
+        int[] indices = this.jList1.getSelectedIndices();
+        for (int i : indices) {
+            this.seleccion.add(this.subclases.get(i));
+        }
+    }
+
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -128,11 +138,6 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
 
         jLabel11.setText("Subclase [*]");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -224,6 +229,9 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registrarActionPerformed
+        this.seleccionarSubclases();
+        boolean resultado = this.control_gui_producto.agregarProducto(
+                this.jTextField_nombre.getText(), this.jTextPane_descripcion.getText());
         
     }//GEN-LAST:event_jButton_registrarActionPerformed
 

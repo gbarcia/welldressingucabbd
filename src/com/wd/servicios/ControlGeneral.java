@@ -814,7 +814,7 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
-     * Metodo para eliminar un producto
+     * Metodo para modificar un producto
      * @param producto
      * @return resultado de la operacion
      */
@@ -823,7 +823,7 @@ public class ControlGeneral implements IfaceControlGeneral {
         try {
             this.controlProducto = new ControlProducto();
             this.bitacora.info("ControlProducto iniciado correctamente");
-            resultado = this.controlProducto.agregarProducto(producto);
+            resultado = this.controlProducto.modificarProducto(producto);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
         } finally {
