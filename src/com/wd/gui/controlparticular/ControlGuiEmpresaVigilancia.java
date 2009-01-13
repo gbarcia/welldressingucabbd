@@ -107,10 +107,12 @@ public class ControlGuiEmpresaVigilancia {
     public void  eliminarEmpresadelSistema (String rif){
         int resultado = ControlGeneral.getInstance().eliminarEmpresaVigilancia(rif);
         if (resultado==1) {
-        controlador.mostrarMensaje("Centro eliminado con éxito",0);
+        controlador.mostrarMensaje("Empresa eliminada con éxito",0);
         }
         else  if (resultado==0)
-        controlador.mostrarMensaje("Operacion fallida", 1);
+        controlador.mostrarMensaje("Operacion fallida,  Problemas de refencia" +
+        " elimine todo lo asociado a este centro y luego" +
+        " intente de nuevo",1);
     }
 
 }

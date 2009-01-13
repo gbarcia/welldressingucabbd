@@ -117,11 +117,13 @@ public class ControlEmpresaVigilancia {
     public int eliminarEmpresa(String rif) {
         int resultado = 0;
         try {
-            resultado = sqlMap.delete("eliminarEmpresa",rif);
+            sqlMap.delete("eliminarEmpresa",rif);
             bitacora.info("Empresa de Vigilancia: " + rif +
-            " eliminada con éxito");            
+            " eliminada con éxito");
+            resultado = 1;
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+            resultado = 0;
         }
         finally {
             return resultado;
