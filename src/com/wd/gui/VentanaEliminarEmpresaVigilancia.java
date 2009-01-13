@@ -490,7 +490,7 @@ public class VentanaEliminarEmpresaVigilancia extends javax.swing.JFrame {
     }
 
     public void iniciarVentanaReasignarEmpresaVigilancia(boolean var){        
-        ventanaReasignarEmpresaVigilancia  = new VentanaReasignarEmpresaVigilancia(empOnDelete,vecEmps,vecTiendasAux,vecCentrosAux);
+        ventanaReasignarEmpresaVigilancia  = new VentanaReasignarEmpresaVigilancia(empOnDelete.getRif(),vecEmps,vecTiendasAux,vecCentrosAux);
         this.ventanaReasignarEmpresaVigilancia.setVisible(var);
     }
 }

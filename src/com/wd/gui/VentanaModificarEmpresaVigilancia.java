@@ -476,7 +476,7 @@ public class VentanaModificarEmpresaVigilancia extends javax.swing.JFrame {
         vecAux.remove(selectEmp);
         vecEmpsAux2 = vecAux;
 
-        this.iniciarVentanaReasignarEmpresaVigilancia(true, empMod, vecEmpsAux2);
+        this.iniciarVentanaReasignarEmpresaVigilancia(true, empMod.getRif(), vecEmpsAux2);
     }//GEN-LAST:event_buttonReasignarActionPerformed
 
     private void buttonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCerrarActionPerformed
@@ -608,8 +608,8 @@ public class VentanaModificarEmpresaVigilancia extends javax.swing.JFrame {
         }
     }
 
-    public void iniciarVentanaReasignarEmpresaVigilancia(boolean var,EmpresaVigilancia empMod,Vector<EmpresaVigilancia>vecEmpsAux2){
-        ventanaReasignarEmpresaVigilancia  = new VentanaReasignarEmpresaVigilancia(empMod,vecEmpsAux2,vecTiendasAux,vecCentrosAux);
+    public void iniciarVentanaReasignarEmpresaVigilancia(boolean var,String rif,Vector<EmpresaVigilancia>vecEmpsAux2){
+        ventanaReasignarEmpresaVigilancia  = new VentanaReasignarEmpresaVigilancia(rif,vecEmpsAux2,vecTiendasAux,vecCentrosAux);
         this.ventanaReasignarEmpresaVigilancia.setVisible(var);
     }
 }
