@@ -841,9 +841,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_menuAgregarEmpleadoTiendaActionPerformed
 
     private void MenuProductosAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuProductosAgregarActionPerformed
-        Vector<Departamento> departamentos = null;
-        this.controlGuiDepartamento = new ControlGuiDepartamento();
-        departamentos = this.controlGuiDepartamento.traerTodosLosDepartamentos();
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniciarVentanaAgregarProducto(true);
     }//GEN-LAST:event_MenuProductosAgregarActionPerformed
