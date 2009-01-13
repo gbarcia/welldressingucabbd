@@ -19,7 +19,8 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
 
     private Vector<CentroDistribucion> vecCentros;
 
-    private Vector<Tienda> vecTiendas;
+    private Vector<Tienda> vecTiendas= new Vector<Tienda>();
+    private Vector<Tienda> vecTiendasAux;
 
     private Vector<EmpresaVigilancia> vecEmps;
 
@@ -45,16 +46,18 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
         java.awt.Image imagen = getToolkit().getImage(url);
         setIconImage (imagen);
 
-        vecCentros = new Vector();
-        vecTiendas = new Vector();
         vecEmps = new Vector();
 
-        vecEmps.remove(empOnDelete);
+        System.out.println("tiendas"+tiendas.size());
+        //vecEmps.remove(empOnDelete);
         vecCentros = centros;
-        vecTiendas = tiendas;
+        this.vecTiendas = tiendas;
         vecEmps = emps;
         empOnDelete = oldEmp;
 
+        for (Tienda tienda : vecTiendas) {
+                System.out.println("lalala"+tienda.getNombre());
+            }
         dm2 = new DefaultTableModel();
         dm2.addColumn("Codigo");
         dm2.addColumn("Nombre");
@@ -74,6 +77,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
 
         this.llenarTablaTienda();
         this.llenarTablaCentro();
+        
     }
 
     /** This method is called from within the constructor to
@@ -268,7 +272,9 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
         Tienda auxTienda = new Tienda();
         
         if (selectTienda!=-1){
-            auxTienda = this.vecTiendas.elementAt(selectTienda);
+            System.out.println("selectTienda"+selectTienda);
+            System.out.println("vectiendass"+vecTiendas.size());
+            auxTienda = this.vecTiendas.get(selectTienda);
             tiendaCodigo = auxTienda.getCodigo();
             nombreTienda = auxTienda.getNombre();
             tamaño = auxTienda.getTamano();
@@ -281,9 +287,9 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
             this.controlTienda = new ControlGuiTienda();
             controlTienda.modificarTienda(tiendaCodigo,nombreTienda,tamaño,
             horarioId,telefonoTienda,correo,ciudadId,direccionTienda,empRif);
-
-            this.vecTiendas.remove(selectTienda);
-            this.tablaTiendas.remove(selectTienda);
+            this.controlEmpresa.eliminarEmpresadelSistema(empOnDelete.getRif());
+            //this.vecTiendas.remove(selectTienda);
+            //this.tablaTiendas.remove(selectTienda);
         }else if(selectTienda ==-1){
             JOptionPane.showMessageDialog(Oh, "Debe seleccionar una tienda para" +
             "asignarle una nueva Empresa de Vigilancia", "Error",0);
@@ -379,4 +385,8 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
             this.tablaTiendas.setModel(dm2);
         }
     }
+
+    private void asignarEmp(){
+        //this
+}
 }
