@@ -6,6 +6,7 @@ import com.wd.dominio.Servicio;
 import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiEmpresaVigilancia;
 import com.wd.gui.controlparticular.ControlGuiTienda;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -20,13 +21,15 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
     private Vector<CentroDistribucion> vecCentros;
 
     private Vector<Tienda> vecTiendas= new Vector<Tienda>();
-    private Vector<Tienda> vecTiendasAux;
+    private ArrayList<Tienda> vecTiendasAux;
 
     private Vector<EmpresaVigilancia> vecEmps;
 
     private DefaultTableModel dm1;
 
     private DefaultTableModel dm2;
+
+    private String rif="";
 
     String empName = "";
 
@@ -39,7 +42,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
     private JFrame Oh;
 
     /** Creates new form VentanaReasignarEmpresaVigilancia */
-    public VentanaReasignarEmpresaVigilancia(EmpresaVigilancia oldEmp,Vector<EmpresaVigilancia> emps,Vector<Tienda> tiendas,Vector<CentroDistribucion> centros) {
+    public VentanaReasignarEmpresaVigilancia(String rif,Vector<EmpresaVigilancia> emps,Vector<Tienda> tiendas,Vector<CentroDistribucion> centros) {
         initComponents();
         
         java.net.URL url = getClass().getResource("Iconos/icon_016.png");
@@ -52,9 +55,13 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
         //vecEmps.remove(empOnDelete);
         vecCentros = centros;
         this.vecTiendas = tiendas;
+        this.vecTiendasAux = new ArrayList();
+        for (Tienda tienda : tiendas){
+            this.vecTiendasAux.add(tienda);
+        }
         vecEmps = emps;
-        empOnDelete = oldEmp;
-
+        //empOnDelete = oldEmp;
+        this.rif = rif;
         for (Tienda tienda : vecTiendas) {
                 System.out.println("lalala"+tienda.getNombre());
             }
@@ -71,6 +78,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
         dm1.addColumn("Telefono");
         dm1.addColumn("Dirección");
 
+        this.controlEmpresa = new ControlGuiEmpresaVigilancia();
         for (EmpresaVigilancia emp : vecEmps){
             this.comboEmpresas.addItem(emp.getNombre());
         }
@@ -272,9 +280,10 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
         Tienda auxTienda = new Tienda();
         
         if (selectTienda!=-1){
+            if(this.vecTiendas!=null){System.out.println("pepe");}
             System.out.println("selectTienda"+selectTienda);
-            System.out.println("vectiendass"+vecTiendas.size());
-            auxTienda = this.vecTiendas.get(selectTienda);
+            System.out.println("vectiendass"+vecTiendasAux.size());
+            auxTienda = this.vecTiendasAux.get(selectTienda);
             tiendaCodigo = auxTienda.getCodigo();
             nombreTienda = auxTienda.getNombre();
             tamaño = auxTienda.getTamano();
@@ -287,7 +296,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
             this.controlTienda = new ControlGuiTienda();
             controlTienda.modificarTienda(tiendaCodigo,nombreTienda,tamaño,
             horarioId,telefonoTienda,correo,ciudadId,direccionTienda,empRif);
-            this.controlEmpresa.eliminarEmpresadelSistema(empOnDelete.getRif());
+            this.controlEmpresa.eliminarEmpresadelSistema(this.rif);
             //this.vecTiendas.remove(selectTienda);
             //this.tablaTiendas.remove(selectTienda);
         }else if(selectTienda ==-1){
@@ -329,8 +338,8 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run(EmpresaVigilancia oldEmp,Vector<EmpresaVigilancia> emps,Vector<Tienda> tiendas,Vector<CentroDistribucion> centros) {
-                new VentanaReasignarEmpresaVigilancia(oldEmp,emps,tiendas,centros).setVisible(true);
+            public void run(String rif,Vector<EmpresaVigilancia> emps,Vector<Tienda> tiendas,Vector<CentroDistribucion> centros) {
+                new VentanaReasignarEmpresaVigilancia(rif,emps,tiendas,centros).setVisible(true);
             }
             public void run() {
                 throw new UnsupportedOperationException("Not supported yet.");
@@ -380,7 +389,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
             info.addElement(tienda.getNombre());
             info.addElement(tienda.getTelefono());
             info.addElement(tienda.getCorreo());
-            info.addElement(empOnDelete.getNombre());
+            //info.addElement();
             dm2.addRow(info);
             this.tablaTiendas.setModel(dm2);
         }
