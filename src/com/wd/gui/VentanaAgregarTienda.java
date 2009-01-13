@@ -113,14 +113,6 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar Tienda");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Tienda"));
 
@@ -401,16 +393,8 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_registarActionPerformed
 
     private void jButton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelarActionPerformed
-       this.setVisible(false);
+       this.dispose();
     }//GEN-LAST:event_jButton_cancelarActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       this.setVisible(false);
-    }//GEN-LAST:event_formWindowClosing
-
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        this.setVisible(false);
-    }//GEN-LAST:event_formWindowClosed
 
     /**
     * @param args the command line arguments

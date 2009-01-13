@@ -381,7 +381,7 @@ public class VentanaConsultarTienda extends javax.swing.JFrame {
 }//GEN-LAST:event_jComboBox_tiendassActionPerformed
 
     private void jButton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelarActionPerformed
-        this.setVisible(false);
+        this.dispose();
 }//GEN-LAST:event_jButton_cancelarActionPerformed
 
     /**

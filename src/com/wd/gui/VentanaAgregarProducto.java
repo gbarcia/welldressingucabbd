@@ -1,6 +1,7 @@
 package com.wd.gui;
 
 import com.wd.dominio.Departamento;
+import com.wd.dominio.Producto;
 import com.wd.gui.controlparticular.ControlGuiDepartamento;
 import com.wd.gui.controlparticular.ControlGuiProducto;
 import com.wd.gui.controlparticular.ControlGuiProductoDepartamento;
@@ -13,6 +14,7 @@ import javax.swing.DefaultListModel;
  */
 public class VentanaAgregarProducto extends javax.swing.JFrame {
 
+    private ControlGui control_gui;
     private ControlGuiProducto control_gui_producto;
     private ControlGuiProductoDepartamento control_gui_producto_departamento;
     private ControlGuiDepartamento contro_gui_departamento;
@@ -21,17 +23,24 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
     private Vector<Departamento> clases;
     private Vector<Departamento> subclases;
     private Vector<Departamento> seleccion;
+    private Vector<Producto> productos;
+
+    private Producto producto;
 
 
     /** Creates new form VentanaAgregarProducto */
     public VentanaAgregarProducto() {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
         this.initControles();
         this.initVectores();
         this.llenarLista();
     }
 
     private void initControles(){
+        this.control_gui = new ControlGui();
         this.contro_gui_departamento = new ControlGuiDepartamento();
         this.control_gui_producto = new ControlGuiProducto();
         this.control_gui_producto_departamento = new ControlGuiProductoDepartamento();
@@ -53,7 +62,6 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         this.jList1.setModel(modelo);
     }
 
-    
     private void seleccionarSubclases(){
         this.seleccion = new Vector<Departamento>();
         int[] indices = this.jList1.getSelectedIndices();
@@ -62,6 +70,24 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         }
     }
 
+    private void agregarProductoDepartamneto(){
+        for (Departamento departamento : seleccion) {
+            this.control_gui_producto_departamento.agregarProductoDepartamento(
+                    new Producto(this.producto.getId(), departamento.getCodigo()));
+        }
+    }
+
+    private boolean valido(){
+        if (this.jTextField_nombre.getText().isEmpty()){
+            this.control_gui.mostrarMensaje("Introduzca un nombre", 1);
+            return false;
+        }
+        if (this.seleccion.isEmpty()){
+            this.control_gui.mostrarMensaje("Debe seleccionar una o mas categorias", 1);
+            return false;
+        }
+        return true;
+    }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -87,7 +113,8 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Agregar Producto");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Producto"));
 
@@ -113,8 +140,8 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                        .addComponent(jTextField_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jTextField_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -138,6 +165,7 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
 
         jLabel11.setText("Subclase [*]");
 
+        jList1.setPreferredSize(new java.awt.Dimension(0, 0));
         jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -147,8 +175,8 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jScrollPane2, 0, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -156,8 +184,8 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton_registrar.setText("Registrar");
@@ -184,9 +212,8 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
@@ -200,8 +227,8 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_registrar)
                     .addComponent(jButton2))
@@ -220,9 +247,9 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -230,13 +257,20 @@ public class VentanaAgregarProducto extends javax.swing.JFrame {
 
     private void jButton_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registrarActionPerformed
         this.seleccionarSubclases();
-        boolean resultado = this.control_gui_producto.agregarProducto(
-                this.jTextField_nombre.getText(), this.jTextPane_descripcion.getText());
-        
+        if (this.valido()){
+            boolean resultado = this.control_gui_producto.agregarProducto(
+                    this.jTextField_nombre.getText(), this.jTextPane_descripcion.getText());
+            if (resultado){
+                this.productos = this.control_gui_producto.traerTodosLosProductos();
+                this.producto = this.productos.lastElement();
+                this.agregarProductoDepartamneto();
+                System.out.println("");
+            }
+        }
     }//GEN-LAST:event_jButton_registrarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

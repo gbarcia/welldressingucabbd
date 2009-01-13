@@ -10,6 +10,7 @@ import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
 import java.util.Collection;
+import java.util.Vector;
 
 /**
  *
@@ -50,8 +51,8 @@ public class ControlGuiProducto {
             return resultado;
     }
 
-    public Collection traerTodosLosProductos() {
-        return controlGeneral.traerTodosLosProductos();
+    public Vector<Producto> traerTodosLosProductos() {
+        return new Vector<Producto>(controlGeneral.traerTodosLosProductos());
     }
 
     public boolean modificarProducto(Producto producto) {
