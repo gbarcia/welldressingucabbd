@@ -80,12 +80,14 @@ public class ControlGui {
     /** Variable para la ventana para consultar tienda*/
     private VentanaConsultarTienda ventanaConsultarTienda;
     private VentanaModificarEmpresaVigilancia ventanaModificarEmpresaVigilancia;
-    /** Constructor del ControlGui */
+    /** variable de ventana de modificar tiendas */
     private VentanaModificarTienda ventanaModificarTienda;
-    /** Constructor del ControlGui */
+    /** variable de ventana de elimianr tiendas */
     private VentanaEliminarTienda ventanaEliminarTienda;
-    /** Constructor del ControlGui */
+    /** variable de ventana de consulta de productos */
+    private VentanaConsultarProducto ventanaConsultarProducto;
 
+    /** Constructor del ControlGui */
     public ControlGui() {
     }
 
@@ -414,14 +416,31 @@ public class ControlGui {
         this.ventanaConsultarTienda.setVisible(true);
     }
 
+    /**
+     * Metodo para mostrar la ventana de modificar tiendas
+     * @param var visibilidad
+     */
     public void iniciarVentanaModificarTienda(boolean var) {
         this.ventanaModificarTienda = new VentanaModificarTienda();
         this.ventanaModificarTienda.setVisible(true);
     }
 
+    /**
+     * Metodo para mostrar la ventana de eliminar tiendas
+     * @param var visibilidad
+     */
     public void iniciarVentanaEliminarTienda(boolean var) {
         this.ventanaEliminarTienda = new VentanaEliminarTienda();
         this.ventanaEliminarTienda.setVisible(true);
+    }
+
+    /**
+     * Metodo para mostrar la ventana de consultar productos
+     * @param var visibilidad
+     */
+    public void iniciarVentanaConsultaProducto(boolean var) {
+        this.ventanaConsultarProducto = new VentanaConsultarProducto();
+        this.ventanaConsultarProducto.setVisible(true);
     }
 
     /**
