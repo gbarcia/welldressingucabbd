@@ -366,7 +366,7 @@ public class VentanaEliminarEmpresaVigilancia extends javax.swing.JFrame {
            empOnDelete.getNombre()+" Debe Reasignarle empresas de " +
            "Vigilancia a sus Tiendas y Centros de Distribución Asociados", "Info",1);
            this.iniciarVentanaReasignarEmpresaVigilancia(true);
-           this.controlEmpresa.eliminarEmpresadelSistema(empOnDelete.getRif());
+           //this.controlEmpresa.eliminarEmpresadelSistema(empOnDelete.getRif());
            
            selectCity = this.comboCiudad.getSelectedIndex();
            this.cargarComboEmpresa(this.ciudadesAux.elementAt(selectCity).getId());
