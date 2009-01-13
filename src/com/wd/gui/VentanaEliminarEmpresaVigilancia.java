@@ -354,7 +354,6 @@ public class VentanaEliminarEmpresaVigilancia extends javax.swing.JFrame {
     }//GEN-LAST:event_comboNombreActionPerformed
 
     private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
-       int select = -1;
        int selectTabla = -1;
        int selectCity = -1;
        int resultado = -1;
@@ -490,7 +489,7 @@ public class VentanaEliminarEmpresaVigilancia extends javax.swing.JFrame {
         }
     }
 
-    public void iniciarVentanaReasignarEmpresaVigilancia(boolean var){
+    public void iniciarVentanaReasignarEmpresaVigilancia(boolean var){        
         ventanaReasignarEmpresaVigilancia  = new VentanaReasignarEmpresaVigilancia(empOnDelete,vecEmps,vecTiendasAux,vecCentrosAux);
         this.ventanaReasignarEmpresaVigilancia.setVisible(var);
     }
