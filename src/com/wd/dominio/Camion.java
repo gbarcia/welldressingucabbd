@@ -81,7 +81,7 @@ public class Camion {
      * @param placa la placa del camion
      */
     public void setPlaca(String placa) {
-        this.placa = placa;
+        this.placa = placa.toUpperCase();
     }
 
     /**
@@ -95,7 +95,7 @@ public class Camion {
      * @param modelo el modelo del camion
      */
     public void setModelo(String modelo) {
-        this.modelo = modelo;
+        this.modelo = modelo.toUpperCase();
     }
 
     /**
@@ -109,7 +109,7 @@ public class Camion {
      * @param color el color del camion
      */
     public void setColor(String color) {
-        this.color = color;
+        this.color = color.toUpperCase();
     }
 
     /**
@@ -123,7 +123,7 @@ public class Camion {
      * @param estado el estado del camion
      */
     public void setEstado(String estado) {
-        this.estado = estado;
+        this.estado = estado.toUpperCase();
     }
 
     /**

@@ -85,7 +85,7 @@ public class Tienda {
      * @param nombre el nombre a asignar
      */
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre = nombre.toUpperCase();
     }
 
     /**
@@ -113,7 +113,7 @@ public class Tienda {
      * @param telefono el telefono a asignar
      */
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        this.telefono = telefono.toUpperCase();
     }
 
     /**
@@ -127,7 +127,7 @@ public class Tienda {
      * @param correo el correo electronico a asignar
      */
     public void setCorreo(String correo) {
-        this.correo = correo;
+        this.correo = correo.toUpperCase();
     }
 
     /**
@@ -141,7 +141,7 @@ public class Tienda {
      * @param direccion la direccion a asignar
      */
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.direccion = direccion.toUpperCase();
     }
 
     /**
@@ -184,7 +184,7 @@ public class Tienda {
      * @param EMPRESA_SERVICIO_rif el EMPRESA_SERVICIO_rif a asignar
      */
     public void setEMPRESA_SERVICIO_rif(String EMPRESA_SERVICIO_rif) {
-        this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif;
+        this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif.toUpperCase();
     }
 
 }

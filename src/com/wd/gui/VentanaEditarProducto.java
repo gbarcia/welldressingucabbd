@@ -4,9 +4,9 @@
  */
 
 /*
- * VentanaConsultarProducto.java
+ * VentanaEditarProducto.java
  *
- * Created on Jan 13, 2009, 12:59:00 AM
+ * Created on Jan 13, 2009, 2:28:34 AM
  */
 
 package com.wd.gui;
@@ -24,7 +24,7 @@ import javax.swing.DefaultListModel;
  *
  * @author Johnny
  */
-public class VentanaConsultarProducto extends javax.swing.JFrame {
+public class VentanaEditarProducto extends javax.swing.JFrame {
 
     private ControlGui control_gui;
     private ControlGuiProducto control_gui_producto;
@@ -45,20 +45,16 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
     /** producto seleccionado*/
     private Producto producto;
 
-    /** Creates new form VentanaConsultarProducto */
-    public VentanaConsultarProducto() {
+    /** Creates new form VentanaEditarProducto */
+    public VentanaEditarProducto() {
         initComponents();
-        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
-        java.awt.Image imagen = getToolkit().getImage(url);
-        setIconImage (imagen);
         this.initControles();
         this.initVectores();
         this.llenarProductos();
-        if (this.jComboBox_productos.getSelectedIndex() != -1)
-                this.jComboBox_productos.setSelectedIndex(0);
+        this.llenarLista();
     }
 
-    private void initControles(){
+   private void initControles(){
         this.control_gui = new ControlGui();
         this.contro_gui_departamento = new ControlGuiDepartamento();
         this.control_gui_producto = new ControlGuiProducto();
@@ -88,7 +84,6 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
         this.jTextField_nombre.setText(this.producto.getNombre());
         this.jTextPane_descripcion.setText(this.producto.getDescripcion());
         this.seleccionarSubclases();
-        this.llenarLista();
     }
 
     private void seleccionarSubclases(){
@@ -106,8 +101,9 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
     }
 
     private void llenarLista(){
+        this.subclases = new Vector<Departamento>(this.control_gui_producto_departamento.traerTodasLasSubclases());
         DefaultListModel modelo = new DefaultListModel();
-        for (Departamento subclase : seleccion) {
+        for (Departamento subclase : subclases) {
             modelo.addElement(subclase.getNombre());
         }
         this.jList1.setModel(modelo);
@@ -133,14 +129,15 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
-        jButton2 = new javax.swing.JButton();
         jPanel25 = new javax.swing.JPanel();
         jComboBox_productos = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton_registrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Producto"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Editar Producto"));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Información del Producto"));
         jPanel2.setPreferredSize(new java.awt.Dimension(350, 263));
@@ -214,13 +211,6 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton2.setText("Cerrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione un Producto"));
 
         jComboBox_productos.addActionListener(new java.awt.event.ActionListener() {
@@ -251,6 +241,20 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton_registrar.setText("Editar");
+        jButton_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_registrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -261,7 +265,10 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
                     .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton_registrar)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -272,15 +279,18 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_registrar)
+                    .addComponent(jButton2))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 413, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,6 +298,7 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 488, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,14 +308,17 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBox_productossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_productossActionPerformed
+
+}//GEN-LAST:event_jComboBox_productossActionPerformed
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
 }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jComboBox_productossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_productossActionPerformed
-        this.producto = this.productos.get(this.jComboBox_productos.getSelectedIndex());
-        this.llenarInformacion();
-}//GEN-LAST:event_jComboBox_productossActionPerformed
+    private void jButton_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registrarActionPerformed
+
+}//GEN-LAST:event_jButton_registrarActionPerformed
 
     /**
     * @param args the command line arguments
@@ -312,13 +326,14 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaConsultarProducto().setVisible(true);
+                new VentanaEditarProducto().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_registrar;
     private javax.swing.JComboBox jComboBox_productos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

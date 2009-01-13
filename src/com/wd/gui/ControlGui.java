@@ -86,6 +86,8 @@ public class ControlGui {
     private VentanaEliminarTienda ventanaEliminarTienda;
     /** variable de ventana de consulta de productos */
     private VentanaConsultarProducto ventanaConsultarProducto;
+     /** variable de ventana de consulta de productos */
+    private VentanaEditarProducto ventanaEditarProducto;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -450,6 +452,15 @@ public class ControlGui {
     public void iniciarVentanaModificarEmpresaVigilancia(boolean var, Vector result) {
         ventanaModificarEmpresaVigilancia = new VentanaModificarEmpresaVigilancia(result);
         ventanaModificarEmpresaVigilancia.setVisible(var);
+    }
+
+    /**
+     * Metodo para mostrar la ventana de editar productos
+     * @param var visibilidad
+     */
+    public void iniciarVentanaEditarProducto(boolean var) {
+        this.ventanaEditarProducto = new VentanaEditarProducto();
+        this.ventanaEditarProducto.setVisible(true);
     }
 
     /**

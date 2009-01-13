@@ -95,7 +95,7 @@ public class Producto {
      * @param nombre el nombre del producto
      */
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre = nombre.toUpperCase();
     }
 
     /**
@@ -109,7 +109,7 @@ public class Producto {
      * @param descripcion la descripcion del producto
      */
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        this.descripcion = descripcion.toUpperCase();
     }
 
     /**
