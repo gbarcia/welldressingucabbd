@@ -56,11 +56,23 @@ public class ControlGuiProducto {
     }
 
     public boolean modificarProducto(Producto producto) {
-        return controlGeneral.modificarProducto(producto);
+        boolean resultado = controlGeneral.modificarProducto(producto);
+        if (resultado) {
+            controlador.mostrarMensaje("Producto modificado con éxito",0);
+        } else {
+            controlador.mostrarMensaje("Operacion fallida", 1);
+        }
+            return resultado;
     }
 
     public boolean eliminarProducto(int id) {
-        return controlGeneral.eliminarProducto(id);
+        boolean resultado = controlGeneral.eliminarProducto(id);
+        if (resultado) {
+            controlador.mostrarMensaje("Producto eliminado con éxito",0);
+        } else {
+            controlador.mostrarMensaje("Operacion fallida", 1);
+        }
+            return resultado;
     }
 
 }

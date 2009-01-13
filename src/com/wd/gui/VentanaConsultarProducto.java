@@ -138,7 +138,8 @@ public class VentanaConsultarProducto extends javax.swing.JFrame {
         jComboBox_productos = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consultar Producto");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Producto"));
 

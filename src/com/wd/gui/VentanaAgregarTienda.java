@@ -215,6 +215,7 @@ public class VentanaAgregarTienda extends javax.swing.JFrame {
         });
 
         jTextArea_direccion.setColumns(20);
+        jTextArea_direccion.setLineWrap(true);
         jTextArea_direccion.setRows(5);
         jScrollPane1.setViewportView(jTextArea_direccion);
 

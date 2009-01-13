@@ -74,7 +74,6 @@
   <delete id="eliminarProductoDepartamento" parameterClass="producto">
     DELETE FROM producto_departamento
     WHERE PRODUCTO_id = #id#
-    AND DEPARTAMENTO_codigo = #departamentoId#
   </delete>
 
   <select id="consultarProductoDepartamento" resultMap="resultMapProductoDepartamento">

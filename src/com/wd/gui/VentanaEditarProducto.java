@@ -37,6 +37,8 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
 
     /** las sublcases del un producto*/
     private Vector<Departamento> seleccion;
+    /** las nuevas sublcases seleccionadas de un producto*/
+    private Vector<Departamento> nuevaSeleccion;
     /** todos los productos*/
     private Vector<Producto> productos;
     /** todos los productos-departamentos*/
@@ -48,10 +50,15 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
     /** Creates new form VentanaEditarProducto */
     public VentanaEditarProducto() {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
         this.initControles();
         this.initVectores();
         this.llenarProductos();
         this.llenarLista();
+        if (this.jComboBox_productos.getSelectedIndex() != -1)
+            this.jComboBox_productos.setSelectedIndex(0);
     }
 
    private void initControles(){
@@ -69,6 +76,7 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
         this.productos = this.control_gui_producto.traerTodosLosProductos();
         this.producto_departamento = new Vector(
                 this.control_gui_producto_departamento.traerTodosLosProductoDepartamento());
+        this.nuevaSeleccion = new Vector<Departamento>();
     }
 
     private void llenarProductos(){
@@ -83,10 +91,11 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
     private void llenarInformacion(){
         this.jTextField_nombre.setText(this.producto.getNombre());
         this.jTextPane_descripcion.setText(this.producto.getDescripcion());
-        this.seleccionarSubclases();
+        this.seleccionarSubclasesPertenece();
+        
     }
 
-    private void seleccionarSubclases(){
+    private void seleccionarSubclasesPertenece(){
         Vector<Departamento> result = new Vector<Departamento>();
         for (Producto pd : this.producto_departamento) {
             if (pd.getId() == this.producto.getId()){
@@ -100,6 +109,14 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
         this.seleccion = result;
     }
 
+    private void seleccionarSubclasesSeleccionadas(){
+        this.nuevaSeleccion = new Vector<Departamento>();
+        int[] indices = this.jList1.getSelectedIndices();
+        for (int i : indices) {
+            this.nuevaSeleccion.add(this.subclases.get(i));
+        }
+    }
+
     private void llenarLista(){
         this.subclases = new Vector<Departamento>(this.control_gui_producto_departamento.traerTodasLasSubclases());
         DefaultListModel modelo = new DefaultListModel();
@@ -108,6 +125,26 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
         }
         this.jList1.setModel(modelo);
     }
+
+    private boolean valido(){
+        if (this.jTextField_nombre.getText().isEmpty()){
+            this.control_gui.mostrarMensaje("Introduzca un nombre", 1);
+            return false;
+        }
+        if (this.nuevaSeleccion.isEmpty()){
+            this.control_gui.mostrarMensaje("Debe seleccionar una o mas categorias", 1);
+            return false;
+        }
+        return true;
+    }
+
+    private void agregarProductoDepartamneto(){
+        for (Departamento departamento : nuevaSeleccion) {
+            this.control_gui_producto_departamento.agregarProductoDepartamento(
+                    new Producto(this.producto.getId(), departamento.getCodigo()));
+        }
+    }
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -135,21 +172,19 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton_registrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Modificar Producto");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Editar Producto"));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Información del Producto"));
         jPanel2.setPreferredSize(new java.awt.Dimension(350, 263));
 
-        jTextField_nombre.setEditable(false);
         jTextField_nombre.setPreferredSize(new java.awt.Dimension(200, 20));
 
         jLabel1.setText("Nombre");
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(200, 66));
-
-        jTextPane_descripcion.setEditable(false);
         jScrollPane1.setViewportView(jTextPane_descripcion);
 
         jLabel9.setText("Descripción");
@@ -290,7 +325,6 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 413, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,7 +332,6 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,7 +342,8 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox_productossActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_productossActionPerformed
-
+        this.producto = this.productos.get(this.jComboBox_productos.getSelectedIndex());
+        this.llenarInformacion();
 }//GEN-LAST:event_jComboBox_productossActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -317,7 +351,17 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
 }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registrarActionPerformed
-
+        this.seleccionarSubclasesSeleccionadas();
+        if (this.valido()){
+            boolean resultado = this.control_gui_producto.modificarProducto(
+                    new Producto(this.producto.getId(), this.jTextField_nombre.getText(), this.jTextPane_descripcion.getText()));
+            if (resultado){
+                this.productos = this.control_gui_producto.traerTodosLosProductos();
+                this.control_gui_producto_departamento.eliminarProductoDepartamento(producto);
+                this.agregarProductoDepartamneto();
+                System.out.println("");
+            }
+        }
 }//GEN-LAST:event_jButton_registrarActionPerformed
 
     /**

@@ -514,9 +514,13 @@ public class VentanaModificarTienda extends javax.swing.JFrame {
 
         this.jTextArea_direccion.setText(this.tienda.getDireccion());
         
-        for (int i = 0; i < this.empresas.size(); i++) {
-            if (this.empresas.get(i).getRif().equals(tienda.getEMPRESA_SERVICIO_rif()))
-                this.jComboBox_empresas.setSelectedIndex(i);
+        if (tienda.getEMPRESA_SERVICIO_rif().isEmpty()){
+            this.jComboBox_empresas.setSelectedIndex(0);
+        }else{
+            for (int i = 0; i < this.empresas.size(); i++) {
+                if (this.empresas.get(i).getRif().equals(tienda.getEMPRESA_SERVICIO_rif()))
+                    this.jComboBox_empresas.setSelectedIndex(i+1);
+            }   
         }
     }
 
