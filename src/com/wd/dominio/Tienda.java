@@ -57,7 +57,7 @@ public class Tienda {
         this.direccion = direccion.toUpperCase();
         this.LUGAR_id = LUGAR_id;
         this.HORARIO_id = HORARIO_id;
-        this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif.toUpperCase();
+        this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif;
     }
 
     /**
@@ -184,7 +184,8 @@ public class Tienda {
      * @param EMPRESA_SERVICIO_rif el EMPRESA_SERVICIO_rif a asignar
      */
     public void setEMPRESA_SERVICIO_rif(String EMPRESA_SERVICIO_rif) {
-        this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif.toUpperCase();
+        if (EMPRESA_SERVICIO_rif != null)
+            this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif;
     }
 
 }
