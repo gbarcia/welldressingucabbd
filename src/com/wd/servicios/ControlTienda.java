@@ -32,12 +32,12 @@ public class ControlTienda {
         this.sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
     }
 
-     /**
-      * Metodo para agregar una Tienda
-      * @param tienda la tienda a agregar
-      * @return resultado de la operacion
-      */
-    public boolean agregarTienda(Tienda tienda){
+    /**
+     * Metodo para agregar una Tienda
+     * @param tienda la tienda a agregar
+     * @return resultado de la operacion
+     */
+    public boolean agregarTienda(Tienda tienda) {
         boolean resultado = false;
         try {
             this.sqlMap.insert("agregarTienda", tienda);
@@ -47,7 +47,7 @@ public class ControlTienda {
         } catch (SQLException ex) {
             this.bitacora.error("Tienda: " + tienda.getCodigo() + " operacion " +
                     "fallida: " + ex.getMessage());
-        }finally {
+        } finally {
             return resultado;
         }
     }
@@ -57,7 +57,7 @@ public class ControlTienda {
      * @param tienda la tienda a modificar
      * @return resultado de la operacion
      */
-    public boolean modificarTienda(Tienda tienda){
+    public boolean modificarTienda(Tienda tienda) {
         boolean resultado = false;
         try {
             this.sqlMap.update("modificarTienda", tienda);
@@ -78,7 +78,7 @@ public class ControlTienda {
      * @param codigo el codigo de la Tienda
      * @return resultado de la operacion
      */
-    public boolean eliminarTienda(int codigo){
+    public boolean eliminarTienda(int codigo) {
         boolean resultado = false;
         try {
             this.sqlMap.delete("eliminarTienda", codigo);
@@ -97,7 +97,7 @@ public class ControlTienda {
      * Metodo para consultar Tiendas
      * @return todas las Tiendas del sistema
      */
-    public Collection<Tienda> consultarTiendas(){
+    public Collection<Tienda> consultarTiendas() {
         Collection<Tienda> coleccionTiendas = null;
         try {
             this.bitacora.info("Iniciando operacion para traer todas las Tiendas");
@@ -110,4 +110,32 @@ public class ControlTienda {
         }
     }
 
+    /**
+     * Metodo para consultar Tiendas en base a su tamaño en orden de mayor a menor
+     * o de menor a mayor
+     * @param orden int 1 de mayor a menor 2 de menor a mayor
+     * @return todas las Tiendas del sistema segun orden
+     */
+    public Collection<Tienda> traerTiendasOrdenTamano(int orden) {
+        Collection<Tienda> resultado = null;
+        try {
+            switch (orden) {
+                case 1:
+                    this.bitacora.info("Iniciando operacion para traer todas " +
+                            "las Tiendas en orden de mayor tamaño");
+                    resultado = sqlMap.queryForList("consultarTiendasMayorTamano");
+                    break;
+                case 2:
+                    this.bitacora.info("Iniciando operacion para traer todas " +
+                            "las Tiendas en orden de menor tamaño");
+                    resultado = sqlMap.queryForList("consultarTiendasMenorTamano");
+                    break;
+            }
+        } catch (SQLException ex) {
+            this.bitacora.error("No se pudo realizar la operacion porque: " +
+                    ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
 }

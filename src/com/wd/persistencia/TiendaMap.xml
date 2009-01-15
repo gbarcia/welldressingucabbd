@@ -46,4 +46,14 @@
     FROM TIENDA
   </select>
 
+  <select id="consultarTiendasMayorTamano" resultMap="resultMapTienda">
+    SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
+    FROM TIENDA ORDER BY tamano DESC
+  </select>
+
+  <select id="consultarTiendasMenorTamano" resultMap="resultMapTienda">
+    SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
+    FROM TIENDA ORDER BY tamano ASC
+  </select>
+
 </sqlMap>

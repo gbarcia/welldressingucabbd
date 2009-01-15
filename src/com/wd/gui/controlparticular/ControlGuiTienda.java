@@ -177,4 +177,9 @@ public class ControlGuiTienda {
         return true;
     }
 
+    public Collection<Tienda> traerTiendasMayorTamano (){
+        Collection<Tienda> resultado = null;
+        return resultado;
+    }
+
 }
