@@ -153,6 +153,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuHistorial = new javax.swing.JMenu();
         menuHistorialTiendas = new javax.swing.JMenuItem();
         menuHistorialCentros = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Well Dressing");
@@ -672,6 +673,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuHistorialCentros.setText("Personal Centros");
         menuHistorial.add(menuHistorialCentros);
 
+        jMenuItem3.setText("Estadísticas");
+        menuHistorial.add(jMenuItem3);
+
         menuBar.add(menuHistorial);
 
         setJMenuBar(menuBar);
@@ -958,6 +962,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem menuAgregarEmpleadoTienda;
     private javax.swing.JMenuItem menuArcecaDe;
     private javax.swing.JMenu menuArchivo;
