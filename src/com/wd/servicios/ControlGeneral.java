@@ -1089,7 +1089,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      */
     public boolean borrarEmpleado(int cedula) {
         boolean resultado = false;
-         try {
+        try {
             this.controlEmpleado = new ControlEmpleado();
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.borrarEmpleado(cedula);
@@ -1105,7 +1105,7 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param producto el producto a agregar
      * @return resultado de la operacion
      */
-    public boolean agregarProductoDepartamento(Producto producto){
+    public boolean agregarProductoDepartamento(Producto producto) {
         boolean resultado = false;
         try {
             this.controlProducto = new ControlProducto();
@@ -1178,7 +1178,14 @@ public class ControlGeneral implements IfaceControlGeneral {
      */
     public Collection<Tienda> traerTiendasOrdenTamano(int orden) {
         Collection<Tienda> resultado = null;
-        this.controlTienda.traerTiendasOrdenTamano(orden);
-        return resultado;
+        try {
+            this.controlTienda = new ControlTienda();
+            bitacora.info("ControlTienda iniciado correctamente");
+            resultado = this.controlTienda.traerTiendasOrdenTamano(orden);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlTienda por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
     }
 }

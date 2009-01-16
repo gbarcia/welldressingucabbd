@@ -11,15 +11,51 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Tienda;
+import com.wd.gui.controlparticular.ControlGuiTienda;
+import java.util.Collection;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author gerardo
  */
 public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
 
+    private Collection<Tienda> tiendasMayor;
+
+    private Collection<Tienda> tiendasMenor;
+
+    private ControlGuiTienda control = new ControlGuiTienda();
+
     /** Creates new form VentanaConsultaTiendasTamano */
     public VentanaConsultaTiendasTamano() {
         initComponents();
+
+        tiendasMayor = control.traerTiendasMayorTamano();
+
+        tiendasMenor = control.traerTiendasMenorTamano();
+
+         DefaultTableModel dm = new DefaultTableModel();
+            dm.addColumn("Codigo");
+            dm.addColumn("Nombre");
+            dm.addColumn("Tamaño");    
+
+      DefaultTableModel dm2 = new DefaultTableModel();
+            dm2.addColumn("Codigo");
+            dm2.addColumn("Nombre");
+            dm2.addColumn("Tamaño");
+
+       for1:
+           for (Tienda tienda : tiendasMayor) {
+           Vector info = new Vector();
+                info.addElement(tienda.getCodigo());
+                info.addElement(tienda.getNombre());
+                info.addElement(tienda.getTamano());
+                dm.addRow(info);
+       }
+           this.tablaMaMe.setModel(dm);
     }
 
     /** This method is called from within the constructor to
@@ -41,9 +77,10 @@ public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
         tablaMaMe = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        setTitle("Consulta Tiendas Tamaño");
+        setTitle("Estadísticas Tienda");
+        setAlwaysOnTop(true);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta de Tiendas por Tamaño", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 12), java.awt.SystemColor.activeCaption)); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estadísticas de Tiendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 12), java.awt.SystemColor.activeCaption)); // NOI18N
 
         TablaMeMa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -72,7 +109,7 @@ public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Menor a mayor", jPanel3);
+        jTabbedPane1.addTab("por Tamaño Menor a Mayor", jPanel3);
 
         tablaMaMe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,7 +138,7 @@ public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Mayor a menor", jPanel2);
+        jTabbedPane1.addTab("por Tamaño Mayor a Menor", jPanel2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

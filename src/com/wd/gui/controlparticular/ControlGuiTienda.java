@@ -112,7 +112,7 @@ public class ControlGuiTienda {
 
     /**
      * Metodo para crear el modelo que llena en jComboBox de Horarios
-     * @return el modelo de horarios
+     * @return el modelo de horarios        at com.wd.servicios.ControlGeneral.traerTiendasOrdenTamano(ControlGeneral.java:1181)
      */
     public Object[] modeloHorarios(Vector<Horario> horarios){
         Vector<String> modeloComboBox = new Vector<String>();
