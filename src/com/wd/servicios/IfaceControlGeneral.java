@@ -291,5 +291,14 @@ public interface IfaceControlGeneral {
      * @return todas las subclases
      */
     public Collection traerTodasLasSubclases();
+
+
+    /**
+     * Metodo para consultar Tiendas en base a su tamaño en orden de mayor a menor
+     * o de menor a mayor
+     * @param orden int 1 de mayor a menor 2 de menor a mayor
+     * @return todas las Tiendas del sistema segun orden
+     */
+    public Collection<Tienda> traerTiendasOrdenTamano(int orden);
     
 }

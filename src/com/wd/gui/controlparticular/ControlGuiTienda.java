@@ -177,8 +177,21 @@ public class ControlGuiTienda {
         return true;
     }
 
+    /**
+     * Metodo para traer las tiendas ordenadas por tamaño de mayor a menor
+     * @return Coleccion de objetos Tienda
+     */
     public Collection<Tienda> traerTiendasMayorTamano (){
-        Collection<Tienda> resultado = null;
+        Collection<Tienda> resultado = this.controlGeneral.traerTiendasOrdenTamano(1);
+        return resultado;
+    }
+
+    /**
+     * Metodo para traer las tiendas ordenadas por tamaño de menor a mayor
+     * @return Coleccion de objetos Tienda
+     */
+    public Collection<Tienda> traerTiendasMenorTamano (){
+        Collection<Tienda> resultado = this.controlGeneral.traerTiendasOrdenTamano(2);
         return resultado;
     }
 
