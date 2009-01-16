@@ -88,6 +88,8 @@ public class ControlGui {
     private VentanaConsultarProducto ventanaConsultarProducto;
      /** variable de ventana de consulta de productos */
     private VentanaEditarProducto ventanaEditarProducto;
+    /** variable de ventana de consulta de tiendas por tamaño */
+    private VentanaConsultaTiendasTamano venTamano;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -101,6 +103,14 @@ public class ControlGui {
         ventanaInicio.setVisible(var);
     }
 
+    /**
+     * metodo para ocultar o mostrar la ventana de consultar tienda por tamaño
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniVenTamano(boolean var) {
+        this.venTamano = new VentanaConsultaTiendasTamano();
+        this.venTamano.setVisible(var);
+    }
     /**
      * metodo para ocultar o mostrar la ventana de agregar empleado tienda
      * @param var booleano que indica si mostrar o no la ventana
