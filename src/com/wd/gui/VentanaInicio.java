@@ -939,7 +939,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void menuEstadisticasTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEstadisticasTiendaActionPerformed
         this.controlGeneralGui = new ControlGui();
-        this.controlGeneralGui.iniVenTamano(true);
+        this.controlGeneralGui.iniVenestadisticasTienda(true);
     }//GEN-LAST:event_menuEstadisticasTiendaActionPerformed
 
     /**

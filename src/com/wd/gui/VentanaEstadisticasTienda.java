@@ -4,7 +4,7 @@
  */
 
 /*
- * VentanaConsultaTiendasTamano.java
+ * VentanaEstadisticasTienda.java
  *
  * Created on 16/01/2009, 10:05:06 AM
  */
@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author gerardo
  */
-public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
+public class VentanaEstadisticasTienda extends javax.swing.JFrame {
 
     private Collection<Tienda> tiendasMayor;
 
@@ -29,8 +29,8 @@ public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
 
     private ControlGuiTienda control = new ControlGuiTienda();
 
-    /** Creates new form VentanaConsultaTiendasTamano */
-    public VentanaConsultaTiendasTamano() {
+    /** Creates new form VentanaEstadisticasTienda */
+    public VentanaEstadisticasTienda() {
         initComponents();
 
         tiendasMayor = control.traerTiendasMayorTamano();
@@ -211,7 +211,7 @@ public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaConsultaTiendasTamano().setVisible(true);
+                new VentanaEstadisticasTienda().setVisible(true);
             }
         });
     }
