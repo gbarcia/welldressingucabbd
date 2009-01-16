@@ -56,6 +56,17 @@ public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
                 dm.addRow(info);
        }
            this.tablaMaMe.setModel(dm);
+
+       for2:
+           for (Tienda tienda : tiendasMenor) {
+           Vector info = new Vector();
+                info.addElement(tienda.getCodigo());
+                info.addElement(tienda.getNombre());
+                info.addElement(tienda.getTamano());
+                dm2.addRow(info);
+       }
+           this.TablaMeMa.setModel(dm2);
+
     }
 
     /** This method is called from within the constructor to
@@ -158,6 +169,11 @@ public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
         );
 
         jButton1.setText("Cerrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,6 +200,10 @@ public class VentanaConsultaTiendasTamano extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
     * @param args the command line arguments

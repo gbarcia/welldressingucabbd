@@ -38,7 +38,6 @@ public class ControlGuiProducto {
      * Metodo para agregar un producto
      * @param nombre el nombre del producto
      * @param descripcion la descripcion del producto
-     * @param subclase_id el id de la subclase del producto
      */
     public boolean agregarProducto(String nombre, String descripcion){
         this.producto = new Producto(0, nombre, descripcion);
