@@ -11,15 +11,43 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Empleado;
+import com.wd.gui.controlparticular.ControlGuiEmpleadoTienda;
+import java.util.Collection;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author gerardo
  */
 public class VentanaEstadisticasPersonal extends javax.swing.JFrame {
 
+    private Collection<Empleado> empleados;
+
+    private ControlGuiEmpleadoTienda control = new ControlGuiEmpleadoTienda();
+
+
     /** Creates new form VentanaEstadisticasPersonal */
     public VentanaEstadisticasPersonal() {
         initComponents();
+        empleados = control.conductoresMasEntregas();
+
+        DefaultTableModel dm = new DefaultTableModel();
+            dm.addColumn("Cedula");
+            dm.addColumn("Nombre");
+            dm.addColumn("Apellido");
+            dm.addColumn("Entregas");
+
+            for (Empleado empleado : empleados) {
+                Vector info = new Vector();
+                info.add(empleado.getCedula());
+                info.add(empleado.getNombre());
+                info.add(empleado.getApellido());
+                info.add(empleado.getTipo());
+                dm.addRow(info);
+        }
+            this.jTable1.setModel(dm);
     }
 
     /** This method is called from within the constructor to
