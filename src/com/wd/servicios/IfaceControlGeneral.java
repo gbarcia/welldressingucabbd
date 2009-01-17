@@ -300,5 +300,11 @@ public interface IfaceControlGeneral {
      * @return todas las Tiendas del sistema segun orden
      */
     public Collection<Tienda> traerTiendasOrdenTamano(int orden);
+
+    /**
+     * Operacion para traer los conductores ordenados por mas entregas
+     * @return Coleccion de Objetos Empleado
+     */
+    public Collection<Empleado> coductoresMasEntregas();
     
 }

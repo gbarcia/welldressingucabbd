@@ -1188,4 +1188,21 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+
+    /**
+     * Operacion para traer los conductores ordenados por mas entregas
+     * @return Coleccion de Objetos Empleado
+     */
+    public Collection<Empleado> coductoresMasEntregas() {
+        Collection<Empleado> resultado = null;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("ControlEmpleado iniciado correctamente");
+            resultado = this.controlEmpleado.coductoresMasEntregas();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlTienda por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
 }
