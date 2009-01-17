@@ -1,20 +1,16 @@
-
 package com.wd.dominio;
 
 import java.util.Collection;
 
 /**
- *
+ * Clase para el manejo de las transferencias
  * @author Gerardo Barcia
  */
 public class Transferencia extends Solicitud {
 
     private Integer idTiendaQueTransfiere;
-
     private Integer idTiendaQueRecibe;
-
     private String nombreTiendaQueTransfiere;
-
     private String nombreTiendaQueRecibe;
 
     public Transferencia() {

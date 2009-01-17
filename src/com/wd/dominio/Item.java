@@ -1,20 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.wd.dominio;
 
 /**
- *
+ * Clase para el manejo de los Items en las solicitudes
  * @author Gerardo Barcia
  */
 public class Item {
 
+    /** variable para el identificar de producto */
     private Integer idProducto;
-
+    /** variable para el numero de solicitud */
     private Integer idSolicitud;
-
+    /** variable para la cantidad de productos */
     private Integer cantidad;
 
     public Item() {
@@ -49,5 +45,4 @@ public class Item {
     public void setIdSolicitud(Integer idSolicitud) {
         this.idSolicitud = idSolicitud;
     }
-    
 }
