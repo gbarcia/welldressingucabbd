@@ -1,37 +1,47 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.wd.gui.controlparticular;
 
 import com.wd.dominio.Empleado;
-import com.wd.gui.ControlGui;
+import com.wd.dominio.NominaCentro;
 import com.wd.servicios.ControlGeneral;
-import com.wd.servicios.IfaceControlGeneral;
+import java.util.Collection;
+import java.util.Vector;
 
 /**
  *
- * @author Jonathan Trujillo
+ * @author Gabylis
  */
-public class ControlGuiEmpleadoCentro {
+public class ControlGuiEmpleadoCentro{
 
-    /* variable para el manejo de la entidad empleado  */
-    private Empleado empleado;
-    /** variable para el manejo de la instancia del controlador GUI */
-    private ControlGui controlador;
-    /** variable de la interface responsable del control de las entidades */
-    private IfaceControlGeneral controlG = ControlGeneral.getInstance();
-
-    /** constructor que inicia el control general GUI */
     public ControlGuiEmpleadoCentro() {
-        this.controlador = new ControlGui();
     }
 
-    public boolean agregarEmpleadoCentro(Empleado emp) {
-        return controlG.agregarEmpleadoCentro(emp);
+     /**
+    * Metodo consultar el historial de empleados de los centros de distribucion
+    * @return Vector vector con todos los objetos EmpresaVigilancia del sistema
+    */
+    public Vector<NominaCentro> traerNominaCentro(int codigoCentro) {
+        Vector<NominaCentro> vectorResult = null;
+        Collection<NominaCentro> coleccion = ControlGeneral.getInstance().traerNominaCentro(codigoCentro);
+        vectorResult = new Vector();
+        for (NominaCentro nominaCentro : coleccion) {
+            vectorResult.add(nominaCentro);
+        }
+        return vectorResult;
     }
 
-
+    /**
+    * Metodo para traer todos los empleados de un centro de distribucion
+    * @param codigoCentro int codigo del centro d distribucion
+    * @return Vector vector con todos los empleados de un centro de distribucion
+    */
+    public Vector<Empleado> traerTodosLosEmpleadosCentro(int codigoCentro) {
+        Vector<Empleado> vectorResult = null;
+        Collection<Empleado> coleccion = ControlGeneral.getInstance().traerTodosLosEmpleadosCentro(codigoCentro);
+        vectorResult = new Vector();
+        for (Empleado empleado : coleccion) {
+            vectorResult.add(empleado);
+        }
+        return vectorResult;
+    }
 
 }

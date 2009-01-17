@@ -5,6 +5,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.wd.dominio.Empleado;
 import com.wd.dominio.HistorialEmpleado;
+import com.wd.dominio.NominaCentro;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Date;
@@ -326,6 +327,43 @@ public class ControlEmpleado {
         try {
             bitacora.info("Iniciando operacion para traer conductores mas entregas");
             resultado = sqlMap.queryForList("conductoresMasEntregas");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para consultar todos los empleados de los centros de distribucion
+     * @return Coleccion de objetos Empleado
+     */
+    public Collection<Empleado> traerTodosLosEmpleadosCentro(int codigoCentro) {
+        Collection<Empleado> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los empleados de los centros");
+            resultado = sqlMap.queryForList("todosLosEmpleadosCentro",codigoCentro);
+            //resultado = this.agregarHistorialListaEmpleadosTienda(resultadoP);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+/**
+     * Operacion para consultar tel historial de los empleados de un centro
+     * @return Coleccion de objetos Empleado
+     */
+    public Collection<NominaCentro> traerNominaCentro(int codigoCentro) {
+        Collection<NominaCentro> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer historial de los" +
+            "empleados de un centro");
+            resultado = sqlMap.queryForList("consultaNominaCentro", codigoCentro);
+            //resultado = this.agregarHistorialListaEmpleadosTienda(resultadoP);
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
                     " porque " + ex.getMessage());

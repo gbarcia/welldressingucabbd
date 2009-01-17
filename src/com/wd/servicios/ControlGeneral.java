@@ -8,6 +8,7 @@ import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.HistorialEmpleado;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
+import com.wd.dominio.NominaCentro;
 import com.wd.dominio.Producto;
 import com.wd.dominio.Proveedor;
 import com.wd.dominio.Servicio;
@@ -1221,6 +1222,46 @@ public class ControlGeneral implements IfaceControlGeneral {
             bitacora.info("No se pudo iniciar el ControlTienda por " + ex.getMessage());
         } finally {
             return resultado;
+        }
+    }
+
+    /**
+     * Metodo para traer todos los empleados delos centros de distribucion del
+     * sistema
+     * @param int codigoCentro codigo del centro de distribucion al que
+     * pertenecen los empleados
+     * @return coleccion collection de empleados
+     */
+    public Collection traerTodosLosEmpleadosCentro(int codigoCentro) {
+        Collection<Empleado> coleccion = null;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("ControlEmpleado iniciado correctamente");
+            coleccion = this.controlEmpleado.traerTodosLosEmpleadosCentro(codigoCentro);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return coleccion;
+        }
+    }
+
+    /**
+     * Metodo para traer el historial de todos los empleados de un centros
+     * de distribucion del  sistema
+     * @param int codigoCentro codigo del centro de distribucion al que
+     * pertenecen los empleados
+     * @return coleccion collection de empleados
+     */
+    public Collection traerNominaCentro(int codigoCentro) {
+        Collection<NominaCentro> coleccion = null;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("ControlEmpleado iniciado correctamente");
+            coleccion = this.controlEmpleado.traerNominaCentro(codigoCentro);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return coleccion;
         }
     }
 }

@@ -92,6 +92,8 @@ public class ControlGui {
     private VentanaEstadisticasTienda venEstadisticasTienda;
     /** variable de ventana de consulta de Estadisticas del Personal */
     private VentanaEstadisticasPersonal venEstadisticasPersonal;
+    /** variable de ventana de PersonalCentro */
+    private VentanaPersonalCentro ventanaPersonalCentro;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -483,6 +485,15 @@ public class ControlGui {
     public void iniciarVentanaEditarProducto(boolean var) {
         this.ventanaEditarProducto = new VentanaEditarProducto();
         this.ventanaEditarProducto.setVisible(true);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de personal centro
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaPersonalCentro(boolean var, Vector result) {
+        ventanaPersonalCentro = new VentanaPersonalCentro(result);
+        ventanaPersonalCentro.setVisible(var);
     }
 
     /**
