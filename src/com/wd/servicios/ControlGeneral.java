@@ -957,6 +957,24 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Operacion para agregar un empleado al sistema junto con su hitorial
+     * @param emp el empleado a registrar
+     * @return resultado de la operacion
+     */
+    public boolean agregarEmpleadoCentro(Empleado emp) {
+        boolean resultado = false;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.agregarEmpleadoCentro(emp);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para actualizar la informacion de un empleado en el sistema
      * @param emp el empleado a registrar
      * @return boolean resultado de la operacion
