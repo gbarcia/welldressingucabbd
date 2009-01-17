@@ -35,8 +35,8 @@ public abstract class Solicitud {
      * @param idSolicitud
      * @param idCantidad
      */
-    public void agregarItem (Integer idProducto, Integer idSolicitud, Integer idCantidad) {
-        Item i = new Item(idProducto, idSolicitud, idCantidad);
+    public void agregarItem (Integer idProducto, Integer idSolicitud, Integer idCantidad, Integer idCosto) {
+        Item i = new Item(idProducto, idSolicitud, idCantidad,idCosto);
         this.coleccionProductos.add(i);
     }
 
