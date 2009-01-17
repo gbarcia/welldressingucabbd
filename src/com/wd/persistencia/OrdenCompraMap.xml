@@ -5,6 +5,15 @@
 
     <sqlMap namespace="OrdenCompra">
 
-    <typeAlias alias="lugar" type="com.wd.dominio.Lugar"/>
+    <typeAlias alias="oc" type="com.wd.dominio.OrdenCompra"/>
+
+    <insert id="agregarOrden" parameterClass="oc">
+        INSERT INTO SOLICITUD (id, fecha_gen, fecha_est, status, tipo,
+                               TIENDA_codigo_PEDIDO, TIENDA_codigo_TRANSFIERE,
+                               TIENDA_codigo1_TRANSFERIDO, CENTRO_DISTRIBUCION_codigo,
+                               CAMION_id, EMPLEADO_ci, EMPRESA_SERVICIO_rif)
+        VALUES (NULL,#fechaGenerada#, #fechaEstimada#, #status#, 'O', NULL, NULL, 
+                NULL, #centroCodigo#, NULL, NULL, #proveedorRif#);
+    </insert>
 
     </sqlMap>

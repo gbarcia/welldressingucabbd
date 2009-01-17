@@ -1,4 +1,3 @@
-
 package com.wd.dominio;
 
 import java.util.Collection;
@@ -10,15 +9,36 @@ import java.util.Date;
  */
 public abstract class Solicitud {
 
+    /** variable del identificador de la solicitud */
     protected Integer id;
 
+    /** variable de la fecha de generacion de la solicitud*/
     protected Date fechaGenerada;
 
+    /** variable de la fecha estimada de entrega*/
     protected Date fechaEstimada;
 
+    /** variable del estatus de la solicitud
+     * 0 solicitud aprobada
+     * 1 solicitud despachada
+     * 2 solicitud recibida
+     * 3 solicitud cancelada
+     */
     protected Integer status;
 
+    /** Coleccion de productos involucrados en la solicitud*/
     protected Collection<Item> coleccionProductos;
+
+    /**
+     * Operacion para agregar un item a la solicitud
+     * @param idProducto
+     * @param idSolicitud
+     * @param idCantidad
+     */
+    public void agregarItem (Integer idProducto, Integer idSolicitud, Integer idCantidad) {
+        Item i = new Item(idProducto, idSolicitud, idCantidad);
+        this.coleccionProductos.add(i);
+    }
 
     public Date getFechaEstimada() {
         return fechaEstimada;

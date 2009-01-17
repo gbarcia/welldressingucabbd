@@ -1,26 +1,19 @@
-
 package com.wd.dominio;
 
 import java.util.Collection;
 
 /**
- *
+ * Clase para el manejo de los pedidos
  * @author Gerardo Barcia
  */
 public class Pedido extends Solicitud {
 
     private Integer tiendaCodigo;
-
     private Integer centroCodigo;
-
     private Integer ciConductor;
-
     private String placaCamion;
-
     private String nombreTienda;
-
     private String nombreCebtro;
-
     private String nombreConductor;
 
     public Pedido() {
