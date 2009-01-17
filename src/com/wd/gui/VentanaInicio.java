@@ -6,6 +6,7 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Departamento;
 import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.Horario;
@@ -671,6 +672,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuHistorial.add(menuHistorialTiendas);
 
         menuHistorialCentros.setText("Personal Centros");
+        menuHistorialCentros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuHistorialCentrosActionPerformed(evt);
+            }
+        });
         menuHistorial.add(menuHistorialCentros);
 
         jMenuItem3.setText("Estadísticas");
@@ -955,6 +961,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniVenestadisticasPersonal(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void menuHistorialCentrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHistorialCentrosActionPerformed
+       Vector<CentroDistribucion> result = null;
+       this.controlGuiCentro = new ControlGuiCentroDistribucion();
+       result = this.controlGuiCentro.traerTodosLosCentros();
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaPersonalCentro(true,result);
+    }//GEN-LAST:event_menuHistorialCentrosActionPerformed
 
     /**
     * @param args the command line arguments

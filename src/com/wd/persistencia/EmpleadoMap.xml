@@ -7,6 +7,7 @@
 
    <typeAlias alias="empleado" type="com.wd.dominio.Empleado"/>
    <typeAlias alias="historial" type="com.wd.dominio.HistorialEmpleado"/>
+   <typeAlias alias="historialCentro" type="com.wd.dominio.NominaCentro"/>
 
    <resultMap id="empleadoMap" class="empleado">
     <result property="cedula"          column="cedula" />
@@ -31,6 +32,14 @@
     <result property="nombreEmpleado" column="nombre" />
     <result property="cedula"         column="cedula" />
     <result property="codigo"         column="codigoTienda" />
+  </resultMap>
+
+  <resultMap id="nominaCentro" class="historialCentro">
+    <result property="fechaIni"    column="fechainicio" />
+    <result property="fechaFin"    column="fechafin" />
+    <result property="cargo"       column="cargo" />
+    <result property="empleadoCi"  column="cedula" />
+    <result property="centroDistribucionCodigo" column="codigoCentro" />
   </resultMap>
 
    <insert id="agregarEmpleado" parameterClass="empleado">
@@ -142,5 +151,25 @@
     <delete id="borrarEmpleado" parameterClass="int">
         DELETE FROM EMPLEADO WHERE ci = #value#
     </delete>
+
+    <select id="consultaNominaCentro"  parameterClass="int" resultMap="nominaCentro">
+       SELECT n.fecha_ini fechainicio, IFNULL(n.fecha_fin,'N/A') fechafin ,
+       n.cargo cargo,n.EMPLEADO_ci cedula,
+       n.CENTRO_DISTRIBUCION_codigo codigoCentro
+       FROM NOMINA_CENTRO n
+       WHERE n.CENTRO_DISTRIBUCION_codigo = #value#
+       ORDER BY cedula
+    </select>
+
+    <select id="todosLosEmpleadosCentro" parameterClass="int" resultMap="empleadoMap">
+        SELECT DISTINCT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
+        emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l,NOMINA_CENTRO nt, CENTRO_DISTRIBUCION c
+        WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci  AND
+        c.codigo = nt.CENTRO_DISTRIBUCION_codigo and c.codigo = #value#
+        ORDER BY cedula
+    </select>
 
    </sqlMap>

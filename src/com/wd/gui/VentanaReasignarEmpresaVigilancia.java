@@ -51,7 +51,7 @@ public class VentanaReasignarEmpresaVigilancia extends javax.swing.JFrame {
 
         vecEmps = new Vector();
 
-        System.out.println("tiendas"+tiendas.size());
+        //System.out.println("tiendas"+tiendas.size());
         //vecEmps.remove(empOnDelete);
         vecCentros = centros;
         this.vecTiendas = tiendas;
