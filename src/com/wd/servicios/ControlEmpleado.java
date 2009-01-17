@@ -252,7 +252,7 @@ public class ControlEmpleado {
 
     /**
      * Funcion que agrega un nuevo objeto historial a n empleado en el sistema
-     * @param heobjeto de tipo historial empleado que se quiere agregar
+     * @param he objeto de tipo historial empleado que se quiere agregar
      * @return resultado de la operacion
      */
     public boolean agregarObjetoHistorialEmpleadoCentro(HistorialEmpleado he) {
