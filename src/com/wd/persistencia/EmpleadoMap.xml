@@ -100,6 +100,14 @@
         WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci ORDER BY apellido,nombre
     </select>
 
+    <select id="conductoresMasEntregas" resultMap="empleadoMap">
+        SELECT e.ci cedula , e.nombre, e.apellido, COUNT(s.EMPLEADO_ci) tipo
+        FROM EMPLEADO e, SOLICITUD s
+        WHERE e.tipo = 2
+        GROUP BY e.ci
+        ORDER BY tipo DESC
+    </select>
+
     <select id="consultaHistorialEmpleado" parameterClass="int" resultMap="historialMap">
        SELECT e.nombre nombre,e.ci cedula, t.nombre tienda,t.codigo codigoTienda, 
        n.fecha_ini fechainicio, n.fecha_fin fechafin, n.cargo cargo

@@ -11,7 +11,6 @@ import java.util.Date;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Vector;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -265,6 +264,23 @@ public class ControlEmpleado {
             } else {
                 resultado = false;
             }
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para traer los conductores ordenados por mas entregas
+     * @return Coleccion de Objetos Empleado 
+     */
+    public  Collection<Empleado> coductoresMasEntregas() {
+        Collection<Empleado> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer conductores mas entregas");
+            resultado = sqlMap.queryForList("conductoresMasEntregas");
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
                     " porque " + ex.getMessage());
