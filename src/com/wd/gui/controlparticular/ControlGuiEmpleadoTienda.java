@@ -265,4 +265,12 @@ public class ControlGuiEmpleadoTienda {
             controlador.mostrarMensaje("Error: el campo cedula debe ser número", 1);
         }
     }
+
+    /**
+     * Operacion para traer los conductores ordenados por mas entregas
+     * @return Coleccion de Objetos Empleado
+     */
+    public Collection<Empleado> conductoresMasEntregas () {
+        return controlG.coductoresMasEntregas();
+    }
 }

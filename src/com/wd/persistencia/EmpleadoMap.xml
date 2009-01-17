@@ -101,11 +101,14 @@
     </select>
 
     <select id="conductoresMasEntregas" resultMap="empleadoMap">
-        SELECT e.ci cedula , e.nombre, e.apellido, COUNT(s.EMPLEADO_ci) tipo
-        FROM EMPLEADO e, SOLICITUD s
-        WHERE e.tipo = 2
-        GROUP BY e.ci
-        ORDER BY tipo DESC
+        SELECT emp.ci cedula , emp.nombre, emp.apellido, COUNT(s.EMPLEADO_ci) cargo,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.LUGAR_id lugarId,
+        l.nombre nombreCiudad
+        FROM EMPLEADO emp, SOLICITUD s, LUGAR l
+        WHERE emp.tipo = 2 AND emp.ci = s.EMPLEADO_ci AND l.id = emp.LUGAR_id
+        GROUP BY emp.ci
+        ORDER BY cargo DESC
     </select>
 
     <select id="consultaHistorialEmpleado" parameterClass="int" resultMap="historialMap">
