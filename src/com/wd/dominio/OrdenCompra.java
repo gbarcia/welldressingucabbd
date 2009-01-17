@@ -1,4 +1,3 @@
-
 package com.wd.dominio;
 
 import java.util.Collection;
@@ -10,27 +9,26 @@ import java.util.Collection;
 public class OrdenCompra extends Solicitud {
 
     private Integer CentroCodigo;
-
     private Integer ProveedorCodigo;
-
-    private Integer placaCamion;
-
+    private String placaCamion;
     private Integer idConductor;
-
     private String nombreCentro;
-
     private String nombreProveedor;
-
     private String nombreConductor;
 
-    public OrdenCompra(Integer CentroCodigo, Integer ProveedorCodigo, Integer placaCamion, Integer idConductor) {
+    public OrdenCompra() {
+    }
+
+    public OrdenCompra(Integer CentroCodigo, Integer ProveedorCodigo, String placaCamion,
+            Integer idConductor) {
         this.CentroCodigo = CentroCodigo;
         this.ProveedorCodigo = ProveedorCodigo;
         this.placaCamion = placaCamion;
         this.idConductor = idConductor;
     }
 
-    public OrdenCompra(Integer CentroCodigo, Integer ProveedorCodigo, Integer placaCamion, Integer idConductor, String nombreCentro, String nombreProveedor, String nombreConductor) {
+    public OrdenCompra(Integer CentroCodigo, Integer ProveedorCodigo, String placaCamion,
+            Integer idConductor, String nombreCentro, String nombreProveedor, String nombreConductor) {
         this.CentroCodigo = CentroCodigo;
         this.ProveedorCodigo = ProveedorCodigo;
         this.placaCamion = placaCamion;
@@ -88,11 +86,11 @@ public class OrdenCompra extends Solicitud {
         this.nombreProveedor = nombreProveedor;
     }
 
-    public Integer getPlacaCamion() {
+    public String getPlacaCamion() {
         return placaCamion;
     }
 
-    public void setPlacaCamion(Integer placaCamion) {
+    public void setPlacaCamion(String placaCamion) {
         this.placaCamion = placaCamion;
     }
 

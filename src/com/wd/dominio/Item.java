@@ -17,6 +17,9 @@ public class Item {
 
     private Integer cantidad;
 
+    public Item() {
+    }
+
     public Item(Integer idProducto, Integer idSolicitud, Integer cantidad) {
         this.idProducto = idProducto;
         this.idSolicitud = idSolicitud;
