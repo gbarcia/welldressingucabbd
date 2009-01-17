@@ -276,7 +276,7 @@ public class ControlEmpleado {
      * Operacion para traer los conductores ordenados por mas entregas
      * @return Coleccion de Objetos Empleado 
      */
-    public  Collection<Empleado> coductoresMasEntregas() {
+    public Collection<Empleado> coductoresMasEntregas() {
         Collection<Empleado> resultado = null;
         try {
             bitacora.info("Iniciando operacion para traer conductores mas entregas");
