@@ -302,6 +302,13 @@ public interface IfaceControlGeneral {
     public Collection<Tienda> traerTiendasOrdenTamano(int orden);
 
     /**
+     * Operacion para agregar un empleado al sistema junto con su hitorial
+     * @param emp el empleado a registrar
+     * @return resultado de la operacion
+     */
+    public boolean agregarEmpleadoCentro(Empleado emp);
+
+    /**
      * Operacion para traer los conductores ordenados por mas entregas
      * @return Coleccion de Objetos Empleado
      */

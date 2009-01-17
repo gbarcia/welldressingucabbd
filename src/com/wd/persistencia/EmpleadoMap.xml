@@ -60,6 +60,16 @@
         VALUES (#cedula#, #codigo#, #fechaInicio#, #fechaFin#, #cargo#);
     </insert>
 
+    <insert id="agregarHistorialCentro" parameterClass="historial">
+        INSERT INTO NOMINA_CENTRO (
+        EMPLEADO_ci,
+        CENTRO_DISTRIBUCION_codigo,
+        fecha_ini,
+        fecha_fin,
+        cargo)
+        VALUES (#cedula#, #codigo#, #fechaInicio#, #fechaFin#, #cargo#);
+    </insert>
+
     <update id="actualizarEmpleado" parameterClass="empleado">
         UPDATE EMPLEADO SET nombre= #nombre#,
         apellido = #apellido#,

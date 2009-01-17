@@ -59,6 +59,32 @@ public class ControlEmpleado {
     }
 
     /**
+     * Funcion para agregar un empleado de centro de distribucion al sistema junto con su historial
+     * @param emp el empleado a registrar
+     * @return resultado de la operacion
+     */
+    public boolean agregarEmpleadoCentro(Empleado emp) {
+        boolean resultado = false;
+        Collection<HistorialEmpleado> historial = null;
+        try {
+            sqlMap.insert("agregarEmpleado", emp);
+            bitacora.info("Empleado: " + emp.getNombre() + " agregado con éxito");
+            historial = emp.getHistorial();
+            for (HistorialEmpleado object : historial) {
+                this.agregarObjetoHistorialEmpleadoCentro(object);
+                bitacora.info("Historial Empleado: " + emp.getNombre() +
+                        " agregado con éxito");
+            }
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " + emp.getNombre() +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para actualizar la informacion de un empleado en el sistema     
      * @param emp el empleado a registrar
      * @return boolean resultado de la operacion
@@ -215,6 +241,25 @@ public class ControlEmpleado {
         try {
             bitacora.info("Iniciando operacion para agregar objeto Historial " + he.getCedula());
             sqlMap.insert("agregarHistorial", he);
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Funcion que agrega un nuevo objeto historial a n empleado en el sistema
+     * @param heobjeto de tipo historial empleado que se quiere agregar
+     * @return resultado de la operacion
+     */
+    public boolean agregarObjetoHistorialEmpleadoCentro(HistorialEmpleado he) {
+        boolean resultado = false;
+        try {
+            bitacora.info("Iniciando operacion para agregar objeto Historial " + he.getCedula());
+            sqlMap.insert("agregarHistorialCentro", he);
             resultado = true;
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
