@@ -95,6 +95,28 @@ public class ControlProducto {
     }
 
     /**
+     * Metodo para eliminar un registro de Producto-Departamento
+     * @param producto el producto a eliminar
+     * @return resultado de la operacion
+     */
+    public boolean eliminarProductoDepartamento(int id){
+        boolean resultado = false;
+        try {
+            this.sqlMap.delete("eliminarProductoDepartamento", id);
+            this.bitacora.info("ProductoDepartamento: " + id +
+                    " eliminado con éxito de sus registro de departamento");
+            resultado = true;
+        } catch (SQLException ex) {
+            this.bitacora.error("ProductoDepartamento: " + id
+                    + " operacion fallida: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+
+    /**
      * Metodo para consultar productos
      * @return coleccion de productos
      */
@@ -142,28 +164,6 @@ public class ControlProducto {
             this.sqlMap.insert("agregarProductoDepartamento", producto);
             this.bitacora.info("ProductoDepartamento: " + producto.getId() +
                     " agregado con éxito al departamento " + producto.getDepartamentoId());
-            resultado = true;
-        } catch (SQLException ex) {
-            this.bitacora.error("ProductoDepartamento: " + producto.getId()
-                    + " operacion fallida: " + ex.getMessage()
-                    + "Departamento " + producto.getDepartamentoId());
-            resultado = false;
-        } finally {
-            return resultado;
-        }
-    }
-
-    /**
-     * Metodo para eliminar un registro de Producto-Departamento
-     * @param producto el producto a eliminar
-     * @return resultado de la operacion
-     */
-    public boolean eliminarProductoDepartamento(Producto producto){
-        boolean resultado = false;
-        try {
-            this.sqlMap.delete("eliminarProductoDepartamento", producto);
-            this.bitacora.info("ProductoDepartamento: " + producto.getId() +
-                    " eliminado con éxito al departamento " + producto.getDepartamentoId());
             resultado = true;
         } catch (SQLException ex) {
             this.bitacora.error("ProductoDepartamento: " + producto.getId()

@@ -172,7 +172,8 @@ public class VentanaEliminarTienda extends javax.swing.JFrame {
 }//GEN-LAST:event_jComboBox_tiendassActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.control_gui_tienda.eliminarTienda(this.jComboBox_tiendas.getSelectedIndex() + 1);
+        int indice = this.jComboBox_tiendas.getSelectedIndex();
+        this.control_gui_tienda.eliminarTienda(this.tiendas.get(indice).getCodigo());
         this.initControles();
         this.initVectores();
         this.llenarTiendas();

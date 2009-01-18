@@ -1147,12 +1147,12 @@ public class ControlGeneral implements IfaceControlGeneral {
      * @param producto el producto a eliminar
      * @return resultado de la operacion
      */
-    public boolean eliminarProductoDepartamento(Producto producto) {
+    public boolean eliminarProductoDepartamento(int id) {
         boolean resultado = false;
         try {
             this.controlProducto = new ControlProducto();
             this.bitacora.info("ControlProducto iniciado correctamente");
-            resultado = this.controlProducto.eliminarProductoDepartamento(producto);
+            resultado = this.controlProducto.eliminarProductoDepartamento(id);
         } catch (IOException ex) {
             this.bitacora.error("No se pudo iniciar el ControlProducto por " + ex.getMessage());
         } finally {

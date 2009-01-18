@@ -357,7 +357,7 @@ public class VentanaEditarProducto extends javax.swing.JFrame {
                     new Producto(this.producto.getId(), this.jTextField_nombre.getText(), this.jTextPane_descripcion.getText()));
             if (resultado){
                 this.productos = this.control_gui_producto.traerTodosLosProductos();
-                this.control_gui_producto_departamento.eliminarProductoDepartamento(producto);
+                this.control_gui_producto_departamento.eliminarProductoDepartamento(producto.getId());
                 this.agregarProductoDepartamneto();
                 System.out.println("");
             }
