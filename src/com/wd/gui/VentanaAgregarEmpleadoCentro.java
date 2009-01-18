@@ -64,6 +64,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jtNombre = new javax.swing.JTextField();
@@ -113,6 +114,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
 
         jLabel5.setText("Sexo:");
 
+        buttonGroup1.add(jrMasculino);
         jrMasculino.setText("Masculino");
         jrMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,12 +122,8 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jrFemenino);
         jrFemenino.setText("Feminino");
-        jrFemenino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrFemeninoActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Estado civil:");
 
@@ -225,13 +223,13 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cargo a Desempeñar y TIenda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cargo a Desempeñar y Centro de Distribucion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
 
         jLabel11.setText("Cargo:");
 
         jcCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "gerente", "empleado regular" }));
 
-        jLabel12.setText("Tienda donde trabajará:");
+        jLabel12.setText("Centro donde trabajará:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -328,12 +326,6 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_jrMasculinoActionPerformed
 
-    private void jrFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrFemeninoActionPerformed
-        if (jrFemenino.isSelected()) {
-            this.jrMasculino.setSelected(false);
-        }
-}//GEN-LAST:event_jrFemeninoActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.jtApellido.setText("");
         this.jtCedula.setText("");
@@ -348,40 +340,11 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
 }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nombreEmpleado        = this.jtNombre.getText();
-        String apellidoEmpleado      = this.jtApellido.getText();
-        String cedulaEmpleado        = this.jtCedula.getText();
-        String direccionEmpleado     = this.jtDireccion.getText();
-        String telefonoEmpleado      = this.jtTelefono.getText();
-        Date fechaNac                = this.jfFechaNac.getDate();
-        String sexo                  ="";
-        java.sql.Date fechaEmpleado = new java.sql.Date(fechaNac.getTime()); // Conviertiendo de java.util.Date a java.sql.date
-        //Para determinar el sexo
-        if (this.jrFemenino.isSelected()) sexo = "F";
-        else sexo = "M";
-        int cargo = this.jcCargo.getSelectedIndex();
-        int nivelEstudios = this.jcNivelEstudios.getSelectedIndex();
-        int estadoCivil = this.jcEdoCivil.getSelectedIndex();
-
-        int indiceCiudad = this.jcUbicacion.getSelectedIndex();
-        int indiceTienda = this.jcTienda.getSelectedIndex();
-
-        Vector<Lugar> ciudades = new Vector(this.ciudades);
-        Lugar ciudadSeleccionada = ciudades.get(indiceCiudad);
-        int ciudadEmpleado = ciudadSeleccionada.getId();
-
-        Vector<Tienda> tiendas = new Vector(this.centros);
-        Tienda tiendaSeleccionada = tiendas.get(indiceTienda);
-        int tiendaDondeTrabajara = tiendaSeleccionada.getCodigo();
-
-        this.controlGui.registrarNuevoEmpleado(cedulaEmpleado, nombreEmpleado,
-                apellidoEmpleado, fechaEmpleado,telefonoEmpleado, estadoCivil,
-                sexo, nivelEstudios, direccionEmpleado, cargo, ciudadEmpleado,
-                "", tiendaDondeTrabajara, "");
+       
 }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.setVisible(false);
+        this.dispose();
 }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -396,6 +359,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
