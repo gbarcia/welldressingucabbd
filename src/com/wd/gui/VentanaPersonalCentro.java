@@ -327,8 +327,8 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
                 info.addElement(emp.getCedula());
                 info.addElement(emp.getNombre());
                 info.addElement(emp.getApellido());
-                info.addElement(emp.getFechaNacimiento());
                 info.addElement(emp.getSexo());
+                info.addElement(emp.getFechaNacimiento());                
                 info.addElement(emp.getTelefono());
                 if (nom.getCargo()==0)info.add("Gerente");
                 if (nom.getCargo()==1)info.add("Regular");
