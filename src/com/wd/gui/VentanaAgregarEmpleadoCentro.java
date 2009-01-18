@@ -13,13 +13,10 @@ package com.wd.gui;
 
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Lugar;
-import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiEmpleadoCentro;
-import com.wd.gui.controlparticular.ControlGuiEmpleadoTienda;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
 import java.util.Collection;
-import java.util.Date;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 
@@ -47,12 +44,13 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
     }
 
     public void initVectores(){
-        this.ciudades = this.controlG.traerTodosLosLuagres(2);
-        this.centros = this.controlG.traerTodosLosCentros();
+        this.ciudades = new Vector<Lugar>(this.controlG.traerTodosLosLuagres(2));
+        this.centros = new Vector<Lugar>(this.controlG.traerTodosLosCentros();
     }
 
     public void llenarComboBoxes(){
         this.llenarCiudades();
+        this.llenarCentro();
     }
 
     /** This method is called from within the constructor to
@@ -92,7 +90,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jcCargo = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
-        jcTienda = new javax.swing.JComboBox();
+        jcCentro = new javax.swing.JComboBox();
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -241,7 +239,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
                     .addComponent(jcCargo, 0, 218, Short.MAX_VALUE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12)
-                    .addComponent(jcTienda, 0, 218, Short.MAX_VALUE))
+                    .addComponent(jcCentro, 0, 218, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -254,7 +252,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addComponent(jcTienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jcCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -321,9 +319,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jrMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMasculinoActionPerformed
-        if (jrMasculino.isSelected()) {
-            this.jrFemenino.setSelected(false);
-        }
+
 }//GEN-LAST:event_jrMasculinoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -335,12 +331,39 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
         this.jcCargo.setSelectedIndex(0);
         this.jcEdoCivil.setSelectedIndex(0);
         this.jcNivelEstudios.setSelectedIndex(0);
-        this.jcTienda.setSelectedIndex(0);
+        this.jcCentro.setSelectedIndex(0);
         this.jcUbicacion.setSelectedIndex(0);
 }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+        java.sql.Date fecha = new java.sql.Date(this.jfFechaNac.getDate().getTime());
+        String sexo = "";
+
+        int indiceCiudad = this.jcUbicacion.getSelectedIndex();
+
+
+
+        if (this.jrFemenino.isSelected()){
+            sexo = "M";
+        }
+        if (this.jrFemenino.isSelected()){
+            sexo = "F";
+        }
+
+
+        this.controlGui.registrarNuevoEmpleado(
+                this.jtCedula.getText(),
+                this.jtNombre.getText(),
+                this.jtApellido.getText(),
+                fecha,
+                this.jtTelefono.getText(),
+                this.jcEdoCivil.getSelectedIndex(),
+                sexo,
+                this.jcNivelEstudios.getSelectedIndex(),
+                this.jtDireccion.getText(),
+                this.jcCargo.getSelectedIndex(),
+                , ciudadVive,
+                WIDTH, nombreEmpresa);
 }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -379,9 +402,9 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox jcCargo;
+    private javax.swing.JComboBox jcCentro;
     private javax.swing.JComboBox jcEdoCivil;
     private javax.swing.JComboBox jcNivelEstudios;
-    private javax.swing.JComboBox jcTienda;
     private javax.swing.JComboBox jcUbicacion;
     private com.toedter.calendar.JDateChooser jfFechaNac;
     private javax.swing.JRadioButton jrFemenino;
@@ -401,4 +424,14 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
         this.jcUbicacion.setModel(
                 new DefaultComboBoxModel(modeloComboBox.toArray()));
     }
+
+    private void llenarCentro(){
+        Vector<String> modeloComboBox = new Vector<String>();
+        for (CentroDistribucion centro : this.centros){
+            modeloComboBox.add(centro.getNombre());
+        }
+        this.jcCentro.setModel(
+                new DefaultComboBoxModel(modeloComboBox.toArray()));
+    }
+
 }
