@@ -124,23 +124,24 @@ public class ControlProveedorTest {
 //    /**
 //     * Test of todosLosProveedores method, of class ControlProveedor.
 //     */
-//    @Test
-//    public void testTodosLosProveedores() {
-//        System.out.println("todosLosProveedores");
-//        ControlProveedor instance = null;
-//        try {
-//            instance = new ControlProveedor();
-//        } catch (IOException ex) {
-//            Logger.getLogger(ControlProveedorTest.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        Collection<Proveedor> result = instance.todosLosProveedores();
-//        assertNotNull(result);
-//        for (Proveedor proveedor : result) {
-//            System.out.println(proveedor.getNombre());
-//        }
-//        // TODO review the generated test code and remove the default call to fail.
+    @Test
+    public void testTodosLosProveedores() {
+        System.out.println("todosLosProveedores");
+        ControlProveedor instance = null;
+        try {
+            instance = new ControlProveedor();
+        } catch (IOException ex) {
+            Logger.getLogger(ControlProveedorTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Collection<Proveedor> result = instance.todosLosProveedores();
+        System.out.println("sizw"+result.size());
+        assertNotNull(result);
+        for (Proveedor proveedor : result) {
+            System.out.println(proveedor.getNombre());
+        }
+        // TODO review the generated test code and remove the default call to fail.
 //        //fail("The test case is a prototype.");
-//    }
+    }
 //
 //    /**
 //     * Test of agregarProveedor method, of class ControlProveedor.
@@ -204,21 +205,21 @@ public class ControlProveedorTest {
 //    /**
 //     * Test of eliminarProveedor method, of class ControlProveedor.
 //     */
-    @Test
-    public void testEliminarProveedor() {
-        System.out.println("eliminarProveedor");
-        String rif = "J-745-645-3";
-        ControlProveedor instance = null;
-        try {
-            instance = new ControlProveedor();
-        } catch (IOException ex) {
-            Logger.getLogger(ControlProveedorTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        boolean expResult = true;
-        boolean result = instance.eliminarProveedor(rif);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testEliminarProveedor() {
+//        System.out.println("eliminarProveedor");
+//        String rif = "J-745-645-3";
+//        ControlProveedor instance = null;
+//        try {
+//            instance = new ControlProveedor();
+//        } catch (IOException ex) {
+//            Logger.getLogger(ControlProveedorTest.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        boolean expResult = true;
+//        boolean result = instance.eliminarProveedor(rif);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        //fail("The test case is a prototype.");
+//    }
 
 }

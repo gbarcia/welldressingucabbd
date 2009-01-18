@@ -363,6 +363,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroInventarios.add(menuCentroInventarioConsultar);
 
         menuCentroInventarioConsultarProvedores.setText("Consulta de proveedores");
+        menuCentroInventarioConsultarProvedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroInventarioConsultarProvedoresActionPerformed(evt);
+            }
+        });
         menuCentroInventarios.add(menuCentroInventarioConsultarProvedores);
 
         menuCentros.add(menuCentroInventarios);
@@ -969,6 +974,14 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui = new ControlGui();
        this.controlGeneralGui.iniciarVentanaPersonalCentro(true,result);
     }//GEN-LAST:event_menuHistorialCentrosActionPerformed
+
+    private void menuCentroInventarioConsultarProvedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroInventarioConsultarProvedoresActionPerformed
+        Vector<CentroDistribucion> result = null;
+       this.controlGuiCentro = new ControlGuiCentroDistribucion();
+       result = this.controlGuiCentro.traerTodosLosCentros();
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaProveedoresCentro(true,result);
+    }//GEN-LAST:event_menuCentroInventarioConsultarProvedoresActionPerformed
 
     /**
     * @param args the command line arguments

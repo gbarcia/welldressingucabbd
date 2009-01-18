@@ -5,12 +5,19 @@
 
     <sqlMap namespace="Proveedor">
 
-   <typeAlias alias="proveedor" type="com.wd.dominio.Proveedor"/>
+   <typeAlias alias="proveedor" type="com.wd.dominio.Proveedor"/>   
 
    <resultMap id="traerTodosLosProveedores" class="proveedor">
     <result property="rif" column="rif" />
     <result property="nombre" column="nombre" />
+    <result property="telefono" column="TELEFONO" />
+    <result property="nombreContacto" column="NOMBRECONTACTO" />
+    <result property="apellidoContacto" column="APELLIDO_CONTACTO" />
+    <result property="direccion" column="DIRECCION" />
+    <result property="lugarID" column="IDLUGAR" />
+    <result property="nombreCiudad" column="CIUDAD" />
   </resultMap>
+
 
   <resultMap id="buscarProveedor" class="proveedor">
     <result property="rif" column="RIF" />
@@ -38,9 +45,29 @@
     </insert>
 
     <select id="TodosLosProveedores" resultMap="traerTodosLosProveedores">
-        SELECT es.rif, es.nombre
-        FROM EMPRESA_SERVICIO es
-        WHERE tipo = 0
+        SELECT es.rif, es.nombre,
+        es.telefono TELEFONO,
+        es.nombre_contacto NOMBRECONTACTO,
+        es.apellido_contacto APELLIDO_CONTACTO,
+        es.direccion DIRECCION,
+        es.LUGAR_id IDLUGAR,
+        l.nombre CIUDAD
+        FROM EMPRESA_SERVICIO es, LUGAR l
+        WHERE l.id = es.LUGAR_id AND es.tipo = 0
+    </select>
+
+    <select id="proveedoresPorCentro" parameterClass="int" resultMap="traerTodosLosProveedores">
+        SELECT es.rif, es.nombre,
+        es.telefono TELEFONO,
+        es.nombre_contacto NOMBRECONTACTO,
+        es.apellido_contacto APELLIDO_CONTACTO,
+        es.direccion DIRECCION,
+        es.LUGAR_id IDLUGAR,
+        l.nombre CIUDAD
+        FROM EMPRESA_SERVICIO es, LUGAR l, CENTRO_DISTRIBUCION cd,SERVICIO srv
+        WHERE l.id = es.LUGAR_id AND es.tipo = 0 AND
+        cd.codigo = srv.CENTRO_DISTRIBUCION_codigo AND
+        cd.codigo = #value# AND es.rif = srv.EMPRESA_SERVICIO_rif
     </select>
 
     <select id="buscarUnProveedor" parameterClass="String" resultMap="buscarProveedor">
