@@ -32,8 +32,8 @@ public class ControlGuiProductoDepartamento {
         return controlGeneral.traerTodosLosProductoDepartamento();
     }
 
-    public boolean eliminarProductoDepartamento(Producto producto) {
-        return controlGeneral.eliminarProductoDepartamento(producto);
+    public boolean eliminarProductoDepartamento(int id) {
+        return controlGeneral.eliminarProductoDepartamento(id);
     }
 
     public Collection traerTodasLasSubclases() {

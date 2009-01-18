@@ -44,7 +44,7 @@
     WHERE id = #id#
   </update>
 
-  <delete id="eliminarProducto" parameterClass="producto">
+  <delete id="eliminarProducto" parameterClass="int">
       DELETE FROM producto
       WHERE id = #id#
   </delete>
@@ -71,7 +71,7 @@
     VALUES (#id#, #departamentoId#)
   </insert>
   
-  <delete id="eliminarProductoDepartamento" parameterClass="producto">
+  <delete id="eliminarProductoDepartamento" parameterClass="int">
     DELETE FROM producto_departamento
     WHERE PRODUCTO_id = #id#
   </delete>
