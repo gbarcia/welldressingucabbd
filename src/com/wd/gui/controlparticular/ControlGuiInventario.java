@@ -49,4 +49,33 @@ public class ControlGuiInventario {
         return vectorResult;
     }
 
+    /**
+    * Metodo para buscar el inventario teorico de un centro de distribucion
+    * @param codigoCentro int codigo del centro al que pertence el inv.
+    * @return Vector vector con todos los objetos Inventario
+    */
+    public Vector<Inventario> traerInventarioTeoCentro (int codigoCentro) {
+        Vector<Inventario> vectorResult = null;
+        Collection<Inventario> coleccion = ControlGeneral.getInstance().traerInventarioTeoCentro(codigoCentro);
+        vectorResult = new Vector();
+        for (Inventario it : coleccion) {
+            vectorResult.add(it);
+        }
+        return vectorResult;
+    }
+    /**
+    * Metodo para buscar el inventario en camino un centro de distribucion
+     * @param codigoCentro int codigo del centro al que pertenece el inv.
+    * @return Vector vector con el inventario del centro
+    */
+    public Vector<Item> traerInventarioCaminoCentro (int codigoCentro) {
+        Vector<Item> vectorResult = null;
+        Collection<Item> coleccion = ControlGeneral.getInstance().traerInventarioCaminoCentro(codigoCentro);
+        vectorResult = new Vector();
+        for (Item it : coleccion) {
+            vectorResult.add(it);
+        }
+        return vectorResult;
+    }
+
 }

@@ -32,6 +32,7 @@ public class ControlInventario {
 
     /**
      * Metodo para buscar el inventario de un centro de distribucion
+     * @param codigoCentro int codigo del centro al que pertenece el inv.
      * @return Collection todos los inventarios registrados
      */
     public Collection<Inventario> traerInventarioTeoCentro (int codigoCentro) {
@@ -40,6 +41,25 @@ public class ControlInventario {
             bitacora.info("Iniciando operacion para traer el inventario " +
             "de un centro de distribucion");
             coleccion = sqlMap.queryForList("traerTodoInventarioTeoCentro",codigoCentro);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccion;
+        }
+    }
+
+    /**
+     * Metodo para buscar el inventario en camino de un centro de distribucion
+     * @param codigoCentro int codigo del centro al que pertenece el inv.
+     * @return Collection todos los inventarios registrados
+     */
+    public Collection<Item> traerInventarioCaminoCentro (int codigoCentro) {
+        Collection<Item> coleccion = null;
+        try {
+            bitacora.info("Iniciando operacion para traer el inventario " +
+            "en camino de un centro de distribucion ");
+            coleccion = sqlMap.queryForList("traerInventarioCaminoCentro",codigoCentro);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
         }

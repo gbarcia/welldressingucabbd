@@ -1328,4 +1328,42 @@ public class ControlGeneral implements IfaceControlGeneral {
             return coleccion;
         }
     }
+
+    /**
+     * Metodo para traer el inventario teorico de un centro de distribucion
+     * @param codigoCentro codigo del centro de distribucion
+     * @return coleccion collection de inventarios
+     */
+    public Collection traerInventarioTeoCentro(int codigoCentro) {
+        Collection<Inventario> coleccion = null;
+        try {
+            this.controlInventario = new ControlInventario();
+            bitacora.info("ControlInventario iniciado correctamente");
+            coleccion = this.controlInventario.traerInventarioTeoCentro(codigoCentro);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlInventario" +
+            " por " + ex.getMessage());
+        } finally {
+            return coleccion;
+        }
+    }
+
+    /**
+     * Metodo para traer el inventario en camino de un centro de distribucion
+     * @param codigoCentro codigo del centro de distribucion
+     * @return coleccion collection de items
+     */
+    public Collection traerInventarioCaminoCentro(Integer codigoCentro) {
+        Collection<Item> coleccion = null;
+        try {
+            this.controlInventario = new ControlInventario();
+            bitacora.info("ControlInventario iniciado correctamente");
+            coleccion = this.controlInventario.traerInventarioCaminoCentro(codigoCentro);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlInventario" +
+            " por " + ex.getMessage());
+        } finally {
+            return coleccion;
+        }
+    }
 }
