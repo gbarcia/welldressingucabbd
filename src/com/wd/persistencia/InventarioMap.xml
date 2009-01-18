@@ -20,7 +20,7 @@
         <result property="cantidad" column="CANTIDAD" />
     </resultMap>
 
-    <resultMap id="inventarioCaminoTienda" class="item">
+    <resultMap id="inventarioCamino" class="item">
         <result property="idProducto" column="PRODUCTOID" />
         <result property="idSolicitud" column="SOLICITUDID" />
         <result property="cantidad" column="CANTIDAD" />
@@ -34,7 +34,17 @@
         WHERE ic.CENTRO_DISTRIBUCION_codigo = c.codigo AND c.codigo = #value#
     </select>
 
-    <select id="traerInventarioCaminoTienda" parameterClass="Integer" resultMap="inventarioCaminoTienda">
+    <select id="traerInventarioCaminoCentro" parameterClass="int" resultMap="inventarioCamino">
+        SELECT  p.id PRODUCTOID, s.id SOLICITUDID,it.cantidad CANTIDAD,
+        it.costo COSTO
+        FROM ITEMS it, SOLICITUD s, CENTRO_DISTRIBUCION c, PRODUCTO p
+        WHERE it.SOLICITUD_id = s.id AND p.id = it.PRODUCTO_id AND s.status=1 AND
+        s.CENTRO_DISTRIBUCION_codigo = c.codigo AND c.codigo = #value#
+        AND s.tipo = 'O'
+        ORDER BY PRODUCTOID
+    </select>
+
+    <select id="traerInventarioCaminoTienda" parameterClass="Integer" resultMap="inventarioCamino">
         SELECT  p.id PRODUCTOID, s.id SOLICITUDID,it.cantidad CANTIDAD,
         it.costo COSTO
         FROM ITEMS it, SOLICITUD s, TIENDA t, PRODUCTO p
