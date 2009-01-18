@@ -4,56 +4,55 @@
  */
 
 /*
- * VentanaAgregarEmpleadoTienda.java
+ * VentanaAgregarEmpleadoCentro.java
  *
- * Created on 04/01/2009, 04:00:46 PM
+ * Created on Jan 17, 2009, 6:20:46 PM
  */
 
 package com.wd.gui;
 
+import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Lugar;
 import com.wd.dominio.Tienda;
+import com.wd.gui.controlparticular.ControlGuiEmpleadoCentro;
 import com.wd.gui.controlparticular.ControlGuiEmpleadoTienda;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
-import java.util.Date;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
- * @author gerardo
+ * @author Johnny
  */
-public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
+public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
 
-    private ControlGuiEmpleadoTienda controlGui;
+    private ControlGuiEmpleadoCentro controlGui;
     private IfaceControlGeneral controlG = ControlGeneral.getInstance();
-    private Collection<Lugar> Cciudades;
-    private Collection<Tienda> Ctienda;
+    private Collection<Lugar> ciudades;
+    private Collection<CentroDistribucion> centros;
 
-    /** Creates new form VentanaAgregarEmpleadoTienda */
-    public VentanaAgregarEmpleadoTienda() {
+    /** Creates new form VentanaAgregarEmpleadoCentro */
+    public VentanaAgregarEmpleadoCentro() {
         initComponents();
+        this.initControles();
+        this.initVectores();
+        this.llenarComboBoxes();
+    }
 
-        Collection<Lugar> ciudades = controlG.traerTodosLosLuagres(2);
-        Collection<Tienda> tiendas = controlG.traerTodasLasTienda();
+    public void initControles(){
+        this.controlGui = new ControlGuiEmpleadoCentro();
+    }
 
-        for (Tienda tienda : tiendas) {
-            this.jcCentro.addItem(tienda.getNombre());
-        }
+    public void initVectores(){
+        this.ciudades = this.controlG.traerTodosLosLuagres(2);
+        this.centros = this.controlG.traerTodosLosCentros();
+    }
 
-        for (Lugar ciudad : ciudades) {
-            this.jcUbicacion.addItem(ciudad.getNombrePropio());
-        }
-
-        this.controlGui = new ControlGuiEmpleadoTienda();
-        
-         Date fecha = new Date();
-         java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime()); //Obteniendo la fecha actual
-        this.jfFechaNac.setDate(fechaSQL);
-
-        this.Cciudades = ciudades;
-        this.Ctienda = tiendas;
+    public void llenarComboBoxes(){
+        this.llenarCiudades();
     }
 
     /** This method is called from within the constructor to
@@ -92,13 +91,12 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jcCargo = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
-        jcCentro = new javax.swing.JComboBox();
+        jcTienda = new javax.swing.JComboBox();
+        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
-        setTitle("Agregar Empleado a TIenda");
-        setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos nuevo Empleado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
         jPanel1.setAutoscrolls(true);
@@ -224,7 +222,7 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cargo a Desempeñar y TIenda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
@@ -245,7 +243,7 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
                     .addComponent(jcCargo, 0, 218, Short.MAX_VALUE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12)
-                    .addComponent(jcCentro, 0, 218, Short.MAX_VALUE))
+                    .addComponent(jcTienda, 0, 218, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -258,9 +256,16 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addComponent(jcCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jcTienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
+
+        jButton3.setText("Limpiar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -276,13 +281,6 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Limpiar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -292,43 +290,62 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(62, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(jButton3)
                         .addGap(22, 22, 22)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(24, 24, 24))))
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 481, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 456, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(jButton2)
                             .addComponent(jButton3))
-                        .addGap(18, 18, 18))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jrMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMasculinoActionPerformed
+        if (jrMasculino.isSelected()) {
+            this.jrFemenino.setSelected(false);
+        }
+}//GEN-LAST:event_jrMasculinoActionPerformed
 
     private void jrFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrFemeninoActionPerformed
         if (jrFemenino.isSelected()) {
             this.jrMasculino.setSelected(false);
         }
 }//GEN-LAST:event_jrFemeninoActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.jtApellido.setText("");
+        this.jtCedula.setText("");
+        this.jtDireccion.setText("");
+        this.jtNombre.setText("");
+        this.jtTelefono.setText("");
+        this.jcCargo.setSelectedIndex(0);
+        this.jcEdoCivil.setSelectedIndex(0);
+        this.jcNivelEstudios.setSelectedIndex(0);
+        this.jcTienda.setSelectedIndex(0);
+        this.jcUbicacion.setSelectedIndex(0);
+}//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nombreEmpleado        = this.jtNombre.getText();
@@ -347,13 +364,13 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
         int estadoCivil = this.jcEdoCivil.getSelectedIndex();
 
         int indiceCiudad = this.jcUbicacion.getSelectedIndex();
-        int indiceTienda = this.jcCentro.getSelectedIndex();
+        int indiceTienda = this.jcTienda.getSelectedIndex();
 
-        Vector<Lugar> ciudades = new Vector(this.Cciudades);
+        Vector<Lugar> ciudades = new Vector(this.ciudades);
         Lugar ciudadSeleccionada = ciudades.get(indiceCiudad);
         int ciudadEmpleado = ciudadSeleccionada.getId();
 
-        Vector<Tienda> tiendas = new Vector (this.Ctienda);
+        Vector<Tienda> tiendas = new Vector(this.centros);
         Tienda tiendaSeleccionada = tiendas.get(indiceTienda);
         int tiendaDondeTrabajara = tiendaSeleccionada.getCodigo();
 
@@ -361,30 +378,11 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
                 apellidoEmpleado, fechaEmpleado,telefonoEmpleado, estadoCivil,
                 sexo, nivelEstudios, direccionEmpleado, cargo, ciudadEmpleado,
                 "", tiendaDondeTrabajara, "");
-    }//GEN-LAST:event_jButton1ActionPerformed
+}//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jrMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMasculinoActionPerformed
-        if (jrMasculino.isSelected()) {
-            this.jrFemenino.setSelected(false);
-        }
-    }//GEN-LAST:event_jrMasculinoActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.jtApellido.setText("");
-        this.jtCedula.setText("");
-        this.jtDireccion.setText("");
-        this.jtNombre.setText("");
-        this.jtTelefono.setText("");
-        this.jcCargo.setSelectedIndex(0);
-        this.jcEdoCivil.setSelectedIndex(0);
-        this.jcNivelEstudios.setSelectedIndex(0);
-        this.jcCentro.setSelectedIndex(0);
-        this.jcUbicacion.setSelectedIndex(0);
-    }//GEN-LAST:event_jButton3ActionPerformed
+}//GEN-LAST:event_jButton2ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -392,7 +390,7 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAgregarEmpleadoTienda().setVisible(true);
+                new VentanaAgregarEmpleadoCentro().setVisible(true);
             }
         });
     }
@@ -417,9 +415,9 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox jcCargo;
-    private javax.swing.JComboBox jcCentro;
     private javax.swing.JComboBox jcEdoCivil;
     private javax.swing.JComboBox jcNivelEstudios;
+    private javax.swing.JComboBox jcTienda;
     private javax.swing.JComboBox jcUbicacion;
     private com.toedter.calendar.JDateChooser jfFechaNac;
     private javax.swing.JRadioButton jrFemenino;
@@ -431,4 +429,12 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
     private javax.swing.JTextField jtTelefono;
     // End of variables declaration//GEN-END:variables
 
+    private void llenarCiudades(){
+        Vector<String> modeloComboBox = new Vector<String>();
+        for (Lugar ciudad : this.ciudades){
+            modeloComboBox.add(ciudad.getNombrePropio());
+        }
+        this.jcUbicacion.setModel(
+                new DefaultComboBoxModel(modeloComboBox.toArray()));
+    }
 }
