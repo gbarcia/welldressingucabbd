@@ -106,7 +106,7 @@ public class VentanaConsultaInventarioTienda extends javax.swing.JFrame {
 
         panelInventario.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 1, true), "Inventarios Asociados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
         panelInventario.setToolTipText("Inventario de una Tienda tanto Teórico como en camino");
-        panelInventario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        panelInventario.setFont(new java.awt.Font("Tahoma", 1, 11));
 
         tablaTeorico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,8 +134,8 @@ public class VentanaConsultaInventarioTienda extends javax.swing.JFrame {
             panelCaminoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCaminoLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panelInventario.addTab("Inventario Teórico", panelCamino);
@@ -182,46 +182,51 @@ public class VentanaConsultaInventarioTienda extends javax.swing.JFrame {
             }
         });
 
-        labelTiendas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelTiendas.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelTiendas.setText("Tiendas:");
 
-        labelCodigoNom.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCodigoNom.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelCodigoNom.setText("ID: ");
 
-        labelTelefonoNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelTelefonoNomb.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelTelefonoNomb.setText("Teléfono: ");
 
-        labelCorreoNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCorreoNomb.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelCorreoNomb.setText("Correo Electrónico:");
 
-        labelDirNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDirNomb.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDirNomb.setText("Dirección:");
 
-        labelUbicacionNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelUbicacionNomb.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelUbicacionNomb.setText("Ubicación:");
 
-        labelCodigo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCodigo.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelCodigo.setForeground(new java.awt.Color(0, 102, 204));
         labelCodigo.setText("ID");
 
-        labelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelTelefono.setForeground(new java.awt.Color(0, 102, 204));
         labelTelefono.setText("Telefono");
 
-        labelCorreo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCorreo.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelCorreo.setForeground(new java.awt.Color(0, 102, 204));
         labelCorreo.setText("email");
 
-        labelDir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDir.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDir.setForeground(new java.awt.Color(0, 102, 204));
         labelDir.setText("direccion");
 
-        labelUbicacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelUbicacion.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelUbicacion.setForeground(new java.awt.Color(0, 102, 204));
         labelUbicacion.setText("ciudad+estado");
 
-        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonCerrar.setText("Cerrar");
+        buttonCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCerrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -337,6 +342,10 @@ public class VentanaConsultaInventarioTienda extends javax.swing.JFrame {
         this.llenarTablaTeorico(codigoTienda);
         this.llenarTablaCamino(codigoTienda);
     }//GEN-LAST:event_comboTiendasActionPerformed
+
+    private void buttonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCerrarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonCerrarActionPerformed
 
     /**
     * @param args the command line arguments
