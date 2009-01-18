@@ -98,6 +98,8 @@ public class ControlGui {
     private VentanaConsultarProveedoresCentro ventanaConsultarProveedoresCentro;
     /** variable de ventana de consultar inventario por tienda */
     private VentanaConsultaInventarioTienda ventanaConsultaInventarioTienda;
+    /** variable de ventana de consultar inventario por centro */
+    private VentanaConsultaInventarioCentro ventanaConsultaInventarioCentro;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -515,6 +517,15 @@ public class ControlGui {
     public void iniciarVentanaConsultaInventarioTienda(boolean var, Vector result) {
         ventanaConsultaInventarioTienda = new VentanaConsultaInventarioTienda(result);
         ventanaConsultaInventarioTienda.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de consultar inventario dentro
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaConsultaInventarioCentro(boolean var, Vector result) {
+        ventanaConsultaInventarioCentro = new VentanaConsultaInventarioCentro(result);
+        ventanaConsultaInventarioCentro.setVisible(var);
     }
 
     /**
