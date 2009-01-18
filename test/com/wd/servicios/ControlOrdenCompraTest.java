@@ -5,9 +5,11 @@
 
 package com.wd.servicios;
 
+import com.wd.dominio.Item;
 import com.wd.dominio.OrdenCompra;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -45,12 +47,35 @@ public class ControlOrdenCompraTest {
     /**
      * Test of agregarOrden method, of class ControlOrdenCompra.
      */
+//    @Test
+//    public void testAgregarOrden() {
+//        System.out.println("agregarOrden");
+//        Date a = new Date(00000000);
+//        OrdenCompra orden = new OrdenCompra(1, "J-759-645-1", "", null, a,a , 0);
+//        System.out.println(orden.getFechaEstimada());
+//        ControlOrdenCompra instance = null;
+//        try {
+//            instance = new ControlOrdenCompra();
+//        } catch (IOException ex) {
+//            Logger.getLogger(ControlOrdenCompraTest.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        boolean expResult = true;
+//        boolean result = instance.agregarOrden(orden);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        //fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of agregarOrden method, of class ControlOrdenCompra.
+     */
     @Test
-    public void testAgregarOrden() {
+    public void testAgregarOrden_OrdenCompra() {
         System.out.println("agregarOrden");
+        Item i = new Item(3, 11, 20, 5);
         Date a = new Date(00000000);
         OrdenCompra orden = new OrdenCompra(1, "J-759-645-1", "", null, a,a , 0);
-        System.out.println(orden.getFechaEstimada());
+        orden.agregarItem(3, 0, 20, 5);
         ControlOrdenCompra instance = null;
         try {
             instance = new ControlOrdenCompra();
@@ -63,6 +88,21 @@ public class ControlOrdenCompraTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+//    /**
+//     * Test of actualizarInventario method, of class ControlOrdenCompra.
+//     */
+//    @Test
+//    public void testActualizarInventario() {
+//        System.out.println("actualizarInventario");
+//        Object aAct = null;
+//        ControlOrdenCompra instance = new ControlOrdenCompra();
+//        boolean expResult = false;
+//        boolean result = instance.actualizarInventario(aAct);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
 //    /**
 //     * Test of actualizarInventario method, of class ControlOrdenCompra.

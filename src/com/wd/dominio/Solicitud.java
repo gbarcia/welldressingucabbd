@@ -2,6 +2,7 @@ package com.wd.dominio;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Vector;
 
 /**
  * Clase abstracta para el manejo de solicitudes
@@ -23,7 +24,7 @@ public abstract class Solicitud {
      */
     protected Integer status;
     /** Coleccion de productos involucrados en la solicitud*/
-    protected Collection<Item> coleccionProductos;
+    protected Collection<Item> coleccionProductos = new Vector();
 
     /**
      * Operacion para agregar un item a la solicitud

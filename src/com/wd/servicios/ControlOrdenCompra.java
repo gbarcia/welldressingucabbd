@@ -7,10 +7,12 @@ package com.wd.servicios;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.wd.dominio.Item;
 import com.wd.dominio.OrdenCompra;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
+import java.util.Collection;
 import org.apache.log4j.Logger;
 
 /**
@@ -23,6 +25,8 @@ public class ControlOrdenCompra implements IfaceSolicitud {
     private SqlMapClient sqlMap;
     /** Variable para trabajar con la bitacora*/
     private Logger bitacora = Logger.getLogger(getClass());
+    /** Variable para trabajar con los items*/
+    private ControlItem controlItem;
 
     /** Constructor que inicia el SQLMAP y la bitacora*/
     public ControlOrdenCompra() throws IOException {
@@ -32,21 +36,40 @@ public class ControlOrdenCompra implements IfaceSolicitud {
         sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
     }
 
+    /**
+     * Operacion para registrar una orden de compra en el sistema
+     * @param orden objeto orden de compra con sus items
+     * @return boolean resultado de la operacion
+     */
     public boolean agregarOrden(OrdenCompra orden) {
         boolean resultado = false;
+        Integer pk = -1;
         try {
-            sqlMap.insert("agregarOrden", orden);
-             bitacora.info("Orden: " + orden.getId() + " agregado con éxito");
-            resultado = true;
+            pk = (Integer) sqlMap.insert("agregarOrden", orden);
+            orden.setId(pk - 1);
+            bitacora.info("Orden: " + orden.getId() + " agregado con éxito");
+            if (pk != null) {
+                Collection<Item> coleccionItem = orden.getColeccionProductos();
+                this.controlItem = new ControlItem();
+                for (Item item : coleccionItem) {
+                    item.setIdSolicitud(pk - 1);
+                    this.controlItem.agregarItem(item);
+                }
+                resultado = true;
+            }
         } catch (SQLException ex) {
-             bitacora.error("No se pudo operar " + orden.getId() +
+            bitacora.error("No se pudo operar " + orden.getId() +
                     " porque " + ex.getMessage());
-        }
-        finally {
+        } finally {
             return resultado;
         }
     }
 
+    /**
+     * 
+     * @param aAct
+     * @return
+     */
     public boolean actualizarInventario(Object aAct) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
