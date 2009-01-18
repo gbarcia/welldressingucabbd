@@ -1,13 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
-<!--
-    Document   : InventarioMap.xml
-    Created on : 17 de enero de 2009, 18:16
-    Author     : Casa
-    Description:
-        Purpose of the document follows.
--->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-<root>
+    <sqlMap namespace="Inventario">
 
-</root>
+   <typeAlias alias="inventario" type="com.wd.dominio.Inventario"/>
+
+    <resultMap id="inventarioCentro" class="inventario">
+        <result property="centroDistribucionCodigo" column="CODIGOCENTRO" />
+        <result property="productoId" column="PRODUCTOID" />
+        <result property="cantidad" column="CANTIDAD" />
+    </resultMap>
+
+    <resultMap id="inventarioTienda" class="inventario">
+        <result property="tiendaCodigo" column="TIENDACODIGO" />
+        <result property="productoId" column="PRODUCTOID" />
+        <result property="cantidad" column="CANTIDAD" />
+    </resultMap>
+
+    <select id="traerTodoInventarioCentro" parameterClass="int" resultMap="inventarioCentro">
+        SELECT ic.CENTRO_DISTRIBUCION_codigo CODIGOCENTRO,
+        ic.PRODUCTO_id PRODUCTOID,ic.cantidad CANTIDAD
+        FROM INVENTARIO_CENTRO ic, CENTRO_DISTRIBUCION c
+        WHERE ic.CENTRO_DISTRIBUCION_codigo = c.codigo AND c.codigo = #value#
+    </select>
+
+    <select id="traerTodoInventarioTienda" parameterClass="Integer" resultMap="inventarioTienda">
+        SELECT it.TIENDA_codigo TIENDACODIGO,
+        it.PRODUCTO_id PRODUCTOID,it.cantidad CANTIDAD
+        FROM INVENTARIO_CENTRO it, CENTRO_DISTRIBUCION c
+        WHERE it.CENTRO_DISTRIBUCION_codigo = c.codigo AND c.codigo = #value#
+    </select>
+
+    <update id="modificarCantidadInvTeoCentro" parameterClass ="inventario">
+        UPDATE INVENTARIO_CENTRO pepe SET
+        pepe.cantidad =#cantidad#
+        WHERE pepe.CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo# AND
+        pepe.PRODUCTO_id = #productoId#
+    </update>
+
+    <update id="modificarCantidadInvTeoTienda" parameterClass ="inventario">
+        UPDATE INVENTARIO_TIENDA pepe SET
+        pepe.cantidad = #cantidad#
+        WHERE pepe.TIENDA_codigo = #tiendaCodigo# AND
+        pepe.PRODUCTO_id = #productoId#
+    </update>
+
+    </sqlMap>
+
