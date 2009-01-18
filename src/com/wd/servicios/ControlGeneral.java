@@ -1264,4 +1264,25 @@ public class ControlGeneral implements IfaceControlGeneral {
             return coleccion;
         }
     }
+
+    /**
+     * Metodo para traer todos los proveedores de un centros de distribucion del
+     * sistema
+     * @param int codigoCentro codigo del centro de distribucion al que
+     * pertenecen los empleados
+     * @return coleccion collection de empleados
+     */
+    public Collection traerTodosLosProveedoresCentro(int codigoCentro) {
+        Collection<Proveedor> coleccion = null;
+        try {
+            this.controlProveedor = new ControlProveedor();
+            bitacora.info("ControlEmpleado iniciado correctamente");
+            coleccion = this.controlProveedor.todosLosProveedoresCentro(codigoCentro);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlProveedor" +
+            " por " + ex.getMessage());
+        } finally {
+            return coleccion;
+        }
+    }
 }

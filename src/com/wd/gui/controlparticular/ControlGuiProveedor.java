@@ -3,10 +3,12 @@ package com.wd.gui.controlparticular;
 import com.wd.dominio.Lugar;
 import com.wd.dominio.Producto;
 import com.wd.dominio.Proveedor;
+import com.wd.dominio.Servicio;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
 import java.util.Collection;
+import java.util.Vector;
 
 /**
  * Manejador de la interfaz gráfica para Proveedor
@@ -189,5 +191,22 @@ public class ControlGuiProveedor {
         else if (!existe) {
             controlador.mostrarMensaje("Error: EL proveedor " + rif + " no existe", 1);
         }
+    }
+
+     /**
+     * Metodo para traer todos los proveedores de un centros de distribucion del
+     * sistema
+     * @param int codigoCentro codigo del centro de distribucion al que
+     * pertenecen los empleados
+     * @return vectorResult Vector de proveedores
+     */
+    public Vector traerTodosLosProveedoresCentro(int codigoCentro) {
+        Vector<Proveedor> vectorResult = null;
+        Collection<Proveedor> coleccion = ControlGeneral.getInstance().traerTodosLosProveedoresCentro(codigoCentro);
+        vectorResult = new Vector();
+        for (Proveedor prove : coleccion) {
+            vectorResult.add(prove);
+        }
+        return vectorResult;
     }
 }

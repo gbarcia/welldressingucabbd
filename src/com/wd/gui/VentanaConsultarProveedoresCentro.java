@@ -1,12 +1,12 @@
 package com.wd.gui;
 
 import com.wd.dominio.CentroDistribucion;
-import com.wd.dominio.Empleado;
 import com.wd.dominio.Lugar;
-import com.wd.dominio.NominaCentro;
-import com.wd.gui.controlparticular.ControlGuiEmpleadoCentro;
+import com.wd.dominio.Proveedor;
+import com.wd.dominio.Servicio;
 import com.wd.gui.controlparticular.ControlGuiLugar;
-import com.wd.servicios.ControlEmpleado;
+import com.wd.gui.controlparticular.ControlGuiProveedor;
+import java.util.Collection;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,54 +14,41 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Gabylis
  */
-public class VentanaPersonalCentro extends javax.swing.JFrame {
+public class VentanaConsultarProveedoresCentro extends javax.swing.JFrame {
 
     private Vector<CentroDistribucion> vecCentros;
 
+    private Vector<Proveedor> vecProve;
+
     private Vector<Lugar> vecCiudades;
-
-    private ControlGuiLugar controlLugar;
-
-    private Vector<Empleado> vecEmpleados;
-
-    private Vector<NominaCentro> vecNomina;
 
     private DefaultTableModel dm;
 
-    private ControlGuiEmpleadoCentro controlGuiEmpleadoCentro;
-    
+    private ControlGuiProveedor controlGuiProveedor;
 
-    /** Creates new form VentanaPersonalCentro */
-    public VentanaPersonalCentro(Vector<CentroDistribucion> result) {
+    private ControlGuiLugar controlLugar;
+
+    /** Creates new form VentanaConsultarProveedoresCentro */
+    public VentanaConsultarProveedoresCentro(Vector<CentroDistribucion> result) {
+        
         initComponents();
         java.net.URL url = getClass().getResource("Iconos/icon_016.png");
         java.awt.Image imagen = getToolkit().getImage(url);
         setIconImage (imagen);
 
-        vecNomina = new Vector();
-        vecEmpleados = new Vector();
-
+        vecCiudades = new Vector();
         vecCentros = new Vector();
+        vecProve = new Vector();
+
         vecCentros = result;
 
         controlLugar = new ControlGuiLugar();
         vecCiudades = controlLugar.traerTodosLosLugares(2);
 
-        dm = new DefaultTableModel();
-        dm.addColumn("CI");
-        dm.addColumn("Nombre");
-        dm.addColumn("Apellido");
-        dm.addColumn("Sexo");
-        dm.addColumn("Fecha Nacimiento");
-        dm.addColumn("Telefono");
-        dm.addColumn("Cargo");
-        dm.addColumn("Fecha Inicio");
-        dm.addColumn("Fecha Fin");
-
         for (CentroDistribucion centroDistribucion : result) {
             this.comboCentro.addItem(centroDistribucion.getNombre());
         }
-
+        
     }
 
     /** This method is called from within the constructor to
@@ -76,24 +63,23 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         comboCentro = new javax.swing.JComboBox();
         labelCentro = new javax.swing.JLabel();
-        labelNombId = new javax.swing.JLabel();
+        labelIdNomb = new javax.swing.JLabel();
         labelTelefonoNomb = new javax.swing.JLabel();
         labelDireccionNomb = new javax.swing.JLabel();
-        labelUbicacionNomb = new javax.swing.JLabel();
+        labelDirNomb = new javax.swing.JLabel();
         labelId = new javax.swing.JLabel();
         labelTelefono = new javax.swing.JLabel();
         labelDir = new javax.swing.JLabel();
         labelUbicacion = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaEmpleados = new javax.swing.JTable();
+        tablaProveedores = new javax.swing.JTable();
         buttonCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Personal Centro de Distribución");
-        setResizable(false);
+        setTitle("Proveedores por Centro de Distribución");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Personal por Centro de Distribución", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Proveedores por Centro de Distribucion", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
         comboCentro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,48 +87,51 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
             }
         });
 
-        labelCentro.setFont(new java.awt.Font("Tahoma", 1, 11));
-        labelCentro.setText("Centros De Distribución");
+        labelCentro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCentro.setText("Centro de Distribución");
 
-        labelNombId.setFont(new java.awt.Font("Tahoma", 1, 11));
-        labelNombId.setText("ID:");
+        labelIdNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelIdNomb.setText("ID:");
 
-        labelTelefonoNomb.setFont(new java.awt.Font("Tahoma", 1, 11));
-        labelTelefonoNomb.setText("Teléfono: ");
+        labelTelefonoNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelTelefonoNomb.setText("Teléfono:");
 
-        labelDireccionNomb.setFont(new java.awt.Font("Tahoma", 1, 11));
-        labelDireccionNomb.setText("Dirección: ");
+        labelDireccionNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDireccionNomb.setText("Dirección:");
 
-        labelUbicacionNomb.setFont(new java.awt.Font("Tahoma", 1, 11));
-        labelUbicacionNomb.setText("Ubicación: ");
+        labelDirNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDirNomb.setText("Ubicación:");
 
-        labelId.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelId.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelId.setForeground(new java.awt.Color(0, 102, 204));
         labelId.setText("ID");
 
-        labelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelTelefono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelTelefono.setForeground(new java.awt.Color(0, 102, 204));
         labelTelefono.setText("Telefono");
 
-        labelDir.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelDir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelDir.setForeground(new java.awt.Color(0, 102, 204));
         labelDir.setText("Direccion");
 
-        labelUbicacion.setFont(new java.awt.Font("Tahoma", 1, 11));
+        labelUbicacion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelUbicacion.setForeground(new java.awt.Color(0, 102, 204));
         labelUbicacion.setText("ciudad+estado");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 1, true), "Empleados Asociados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 204), 1, true), "Proveedores Asociados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
-        tablaEmpleados.setModel(new javax.swing.table.DefaultTableModel(
+        tablaProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
 
             }
         ));
-        jScrollPane1.setViewportView(tablaEmpleados);
+        jScrollPane1.setViewportView(tablaProveedores);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -150,17 +139,17 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11));
+        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         buttonCerrar.setText("Cerrar");
         buttonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,40 +162,40 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelCentro)
-                            .addComponent(labelNombId)
-                            .addComponent(labelTelefonoNomb)
-                            .addComponent(labelDireccionNomb)
-                            .addComponent(labelUbicacionNomb))
-                        .addGap(92, 92, 92)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelUbicacion)
-                            .addComponent(labelDir)
-                            .addComponent(labelTelefono)
-                            .addComponent(labelId)
-                            .addComponent(comboCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(312, 312, 312)
-                        .addComponent(buttonCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(labelCentro)
+                    .addComponent(labelIdNomb)
+                    .addComponent(labelTelefonoNomb)
+                    .addComponent(labelDireccionNomb)
+                    .addComponent(labelDirNomb))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelUbicacion)
+                    .addComponent(labelDir)
+                    .addComponent(labelTelefono)
+                    .addComponent(labelId)
+                    .addComponent(comboCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(131, 131, 131))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(233, 233, 233)
+                .addComponent(buttonCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCentro)
-                    .addComponent(comboCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCentro))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNombId)
+                    .addComponent(labelIdNomb)
                     .addComponent(labelId))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -218,13 +207,13 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
                     .addComponent(labelDir))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelUbicacionNomb)
+                    .addComponent(labelDirNomb)
                     .addComponent(labelUbicacion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(buttonCerrar)
-                .addGap(239, 239, 239))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -240,7 +229,7 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -254,7 +243,7 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
         String telefono = "";
         String direccion = "";
         String ubicacion = "";
-        
+
         select = this.comboCentro.getSelectedIndex();
         CentroDistribucion centrico = new CentroDistribucion();
         centrico = this.vecCentros.elementAt(select);
@@ -283,7 +272,7 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run(Vector<CentroDistribucion> result) {
-                new VentanaPersonalCentro(result).setVisible(true);
+                new VentanaConsultarProveedoresCentro(result).setVisible(true);
             }
             public void run() {
                 throw new UnsupportedOperationException("Not supported yet.");
@@ -299,47 +288,42 @@ public class VentanaPersonalCentro extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCentro;
     private javax.swing.JLabel labelDir;
+    private javax.swing.JLabel labelDirNomb;
     private javax.swing.JLabel labelDireccionNomb;
     private javax.swing.JLabel labelId;
-    private javax.swing.JLabel labelNombId;
+    private javax.swing.JLabel labelIdNomb;
     private javax.swing.JLabel labelTelefono;
     private javax.swing.JLabel labelTelefonoNomb;
     private javax.swing.JLabel labelUbicacion;
-    private javax.swing.JLabel labelUbicacionNomb;
-    private javax.swing.JTable tablaEmpleados;
+    private javax.swing.JTable tablaProveedores;
     // End of variables declaration//GEN-END:variables
 
     public void llenarTabla(int codigoCentro){
 
-        this.controlGuiEmpleadoCentro = new ControlGuiEmpleadoCentro();
-        this.vecEmpleados = controlGuiEmpleadoCentro.traerTodosLosEmpleadosCentro(codigoCentro);
-        this.vecNomina = controlGuiEmpleadoCentro.traerNominaCentro(codigoCentro);
+        dm = new DefaultTableModel();
+        dm.addColumn("RIF");
+        dm.addColumn("Nombre");
+        dm.addColumn("Telefono");
+        dm.addColumn("Nombre Contacto");
+        dm.addColumn("Apellido Contacto");
+        dm.addColumn("Direccion");
+        dm.addColumn("Ciudad");
 
-        Empleado emp = new Empleado();
-        NominaCentro nom = new NominaCentro();
+        this.controlGuiProveedor = new ControlGuiProveedor();
+        vecProve = controlGuiProveedor.traerTodosLosProveedoresCentro(codigoCentro);
 
-        for (int i = 0; i < vecEmpleados.size(); i++){
-
-                emp = vecEmpleados.elementAt(i);
-                nom = vecNomina.elementAt(i);
-
-                Vector info = new Vector();
-                info.addElement(emp.getCedula());
-                info.addElement(emp.getNombre());
-                info.addElement(emp.getApellido());
-                info.addElement(emp.getFechaNacimiento());
-                info.addElement(emp.getSexo());
-                info.addElement(emp.getTelefono());
-                if (nom.getCargo()==0)info.add("Gerente");
-                if (nom.getCargo()==1)info.add("Regular");
-                if (nom.getCargo()==2)info.add("Conductor");
-                info.addElement(nom.getFechaIni());
-                info.addElement(nom.getFechaFin());                
-                dm.addRow(info);
-            }
-
-			this.tablaEmpleados.setModel(dm);
-
+        for (Proveedor prove : vecProve) {
+            Vector info = new Vector();
+            info.addElement(prove.getRif());
+            info.addElement(prove.getNombre());
+            info.addElement(prove.getTelefono());
+            info.addElement(prove.getNombreContacto());
+            info.addElement(prove.getApellidoContacto());
+            info.addElement(prove.getDireccion());
+            info.addElement(prove.getNombreCiudad());
+            dm.addRow(info);
+        }
+        this.tablaProveedores.setModel(dm);
     }
 
     public String getUbicacion(int cityId){

@@ -94,6 +94,8 @@ public class ControlGui {
     private VentanaEstadisticasPersonal venEstadisticasPersonal;
     /** variable de ventana de PersonalCentro */
     private VentanaPersonalCentro ventanaPersonalCentro;
+    /** variable de ventana de consultar proveedor por centro */
+    private VentanaConsultarProveedoresCentro ventanaConsultarProveedoresCentro;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -494,6 +496,15 @@ public class ControlGui {
     public void iniciarVentanaPersonalCentro(boolean var, Vector result) {
         ventanaPersonalCentro = new VentanaPersonalCentro(result);
         ventanaPersonalCentro.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de consultar proveedores por centro
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaProveedoresCentro(boolean var, Vector result) {
+        ventanaConsultarProveedoresCentro = new VentanaConsultarProveedoresCentro(result);
+        ventanaConsultarProveedoresCentro.setVisible(var);
     }
 
     /**

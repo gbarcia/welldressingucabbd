@@ -4,6 +4,7 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.wd.dominio.Proveedor;
+import com.wd.dominio.Servicio;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
@@ -131,4 +132,26 @@ public class ControlProveedor {
             return resultado;
         }
     }
+
+    /**
+     * Operacion para consultar todos los proveedores de un centro de distribucion
+     * en especifico registrados en el sistema
+     * @param codigoCentro int codigo del centro al q prestan servicio los
+     * proveedores
+     * @return resultado Coleccion de objetos Proveedor
+     */
+    public Collection<Proveedor> todosLosProveedoresCentro(int codigoCentro) {
+        Collection<Proveedor> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los proveedores");
+            resultado = sqlMap.queryForList("proveedoresPorCentro",codigoCentro);
+        } catch (SQLException ex) {
+             bitacora.error("No se pudo realizar la operacion porque: "
+                    + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
+    
 }
