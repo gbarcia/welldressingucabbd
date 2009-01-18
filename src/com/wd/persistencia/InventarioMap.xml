@@ -6,27 +6,45 @@
     <sqlMap namespace="Inventario">
 
    <typeAlias alias="inventario" type="com.wd.dominio.Inventario"/>
+   <typeAlias alias="item" type="com.wd.dominio.Item"/>
 
-    <resultMap id="inventarioCentro" class="inventario">
+    <resultMap id="inventarioTeoCentro" class="inventario">
         <result property="centroDistribucionCodigo" column="CODIGOCENTRO" />
         <result property="productoId" column="PRODUCTOID" />
         <result property="cantidad" column="CANTIDAD" />
     </resultMap>
 
-    <resultMap id="inventarioTienda" class="inventario">
+    <resultMap id="inventarioTeoTienda" class="inventario">
         <result property="tiendaCodigo" column="TIENDACODIGO" />
         <result property="productoId" column="PRODUCTOID" />
         <result property="cantidad" column="CANTIDAD" />
     </resultMap>
 
-    <select id="traerTodoInventarioCentro" parameterClass="int" resultMap="inventarioCentro">
+    <resultMap id="inventarioCaminoTienda" class="item">
+        <result property="idProducto" column="PRODUCTOID" />
+        <result property="idSolicitud" column="SOLICITUDID" />
+        <result property="cantidad" column="CANTIDAD" />
+        <result property="costo" column="COSTO" />
+    </resultMap>
+
+    <select id="traerTodoInventarioTeoCentro" parameterClass="int" resultMap="inventarioTeoCentro">
         SELECT ic.CENTRO_DISTRIBUCION_codigo CODIGOCENTRO,
         ic.PRODUCTO_id PRODUCTOID,ic.cantidad CANTIDAD
         FROM INVENTARIO_CENTRO ic, CENTRO_DISTRIBUCION c
         WHERE ic.CENTRO_DISTRIBUCION_codigo = c.codigo AND c.codigo = #value#
     </select>
 
-    <select id="traerTodoInventarioTienda" parameterClass="Integer" resultMap="inventarioTienda">
+    <select id="traerInventarioCaminoTienda" parameterClass="Integer" resultMap="inventarioCaminoTienda">
+        SELECT  p.id PRODUCTOID, s.id SOLICITUDID,it.cantidad CANTIDAD,
+        it.costo COSTO
+        FROM ITEMS it, SOLICITUD s, TIENDA t, PRODUCTO p
+        WHERE it.SOLICITUD_id = s.id AND p.id = it.PRODUCTO_id AND s.status=1 AND
+        (s.TIENDA_codigo_PEDIDO = t.codigo OR s.TIENDA_codigo1_TRANSFERIDO=t.codigo)
+        AND t.codigo = #value# AND (s.tipo = 'P' OR s.tipo = 'T')
+        ORDER BY PRODUCTOID
+    </select>
+
+    <select id="traerTodoInventarioTeoTienda" parameterClass="Integer" resultMap="inventarioTeoTienda">
         SELECT it.TIENDA_codigo TIENDACODIGO,
         it.PRODUCTO_id PRODUCTOID,it.cantidad CANTIDAD
         FROM INVENTARIO_CENTRO it, CENTRO_DISTRIBUCION c
