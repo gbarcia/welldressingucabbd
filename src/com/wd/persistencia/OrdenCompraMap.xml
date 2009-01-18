@@ -7,13 +7,18 @@
 
     <typeAlias alias="oc" type="com.wd.dominio.OrdenCompra"/>
 
-    <insert id="agregarOrden" parameterClass="oc">
+    <insert id="agregarOrden" parameterClass="oc">        
         INSERT INTO SOLICITUD (id, fecha_gen, fecha_est, status, tipo,
                                TIENDA_codigo_PEDIDO, TIENDA_codigo_TRANSFIERE,
                                TIENDA_codigo1_TRANSFERIDO, CENTRO_DISTRIBUCION_codigo,
                                CAMION_id, EMPLEADO_ci, EMPRESA_SERVICIO_rif)
         VALUES (NULL,#fechaGenerada#, #fechaEstimada#, #status#, 'O', NULL, NULL, 
                 NULL, #centroCodigo#, NULL, NULL, #proveedorRif#);
+        <selectKey keyProperty="id" resultClass="int">
+            select auto_increment from `information_schema`.tables where
+            TABLE_SCHEMA = 'well_dressing' and TABLE_NAME = 'solicitud'
+        </selectKey>
     </insert>
+
 
     </sqlMap>
