@@ -126,8 +126,6 @@ public class ControlGuiEmpleadoCentro{
         return vectorResult;
     }
 
-    
-
     /**
     * Metodo para traer todos los empleados de un centro de distribucion
     * @param codigoCentro int codigo del centro d distribucion
