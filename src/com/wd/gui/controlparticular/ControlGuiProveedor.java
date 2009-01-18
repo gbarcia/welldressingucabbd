@@ -196,7 +196,7 @@ public class ControlGuiProveedor {
      /**
      * Metodo para traer todos los proveedores de un centros de distribucion del
      * sistema
-     * @param int codigoCentro codigo del centro de distribucion al que
+     * @param codigoCentro codigo del centro de distribucion al que
      * pertenecen los empleados
      * @return vectorResult Vector de proveedores
      */

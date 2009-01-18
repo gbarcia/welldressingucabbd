@@ -11,7 +11,6 @@ import com.wd.dominio.OrdenCompra;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
