@@ -25,7 +25,7 @@ public class ControlGuiInventario {
     * @param codigoTienda int codigo de la tienda a la que pertence el inv.
     * @return Vector vector con todos los objetos EmpresaVigilancia del sistema
     */
-    public Vector traerInventarioTeoTienda (Integer codigoTienda) {
+    public Vector<Inventario> traerInventarioTeoTienda (Integer codigoTienda) {
         Vector<Inventario> vectorResult = null;
         Collection<Inventario> coleccion = ControlGeneral.getInstance().traerInventarioTeoTienda(codigoTienda);
         vectorResult = new Vector();
@@ -39,9 +39,9 @@ public class ControlGuiInventario {
      * @param codigoTienda Integer codigo de la tienda al que pertenece el inv.
     * @return Vector vector con el inventario de la tienda
     */
-    public Vector traerInventarioCaminoTienda (Integer codigoTienda) {
+    public Vector<Item> traerInventarioCaminoTienda (Integer codigoTienda) {
         Vector<Item> vectorResult = null;
-        Collection<Item> coleccion = ControlGeneral.getInstance().traerInventarioTeoTienda(codigoTienda);
+        Collection<Item> coleccion = ControlGeneral.getInstance().traerInventarioCaminoTienda(codigoTienda);
         vectorResult = new Vector();
         for (Item it : coleccion) {
             vectorResult.add(it);

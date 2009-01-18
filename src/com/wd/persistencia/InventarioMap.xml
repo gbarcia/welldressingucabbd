@@ -47,8 +47,8 @@
     <select id="traerTodoInventarioTeoTienda" parameterClass="Integer" resultMap="inventarioTeoTienda">
         SELECT it.TIENDA_codigo TIENDACODIGO,
         it.PRODUCTO_id PRODUCTOID,it.cantidad CANTIDAD
-        FROM INVENTARIO_CENTRO it, CENTRO_DISTRIBUCION c
-        WHERE it.CENTRO_DISTRIBUCION_codigo = c.codigo AND c.codigo = #value#
+        FROM INVENTARIO_TIENDA it, TIENDA t
+        WHERE it.TIENDA_codigo = t.codigo AND t.codigo = #value#
     </select>
 
     <update id="modificarCantidadInvTeoCentro" parameterClass ="inventario">
