@@ -318,6 +318,6 @@ public interface IfaceControlGeneral {
      * Metodo para buscar todos los Centros Distribucion del sistema
      * @return Collection todos los Centros Distribucion registrados
      */
-    public Collection traerTodosLosCentros();
+    public Collection<CentroDistribucion> traerTodosLosCentros();
 
 }

@@ -13,6 +13,7 @@ package com.wd.gui;
 
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Lugar;
+import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiEmpleadoCentro;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
@@ -28,8 +29,8 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
 
     private ControlGuiEmpleadoCentro controlGui;
     private IfaceControlGeneral controlG = ControlGeneral.getInstance();
-    private Collection<Lugar> ciudades;
-    private Collection<CentroDistribucion> centros;
+    private Vector<Lugar> ciudades;
+    private Vector<CentroDistribucion> centros;
 
     /** Creates new form VentanaAgregarEmpleadoCentro */
     public VentanaAgregarEmpleadoCentro() {
@@ -45,7 +46,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
 
     public void initVectores(){
         this.ciudades = new Vector<Lugar>(this.controlG.traerTodosLosLuagres(2));
-        this.centros = new Vector<Lugar>(this.controlG.traerTodosLosCentros();
+        this.centros = new Vector<CentroDistribucion>(this.controlG.traerTodosLosCentros());
     }
 
     public void llenarComboBoxes(){
@@ -340,8 +341,12 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
         String sexo = "";
 
         int indiceCiudad = this.jcUbicacion.getSelectedIndex();
+        Lugar ciudadSeleccionada = ciudades.get(indiceCiudad);
+        int ciudadEmpleado = ciudadSeleccionada.getId();
 
-
+        int indiceCentro = this.jcCentro.getSelectedIndex();
+        CentroDistribucion centroSeleccionado = centros.get(indiceCentro);
+        int centroDondeTrabajara = centroSeleccionado.getCodigo();
 
         if (this.jrFemenino.isSelected()){
             sexo = "M";
@@ -349,7 +354,6 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
         if (this.jrFemenino.isSelected()){
             sexo = "F";
         }
-
 
         this.controlGui.registrarNuevoEmpleado(
                 this.jtCedula.getText(),
@@ -362,8 +366,9 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
                 this.jcNivelEstudios.getSelectedIndex(),
                 this.jtDireccion.getText(),
                 this.jcCargo.getSelectedIndex(),
-                , ciudadVive,
-                WIDTH, nombreEmpresa);
+                ciudadEmpleado,
+                "",
+                centroDondeTrabajara, "");
 }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
