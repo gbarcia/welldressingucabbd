@@ -7,6 +7,8 @@ import com.wd.dominio.Empleado;
 import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.HistorialEmpleado;
 import com.wd.dominio.Horario;
+import com.wd.dominio.Inventario;
+import com.wd.dominio.Item;
 import com.wd.dominio.Lugar;
 import com.wd.dominio.NominaCentro;
 import com.wd.dominio.Producto;
@@ -44,6 +46,8 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlEmpresaVigilancia controlEmpresaVigilancia;
     /** Variable para trabajar con el controlador de los empleados*/
     private ControlEmpleado controlEmpleado;
+    /** Variable para trabajar con el controlador de los inventarios*/
+    private ControlInventario controlInventario;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
@@ -1280,6 +1284,44 @@ public class ControlGeneral implements IfaceControlGeneral {
             coleccion = this.controlProveedor.todosLosProveedoresCentro(codigoCentro);
         } catch (IOException ex) {
             bitacora.info("No se pudo iniciar el ControlProveedor" +
+            " por " + ex.getMessage());
+        } finally {
+            return coleccion;
+        }
+    }
+
+    /**
+     * Metodo para traer el inventario teorico de una tienda
+     * @param codigoTienda codigo de la tienda
+     * @return coleccion collection de inventarios
+     */
+    public Collection traerInventarioTeoTienda(Integer codigoTienda) {
+        Collection<Inventario> coleccion = null;
+        try {
+            this.controlInventario = new ControlInventario();
+            bitacora.info("ControlInventario iniciado correctamente");
+            coleccion = this.controlInventario.traerInventarioTeoTienda(codigoTienda);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlInventario" +
+            " por " + ex.getMessage());
+        } finally {
+            return coleccion;
+        }
+    }
+
+    /**
+     * Metodo para traer el inventario en camino de una tienda
+     * @param codigoTienda codigo de la tienda
+     * @return coleccion collection de items
+     */
+    public Collection traerInventarioCaminoTienda(Integer codigoTienda) {
+        Collection<Item> coleccion = null;
+        try {
+            this.controlInventario = new ControlInventario();
+            bitacora.info("ControlInventario iniciado correctamente");
+            coleccion = this.controlInventario.traerInventarioCaminoTienda(codigoTienda);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlInventario" +
             " por " + ex.getMessage());
         } finally {
             return coleccion;

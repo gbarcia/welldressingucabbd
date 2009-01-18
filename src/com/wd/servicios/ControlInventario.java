@@ -4,6 +4,7 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.wd.dominio.Inventario;
+import com.wd.dominio.Item;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
@@ -33,12 +34,12 @@ public class ControlInventario {
      * Metodo para buscar el inventario de un centro de distribucion
      * @return Collection todos los inventarios registrados
      */
-    public Collection<Inventario> traerInventarioCentro (int codigoCentro) {
+    public Collection<Inventario> traerInventarioTeoCentro (int codigoCentro) {
         Collection<Inventario> coleccion = null;
         try {
             bitacora.info("Iniciando operacion para traer el inventario " +
             "de un centro de distribucion");
-            coleccion = sqlMap.queryForList("modificarCantidadInvTeoCentro",codigoCentro);
+            coleccion = sqlMap.queryForList("traerTodoInventarioTeoCentro",codigoCentro);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
         }
@@ -56,7 +57,25 @@ public class ControlInventario {
         try {
             bitacora.info("Iniciando operacion para traer el inventario " +
             "de un centro de distribucion");
-            coleccion = sqlMap.queryForList("modificarCantidadInvTeoTienda",codigoTienda);
+            coleccion = sqlMap.queryForList("traerTodoInventarioTeoTienda",codigoTienda);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        }
+        finally {
+            return coleccion;
+        }
+    }
+
+    /**
+     * Metodo para buscar el inventario en camino de una tienda
+     * @return Collection todos los inventarios registrados
+     */
+    public Collection<Item> traerInventarioCaminoTienda (Integer codigoTienda) {
+        Collection<Item> coleccion = null;
+        try {
+            bitacora.info("Iniciando operacion para traer el inventario " +
+            "en camino de una tienda");
+            coleccion = sqlMap.queryForList("traerInventarioCaminoTienda",codigoTienda);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
         }
@@ -73,7 +92,7 @@ public class ControlInventario {
     public boolean modificarInventarioTeoCentro(Inventario inv){
         boolean resultado = false;
         try {
-            sqlMap.update("modificarCantidadInvCentro", inv);
+            sqlMap.update("modificarCantidadInvTeoCentro", inv);
             bitacora.info("Inventario modificado con éxito");
             resultado = true;
         } catch (SQLException ex) {
@@ -94,7 +113,7 @@ public class ControlInventario {
     public boolean modificarInventarioTienda(Inventario inv){
         boolean resultado = false;
         try {
-            sqlMap.update("modificarCantidadInvTienda", inv);
+            sqlMap.update("modificarCantidadInvTeoTienda", inv);
             bitacora.info("Inventario modificado con éxito");
             resultado = true;
         } catch (SQLException ex) {
