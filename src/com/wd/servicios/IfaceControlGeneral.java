@@ -319,5 +319,4 @@ public interface IfaceControlGeneral {
      * @return Collection todos los Centros Distribucion registrados
      */
     public Collection<CentroDistribucion> traerTodosLosCentros();
-
 }
