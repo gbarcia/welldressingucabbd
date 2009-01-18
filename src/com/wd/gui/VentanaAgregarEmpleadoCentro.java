@@ -13,11 +13,9 @@ package com.wd.gui;
 
 import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Lugar;
-import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiEmpleadoCentro;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
-import java.util.Collection;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 
@@ -64,6 +62,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jtNombre = new javax.swing.JTextField();
@@ -114,6 +113,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
         jLabel5.setText("Sexo:");
 
         buttonGroup1.add(jrMasculino);
+        jrMasculino.setSelected(true);
         jrMasculino.setText("Masculino");
         jrMasculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,6 +388,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

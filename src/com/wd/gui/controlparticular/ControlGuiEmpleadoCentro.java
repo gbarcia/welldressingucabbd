@@ -90,7 +90,7 @@ public class ControlGuiEmpleadoCentro{
         boolean esNumero = false;
         esNumero = this.isNumber(cedula);
         if (esNumero) {
-            datosValidos = this.validarForm(sexo, nombre, apellido, telefono, direccion);
+            datosValidos = this.validarForm(cedula, nombre, apellido, telefono, direccion);
             int ci = Integer.parseInt(cedula); // conviertiendo la cedula en numero entero
             if (datosValidos) {
                 Date fecha = new Date();
@@ -98,7 +98,7 @@ public class ControlGuiEmpleadoCentro{
                 empleado = new Empleado(ci, nombre, apellido, fechaNacimiento, telefono,
                         estadoCivil, sexo, nivelEstudios, direccion, tipo, lugarId,
                         ciudadVive, fechaSQL, null, codigo, nombreEmpresa);
-                resultado = controlG.agregarEmpleadoTienda(empleado);
+                resultado = controlG.agregarEmpleadoCentro(empleado);
                 if (resultado) {
                     controlador.mostrarMensaje("Empleado " + nombre + " agregado con éxito", 0);
                 } else if (!resultado) {
