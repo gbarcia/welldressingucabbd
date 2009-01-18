@@ -14,6 +14,8 @@ public class Item {
     private Integer cantidad;
     /** variable para el costo de productos */
     private Integer costo;
+    /** variable para obtener el subtotal */
+    private Integer subTotal;
 
     /** Constructor por defecto */
     public Item() {
@@ -31,6 +33,13 @@ public class Item {
         this.idSolicitud = idSolicitud;
         this.cantidad = cantidad;
         this.costo = costo;
+    }
+
+    /**
+     * Metodo para calcular subtotal actual
+     */
+    private void calcularSubTotal() {
+        this.subTotal = this.cantidad * this.costo;
     }
 
     /**
@@ -95,5 +104,22 @@ public class Item {
      */
     public void setCosto(Integer costo) {
         this.costo = costo;
+    }
+
+    /**
+     * Metodo para obtener el sub total
+     * @return sub total
+     */
+    public Integer getSubTotal() {
+        this.calcularSubTotal();
+        return subTotal;
+    }
+
+    /**
+     * Metodo para establecer el subtotal
+     * @param subTotal
+     */
+    public void setSubTotal(Integer subTotal) {
+        this.subTotal = subTotal;
     }
 }

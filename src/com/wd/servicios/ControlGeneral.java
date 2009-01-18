@@ -1228,7 +1228,7 @@ public class ControlGeneral implements IfaceControlGeneral {
     /**
      * Metodo para traer todos los empleados delos centros de distribucion del
      * sistema
-     * @param int codigoCentro codigo del centro de distribucion al que
+     * @param codigoCentro codigo del centro de distribucion al que
      * pertenecen los empleados
      * @return coleccion collection de empleados
      */
@@ -1248,7 +1248,7 @@ public class ControlGeneral implements IfaceControlGeneral {
     /**
      * Metodo para traer el historial de todos los empleados de un centros
      * de distribucion del  sistema
-     * @param int codigoCentro codigo del centro de distribucion al que
+     * @param codigoCentro codigo del centro de distribucion al que
      * pertenecen los empleados
      * @return coleccion collection de empleados
      */
@@ -1268,7 +1268,7 @@ public class ControlGeneral implements IfaceControlGeneral {
     /**
      * Metodo para traer todos los proveedores de un centros de distribucion del
      * sistema
-     * @param int codigoCentro codigo del centro de distribucion al que
+     * @param codigoCentro codigo del centro de distribucion al que
      * pertenecen los empleados
      * @return coleccion collection de empleados
      */

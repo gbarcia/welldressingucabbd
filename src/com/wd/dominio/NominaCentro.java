@@ -104,7 +104,7 @@ public class NominaCentro {
 
     /**
      * Metodo para establecer la fecha final
-     * @param fechaFin String fecha final
+     * @param fechafin String fecha final
      */
     public void setFechaFin(String fechafin) {
         this.fechaFin = fechafin;
