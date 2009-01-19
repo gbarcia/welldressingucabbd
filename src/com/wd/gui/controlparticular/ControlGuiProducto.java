@@ -54,6 +54,21 @@ public class ControlGuiProducto {
         return new Vector<Producto>(controlGeneral.traerTodosLosProductos());
     }
 
+     /**
+     * Metodo para buscar un determinado producto y sus proveedores
+     * @param codigoProd int codigo del producto
+     * @return vectorResult Vector con el producto y sus proveedores
+     */
+    public Vector traerProductoConProveedores(int codigoProd) {
+        Vector<Producto> vectorResult = null;
+        Collection<Producto> coleccion = ControlGeneral.getInstance().consultaProductoProveedor(codigoProd);
+        vectorResult = new Vector();
+        for (Producto prod : coleccion) {
+            vectorResult.add(prod);
+        }
+        return vectorResult;
+    }
+
     public boolean modificarProducto(Producto producto) {
         boolean resultado = controlGeneral.modificarProducto(producto);
         if (resultado) {

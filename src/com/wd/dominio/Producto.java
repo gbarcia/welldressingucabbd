@@ -30,6 +30,9 @@ public class Producto {
     /** variable de identificador de departamento*/
     private int departamentoId;
 
+    /**variable de identificador del proveedor que provee este producto*/
+    private String empresaServicioRif;
+
     /**
      * Contructor de la clase
      */
@@ -170,6 +173,19 @@ public class Producto {
      */
     public void setDepartamentoId(int departamentoId) {
         this.departamentoId = departamentoId;
+    }
+
+    /**Metodo para obtener el proveedor que provee este producto*/
+    public String getEmpresaServicioRif() {
+        return empresaServicioRif;
+    }
+
+    /**
+     * Metodo para establecer la empresa de servicion que provee este producto
+     * @param empresaServicioRif String rif del proveedor
+     */
+    public void setEmpresaServicioRif(String empresaServicioRif) {
+        this.empresaServicioRif = empresaServicioRif;
     }
 
 

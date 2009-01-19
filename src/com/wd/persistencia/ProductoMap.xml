@@ -20,6 +20,7 @@
     <result property="precio" column="costo" />
     <result property="fecha_creacion" column="fecha_cre" />
     <result property="fecha_ultima_modificacion" column="fecha_ult_mod" />
+    <result property="empresaServicioRif" column="rifproveedor" />
   </resultMap>
 
   <resultMap id="resultMapProductoDepartamento" class="producto">
@@ -64,6 +65,19 @@
     FROM PRODUCTO produ, PRESUPUESTO presu, EMPRESA_SERVICIO es
     WHERE produ.id = presu.PRODUCTO_id AND es.rif = presu.EMPRESA_SERVICIO_rif
     AND presu.EMPRESA_SERVICIO_rif = #value#
+  </select>
+
+  <select id="consultarProductoConProveedor" parameterClass="int" resultMap="resultMapProductoProveedor">
+    SELECT  produ.id,
+    produ.nombre,
+    produ.descripcion,
+    presu.costo,
+    presu.fecha_cre,
+    presu.fecha_ult_mod,
+    presu.EMPRESA_SERVICIO_rif rifproveedor
+    FROM PRODUCTO produ, PRESUPUESTO presu, EMPRESA_SERVICIO es
+    WHERE produ.id = presu.PRODUCTO_id AND es.rif = presu.EMPRESA_SERVICIO_rif
+    AND produ.id = #value#
   </select>
 
   <insert id="agregarProductoDepartamento" parameterClass="producto">

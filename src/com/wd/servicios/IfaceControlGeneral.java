@@ -387,4 +387,11 @@ public interface IfaceControlGeneral {
      * @return coleccion collection de empleados
      */
     public Collection traerTodosLosEmpleadosCentro(int codigoCentro);
+
+    /**
+     * Metodo para buscar un determinado producto y sus proveedores
+     * @param codigoProducto int codigo del producto
+     * @return Collection todos los producto con sus proveedores
+     */
+    public Collection<Producto> consultaProductoProveedor(int codigoProducto);
 }
