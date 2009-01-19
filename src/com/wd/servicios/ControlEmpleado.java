@@ -169,6 +169,24 @@ public class ControlEmpleado {
 
     /**
      * Operacion para consultar todos los empleados de las tiendas
+     * @param codigoTienda Integer codigo de la tienda
+     * @return Coleccion de objetos HistorialEmpleado
+     */
+    public Collection<HistorialEmpleado> traerNominaTienda(Integer codigoTienda) {
+        Collection<HistorialEmpleado> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer la nomina de una tienda");
+            Collection<Empleado> resultadoP = sqlMap.queryForList("consultaNominaTienda",codigoTienda);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para consultar todos los empleados de las tiendas
      * @return Coleccion de objetos Empleado
      */
     public Collection<Empleado> traerTodosLosEmpleadosTienda(Integer codigoTienda) {

@@ -10,6 +10,7 @@ import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
 import java.util.Date;
 import java.util.Collection;
+import java.util.Vector;
 
 /**
  * Manejador de la interfaz gráfica para Empleado Tienda
@@ -139,6 +140,32 @@ public class ControlGuiEmpleadoTienda {
         Collection<Empleado> resultado = null;
         resultado = controlG.traerTodosLosEmpleadosTienda();
         return resultado;
+    }
+    /** Operacion para traer todos los empleados que trabajan en las tiendas
+     * @return Collection con todas los Empleados de Tiendas
+     */
+    public Vector<Empleado> traerTodosEmpTiendas(Integer codigoTienda) {
+        Collection<Empleado> resultado = null;
+        resultado = controlG.traerTodosLosEmpleadosTienda(codigoTienda);
+        Vector<Empleado> vecEmps = new Vector();
+        for (Empleado emp : resultado) {
+            vecEmps.addElement(emp);
+        }
+        return vecEmps;
+    }
+
+    /** Operacion para traer todos los empleados que trabajan en las tiendas
+     * @param codigoTienda Integer codigo de la tienda
+     * @return Collection con todas los Empleados de Tiendas
+     */
+    public Vector<HistorialEmpleado> traerNominaTienda(Integer codigoTienda) {
+        Collection<HistorialEmpleado> resultado = null;
+        resultado = controlG.traerNominaTienda(codigoTienda);
+        Vector<HistorialEmpleado> vecHistorialEmps = new Vector();
+        for (HistorialEmpleado hemp : resultado) {
+            vecHistorialEmps.addElement(hemp);
+        }
+        return vecHistorialEmps;
     }
 
     /** Operacion para consultar un empleado
