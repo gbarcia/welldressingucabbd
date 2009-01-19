@@ -615,6 +615,24 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Metodo para buscar un determinado producto y sus proveedores
+     * @param codigoProducto int codigo del producto
+     * @return Collection todos los producto con sus proveedores
+     */
+    public Collection<Producto> consultaProductoProveedor(int codigoProducto) {
+        Collection<Producto> resultado = null;
+        try {
+            this.controlProducto = new ControlProducto();
+            bitacora.info("Control Producto Iniciado correctamente");
+            resultado = controlProducto.consultarProductoConProveedores(codigoProducto);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control producto por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para consultar un proveedor en el sistema
      * @param rif String rif del proveedor a consultar
      * @return resultado Proveedor con los datos de la consulta
