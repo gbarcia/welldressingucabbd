@@ -119,6 +119,17 @@
         WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci ORDER BY apellido,nombre
     </select>
 
+    <select id="todosLosEmpleadosTienda" parameterClass="Integer" resultMap="empleadoMap">
+        SELECT DISTINCT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
+        emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l,NOMINA_TIENDA nt, TIENDA t
+        WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci AND
+        nt.TIENDA_codigo = t.codigo AND T.codigo = #value#
+        ORDER BY apellido,nombre
+    </select>
+
     <select id="conductoresMasEntregas" resultMap="empleadoMap">
         SELECT emp.ci cedula , emp.nombre, emp.apellido, COUNT(s.EMPLEADO_ci) cargo,
         emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,

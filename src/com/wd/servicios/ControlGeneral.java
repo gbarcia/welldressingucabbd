@@ -1052,6 +1052,25 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Operacion para consultar todos los empleados de una tienda determinada
+     * @param codigoTienda Integer codigo de la tienda a la que pertenecen los
+     * empleados
+     * @return Coleccion de objetos Empleado (con historial)
+     */
+    public Collection<Empleado> traerTodosLosEmpleadosTienda(Integer codigoTienda) {
+        Collection<Empleado> resultado = null;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.traerTodosLosEmpleadosTienda(codigoTienda);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para consultar el historial de un determinado empleado
      * @param cedula Int el numero de cedula del empleado
      * @return Coleccion de objetos HistorialEmpleado solo de tiendas
