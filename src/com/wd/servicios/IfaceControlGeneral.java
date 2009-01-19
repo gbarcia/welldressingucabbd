@@ -308,7 +308,6 @@ public interface IfaceControlGeneral {
      */
     public Collection traerTodasLasSubclases();
 
-
     /**
      * Metodo para consultar Tiendas en base a su tamaño en orden de mayor a menor
      * o de menor a mayor
@@ -335,4 +334,57 @@ public interface IfaceControlGeneral {
      * @return Collection todos los Centros Distribucion registrados
      */
     public Collection<CentroDistribucion> traerTodosLosCentros();
+
+    /**
+     * Operacion para consultar un empleado y su historial en el sistema
+     * @param cedula Int numero de cedula del empleado a buscar
+     * @return resultado Objeto empleado con la información inclutendo su historial
+     * o null si no existe
+     */
+    public Empleado consultarEmpleadoCentro(Integer cedula);
+
+    /**
+     * Operacion para consultar todos los empleados de los centros
+     * @return Coleccion de objetos Empleado (con historial)
+     */
+    public Collection<Empleado> traerTodosLosEmpleadosCentro();
+
+    /**
+     * Operacion para consultar todos los empleados de un centro determinado
+     * @param codigo Integer codigo del centro al que pertenecen los
+     * empleados
+     * @return Coleccion de objetos Empleado (con historial)
+     */
+    public Collection<Empleado> traerTodosLosEmpleadosCentro(Integer codigo);
+
+    /**
+     * Operacion para consultar el historial de un determinado empleado
+     * @param cedula Int el numero de cedula del empleado
+     * @return Coleccion de objetos HistorialEmpleado solo de centros
+     */
+    public Collection<HistorialEmpleado> consultarHistorialEmpleadoCentro(Integer cedula);
+
+    /**
+     * Operacion para actualizar el historial de un empleado. Metodo usado para
+     * el momento de promocion o de transferencia entre empleados
+     * @param cedula int numero de cedula del empleado
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean actualizarHistorialEmpleadoCentro(int cedula);
+
+    /**
+     * Operacion para agregar un nuevo objeto historial a un empleado en el sistema
+     * @param he Objeto de tipo historial Empleado que se quiere agregar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean agregarObjetoHistorialEmpleadoCentro(HistorialEmpleado he);
+
+    /**
+     * Metodo para traer todos los empleados delos centros de distribucion del
+     * sistema
+     * @param codigoCentro codigo del centro de distribucion al que
+     * pertenecen los empleados
+     * @return coleccion collection de empleados
+     */
+    public Collection traerTodosLosEmpleadosCentro(int codigoCentro);
 }
