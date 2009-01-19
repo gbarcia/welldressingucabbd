@@ -39,6 +39,8 @@ public class VentanaConsultarEditarEmpleadoCentro2 extends javax.swing.JFrame {
 
     /** Creates new form VentanaConsultarEditarEmpleadoCentro2 */
     public VentanaConsultarEditarEmpleadoCentro2(int cedula) {
+        initComponents();
+
         Collection<Lugar> ciudades = controlG.traerTodosLosLuagres(2);
 
         empleado = controlGui.consultarEmpleado(cedula);

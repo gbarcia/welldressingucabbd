@@ -158,6 +158,14 @@
        ORDER BY fechainicio
     </select>
 
+    <select id="consultaHistorialEmpleadoCentro" parameterClass="int" resultMap="historialMap">
+       SELECT e.nombre nombre,e.ci cedula, t.nombre tienda,t.codigo codigoTienda,
+       n.fecha_ini fechainicio, n.fecha_fin fechafin, n.cargo cargo
+       FROM EMPLEADO e, CENTRO_DISTRIBUCION t, NOMINA_CENTRO n
+       WHERE t.codigo = n.CENTRO_DISTRIBUCION_codigo AND e.ci = n.EMPLEADO_ci AND ci= #value#
+       ORDER BY fechainicio
+    </select>
+
     <select id="consultaNominaTienda" parameterClass="Integer" resultMap="historialMap">
        SELECT e.nombre nombre,e.ci cedula, t.nombre tienda,t.codigo codigoTienda,
        n.fecha_ini fechainicio, n.fecha_fin fechafin, n.cargo cargo

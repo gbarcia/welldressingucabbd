@@ -291,7 +291,7 @@ public class ControlEmpleado {
         Collection<HistorialEmpleado> resultado = null;
         try {
             bitacora.info("Iniciando operacion para buscar el historial del empleado: " + cedula);
-            resultado = sqlMap.queryForList("consultaHistorialCentro", cedula);
+            resultado = sqlMap.queryForList("consultaHistorialEmpleadoCentro", cedula);
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
                     " porque " + ex.getMessage());
@@ -348,7 +348,7 @@ public class ControlEmpleado {
         he.setFechaFin(fechaSQL);
         try {
             bitacora.info("Iniciando operacion para actualizar historial de: " + cedula);
-            int ra = sqlMap.update("actualizarHistorial", he);
+            int ra = sqlMap.update("actualizarHistorialCentro", he);
             if (ra > 0) {
                 resultado = true;
             }
