@@ -383,6 +383,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setText("Consultar o Editar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
         menuCentroSolicitudes.add(jMenu1);
@@ -1076,9 +1081,13 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_menuProductosConsultarPreciosActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.ivenAoc(true);
-    }//GEN-LAST:event_jMenu1ActionPerformed
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
     * @param args the command line arguments
