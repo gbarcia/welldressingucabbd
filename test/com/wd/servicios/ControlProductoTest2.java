@@ -68,10 +68,9 @@ public class ControlProductoTest2 {
     public void testEliminarProductoDepartamento() {
         try {
             System.out.println("eliminarProductoDepartamento");
-            Producto producto = new Producto(1, 1);
             ControlProducto instance = new ControlProducto();
             boolean expResult = true;
-            boolean result = instance.eliminarProductoDepartamento(producto);
+            boolean result = instance.eliminarProductoDepartamento(1);
             assertEquals(expResult, result);
             // TODO review the generated test code and remove the default call to fail.
 //            fail("The test case is a prototype.");
