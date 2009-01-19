@@ -32,6 +32,9 @@ public class VentanaEliminarProducto extends javax.swing.JFrame {
     /** Creates new form VentanaEliminarProducto */
     public VentanaEliminarProducto() {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
         this.control_gui = new ControlGui();
         this.control_gui_producto = new ControlGuiProducto();
         this.control_gui_producto_departamento = new ControlGuiProductoDepartamento();
@@ -66,7 +69,8 @@ public class VentanaEliminarProducto extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Eliminar Producto");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Eliminar Producto"));
 

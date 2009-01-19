@@ -88,6 +88,8 @@ public class ControlGui {
     private VentanaConsultarProducto ventanaConsultarProducto;
      /** variable de ventana de consulta de productos */
     private VentanaEditarProducto ventanaEditarProducto;
+    /** variable de ventana de consulta de productos */
+    private VentanaEliminarProducto ventanaEliminarProducto;
     /** variable de ventana de consulta de Estadisticas de Tienda */
     private VentanaEstadisticasTienda venEstadisticasTienda;
     /** variable de ventana de consulta de Estadisticas del Personal */
@@ -491,6 +493,15 @@ public class ControlGui {
     public void iniciarVentanaEditarProducto(boolean var) {
         this.ventanaEditarProducto = new VentanaEditarProducto();
         this.ventanaEditarProducto.setVisible(true);
+    }
+
+    /**
+     * Metodo para mostrar la ventana de editar productos
+     * @param var visibilidad
+     */
+    public void iniciarVentanaEliminarProducto(boolean var) {
+        this.ventanaEliminarProducto = new VentanaEliminarProducto();
+        this.ventanaEliminarProducto.setVisible(true);
     }
 
     /**
