@@ -1,6 +1,7 @@
 package com.wd.gui;
 
 import com.wd.dominio.Proveedor;
+import com.wd.guiSolicitud.VentanaActualizarOrdenCompraSel;
 import com.wd.guiSolicitud.VentanaProcesarOCseleccion;
 import java.util.Collection;
 import java.util.Vector;
@@ -87,7 +88,7 @@ public class ControlGui {
     private VentanaEliminarTienda ventanaEliminarTienda;
     /** variable de ventana de consulta de productos */
     private VentanaConsultarProducto ventanaConsultarProducto;
-     /** variable de ventana de consulta de productos */
+    /** variable de ventana de consulta de productos */
     private VentanaEditarProducto ventanaEditarProducto;
     /** variable de ventana de consulta de productos */
     private VentanaEliminarProducto ventanaEliminarProducto;
@@ -109,6 +110,8 @@ public class ControlGui {
     private VentanaTransferenciaEmpTiendas ventanaTransferenciaEmpTiendas;
     /** variable de ventana para transferir empleados entre tiendas */
     private VentanaConsultarPrecioProducto ventanaConsultarPrecioProducto;
+    /** variable de ventana para transferir empleados entre tiendas */
+    private VentanaActualizarOrdenCompraSel vActOrden;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -120,6 +123,15 @@ public class ControlGui {
      */
     public void iniciarCerrarVentanaInicio(boolean var) {
         ventanaInicio.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de actualizar orden
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void ivenAoc(boolean var) {
+        this.vActOrden = new VentanaActualizarOrdenCompraSel();
+        this.vActOrden.setVisible(var);
     }
 
     /**
@@ -148,7 +160,7 @@ public class ControlGui {
         this.venEstadisticasPersonal = new VentanaEstadisticasPersonal();
         this.venEstadisticasPersonal.setVisible(var);
     }
-    
+
     /**
      * metodo para ocultar o mostrar la ventana de agregar empleado tienda
      * @param var booleano que indica si mostrar o no la ventana
@@ -457,6 +469,7 @@ public class ControlGui {
         ventanaEliminarEmpresaVigilancia = new VentanaEliminarEmpresaVigilancia(result);
         ventanaEliminarEmpresaVigilancia.setVisible(var);
     }
+
     /**
      * metodo para ocultar o mostrar la ventana de eliminar empresa d evigilancia
      * @param var indica si mostrar la ventana o no
@@ -537,6 +550,7 @@ public class ControlGui {
         ventanaConsultarProveedoresCentro = new VentanaConsultarProveedoresCentro(result);
         ventanaConsultarProveedoresCentro.setVisible(var);
     }
+
     /**
      * Metodo para ocultar o mostrar la ventana de consultar proveedores por centro
      * @param var booleano que indica si mostrar o no la ventana
