@@ -20,7 +20,7 @@
   </insert>
 
   <update id="editarItem" parameterClass="item">
-      UPDATE ITEMS SET costo = #costo#
+      UPDATE ITEMS SET cantidad = #cantidad#
       WHERE SOLICITUD_id = #idSolicitud# AND PRODUCTO_id= #idProducto#
   </update>
 

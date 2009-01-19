@@ -13,7 +13,7 @@ import java.util.Collection;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Clase control para el manejo de las ordenes de compra
  * @author Casa
  */
 public class ControlOrdenCompra implements IfaceSolicitud {
@@ -104,6 +104,7 @@ public class ControlOrdenCompra implements IfaceSolicitud {
         Collection<Item> items = null;
         try {
             aux = (OrdenCompra) this.sqlMap.queryForObject("buscarOrden", numeroOrden);
+            this.controlItem = new ControlItem();
             items = this.controlItem.traerTodosItems(numeroOrden);
             aux.setColeccionProductos(items);
         } catch (SQLException ex) {
@@ -133,21 +134,54 @@ public class ControlOrdenCompra implements IfaceSolicitud {
         }
     }
 
+    /**
+     * Operacion para actualizar una orden de compra
+     * @param oc orden de compra a actualizar
+     * @return booleano de la operacion
+     */
     public boolean actualizarOrdenCompra(OrdenCompra oc) {
         boolean resultado = false;
         int codigoCentro = oc.getCentroCodigo();
+        Collection<Item> coleccion = oc.getColeccionProductos();
+        boolean re = this.actualizarListaItems(coleccion);
         switch (oc.getStatus()) {
-            case 2: {
-                Collection<Item> coleccion = oc.getColeccionProductos();
+            case 2: { // despachado
                 for (Item item : coleccion) {
                     Integer cantidad = item.getCantidad();
                     int idProducto = item.getIdProducto();
-                    Inventario inven = new Inventario(codigoCentro, idProducto, cantidad);
-                    boolean exitoInv = this.actualizarInventario(inven);
-                    break;
+                    Inventario inven = new Inventario();
+                    inven.setCentroDistribucionCodigo(codigoCentro);
+                    inven.setProductoId(idProducto);
+                    inven.setCantidad(cantidad);
+                    Integer cantidadProductoActual = this.obtenerCantidadProductoActual(inven);
+                    if (cantidadProductoActual == null) {
+                        boolean exitoIng = this.agregarObjetoInventario(inven);
+                    } else {
+                        Integer cantTotal = cantidadProductoActual + cantidad;
+                        inven.setCantidad(cantTotal);
+                        boolean exitoInv = this.actualizarInventario(inven);
+                    }
+
                 }
+                break;
             }
-            case 3: {
+            case 3: { // cancelado
+                for (Item item : coleccion) {
+                    Integer cantidad = item.getCantidad();
+                    int idProducto = item.getIdProducto();
+                    Inventario inven = new Inventario();
+                    inven.setCentroDistribucionCodigo(codigoCentro);
+                    inven.setProductoId(idProducto);
+                    inven.setCantidad(cantidad);
+                    Integer cantidadProductoActual = this.obtenerCantidadProductoActual(inven);
+                    Integer canTotal = cantidadProductoActual - cantidad;
+                    if (canTotal < 0) {
+                        canTotal = 0;
+                    }
+                    inven.setCantidad(canTotal);
+                    boolean exitoInv = this.actualizarInventario(inven);
+                }
+                break;
             }
             default:
                 break;
@@ -155,7 +189,26 @@ public class ControlOrdenCompra implements IfaceSolicitud {
         resultado = this.cambiarEstadoOrdenCompra(oc);
         return resultado;
     }
-    
+
+    /**
+     * Operacion para actualizar los registros de Items
+     * @param items Coleccion de itemes
+     * @return boolean de resultado de la operacion
+     */
+    public boolean actualizarListaItems(Collection<Item> items) {
+        boolean resultado = false;
+        try {
+            this.controlItem = new ControlItem();
+            for (Item item : items) {
+                this.controlItem.actualizatItem(item);
+            }
+            resultado = true;
+        } catch (IOException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
 
     /**
      * Operacion para actualizar el inventario de un centro
@@ -174,6 +227,41 @@ public class ControlOrdenCompra implements IfaceSolicitud {
                 return resultado;
             }
         } else {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para averiguar la cantidad y si existe de un producto en el inventario
+     * del centro
+     * @param i Objeto Inventario
+     * @return null si no existe Integer con una cantidad si existe
+     */
+    public Integer obtenerCantidadProductoActual(Inventario i) {
+        Integer cantidad = null;
+        try {
+            this.controlInventario = new ControlInventario();
+            cantidad = this.controlInventario.verificarSiExisteProductoYcantidad(i);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
+            return cantidad;
+        }
+    }
+
+    /**
+     * Operacion para agregar un objeto inventario en el sistema
+     * @param inv Objeto Inventario a agregar
+     * @return booleano con el resultado de la operacion
+     */
+    public boolean agregarObjetoInventario(Inventario inv) {
+        boolean resultado = false;
+        try {
+            this.controlInventario = new ControlInventario();
+            resultado = this.controlInventario.agregarRegistroInventario(inv);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
             return resultado;
         }
     }

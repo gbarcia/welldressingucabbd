@@ -97,5 +97,4 @@ public class Inventario {
     public void setTiendaCodigo(Integer tiendaCodigo) {
         this.tiendaCodigo = tiendaCodigo;
     }
-
 }

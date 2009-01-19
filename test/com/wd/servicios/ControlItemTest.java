@@ -6,7 +6,9 @@
 package com.wd.servicios;
 
 
+import com.wd.dominio.Item;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -129,25 +131,25 @@ public class ControlItemTest {
 ////    /**
 ////     * Test of traerTodosItems method, of class ControlItem.
 ////     */
-////    @Test
-////    public void testTraerTodosItems() {
-////        System.out.println("traerTodosItems");
-////        Integer idSolicitud = 10;
-////        ControlItem instance = null;
-////        try {
-////            instance = new ControlItem();
-////        } catch (IOException ex) {
-////            Logger.getLogger(ControlItemTest.class.getName()).log(Level.SEVERE, null, ex);
-////        }
-////        Collection<Item> result = instance.traerTodosItems(idSolicitud);
-////        assertNotNull(result);
-////        for (Item item : result) {
-////            System.out.println(item.getIdProducto());
-////        }
-////        // TODO review the generated test code and remove the default call to fail.
-////        //fail("The test case is a prototype.");
-////    }
-////
+    @Test
+    public void testTraerTodosItems() {
+        System.out.println("traerTodosItems");
+        Integer idSolicitud = 11;
+        ControlItem instance = null;
+        try {
+            instance = new ControlItem();
+        } catch (IOException ex) {
+            Logger.getLogger(ControlItemTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Collection<Item> result = instance.traerTodosItems(idSolicitud);
+        assertNotNull(result);
+        for (Item item : result) {
+            System.out.println(item.getIdProducto());
+        }
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
 ////    /**
 ////     * Test of agregarItem method, of class ControlItem.
 ////     */
