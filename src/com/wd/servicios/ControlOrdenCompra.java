@@ -3,6 +3,7 @@ package com.wd.servicios;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.wd.dominio.Inventario;
 import com.wd.dominio.Item;
 import com.wd.dominio.OrdenCompra;
 import java.io.IOException;
@@ -23,6 +24,8 @@ public class ControlOrdenCompra implements IfaceSolicitud {
     private Logger bitacora = Logger.getLogger(getClass());
     /** Variable para trabajar con los items*/
     private ControlItem controlItem;
+    /** Variable para trabajar con el inventario de los centros*/
+    private ControlInventario controlInventario;
 
     /** Constructor que inicia el SQLMAP y la bitacora*/
     public ControlOrdenCompra() throws IOException {
@@ -77,11 +80,100 @@ public class ControlOrdenCompra implements IfaceSolicitud {
     }
 
     /**
-     * 
-     * @param aAct
-     * @return
+     * Operacion para consultar todas las ordenes de compra del sistema
+     * @return Coleccion de objetos OrdenCompra
+     */
+    public Collection<OrdenCompra> traerTodasLasOrdenesDeCompra() {
+        Collection<OrdenCompra> resultado = null;
+        try {
+            resultado = sqlMap.queryForList("todasOrdenCompra");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para buscar una orden de compra
+     * @param numeroOrden int el numero de orden de la orden a buscar
+     * @return Objeto Orden de Compra con la coleccion de Items
+     */
+    public OrdenCompra buscarOrdenCompra(int numeroOrden) {
+        OrdenCompra aux = null;
+        Collection<Item> items = null;
+        try {
+            aux = (OrdenCompra) this.sqlMap.queryForObject("buscarOrden", numeroOrden);
+            items = this.controlItem.traerTodosItems(numeroOrden);
+            aux.setColeccionProductos(items);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
+            return aux;
+        }
+    }
+
+    /**
+     * Operacion para cambiar el estado de una orden de compra
+     * @param oc Objeto Orden de Compra
+     * @return bolean con el resultado de la operacion
+     */
+    public boolean cambiarEstadoOrdenCompra(OrdenCompra oc) {
+        boolean resultado = false;
+        try {
+            int na = 0;
+            na = sqlMap.update("cambiarEstadoOrden", oc);
+            if (na > 0) {
+                resultado = true;
+            }
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    public boolean actualizarOrdenCompra(OrdenCompra oc) {
+        boolean resultado = false;
+        int codigoCentro = oc.getCentroCodigo();
+        switch (oc.getStatus()) {
+            case 2: {
+                Collection<Item> coleccion = oc.getColeccionProductos();
+                for (Item item : coleccion) {
+                    Integer cantidad = item.getCantidad();
+                    int idProducto = item.getIdProducto();
+                    Inventario inven = new Inventario(codigoCentro, idProducto, cantidad);
+                    boolean exitoInv = this.actualizarInventario(inven);
+                    break;
+                }
+            }
+            case 3: {
+            }
+            default:
+                break;
+        }
+        resultado = this.cambiarEstadoOrdenCompra(oc);
+        return resultado;
+    }
+
+    /**
+     * Operacion para actualizar el inventario de un centro
+     * @param aAct objeto de tipo inventario
+     * @return boolean del resultado
      */
     public boolean actualizarInventario(Object aAct) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean resultado = false;
+        if (aAct instanceof Inventario) {
+            try {
+                this.controlInventario = new ControlInventario();
+                resultado = this.controlInventario.modificarInventarioTeoCentro((Inventario) aAct);
+            } catch (IOException ex) {
+                bitacora.error("No se pudo operar porque " + ex.getMessage());
+            } finally {
+                return resultado;
+            }
+        } else {
+            return resultado;
+        }
     }
 }
