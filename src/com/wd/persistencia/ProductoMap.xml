@@ -61,7 +61,8 @@
     produ.descripcion,
     presu.costo,
     presu.fecha_cre,
-    presu.fecha_ult_mod
+    presu.fecha_ult_mod,
+    es.rif rifproveedor
     FROM PRODUCTO produ, PRESUPUESTO presu, EMPRESA_SERVICIO es
     WHERE produ.id = presu.PRODUCTO_id AND es.rif = presu.EMPRESA_SERVICIO_rif
     AND presu.EMPRESA_SERVICIO_rif = #value#
