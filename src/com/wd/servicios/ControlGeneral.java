@@ -1018,6 +1018,25 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Operacion para consultar un empleado y su historial en el sistema
+     * @param cedula Int numero de cedula del empleado a buscar
+     * @return resultado Objeto empleado con la información inclutendo su historial
+     * o null si no existe
+     */
+    public Empleado consultarEmpleadoCentro(Integer cedula) {
+        Empleado resultado = null;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.consultarEmpleadoCentro(cedula);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para consultar todos los empleados del sistema
      * @return Coleccion de objetos Empleado (sin historial)
      */
@@ -1052,6 +1071,23 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Operacion para consultar todos los empleados de los centros
+     * @return Coleccion de objetos Empleado (con historial)
+     */
+    public Collection<Empleado> traerTodosLosEmpleadosCentro() {
+        Collection<Empleado> resultado = null;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.traerTodosLosEmpleadosCentro();
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para consultar todos los empleados de una tienda determinada
      * @param codigoTienda Integer codigo de la tienda a la que pertenecen los
      * empleados
@@ -1063,6 +1099,25 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlEmpleado = new ControlEmpleado();
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.traerTodosLosEmpleadosTienda(codigoTienda);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para consultar todos los empleados de un centro determinado
+     * @param codigo Integer codigo del centro al que pertenecen los
+     * empleados
+     * @return Coleccion de objetos Empleado (con historial)
+     */
+    public Collection<Empleado> traerTodosLosEmpleadosCentro(Integer codigo) {
+        Collection<Empleado> resultado = null;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.traerTodosLosEmpleadosCentro(codigo);
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
         } finally {
@@ -1108,6 +1163,24 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Operacion para consultar el historial de un determinado empleado
+     * @param cedula Int el numero de cedula del empleado
+     * @return Coleccion de objetos HistorialEmpleado solo de centros
+     */
+    public Collection<HistorialEmpleado> consultarHistorialEmpleadoCentro(Integer cedula) {
+        Collection<HistorialEmpleado> resultado = null;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.consultarHistorialEmpleadoCentro(cedula);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para actualizar el historial de un empleado. Metodo usado para
      * el momento de promocion o de transferencia entre empleados
      * @param cedula int numero de cedula del empleado
@@ -1127,6 +1200,25 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Operacion para actualizar el historial de un empleado. Metodo usado para
+     * el momento de promocion o de transferencia entre empleados
+     * @param cedula int numero de cedula del empleado
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean actualizarHistorialEmpleadoCentro(int cedula) {
+        boolean resultado = false;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.actualizarHistorialEmpleadoCentro(cedula);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para agregar un nuevo objeto historial a un empleado en el sistema
      * @param he Objeto de tipo historial Empleado que se quiere agregar
      * @return boolean de exito o no de la operacion
@@ -1137,6 +1229,24 @@ public class ControlGeneral implements IfaceControlGeneral {
             this.controlEmpleado = new ControlEmpleado();
             bitacora.info("Control empleado iniciado correctamente");
             resultado = controlEmpleado.agregarObjetoHistorialEmpleadoTienda(he);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para agregar un nuevo objeto historial a un empleado en el sistema
+     * @param he Objeto de tipo historial Empleado que se quiere agregar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean agregarObjetoHistorialEmpleadoCentro(HistorialEmpleado he) {
+        boolean resultado = false;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.agregarObjetoHistorialEmpleadoCentro(he);
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
         } finally {
