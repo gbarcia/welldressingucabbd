@@ -2,6 +2,7 @@ package com.wd.servicios;
 
 import com.wd.dominio.OrdenCompra;
 import java.io.IOException;
+import java.util.Collection;
 import org.apache.log4j.Logger;
 
 /**
@@ -53,5 +54,51 @@ public class RegistroSolicitud {
             bitacora.error("No se pudo iniciar el registro OrdenCompra por " + ex.getMessage());
         }
         return controlOC.obtenerSiguienteNumeroOrden();
+    }
+
+    /**
+     * Operacion para actualizar una orden de compra
+     * @param oc orden de compra a actualizar
+     * @return booleano de la operacion
+     */
+    public boolean actualizarOrdenCompra(OrdenCompra oc) {
+        try {
+            controlOC = new ControlOrdenCompra();
+            bitacora.info("Registro OrdenCompra Iniciado correctamente");
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el registro OrdenCompra por " + ex.getMessage());
+        }
+        return controlOC.actualizarOrdenCompra(oc);
+    }
+
+    /**
+     * Operacion para consultar todas las ordenes de compra del sistema
+     * @return Coleccion de objetos OrdenCompra
+     */
+    public Collection<OrdenCompra> traerTodasLasOrdenesDeCompra() {
+        Collection<OrdenCompra> resultado = null;
+        try {
+            controlOC = new ControlOrdenCompra();
+            bitacora.info("Registro OrdenCompra Iniciado correctamente");
+            resultado = controlOC.traerTodasLasOrdenesDeCompra();
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el registro OrdenCompra por " + ex.getMessage());
+        }
+        return resultado;
+    }
+
+    /**
+     * Operacion para buscar una orden de compra
+     * @param numeroOrden int el numero de orden de la orden a buscar
+     * @return Objeto Orden de Compra con la coleccion de Items
+     */
+    public OrdenCompra buscarOrdenCompra(int numeroOrden) {
+        try {
+            controlOC = new ControlOrdenCompra();
+            bitacora.info("Registro OrdenCompra Iniciado correctamente");
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el registro OrdenCompra por " + ex.getMessage());
+        }
+        return controlOC.buscarOrdenCompra(numeroOrden);
     }
 }
