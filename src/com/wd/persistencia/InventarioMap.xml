@@ -75,5 +75,22 @@
         pepe.PRODUCTO_id = #productoId#
     </update>
 
+    <select id="verificarExistenciaProductoCantidad" parameterClass="inventario" resultClass="int">
+        SELECT cantidad FROM INVENTARIO_CENTRO
+        WHERE CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo#
+        AND PRODUCTO_id = #productoId#
+    </select>
+
+    <insert id="agergarRegistroInventario" parameterClass="inventario">
+        INSERT INTO INVENTARIO_CENTRO
+        VALUES (#centroDistribucionCodigo#,#productoId#,#cantidad#)
+    </insert>
+
+    <delete id="borrarRegistroInventario" parameterClass="inventario">
+        DELETE FROM INVENTARIO_CENTRO
+        WHERE CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo#
+        AND PRODUCTO_id=#productoId#
+    </delete>
+    
     </sqlMap>
 

@@ -155,6 +155,7 @@ public class ControlOrdenCompra implements IfaceSolicitud {
         resultado = this.cambiarEstadoOrdenCompra(oc);
         return resultado;
     }
+    
 
     /**
      * Operacion para actualizar el inventario de un centro
