@@ -15,13 +15,15 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
 
     private Vector<Tienda> vecTiendas;
 
-    private ControlGuiEmpleadoTienda controlEmpTienda;
+    private ControlGuiEmpleadoTienda controlEmpTienda = new ControlGuiEmpleadoTienda();;
 
     private Vector<Empleado> vecEmpTienda;
 
     private DefaultTableModel dm;
 
     private Vector<HistorialEmpleado> vecHistorial;
+
+    private ControlGui controlGeneral;
 
 
     /** Creates new form VentanaTransferenciaEmpTiendas */
@@ -60,7 +62,7 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
         comboTiendaDestino = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        comboCargo = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -135,8 +137,8 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
         jLabel4.setText("Cargo");
         jLabel4.setToolTipText("Cargo que el empleado ocupara en la tienda");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gerente", "Regular" }));
-        jComboBox2.setToolTipText("Escoja el cargo que ocupara el empleado en la tienda");
+        comboCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gerente", "Regular" }));
+        comboCargo.setToolTipText("Escoja el cargo que ocupara el empleado en la tienda");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -149,7 +151,7 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(164, 164, 164)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboCargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboTiendaDestino, 0, 211, Short.MAX_VALUE))
                 .addContainerGap(155, Short.MAX_VALUE))
         );
@@ -163,12 +165,17 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("Tranferir Empleado");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -234,6 +241,59 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
         this.llenarTablaEmps(codigoTienda);
     }//GEN-LAST:event_comboTiendaOrigenActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int selectTiendaDestino = -1;
+        int selectCargo = -1;
+        int selectTiendaOri = -1;
+        int resultado = -1;
+        int selectEmp = -1;
+        boolean flag = true;
+        int cedula =-1;
+        String nombre="";
+        String apellido="";
+        java.sql.Date fechaNacimiento = null;
+        String telefono = "";
+        int estadoCivil = -1;
+        String sexo = "";
+        int nivelEstudios = -1;
+        String direccion = "";
+        int tipo = -1;
+        int lugarId=-1;
+        String ciudadVive = "";
+        int codigo = -1;
+        String nombreEmpresa="";
+        Empleado emp = new Empleado();
+        this.controlGeneral =  new ControlGui ();
+        resultado = this.controlGeneral.dialogoConfirmacion("¿Está seguro " +
+        "que desea realizar esta operación?");
+        if (resultado == 0){
+            selectTiendaDestino = this.comboTiendaDestino.getSelectedIndex();
+            codigo = this.vecTiendas.elementAt(selectTiendaDestino).getCodigo();
+            selectCargo = this.comboCargo.getSelectedIndex();
+            selectEmp = this.tableEmpsOr.getSelectedRow();
+            emp = this.vecEmpTienda.elementAt(selectEmp);
+
+            cedula = emp.getCedula();
+            nombre = emp.getNombre();
+            apellido = emp.getApellido();
+            fechaNacimiento = emp.getFechaNacimiento();
+            telefono = emp.getTelefono();
+            estadoCivil = emp.getEstadoCivil();
+            sexo = emp.getSexo();
+            nivelEstudios = emp.getNivelEstudios();
+            direccion = emp.getDireccion();
+            tipo = selectCargo;
+            lugarId = emp.getLugarId();
+            ciudadVive = emp.getCiudadVive();
+            nombreEmpresa = this.vecTiendas.elementAt(selectTiendaDestino).getNombre();
+
+            this.controlEmpTienda.actualizarEmpleado(flag, cedula, nombre,
+            apellido, fechaNacimiento, telefono, estadoCivil, sexo, nivelEstudios,
+            direccion, tipo, lugarId, ciudadVive, codigo, nombreEmpresa);
+        }
+        //this.dm.removeRow(selectEmp);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -249,10 +309,10 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox comboCargo;
     private javax.swing.JComboBox comboTiendaDestino;
     private javax.swing.JComboBox comboTiendaOrigen;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -265,8 +325,7 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void llenarTablaEmps(Integer codigoTienda){
-
-        this.controlEmpTienda = new ControlGuiEmpleadoTienda();
+        
         this.vecEmpTienda = controlEmpTienda.traerTodosEmpTiendas(codigoTienda);
         
         dm = new DefaultTableModel();

@@ -134,7 +134,7 @@
         emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
         emp.LUGAR_id lugarId, l.nombre nombreCiudad
         FROM EMPLEADO emp, LUGAR l,NOMINA_TIENDA nt, TIENDA t
-        WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci AND
+        WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci AND nt.fecha_fin is null AND
         nt.TIENDA_codigo = t.codigo AND t.codigo = #value#
         ORDER BY apellido,nombre
     </select>
