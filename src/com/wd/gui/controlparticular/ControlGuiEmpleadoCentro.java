@@ -1,8 +1,12 @@
 package com.wd.gui.controlparticular;
 
+import com.wd.dominio.CentroDistribucion;
 import com.wd.dominio.Empleado;
+import com.wd.dominio.HistorialEmpleado;
+import com.wd.dominio.Lugar;
 import com.wd.dominio.NominaCentro;
 import com.wd.gui.ControlGui;
+import com.wd.gui.VentanaConsultarEditarEmpleadoCentro2;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.IfaceControlGeneral;
 import java.util.Collection;
@@ -106,6 +110,185 @@ public class ControlGuiEmpleadoCentro{
                 }
             } else if (!datosValidos) {
                 controlador.mostrarMensaje("Error: Todos los campos son requeridos", 1);
+            }
+        } else if (!esNumero) {
+            controlador.mostrarMensaje("Error: el campo cedula debe ser número", 1);
+        }
+    }
+
+    /** Operacion para traer todas las ciudades
+     * @return Collection con todas las ciudades
+     */
+    public Collection<Lugar> obtenerTodosLosLugares() {
+        Collection<Lugar> resultado = null;
+        resultado = controlG.traerTodosLosLuagres(2);
+        return resultado;
+    }
+
+    /** Operacion para traer todos los centros
+     * @return Collection con todos los centros
+     */
+    public Collection<CentroDistribucion> obtenerTodasLosCentros() {
+        Collection<CentroDistribucion> resultado = null;
+        resultado = controlG.traerTodosLosCentros();
+        return resultado;
+    }
+
+    /** Operacion para traer todos los empleados que trabajan en los centros
+     * @return Collection con todas los Empleados de Centros
+     */
+    public Collection<Empleado> traerTodosEmpCentros() {
+        Collection<Empleado> resultado = null;
+        resultado = controlG.traerTodosLosEmpleadosCentro();
+        return resultado;
+    }
+
+    /** Operacion para traer todos los empleados que trabajan en los centros
+     * @return Collection con todas los Empleados de CEntros
+     */
+    public Vector<Empleado> traerTodosEmpCentros(Integer codigo) {
+        Collection<Empleado> resultado = null;
+        resultado = controlG.traerTodosLosEmpleadosCentro(codigo);
+        Vector<Empleado> vecEmps = new Vector();
+        for (Empleado emp : resultado) {
+            vecEmps.addElement(emp);
+        }
+        return vecEmps;
+    }
+
+//    /** Operacion para traer todos los empleados que trabajan en los centros
+//     * @param codigoTienda Integer codigo del centro
+//     * @return Collection con todas los Empleados de Centros
+//     */
+//    public Vector<HistorialEmpleado> traerNominaTienda(Integer codigo) {
+//        Collection<HistorialEmpleado> resultado = null;
+//        resultado = controlG.traerNominaCentro(codigo);
+//        Vector<HistorialEmpleado> vecHistorialEmps = new Vector();
+//        for (HistorialEmpleado hemp : resultado) {
+//            vecHistorialEmps.addElement(hemp);
+//        }
+//        return vecHistorialEmps;
+//    }
+
+    /** Operacion para consultar un empleado
+     * @return resultado Objeto Empleado con su historial
+     */
+    public Empleado consultarEmpleado(int cedula) {
+        Empleado resultado = null;
+        resultado = controlG.consultarEmpleadoCentro(cedula);
+        return resultado;
+    }
+
+    /** Operacion para iniciar la ventana de consulta, recibe una cedula y crea
+     * la nueva ventana que presenta la informacion pertinente de ese empleado
+     * @param cedula String de la cedula del empleado a consultar
+     */
+    public void iniciarVentanaConsulta(String cedula) {
+        boolean esNumero = false;
+        esNumero = this.isNumber(cedula);
+        if (esNumero) {
+            int cedulap = Integer.parseInt(cedula);
+            Empleado emp = this.consultarEmpleado(cedulap);
+            if (emp != null) {
+                VentanaConsultarEditarEmpleadoCentro2 ven = new VentanaConsultarEditarEmpleadoCentro2(cedulap);
+                ven.setVisible(true);
+            } else if (emp == null) {
+                controlador.mostrarMensaje("Error: el empleado con la cedula: " + cedulap + " no existe", 1);
+            }
+        } else if (!esNumero) {
+            controlador.mostrarMensaje("Error: el campo cedula debe ser número", 1);
+        }
+    }
+
+    /** Operacion para actualizar un empleado en el sistema
+     * @param flag parametro donde se indica si se va a cambiar de cargo un empleado
+     * @param cedula int numero de cedula del empleado
+     * @param nombre String nombre del empleado
+     * @param apellido String apellido del empleado
+     * @param fechaNacimiento java.sql.Date la fecha de nacimiento del empleado
+     * @param telefono String telefono del empleado
+     * @param estadoCivil int estado civil del empleado
+     * @param sexo String sexo del empleado
+     * @param nivelEstudios int nivel de estudios del empleado
+     * @param direccion String direccion del empleado
+     * @param tipo int tipo de cargo del empleado
+     * @param lugarId int el indice de la ciudad donde vive el empleado
+     * @param ciudadVive String nombre de la ciudad donde vive el empleado
+     * @param codigo int codigo del centro donde trabajara el empleado
+     * @param nombreEmpresa String nombre de la empresa o tienda donde trabajara
+     */
+    public void actualizarEmpleado(boolean flag, int cedula, String nombre, String apellido,
+            java.sql.Date fechaNacimiento, String telefono, int estadoCivil, String sexo,
+            int nivelEstudios, String direccion, int tipo, int lugarId, String ciudadVive,
+            int codigo, String nombreEmpresa) {
+        boolean resultado = false;
+        boolean resultadoAct = false;
+        boolean datosValidos = false;
+        if (flag) {
+            int confirmacion = controlador.dialogoConfirmacion("¿Está seguro que desea modificar el cargo del empleado?");
+            if (confirmacion == 0) {
+                datosValidos = this.validarForm(sexo, nombre, apellido, telefono, direccion);
+                if (datosValidos) {
+                    Date fecha = new Date();
+                    java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime()); //Obteniendo la fecha actual
+                    empleado = new Empleado(cedula, nombre, apellido, fechaNacimiento, telefono,
+                            estadoCivil, sexo, nivelEstudios, direccion, tipo, lugarId,
+                            ciudadVive, fechaSQL, null, codigo, nombreEmpresa);
+                    resultado = controlG.actualizarHistorialEmpleadoCentro(cedula);
+                    if (resultado) {
+                        resultadoAct = controlG.editarEmpleado(empleado);
+                        for (HistorialEmpleado he : empleado.getHistorial()) {
+                            controlG.agregarObjetoHistorialEmpleadoCentro(he);
+                        }
+                        if (resultadoAct) {
+                            controlador.mostrarMensaje("Empleado " + nombre + " actualizado con éxito", 0);
+                        }
+                    } else {
+                        controlador.mostrarMensaje("Operacion fallida", 1);
+                    }
+                } else if (!datosValidos) {
+                    controlador.mostrarMensaje("Error: Todos los campos son requeridos", 1);
+                }
+            }
+        } else if (!flag) {
+            datosValidos = this.validarForm(sexo, nombre, apellido, telefono, direccion);
+            if (datosValidos) {
+                Date fecha = new Date();
+                java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime()); //Obteniendo la fecha actual
+                empleado = new Empleado(cedula, nombre, apellido, fechaNacimiento, telefono,
+                        estadoCivil, sexo, nivelEstudios, direccion, tipo, lugarId,
+                        ciudadVive, fechaSQL, null, codigo, nombreEmpresa);
+                resultado = controlG.editarEmpleado(empleado);
+                if (resultado) {
+                    controlador.mostrarMensaje("Empleado " + nombre + " actualizado con éxito", 0);
+                }
+            } else {
+                controlador.mostrarMensaje("Operacion fallida", 1);
+            }
+        } else if (!datosValidos) {
+            controlador.mostrarMensaje("Error: Todos los campos son requeridos", 1);
+        }
+    }
+
+    /** Operacion para borrar un empleado del sistema
+     * @param cedula String de la cedula del empleado a borrar
+     */
+    public void eliminarEmpleadoDelSistema(String cedula) {
+        boolean esNumero = false;
+        boolean resultado = false;
+        String mensaje = "¿Está seguro que desea borrar el empleado " + cedula +
+                " ?. \n Este procedimiento borrara todos sus registros de historial";
+        esNumero = this.isNumber(cedula);
+        if (esNumero) {
+            Integer ced = Integer.parseInt(cedula);
+            int confirmacion = controlador.dialogoConfirmacion(mensaje);
+            if (confirmacion == 0) {
+                resultado = controlG.borrarEmpleado(ced);
+                if (resultado) {
+                    controlador.mostrarMensaje("Empleado " + cedula + " borrado con éxito", 0);
+                } else if (!resultado) {
+                    controlador.mostrarMensaje("Operacion fallida", 1);
+                }
             }
         } else if (!esNumero) {
             controlador.mostrarMensaje("Error: el campo cedula debe ser número", 1);
