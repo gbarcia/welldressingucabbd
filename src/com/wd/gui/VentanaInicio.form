@@ -258,11 +258,21 @@
                 <Property name="text" type="java.lang.String" value="Solicitudes"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="menuCentroSolicitudesOrdenCompra">
+                <Menu class="javax.swing.JMenu" name="jMenu1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ordenes de compra"/>
                   </Properties>
-                </MenuItem>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Realizar Orden Compra"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroSolicitudesPedidosTiendas">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Pedidos realizados de tiendas"/>

@@ -93,7 +93,8 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroNominaSeparador = new javax.swing.JSeparator();
         menuCentroNominaTrasnferirEmpelado = new javax.swing.JMenuItem();
         menuCentroSolicitudes = new javax.swing.JMenu();
-        menuCentroSolicitudesOrdenCompra = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         menuCentroSolicitudesPedidosTiendas = new javax.swing.JMenuItem();
         menuCentroInventarios = new javax.swing.JMenu();
         menuCentroInventarioConsultar = new javax.swing.JMenuItem();
@@ -357,8 +358,17 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentroSolicitudes.setText("Solicitudes");
 
-        menuCentroSolicitudesOrdenCompra.setText("Ordenes de compra");
-        menuCentroSolicitudes.add(menuCentroSolicitudesOrdenCompra);
+        jMenu1.setText("Ordenes de compra");
+
+        jMenuItem4.setText("Realizar Orden Compra");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        menuCentroSolicitudes.add(jMenu1);
 
         menuCentroSolicitudesPedidosTiendas.setText("Pedidos realizados de tiendas");
         menuCentroSolicitudes.add(menuCentroSolicitudesPedidosTiendas);
@@ -1022,6 +1032,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui.iniciarVentanaEliminarProducto(true);
     }//GEN-LAST:event_menuProductosEliminarActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.ivenOc(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1036,9 +1051,11 @@ public class VentanaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MenuProductosAgregar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem menuAgregarEmpleadoTienda;
     private javax.swing.JMenuItem menuArcecaDe;
     private javax.swing.JMenu menuArchivo;
@@ -1069,7 +1086,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuCentroRegistro;
     private javax.swing.JSeparator menuCentroSeparador;
     private javax.swing.JMenu menuCentroSolicitudes;
-    private javax.swing.JMenuItem menuCentroSolicitudesOrdenCompra;
     private javax.swing.JMenuItem menuCentroSolicitudesPedidosTiendas;
     private javax.swing.JMenu menuCentros;
     private javax.swing.JMenuItem menuConsultaCentrosTienda;
