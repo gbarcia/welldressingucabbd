@@ -265,6 +265,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ordenes de compra"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu1ActionPerformed"/>
+                  </Events>
                   <SubComponents>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
                       <Properties>
@@ -273,6 +276,11 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
                       </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Consultar o Editar"/>
+                      </Properties>
                     </MenuItem>
                   </SubComponents>
                 </Menu>

@@ -98,6 +98,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroSolicitudes = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         menuCentroSolicitudesPedidosTiendas = new javax.swing.JMenuItem();
         menuCentroInventarios = new javax.swing.JMenu();
         menuCentroInventarioConsultar = new javax.swing.JMenuItem();
@@ -367,6 +368,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroSolicitudes.setText("Solicitudes");
 
         jMenu1.setText("Ordenes de compra");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem4.setText("Realizar Orden Compra");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -375,6 +381,9 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setText("Consultar o Editar");
+        jMenu1.add(jMenuItem5);
 
         menuCentroSolicitudes.add(jMenu1);
 
@@ -1066,6 +1075,11 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui.iniciarVentanaConsultarPrecioProducto(true,result);
     }//GEN-LAST:event_menuProductosConsultarPreciosActionPerformed
 
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.ivenAoc(true);
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1085,6 +1099,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem menuAgregarEmpleadoTienda;
     private javax.swing.JMenuItem menuArcecaDe;
     private javax.swing.JMenu menuArchivo;
