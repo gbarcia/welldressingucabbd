@@ -2,7 +2,6 @@ package com.wd.servicios;
 
 import com.wd.dominio.OrdenCompra;
 import java.io.IOException;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
