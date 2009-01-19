@@ -88,7 +88,7 @@ public class ControlGuiOrdenCompra {
      * @param idSolicitud el numero de solicitud
      * @return Coleccion de objetos Item
      */
-    private Collection<Item> productoToItem(ArrayList<Producto> col, int idSolicitud) {
+    public Collection<Item> productoToItem(ArrayList<Producto> col, int idSolicitud) {
         Collection<Item> resultado = new Vector();
         for (Producto producto : col) {
             Item i = new Item(producto.getId(), idSolicitud, producto.getDepartamentoId(),
@@ -96,6 +96,58 @@ public class ControlGuiOrdenCompra {
             resultado.add(i);
         }
         return resultado;
+    }
+
+    /**
+     * Operacion para buscar un producto en una coleccion de productos
+     * @param idProducto identificador del producto
+     * @param col coleccion de productos
+     * @return objeto producto a encontrar o null en caso contrario
+     */
+    public Producto buscarProductoAux(Integer idProducto, Collection<Producto> col) {
+        Producto resultado = null;
+        for (Producto producto : col) {
+            if (idProducto == producto.getId()) {
+                resultado = producto;
+            }
+        }
+        return resultado;
+    }
+
+    /**
+     * Operacion para pasar los objetos items a objetos producto
+     * @param col coleccion de objetos item
+     * @param rif rif del proveedor a quien pertencen los productos
+     * @return Coleccion de productos
+     */
+    public ArrayList<Producto> itemToProducto(Collection<Item> col, String rif) {
+        ArrayList<Producto> resultado = new ArrayList<Producto>();
+        Collection<Producto> productosProve = this.controlG.consultaProductosProveedor(rif);
+        for (Item item : col) {
+            Producto p = this.buscarProductoAux(item.getIdProducto(), productosProve);
+            p.setDepartamentoId(item.getCantidad());
+            resultado.add(p);
+        }
+        return resultado;
+    }
+
+    /**
+     * Operacion para traer todas las ordenes de compra
+     * @return Coleccion de objetos OrdenCompra
+     */
+    public Collection<OrdenCompra> traerTodasLasOrdenes() {
+        Collection<OrdenCompra> resultado = null;
+        resultado = this.registro.traerTodasLasOrdenesDeCompra();
+        return resultado;
+    }
+
+    /**
+     * Operacion para buscar una orden de compra
+     * @param numeroOrden int el numero de orden de la orden a buscar
+     * @return Objeto Orden de Compra con la coleccion de Items
+     */
+    public OrdenCompra buscarOrdenCompra(int numeroOrden) {
+        return this.registro.buscarOrdenCompra(numeroOrden);
     }
 
     /**
@@ -123,6 +175,24 @@ public class ControlGuiOrdenCompra {
                 controlador.mostrarMensaje("Error: Operacion Fallida", 1);
             }
         } else if (!formularioValido) {
+            controlador.mostrarMensaje("Error: Faltan elementos", 1);
+        }
+    }
+
+    /**
+     * Operacion para actualizar una orden de compra en el sistema
+     * @param oc la orden de compra a actualizar
+     */
+    public void actualizarOrdenCompra(OrdenCompra oc) {
+        boolean resultado = false;
+        if (oc.getColeccionProductos() != null) {
+            resultado = this.registro.actualizarOrdenCompra(oc);
+            if (resultado) {
+                controlador.mostrarMensaje("Orden de compra: " + oc.getId() + " actualizada con exito", 0);
+            } else {
+                controlador.mostrarMensaje("Error: Operacion Fallida", 1);
+            }
+        } else {
             controlador.mostrarMensaje("Error: Faltan elementos", 1);
         }
     }
