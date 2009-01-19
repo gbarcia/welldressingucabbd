@@ -107,6 +107,8 @@ public class ControlGui {
     private VentanaProcesarOCseleccion venProOc;
     /** variable de ventana para transferir empleados entre tiendas */
     private VentanaTransferenciaEmpTiendas ventanaTransferenciaEmpTiendas;
+    /** variable de ventana para transferir empleados entre tiendas */
+    private VentanaConsultarPrecioProducto ventanaConsultarPrecioProducto;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -560,6 +562,15 @@ public class ControlGui {
     public void iniciarVentanaConsultaInventarioCentro(boolean var, Vector result) {
         ventanaConsultaInventarioCentro = new VentanaConsultaInventarioCentro(result);
         ventanaConsultaInventarioCentro.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de precio por producto
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaConsultarPrecioProducto(boolean var, Vector result) {
+        ventanaConsultarPrecioProducto = new VentanaConsultarPrecioProducto(result);
+        ventanaConsultarPrecioProducto.setVisible(var);
     }
 
     /**
