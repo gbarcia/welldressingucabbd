@@ -105,6 +105,8 @@ public class ControlGui {
     private VentanaConsultaInventarioCentro ventanaConsultaInventarioCentro;
     /** variable de ventana para realizar orden de compra */
     private VentanaProcesarOCseleccion venProOc;
+    /** variable de ventana para transferir empleados entre tiendas */
+    private VentanaTransferenciaEmpTiendas ventanaTransferenciaEmpTiendas;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -544,6 +546,15 @@ public class ControlGui {
 
     /**
      * Metodo para ocultar o mostrar la ventana de consultar inventario dentro
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaTransferenciaEmpTiendas(boolean var, Vector result) {
+        ventanaTransferenciaEmpTiendas = new VentanaTransferenciaEmpTiendas(result);
+        ventanaTransferenciaEmpTiendas.setVisible(var);
+    }
+
+    /**
+     * Metodo para ocultar o mostrar la ventana de tranferir empleados entre tiendas
      * @param var booleano que indica si mostrar o no la ventana
      */
     public void iniciarVentanaConsultaInventarioCentro(boolean var, Vector result) {

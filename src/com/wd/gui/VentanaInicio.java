@@ -250,6 +250,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuNominaTienda.add(menuSeparadorTienda);
 
         menuTransferirEmpleadoTienda.setText("Transferir empleado");
+        menuTransferirEmpleadoTienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTransferirEmpleadoTiendaActionPerformed(evt);
+            }
+        });
         menuNominaTienda.add(menuTransferirEmpleadoTienda);
 
         menuTiendas.add(menuNominaTienda);
@@ -1036,6 +1041,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.ivenOc(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void menuTransferirEmpleadoTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTransferirEmpleadoTiendaActionPerformed
+        Vector<Tienda> result = null;
+       this.controlGuiTienda = new ControlGuiTienda();
+       result = this.controlGuiTienda.consultarTiendas();
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaTransferenciaEmpTiendas(true,result);
+    }//GEN-LAST:event_menuTransferirEmpleadoTiendaActionPerformed
 
     /**
     * @param args the command line arguments
