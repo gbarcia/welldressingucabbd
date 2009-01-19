@@ -96,7 +96,7 @@ public class ControlProducto {
 
     /**
      * Metodo para eliminar un registro de Producto-Departamento
-     * @param producto el producto a eliminar
+     * @param id el producto a eliminar
      * @return resultado de la operacion
      */
     public boolean eliminarProductoDepartamento(int id){
