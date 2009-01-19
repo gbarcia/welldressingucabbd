@@ -133,24 +133,24 @@ public class ControlInventarioTest {
 ////        fail("The test case is a prototype.");
 ////    }
 //
-//    /**
-//     * Test of verificarSiExisteProductoYcantidad method, of class ControlInventario.
-//     */
-//    @Test
-//    public void testVerificarSiExisteProductoYcantidad() {
-//        System.out.println("verificarSiExisteProductoYcantidad");
-//        ControlInventario instance = null;
-////        try {
-////            instance = new ControlInventario();
-////        } catch (IOException ex) {
-////            Logger.getLogger(ControlInventarioTest.class.getName()).log(Level.SEVERE, null, ex);
-////        }
-////        Integer expResult = null;
-////        Integer result = instance.verificarSiExisteProductoYcantidad();
-////        assertEquals(expResult, result);
-////        // TODO review the generated test code and remove the default call to fail.
-////        fail("The test case is a prototype.");
-////    }
+    /**
+     * Test of verificarSiExisteProductoYcantidad method, of class ControlInventario.
+     */
+    @Test
+    public void testVerificarSiExisteProductoYcantidad() {
+        System.out.println("verificarSiExisteProductoYcantidad");
+        ControlInventario instance = null;
+        Inventario inventario = new Inventario(1, 1, 50);
+        try {
+            instance = new ControlInventario();
+        } catch (IOException ex) {
+            Logger.getLogger(ControlInventarioTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Integer result = instance.verificarSiExisteProductoYcantidad(inventario);
+        System.out.println(result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 ////
 ////    /**
 ////     * Test of traerInventarioTeoCentro method, of class ControlInventario.
@@ -369,22 +369,22 @@ public class ControlInventarioTest {
     /**
      * Test of agregarRegistroInventario method, of class ControlInventario.
      */
-    @Test
-    public void testAgregarRegistroInventario() {
-        System.out.println("agregarRegistroInventario");
-        Inventario inv = new Inventario(1, 5, 100);
-        ControlInventario instance = null;
-        try {
-            instance = new ControlInventario();
-        } catch (IOException ex) {
-            Logger.getLogger(ControlInventarioTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        boolean expResult = true;
-        boolean result = instance.agregarRegistroInventario(inv);
-        assertEquals(expResult, result);
-//         TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testAgregarRegistroInventario() {
+//        System.out.println("agregarRegistroInventario");
+//        Inventario inv = new Inventario(1, 5, 100);
+//        ControlInventario instance = null;
+//        try {
+//            instance = new ControlInventario();
+//        } catch (IOException ex) {
+//            Logger.getLogger(ControlInventarioTest.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        boolean expResult = true;
+//        boolean result = instance.agregarRegistroInventario(inv);
+//        assertEquals(expResult, result);
+////         TODO review the generated test code and remove the default call to fail.
+////        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of borrarRegistroInventario method, of class ControlInventario.

@@ -46,8 +46,8 @@
     </select>
 
     <select id="buscarOrden" parameterClass="int" resultClass="oc">
-        SELECT s.id idSolicitud, s.fecha_est fechaEstimada, s.fecha_gen fechaGen, s.status estado, s.CENTRO_DISTRIBUCION_codigo codigoCentro,
-        s.EMPRESA_SERVICIO_rif rifProveedor, c.nombre nombreCentro, es.nombre nombreProveedor
+        SELECT s.id , s.fecha_est fechaEstimada, s.fecha_gen fechaGenerada, s.status, s.CENTRO_DISTRIBUCION_codigo centroCodigo,
+        s.EMPRESA_SERVICIO_rif proveedorRif, c.nombre nombreCentro, es.nombre nombreProveedor
         FROM SOLICITUD s, CENTRO_DISTRIBUCION c, EMPRESA_SERVICIO es
         WHERE s.CENTRO_DISTRIBUCION_codigo = c.codigo
         AND s.EMPRESA_SERVICIO_rif = es.rif
