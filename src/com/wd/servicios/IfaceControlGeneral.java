@@ -238,6 +238,22 @@ public interface IfaceControlGeneral {
     public Collection<Empleado> traerTodosLosEmpleadosTienda();
 
     /**
+     * Operacion para consultar todos los empleados de las tiendas
+     * @param codigoTienda Integer codigo de la tienda a la que pertenecen los
+     * empleados
+     * @return Coleccion de objetos Empleado
+     */
+    public Collection<Empleado> traerTodosLosEmpleadosTienda(Integer codigoTienda);
+
+    /**
+     * Operacion para consultar la nomina de una tienda determinada
+     * @param codigoTienda Integer codigo de la tienda a la que pertenecen los
+     * empleados
+     * @return Coleccion de objetos Empleado (con historial)
+     */
+    public Collection<HistorialEmpleado> traerNominaTienda(Integer codigoTienda);
+
+    /**
      * Operacion para consultar el historial de un determinado empleado
      * @param cedula Int el numero de cedula del empleado
      * @return Coleccion de objetos HistorialEmpleado
