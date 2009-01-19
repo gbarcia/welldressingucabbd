@@ -3,11 +3,11 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-    <sqlMap namespace="OrdenCompra">
+<sqlMap namespace="OrdenCompra">
 
     <typeAlias alias="oc" type="com.wd.dominio.OrdenCompra"/>
 
-    <insert id="agregarOrden" parameterClass="oc">        
+    <insert id="agregarOrden" parameterClass="oc">
         INSERT INTO SOLICITUD (id, fecha_gen, fecha_est, status, tipo,
                                TIENDA_codigo_PEDIDO, TIENDA_codigo_TRANSFIERE,
                                TIENDA_codigo1_TRANSFERIDO, CENTRO_DISTRIBUCION_codigo,
@@ -20,5 +20,9 @@
         </selectKey>
     </insert>
 
-
-    </sqlMap>
+    <select id="siguienteNumeroOrden" resultClass="int">
+        select auto_increment from `information_schema`.tables where
+        TABLE_SCHEMA = 'well_dressing' and TABLE_NAME = 'solicitud'
+    </select>
+    
+</sqlMap>
