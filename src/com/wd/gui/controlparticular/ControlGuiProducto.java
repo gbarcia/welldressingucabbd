@@ -69,7 +69,7 @@ public class ControlGuiProducto {
         if (resultado) {
             controlador.mostrarMensaje("Producto eliminado con éxito",0);
         } else {
-            controlador.mostrarMensaje("Operacion fallida", 1);
+            controlador.mostrarMensaje("Operacion fallida. \nVerifique que no existan registros de historial.", 1);
         }
             return resultado;
     }

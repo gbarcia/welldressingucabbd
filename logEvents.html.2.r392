@@ -18235,3 +18235,4433 @@ Log session start time Tue Jan 13 15:52:24 ACT 2009<br>
 --- Check the statement (update failed).  
 --- Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`well_dressing`.`nomina_tienda`, CONSTRAINT `fk_EMPLEADO_has_TIENDA_TIENDA` FOREIGN KEY (`TIENDA_codigo`) REFERENCES `tienda` (`codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION)</td>
 </tr>
+<<<<<<< .mine
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:00:55 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:15:31 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>608</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:16:49 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>607</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:18:28 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>578</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:19:09 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>564</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>1706</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>1940</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:22:24 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>673</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>673</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1690</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>1942</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1942</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>2258</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando controlador de Tienda</td>
+</tr>
+
+<tr>
+<td>2394</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlTienda iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2394</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando operacion para traer todas las Tiendas</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:24:09 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>670</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>671</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1496</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1752</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1752</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1752</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:25:31 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>662</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>662</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1558</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1852</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1852</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1852</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2054</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2211</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2211</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2395</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2535</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2536</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:29:26 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>694</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>694</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1539</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1797</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1797</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1797</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2001</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2139</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2139</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2318</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2541</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2541</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:40:06 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>683</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>683</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1534</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1793</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1793</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1794</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2060</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2203</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2203</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2409</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2539</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2539</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:42:01 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>668</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>668</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1508</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1767</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1767</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1767</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>1979</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2119</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2120</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2269</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2397</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2397</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:42:48 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>660</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>660</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1514</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1782</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1782</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1782</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2021</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2167</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2167</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2353</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2485</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2553</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 17:59:45 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>669</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>669</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1554</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1822</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1822</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1823</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>1979</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2124</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2124</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2311</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2443</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2443</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+=======
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 15:33:19 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Iniciando controlador de OrdenCompra</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 15:37:40 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Iniciando controlador de OrdenCompra</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 15:39:38 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Iniciando controlador de OrdenCompra</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 15:40:05 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Iniciando controlador de OrdenCompra</td>
+</tr>
+
+<tr>
+<td>1083</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">No se pudo operar null porque   
+--- The error occurred in com/wd/persistencia/OrdenCompraMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the agregarOrden-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'fecha_gen' cannot be null</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 15:41:50 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Iniciando controlador de OrdenCompra</td>
+</tr>
+
+<tr>
+<td>1007</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">No se pudo operar null porque   
+--- The error occurred in com/wd/persistencia/OrdenCompraMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the agregarOrden-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'fecha_gen' cannot be null</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 15:42:14 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Iniciando controlador de OrdenCompra</td>
+</tr>
+
+<tr>
+<td>979</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">No se pudo operar null porque   
+--- The error occurred in com/wd/persistencia/OrdenCompraMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the agregarOrden-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'fecha_gen' cannot be null</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 15:43:38 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Iniciando controlador de OrdenCompra</td>
+</tr>
+
+<tr>
+<td>1202</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Orden: null agregado con éxito</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 16:13:13 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlHorario category">com.wd.servicios.ControlHorario</td>
+<td title="Message">Iniciando controlador de horario</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 16:14:06 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Iniciando controlador de OrdenCompra</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 16:14:57 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Iniciando controlador de OrdenCompra</td>
+</tr>
+
+<tr>
+<td>1061</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlOrdenCompra category">com.wd.servicios.ControlOrdenCompra</td>
+<td title="Message">Orden: null agregado con éxito</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 16:15:08 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlHorario category">com.wd.servicios.ControlHorario</td>
+<td title="Message">Iniciando controlador de horario</td>
+</tr>
+
+<tr>
+<td>698</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Horario Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>699</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlHorario category">com.wd.servicios.ControlHorario</td>
+<td title="Message">Iniciando operacion para traer todos los Horarios</td>
+</tr>
+>>>>>>> .r372
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 18:24:02 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>710</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>710</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1597</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1892</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1892</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1892</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2076</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2239</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2239</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 18:30:25 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>632</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>1237</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>1499</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 18:31:26 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>609</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>1213</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>1478</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 18:34:36 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>696</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>696</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1593</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1879</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1879</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1880</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2063</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2221</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2221</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 18:35:07 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>719</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>720</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1576</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1874</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1875</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1875</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2012</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2164</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2165</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2347</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2588</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2588</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 18:58:36 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>626</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+
+<tr>
+<td>1313</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">No se pudo realizar la operacion porque:   
+--- The error occurred in com/wd/persistencia/ProveedorMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the TodosLosProveedores-InlineParameterMap.  
+--- Check the statement (query failed).  
+--- Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM EMPRESA_SERVICIO es         WHERE tipo = 0' at line 1</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 18:59:34 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>645</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+
+<tr>
+<td>1231</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">No se pudo realizar la operacion porque:   
+--- The error occurred in com/wd/persistencia/ProveedorMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the TodosLosProveedores-InlineParameterMap.  
+--- Check the statement (query failed).  
+--- Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM EMPRESA_SERVICIO es         WHERE tipo = 0' at line 1</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 19:05:19 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>628</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+
+<tr>
+<td>1208</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">No se pudo realizar la operacion porque:   
+--- The error occurred in com/wd/persistencia/ProveedorMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the TodosLosProveedores-InlineParameterMap.  
+--- Check the statement (query failed).  
+--- Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM EMPRESA_SERVICIO es         WHERE es.tipo = 0' at line 1</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 19:08:40 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>612</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 19:09:58 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>706</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>707</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1513</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1796</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1796</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1796</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>1959</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2117</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2118</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2415</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2649</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2649</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 22:01:17 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>703</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>703</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1658</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1948</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1949</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1950</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 22:02:39 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>688</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>688</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1634</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1815</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1815</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1815</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2029</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>2199</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2201</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 22:04:40 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>688</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>689</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1594</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1781</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1781</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1781</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>1934</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>2093</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2095</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sat Jan 17 22:08:36 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>1030</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1031</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>2365</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>2570</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2570</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>2571</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2798</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>2961</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2963</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 00:23:43 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 00:30:55 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 00:31:44 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>625</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 00:32:03 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>727</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>727</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1525</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1844</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1845</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1845</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2129</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2292</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2293</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2515</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2766</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2766</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 00:33:34 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>707</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>707</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1507</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1785</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1785</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1785</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>1936</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2100</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2100</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2236</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2481</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2481</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+
+<tr>
+<td>16654</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>16774</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>16774</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>16981</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>17105</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>17105</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>17105</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>17270</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>17494</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>17494</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 00:42:16 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>715</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>715</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>1520</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>1800</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1801</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>1801</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>1993</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2158</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2158</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>2311</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>2540</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2540</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 14:07:01 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 14:08:00 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>710</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 14:11:16 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>1177</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1177</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>2675</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>2969</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2969</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>2969</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>3429</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>3600</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>3601</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer todos los empleados de los centros</td>
+</tr>
+
+<tr>
+<td>3808</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando controlador de Empleado</td>
+</tr>
+
+<tr>
+<td>4056</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlEmpleado iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>4056</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlEmpleado category">com.wd.servicios.ControlEmpleado</td>
+<td title="Message">Iniciando operacion para traer historial de losempleados de un centro</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 15:45:50 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando controlador de Tienda</td>
+</tr>
+
+<tr>
+<td>726</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlTienda iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>727</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando operacion para traer todas las Tiendas</td>
+</tr>
+
+<tr>
+<td>2203</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando controlador de Producto</td>
+</tr>
+
+<tr>
+<td>2397</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlProducto iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2397</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando operacion para traer todos los Productos</td>
+</tr>
+
+<tr>
+<td>2632</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>2914</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2915</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>2915</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>3207</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>3345</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>3346</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+
+<tr>
+<td>3482</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">No se pudo realizar la operacion porque:   
+--- The error occurred in com/wd/persistencia/InventarioMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the traerTodoInventarioTeoTienda-InlineParameterMap.  
+--- Check the statement (query failed).  
+--- Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'it.TIENDA_codigo' in 'field list'</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 15:49:11 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando controlador de Tienda</td>
+</tr>
+
+<tr>
+<td>896</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlTienda iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>896</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando operacion para traer todas las Tiendas</td>
+</tr>
+
+<tr>
+<td>1785</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando controlador de Producto</td>
+</tr>
+
+<tr>
+<td>2079</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlProducto iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2079</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando operacion para traer todos los Productos</td>
+</tr>
+
+<tr>
+<td>2289</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>2474</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2474</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>2474</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2680</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>2917</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2917</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+
+<tr>
+<td>3029</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">No se pudo realizar la operacion porque:   
+--- The error occurred in com/wd/persistencia/InventarioMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the traerTodoInventarioTeoTienda-InlineParameterMap.  
+--- Check the statement (query failed).  
+--- Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'it.CENTRO_DISTRIBUCION_codigo' in 'where clause'</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 15:51:21 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando controlador de Tienda</td>
+</tr>
+
+<tr>
+<td>758</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlTienda iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>759</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando operacion para traer todas las Tiendas</td>
+</tr>
+
+<tr>
+<td>1688</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando controlador de Producto</td>
+</tr>
+
+<tr>
+<td>1880</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlProducto iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1880</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando operacion para traer todos los Productos</td>
+</tr>
+
+<tr>
+<td>2064</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>2334</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2334</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>2334</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>2518</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>2662</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2662</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+
+<tr>
+<td>3149</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>3284</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>3284</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 15:53:15 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando controlador de Tienda</td>
+</tr>
+
+<tr>
+<td>1532</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlTienda iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>1532</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlTienda category">com.wd.servicios.ControlTienda</td>
+<td title="Message">Iniciando operacion para traer todas las Tiendas</td>
+</tr>
+
+<tr>
+<td>3217</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando controlador de Producto</td>
+</tr>
+
+<tr>
+<td>3425</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlProducto iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>3425</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando operacion para traer todos los Productos</td>
+</tr>
+
+<tr>
+<td>6358</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>6624</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>6625</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>6625</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>7104</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>7271</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>7272</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+
+<tr>
+<td>8240</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>8506</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>8506</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario en camino de una tienda</td>
+</tr>
+
+<tr>
+<td>22050</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>22176</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>22176</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+
+<tr>
+<td>22413</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>22534</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>22534</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario en camino de una tienda</td>
+</tr>
+
+<tr>
+<td>30630</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>30765</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>30765</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+
+<tr>
+<td>31193</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>31312</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>31313</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario en camino de una tienda</td>
+</tr>
+
+<tr>
+<td>36158</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>36384</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>36385</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+
+<tr>
+<td>36645</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>36778</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>36778</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario en camino de una tienda</td>
+</tr>
+
+<tr>
+<td>41980</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>42103</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>42104</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+
+<tr>
+<td>42234</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>42349</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>42349</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario en camino de una tienda</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 17:49:53 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando controlador de Proveedor</td>
+</tr>
+
+<tr>
+<td>1032</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProveedor category">com.wd.servicios.ControlProveedor</td>
+<td title="Message">Iniciando operacion para traer todos los proveedores</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Sun Jan 18 18:19:23 ACT 2009<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando controlador de centro de distribucion</td>
+</tr>
+
+<tr>
+<td>826</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Centro Distribucion Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>827</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlCentroDistribucion category">com.wd.servicios.ControlCentroDistribucion</td>
+<td title="Message">Iniciando operacion para traer todos los Centros de distribucion</td>
+</tr>
+
+<tr>
+<td>2230</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando controlador de Producto</td>
+</tr>
+
+<tr>
+<td>2432</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlProducto iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>2433</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlProducto category">com.wd.servicios.ControlProducto</td>
+<td title="Message">Iniciando operacion para traer todos los Productos</td>
+</tr>
+
+<tr>
+<td>2781</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando controlador de lugar</td>
+</tr>
+
+<tr>
+<td>3068</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Control Lugar Iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>3068</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">Iniciando traer todos los lugares</td>
+</tr>
+
+<tr>
+<td>3068</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlLugar category">com.wd.servicios.ControlLugar</td>
+<td title="Message">Iniciando operacion para traer todos los Lugares</td>
+</tr>
+
+<tr>
+<td>3431</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>3574</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>3575</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario de un centro de distribucion</td>
+</tr>
+
+<tr>
+<td>4048</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando controlador de Inventario</td>
+</tr>
+
+<tr>
+<td>4315</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlGeneral category">com.wd.servicios.ControlGeneral</td>
+<td title="Message">ControlInventario iniciado correctamente</td>
+</tr>
+
+<tr>
+<td>4315</td>
+<td title="AWT-EventQueue-0 thread">AWT-EventQueue-0</td>
+<td title="Level">INFO</td>
+<td title="com.wd.servicios.ControlInventario category">com.wd.servicios.ControlInventario</td>
+<td title="Message">Iniciando operacion para traer el inventario en camino de un centro de distribucion </td>
+</tr>

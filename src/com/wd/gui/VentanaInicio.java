@@ -450,6 +450,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductosMantenimiento.add(menuProductosConsultar);
 
         menuProductosEliminar.setText("Eliminar producto");
+        menuProductosEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProductosEliminarActionPerformed(evt);
+            }
+        });
         menuProductosMantenimiento.add(menuProductosEliminar);
 
         menuProductos.add(menuProductosMantenimiento);
@@ -1011,6 +1016,11 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui = new ControlGui();
        this.controlGeneralGui.iniciarVentanaConsultaInventarioCentro(true,result);
     }//GEN-LAST:event_menuCentroInventarioConsultarActionPerformed
+
+    private void menuProductosEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosEliminarActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaEliminarProducto(true);
+    }//GEN-LAST:event_menuProductosEliminarActionPerformed
 
     /**
     * @param args the command line arguments
