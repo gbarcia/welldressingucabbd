@@ -80,7 +80,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Todos los Empleados de las tiendas">
+            <TitledBorder title="Todos los Empleados de los Centros">
               <Color PropertyName="color" blue="80" green="0" id="R&#xf3;tulo activo" palette="2" red="0" type="palette"/>
             </TitledBorder>
           </Border>

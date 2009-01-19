@@ -11,15 +11,32 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Empleado;
+import com.wd.gui.controlparticular.ControlGuiEmpleadoCentro;
+import java.util.Collection;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Johnny
  */
 public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
 
+    private Collection<Empleado> Cemp;
+    private ControlGuiEmpleadoCentro control = new ControlGuiEmpleadoCentro();
+    private ControlGui controlGui = new ControlGui();
+
     /** Creates new form VentanaConsultarEditarEmpleadoCentro1 */
     public VentanaConsultarEditarEmpleadoCentro1() {
         initComponents();
+        this.jPanel2.setVisible(false);
+        Cemp = control.traerTodosEmpCentros();
+        DefaultListModel modelo = new DefaultListModel();
+        for (Empleado emp : Cemp) {
+            modelo.addElement(emp.getApellido() + ", " + emp.getNombre());
+        }
+        this.jlEmpleados.setModel(modelo);
     }
 
     /** This method is called from within the constructor to
@@ -43,7 +60,7 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Todos los Empleados de las tiendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Todos los Empleados de los Centros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
 
         jlEmpleados.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jlEmpleados);
@@ -115,7 +132,6 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,7 +154,6 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -170,18 +185,19 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
 }//GEN-LAST:event_flagActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        if (this.flag.isSelected()) {
-//            String cedula = this.jtCedula.getText();
-//            control.iniciarVentanaConsulta(cedula);
-//        } else {
-//            int indiceSeleccionado = this.jlEmpleados.getSelectedIndex();
-//            Vector aux = new Vector(Cemp);
-//            Empleado p = (Empleado) aux.get(indiceSeleccionado);
-//            Integer a = p.getCedula();
-//            String cel = a.toString();
-//            control.iniciarVentanaConsulta(cel);
-//        }
-//        this.setVisible(false);
+        if (this.flag.isSelected()) {
+            String cedula = this.jtCedula.getText();
+            control.iniciarVentanaConsulta(cedula);
+        }
+        else {
+            int indiceSeleccionado = this.jlEmpleados.getSelectedIndex();
+            Vector aux = new Vector(Cemp);
+            Empleado p = (Empleado) aux.get(indiceSeleccionado);
+            Integer a = p.getCedula();
+            String cel = a.toString();
+            control.iniciarVentanaConsulta(cel);
+        }
+        this.setVisible(false);
 }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
