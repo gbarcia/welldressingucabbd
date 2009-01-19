@@ -11,11 +11,13 @@ import com.wd.dominio.Departamento;
 import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
+import com.wd.dominio.Producto;
 import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiCentroDistribucion;
 import com.wd.gui.controlparticular.ControlGuiDepartamento;
 import com.wd.gui.controlparticular.ControlGuiHorario;
 import com.wd.gui.controlparticular.ControlGuiLugar;
+import com.wd.gui.controlparticular.ControlGuiProducto;
 import com.wd.gui.controlparticular.ControlGuiTienda;
 import java.util.Collection;
 import java.util.Vector;
@@ -33,6 +35,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private ControlGuiCentroDistribucion controlGuiCentro;
     private ControlGuiLugar controlGuiLugar;
     private ControlGuiTienda controlGuiTienda;
+    private ControlGuiProducto controlGuiProducto;
 
     /** Creates new form VentanaInicio */
     public VentanaInicio() {
@@ -571,6 +574,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductos.add(menuProductosSeparador);
 
         menuProductosConsultarPrecios.setText("Consultar Precios");
+        menuProductosConsultarPrecios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProductosConsultarPreciosActionPerformed(evt);
+            }
+        });
         menuProductos.add(menuProductosConsultarPrecios);
 
         menuProductosEstadisticas.setText("Estadisticas");
@@ -1049,6 +1057,14 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui = new ControlGui();
        this.controlGeneralGui.iniciarVentanaTransferenciaEmpTiendas(true,result);
     }//GEN-LAST:event_menuTransferirEmpleadoTiendaActionPerformed
+
+    private void menuProductosConsultarPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosConsultarPreciosActionPerformed
+       Vector<Producto> result = null;
+       this.controlGuiProducto = new ControlGuiProducto();
+       result = this.controlGuiProducto.traerTodosLosProductos();
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaConsultarPrecioProducto(true,result);
+    }//GEN-LAST:event_menuProductosConsultarPreciosActionPerformed
 
     /**
     * @param args the command line arguments
