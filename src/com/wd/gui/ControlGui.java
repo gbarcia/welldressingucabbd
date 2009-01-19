@@ -1,6 +1,7 @@
 package com.wd.gui;
 
 import com.wd.dominio.Proveedor;
+import com.wd.guiSolicitud.VentanaProcesarOCseleccion;
 import java.util.Collection;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -102,6 +103,8 @@ public class ControlGui {
     private VentanaConsultaInventarioTienda ventanaConsultaInventarioTienda;
     /** variable de ventana de consultar inventario por centro */
     private VentanaConsultaInventarioCentro ventanaConsultaInventarioCentro;
+    /** variable de ventana para realizar orden de compra */
+    private VentanaProcesarOCseleccion venProOc;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -113,6 +116,15 @@ public class ControlGui {
      */
     public void iniciarCerrarVentanaInicio(boolean var) {
         ventanaInicio.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de orden compra
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void ivenOc(boolean var) {
+        this.venProOc = new VentanaProcesarOCseleccion();
+        this.venProOc.setVisible(var);
     }
 
     /**
