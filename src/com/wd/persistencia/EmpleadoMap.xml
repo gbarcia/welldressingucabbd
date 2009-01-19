@@ -172,8 +172,18 @@
         fecha_ini = #fechaInicio#
     </update>
 
+    <update id="actualizarHistorialCentro" parameterClass="historial">
+        UPDATE NOMINA_CENTRO SET fecha_fin = #fechaFin#
+        WHERE EMPLEADO_ci = #cedula# AND CENTRO_DISTRIBUCION_codigo = #codigo# AND
+        fecha_ini = #fechaInicio#
+    </update>
+
     <delete id="borrarHistorialEmpleadoTienda" parameterClass="int">
         DELETE FROM NOMINA_TIENDA WHERE EMPLEADO_ci = #value#
+    </delete>
+
+    <delete id="borrarHistorialEmpleadoCentro" parameterClass="int">
+        DELETE FROM NOMINA_CENTRO WHERE EMPLEADO_ci = #value#
     </delete>
 
     <delete id="borrarEmpleado" parameterClass="int">
