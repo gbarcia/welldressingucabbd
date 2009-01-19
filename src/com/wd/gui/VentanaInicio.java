@@ -166,7 +166,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Imagenes/entrada.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Imagenes/img.png"))); // NOI18N
         jLabel1.setToolTipText("Bienvenidos al Sistema WellDressing");
 
         menuArchivo.setText("Archivo");
