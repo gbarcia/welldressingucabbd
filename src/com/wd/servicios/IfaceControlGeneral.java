@@ -291,7 +291,7 @@ public interface IfaceControlGeneral {
 
     /**
      * Metodo para eliminar un registro Producto-Departamento
-     * @param producto el producto a eliminar
+     * @param id el producto a eliminar
      * @return resultado de la operacion
      */
     public boolean eliminarProductoDepartamento(int id);
