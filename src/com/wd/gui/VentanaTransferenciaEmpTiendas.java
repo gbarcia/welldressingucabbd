@@ -31,16 +31,7 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
         vecEmpTienda = new Vector();
 
         vecTiendas = new Vector();
-        vecTiendas = result;
-        
-        dm = new DefaultTableModel();
-        dm.addColumn("CI");
-        dm.addColumn("Nombre");
-        dm.addColumn("Apellido");
-        dm.addColumn("Sexo");
-        dm.addColumn("Fecha Nacimiento");
-        dm.addColumn("Telefono");
-        dm.addColumn("Cargo");
+        vecTiendas = result;                
 
         for (Tienda tienda : result) {
             this.comboTiendaOrigen.addItem(tienda.getNombre());
@@ -72,11 +63,13 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tranferencia de Empleados entre Tiendas");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transferencia de Empleados entre Tiendas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tienda Origen", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11), new java.awt.Color(0, 102, 204))); // NOI18N
+        jPanel2.setToolTipText("Escoja la tienda en donde se encuentra el empleado a transferir");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Tiendas");
@@ -143,6 +136,7 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
         jLabel4.setToolTipText("Cargo que el empleado ocupara en la tienda");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gerente", "Regular" }));
+        jComboBox2.setToolTipText("Escoja el cargo que ocupara el empleado en la tienda");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -274,7 +268,31 @@ public class VentanaTransferenciaEmpTiendas extends javax.swing.JFrame {
 
         this.controlEmpTienda = new ControlGuiEmpleadoTienda();
         this.vecEmpTienda = controlEmpTienda.traerTodosEmpTiendas(codigoTienda);
+        
+        dm = new DefaultTableModel();
+        dm.addColumn("CI");
+        dm.addColumn("Nombre");
+        dm.addColumn("Apellido");
+        dm.addColumn("Sexo");
+        dm.addColumn("Fecha Nacimiento");
+        dm.addColumn("Telefono");
+        dm.addColumn("Cargo");
 
-        this.vecHistorial = controlEmpTienda.traerNominaTienda(codigoTienda);
+        for (Empleado emp : vecEmpTienda){
+            Vector info = new Vector();
+            info.addElement(emp.getCedula());
+            info.addElement(emp.getNombre());
+            info.addElement(emp.getApellido());
+            info.addElement(emp.getSexo());
+            info.addElement(emp.getFechaNacimiento());
+            info.addElement(emp.getTelefono());
+            if (emp.getTipo()==0){
+                info.addElement("Gerente");
+            }else if (emp.getTipo()==1){
+                info.addElement("Empleado Regular");
+            }
+            dm.addRow(info);
+        }
+        this.tableEmpsOr.setModel(dm);
     }
 }
