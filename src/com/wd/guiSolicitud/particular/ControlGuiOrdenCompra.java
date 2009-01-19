@@ -66,6 +66,13 @@ public class ControlGuiOrdenCompra {
         return this.controlG.consultaProductosProveedor(rif);
     }
 
+    /**
+     * Operacion para validar el formualrio
+     * @param fechaGen fecha de generacion
+     * @param fechaEst fecha estimada de entrega
+     * @param col el carrito de compras
+     * @return boolean del resultado de la operacion
+     */
     private boolean validarFormulario(Date fechaGen, Date fechaEst, ArrayList<Producto> col) {
         boolean resultado = false;
         if ((fechaEst != null) && (fechaGen != null) && (!col.isEmpty())) {
@@ -74,6 +81,13 @@ public class ControlGuiOrdenCompra {
         return resultado;
     }
 
+    /**
+     * Operacion para pasar del carrito de compras a una coleccion de itemes
+     * necesarios para poder ingresarlos en la bd
+     * @param col el carrito de compras
+     * @param idSolicitud el numero de solicitud
+     * @return Coleccion de objetos Item
+     */
     private Collection<Item> productoToItem(ArrayList<Producto> col, int idSolicitud) {
         Collection<Item> resultado = new Vector();
         for (Producto producto : col) {
@@ -84,6 +98,15 @@ public class ControlGuiOrdenCompra {
         return resultado;
     }
 
+    /**
+     * Operacion para procesar una orden de compra
+     * @param codigoCentro codigo del centro
+     * @param rifProve rif del proveedor
+     * @param fechaGen fecha Generacion
+     * @param fechaEst fecha estimada de entrega
+     * @param productos coleccion de productos
+     * @param idSol numero de la solicitud
+     */
     public void procesarOrdenCompra(int codigoCentro, String rifProve, Date fechaGen,
             Date fechaEst, ArrayList<Producto> productos, int idSol) {
         boolean formularioValido = this.validarFormulario(fechaGen, fechaEst, productos);
