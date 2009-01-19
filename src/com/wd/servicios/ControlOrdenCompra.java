@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -60,6 +61,21 @@ public class ControlOrdenCompra implements IfaceSolicitud {
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " + orden.getId() +
                     " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para obtener el siguiente numero de orden de compra
+     * @return int el siguiente numero
+     */
+    public int obtenerSiguienteNumeroOrden() {
+        Integer resultado = 0;
+        try {
+            resultado = (Integer) sqlMap.queryForObject("siguienteNumeroOrden");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
         } finally {
             return resultado;
         }
