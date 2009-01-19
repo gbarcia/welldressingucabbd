@@ -133,6 +133,31 @@ public class ControlEmpleado {
     }
 
     /**
+     * Operacion para consultar un empleado y su historial en el sistema
+     * @param cedula Int numero de cedula del empleado a buscar
+     * @return resultado Objeto empleado con la información inclutendo su historial
+     * o null si no existe
+     */
+    public Empleado consultarEmpleadoCentro(Integer cedula) {
+        Empleado resultado = null;
+        Collection<HistorialEmpleado> historial = null;
+        try {
+            resultado = (Empleado) sqlMap.queryForObject("buscarEmpleado", cedula);
+            bitacora.info("Empleado: " + cedula + " buscado con éxito");
+            historial = this.consultarHistorialEmpleadoCentro(cedula);
+            if (historial != null) {
+                bitacora.info("Historia de : " + cedula + " se agregara a la coleccion");
+                resultado.setHistorial(historial);
+            }
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " + cedula +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para consultar todos los empleados del sistema    
      * @return Coleccion de objetos Empleado
      */
@@ -213,6 +238,24 @@ public class ControlEmpleado {
         try {
             bitacora.info("Iniciando operacion para buscar el historial del empleado: " + cedula);
             resultado = sqlMap.queryForList("consultaHistorialEmpleado", cedula);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para consultar el historial de un determinado empleado
+     * @param cedula Int el numero de cedula del empleado
+     * @return Coleccion de objetos HistorialEmpleado
+     */
+    public Collection<HistorialEmpleado> consultarHistorialEmpleadoCentro(Integer cedula) {
+        Collection<HistorialEmpleado> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para buscar el historial del empleado: " + cedula);
+            resultado = sqlMap.queryForList("consultaHistorialCentro", cedula);
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
                     " porque " + ex.getMessage());
