@@ -89,29 +89,29 @@ public class VentanaConsultarPrecioProducto extends javax.swing.JFrame {
             }
         });
 
-        labelProductos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelProductos.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelProductos.setText("Productos");
 
-        labelIdNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelIdNomb.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelIdNomb.setText("ID: ");
 
-        labelNombreNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombreNomb.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombreNomb.setText("Nombre:");
 
-        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelDescripcion.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelDescripcion.setText("Descripción:");
 
-        labelId.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelId.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelId.setForeground(new java.awt.Color(0, 102, 204));
         labelId.setText("ID");
 
-        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelNombre.setFont(new java.awt.Font("Tahoma", 1, 11));
         labelNombre.setForeground(new java.awt.Color(0, 102, 204));
         labelNombre.setText("Nombre Producto");
 
         campoDescripcion.setColumns(20);
         campoDescripcion.setEditable(false);
-        campoDescripcion.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        campoDescripcion.setFont(new java.awt.Font("Tahoma", 0, 13));
         campoDescripcion.setForeground(new java.awt.Color(0, 102, 204));
         campoDescripcion.setRows(5);
         jScrollPane1.setViewportView(campoDescripcion);
@@ -176,11 +176,11 @@ public class VentanaConsultarPrecioProducto extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel3Layout.setVerticalGroup(
@@ -193,7 +193,7 @@ public class VentanaConsultarPrecioProducto extends javax.swing.JFrame {
                     .addContainerGap(17, Short.MAX_VALUE)))
         );
 
-        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11));
         buttonCerrar.setText("Cerrar Ventana");
         buttonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,7 +213,7 @@ public class VentanaConsultarPrecioProducto extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(363, 363, 363)
+                        .addGap(414, 414, 414)
                         .addComponent(buttonCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -224,9 +224,9 @@ public class VentanaConsultarPrecioProducto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(buttonCerrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,9 +252,20 @@ public class VentanaConsultarPrecioProducto extends javax.swing.JFrame {
     private void comboProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProductsActionPerformed
         int select = -1;
         int codigoProd = -1;
+        String nombre = "";
+        String descripcion = "";
 
         select = this.comboProducts.getSelectedIndex();
-        codigoProd = this.vecProdsAll.elementAt(select).getId();
+        Producto prod = new Producto();
+        prod = this.vecProdsAll.elementAt(select);
+        codigoProd = prod.getId();
+        nombre = prod.getNombre();
+        descripcion = prod.getDescripcion();
+
+        this.labelId.setText(codigoProd+"");
+        this.labelNombre.setText(nombre);
+        this.campoDescripcion.setText(descripcion);
+        
         this.llenarTabla(codigoProd);
     }//GEN-LAST:event_comboProductsActionPerformed
 
@@ -314,11 +325,12 @@ public class VentanaConsultarPrecioProducto extends javax.swing.JFrame {
         dm = new DefaultTableModel();
         dm.addColumn("Rif Proveedor");
         dm.addColumn("Nombre Proveedor");
-        dm.addColumn("Telefono");
+        dm.addColumn("Teléfono");
         dm.addColumn("Costo Producto");
-        dm.addColumn("Fecha creacion");
-        dm.addColumn("Fecha ultima modific.");
+        dm.addColumn("Fecha Creación");
+        dm.addColumn("Fecha Modificación");
 
+        String fechaNull ="";
         Proveedor prove = new Proveedor();
         Producto prod = new Producto();
 
@@ -326,13 +338,17 @@ public class VentanaConsultarPrecioProducto extends javax.swing.JFrame {
             prove = vecProveedoresAux.elementAt(i);
             prod = vecProdsProve.elementAt(i);
 
+
             Vector info = new Vector();
             info.addElement(prove.getRif());
             info.addElement(prove.getNombre());
             info.addElement(prove.getTelefono());
             info.addElement(prod.getPrecio());
             info.addElement(prod.getFecha_creacion());
-            info.addElement(prod.getFecha_ultima_modificacion());
+            if(prod.getFecha_ultima_modificacion()==null){
+                fechaNull = "  N/A  ";
+                info.addElement(fechaNull);
+            }else info.addElement(prod.getFecha_ultima_modificacion());
             dm.addRow(info);
         }
         this.tablaPecioProve.setModel(dm);
