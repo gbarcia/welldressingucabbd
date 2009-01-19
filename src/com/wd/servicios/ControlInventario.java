@@ -35,16 +35,15 @@ public class ControlInventario {
      * @param codigoCentro int codigo del centro al que pertenece el inv.
      * @return Collection todos los inventarios registrados
      */
-    public Collection<Inventario> traerInventarioTeoCentro (int codigoCentro) {
+    public Collection<Inventario> traerInventarioTeoCentro(int codigoCentro) {
         Collection<Inventario> coleccion = null;
         try {
             bitacora.info("Iniciando operacion para traer el inventario " +
-            "de un centro de distribucion");
-            coleccion = sqlMap.queryForList("traerTodoInventarioTeoCentro",codigoCentro);
+                    "de un centro de distribucion");
+            coleccion = sqlMap.queryForList("traerTodoInventarioTeoCentro", codigoCentro);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
-        }
-        finally {
+        } finally {
             return coleccion;
         }
     }
@@ -54,16 +53,15 @@ public class ControlInventario {
      * @param codigoCentro int codigo del centro al que pertenece el inv.
      * @return Collection todos los inventarios registrados
      */
-    public Collection<Item> traerInventarioCaminoCentro (int codigoCentro) {
+    public Collection<Item> traerInventarioCaminoCentro(int codigoCentro) {
         Collection<Item> coleccion = null;
         try {
             bitacora.info("Iniciando operacion para traer el inventario " +
-            "en camino de un centro de distribucion ");
-            coleccion = sqlMap.queryForList("traerInventarioCaminoCentro",codigoCentro);
+                    "en camino de un centro de distribucion ");
+            coleccion = sqlMap.queryForList("traerInventarioCaminoCentro", codigoCentro);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
-        }
-        finally {
+        } finally {
             return coleccion;
         }
     }
@@ -72,16 +70,15 @@ public class ControlInventario {
      * Metodo para buscar el inventario de una tienda
      * @return Collection todos los inventarios registrados
      */
-    public Collection<Inventario> traerInventarioTeoTienda (Integer codigoTienda) {
+    public Collection<Inventario> traerInventarioTeoTienda(Integer codigoTienda) {
         Collection<Inventario> coleccion = null;
         try {
             bitacora.info("Iniciando operacion para traer el inventario " +
-            "de un centro de distribucion");
-            coleccion = sqlMap.queryForList("traerTodoInventarioTeoTienda",codigoTienda);
+                    "de un centro de distribucion");
+            coleccion = sqlMap.queryForList("traerTodoInventarioTeoTienda", codigoTienda);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
-        }
-        finally {
+        } finally {
             return coleccion;
         }
     }
@@ -90,34 +87,33 @@ public class ControlInventario {
      * Metodo para buscar el inventario en camino de una tienda
      * @return Collection todos los inventarios registrados
      */
-    public Collection<Item> traerInventarioCaminoTienda (Integer codigoTienda) {
+    public Collection<Item> traerInventarioCaminoTienda(Integer codigoTienda) {
         Collection<Item> coleccion = null;
         try {
             bitacora.info("Iniciando operacion para traer el inventario " +
-            "en camino de una tienda");
-            coleccion = sqlMap.queryForList("traerInventarioCaminoTienda",codigoTienda);
+                    "en camino de una tienda");
+            coleccion = sqlMap.queryForList("traerInventarioCaminoTienda", codigoTienda);
         } catch (SQLException ex) {
             bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
-        }
-        finally {
+        } finally {
             return coleccion;
         }
     }
+
     /**
      * Metodo para modificar la cantidad de un producto en un inventario de un
      * centro de distribucion
      * @param inv objeto Inventario a modificar
      * @return resultado de la operacion
      */
-    public boolean modificarInventarioTeoCentro(Inventario inv){
+    public boolean modificarInventarioTeoCentro(Inventario inv) {
         boolean resultado = false;
         try {
             sqlMap.update("modificarCantidadInvTeoCentro", inv);
             bitacora.info("Inventario modificado con éxito");
             resultado = true;
         } catch (SQLException ex) {
-            bitacora.error("Inventario operacion" + " fallida porque: "
-            + ex.getMessage());
+            bitacora.error("Inventario operacion" + " fallida porque: " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
@@ -130,19 +126,72 @@ public class ControlInventario {
      * @param inv objeto Inventario a modificar
      * @return resultado de la operacion
      */
-    public boolean modificarInventarioTienda(Inventario inv){
+    public boolean modificarInventarioTienda(Inventario inv) {
         boolean resultado = false;
         try {
             sqlMap.update("modificarCantidadInvTeoTienda", inv);
             bitacora.info("Inventario modificado con éxito");
             resultado = true;
         } catch (SQLException ex) {
-            bitacora.error("Inventario operacion" + " fallida porque: "
-            + ex.getMessage());
+            bitacora.error("Inventario operacion" + " fallida porque: " + ex.getMessage());
             resultado = false;
         } finally {
             return resultado;
         }
     }
 
+    /**
+     * Operacion para verficar si un producto ya esta en el inventario de un centro
+     * y que cantidad tiene
+     * @param inv objeto inventario donde la cantidad no importa
+     * @return retorna null si no existe el producto y un valor si existe con su
+     * respectiva cantidad
+     */
+    public Integer verificarSiExisteProductoYcantidad(Inventario inv) {
+        Integer cantidad = -1;
+        try {
+            cantidad = (Integer) sqlMap.queryForObject("verificarExistenciaProductoCantidad", inv);
+        } catch (SQLException ex) {
+            bitacora.error("Inventario operacion" + " fallida porque: " + ex.getMessage());
+        } finally {
+            return cantidad;
+        }
+    }
+
+    /**
+     * Operacion para agregar un nuevo registro al inventario
+     * @param inv objeto inventario a agregar
+     * @return boleeano con el resultado de la operacion
+     */
+    public boolean agregarRegistroInventario(Inventario inv) {
+        boolean resultado = false;
+        try {
+            sqlMap.insert("agergarRegistroInventario", inv);
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("Inventario operacion" + " fallida porque: " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para eliminar un registro el inventario
+     * @param inv objeto del inventario a eliminar
+     * @return boolean con el resultado de la operacion
+     */
+    public boolean borrarRegistroInventario(Inventario inv) {
+        boolean resultado = false;
+        int na = -1;
+        try {
+            na = sqlMap.delete("borrarRegistroInventario", inv);
+            if (na > 0) {
+                resultado = true;
+            }
+        } catch (SQLException ex) {
+            bitacora.error("Inventario operacion" + " fallida porque: " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
 }
