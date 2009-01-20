@@ -139,6 +139,9 @@
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboTiendasActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="labelTiendas">
                   <Properties>
@@ -175,6 +178,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cerrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCerrarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

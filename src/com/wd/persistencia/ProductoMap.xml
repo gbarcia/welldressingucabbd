@@ -8,7 +8,7 @@
   <typeAlias alias="producto" type="com.wd.dominio.Producto"/>
 
   <resultMap id="resultMapProducto" class="producto">
-    <result property="id" column="id" />
+    <result property="id" column="idProducto" />
     <result property="nombre" column="nombre" />
     <result property="descripcion" column="descripcion" />
   </resultMap>
@@ -40,11 +40,11 @@
   </select>
 
   <select id="productosMasSolicitados" parameterClass="Integer" resultMap="resultMapProducto">
-    SELECT p.id id, p.nombre nombre, p.descripcion descripcion
+    SELECT p.id idProducto, p.nombre nombre, p.descripcion descripcion
     FROM PRODUCTO p, SOLICITUD s, ITEMS it, TIENDA t
     WHERE it.SOLICITUD_id = s.id AND s.tipo='P' AND p.id = it.PRODUCTO_id AND s.TIENDA_codigo_PEDIDO = t.codigo AND t.codigo =#value#
-    GROUP BY id,nombre,descripcion
-    HAVING COUNT(id) = ( SELECT MAX(A.cnt)
+    GROUP BY idProducto,nombre,descripcion
+    HAVING COUNT(idProducto) = ( SELECT MAX(A.cnt)
     FROM ( SELECT COUNT(it.PRODUCTO_id) as cnt FROM ITEMS it,SOLICITUD s WHERE s.id = it.SOLICITUD_id AND s.tipo='P' GROUP BY it.PRODUCTO_id ) as A)
   </select>
 
@@ -60,7 +60,7 @@
   </delete>
 
   <select id="consultarProductos" resultMap="resultMapProducto">
-    SELECT id, nombre, descripcion
+    SELECT id idProducto, nombre, descripcion
     FROM producto
   </select>
 
