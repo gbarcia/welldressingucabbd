@@ -35,6 +35,10 @@ public class VentanaAgregarEmpleadoTienda extends javax.swing.JFrame {
     public VentanaAgregarEmpleadoTienda() {
         initComponents();
 
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+
         Collection<Lugar> ciudades = controlG.traerTodosLosLuagres(2);
         Collection<Tienda> tiendas = controlG.traerTodasLasTienda();
 

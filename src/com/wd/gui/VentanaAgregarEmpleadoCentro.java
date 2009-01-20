@@ -33,6 +33,11 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
     /** Creates new form VentanaAgregarEmpleadoCentro */
     public VentanaAgregarEmpleadoCentro() {
         initComponents();
+
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+
         this.initControles();
         this.initVectores();
         this.llenarComboBoxes();
@@ -96,6 +101,7 @@ public class VentanaAgregarEmpleadoCentro extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Agregar Empleado A un Centro de Distribucion");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos nuevo Empleado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
         jPanel1.setAutoscrolls(true);
