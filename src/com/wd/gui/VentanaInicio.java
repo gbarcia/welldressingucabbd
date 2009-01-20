@@ -666,6 +666,11 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuProductosEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/chart_bar_edit.png"))); // NOI18N
         menuProductosEstadisticas.setText("Estadisticas");
+        menuProductosEstadisticas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProductosEstadisticasActionPerformed(evt);
+            }
+        });
         menuProductos.add(menuProductosEstadisticas);
 
         menuBar.add(menuProductos);
@@ -1225,6 +1230,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         VentanaProcesarPedidoSeleccion ven = new VentanaProcesarPedidoSeleccion();
         ven.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void menuProductosEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductosEstadisticasActionPerformed
+        this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaEstadisticasProducto(true);
+    }//GEN-LAST:event_menuProductosEstadisticasActionPerformed
 
     /**
     * @param args the command line arguments

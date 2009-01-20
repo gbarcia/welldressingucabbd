@@ -5,6 +5,7 @@ import com.wd.dominio.Tienda;
 import com.wd.gui.controlparticular.ControlGuiProducto;
 import com.wd.gui.controlparticular.ControlGuiTienda;
 import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,6 +24,8 @@ public class VentanaEstadisticasProducto extends javax.swing.JFrame {
     /** Creates new form VentanaEstadisticasProducto */
     public VentanaEstadisticasProducto() {
         initComponents();
+
+        this.cargarComboTiendas();
     }
 
     /** This method is called from within the constructor to
@@ -46,6 +49,12 @@ public class VentanaEstadisticasProducto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Estadísticas de Productos"));
+
+        comboTiendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTiendasActionPerformed(evt);
+            }
+        });
 
         labelTiendas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelTiendas.setText("Tiendas");
@@ -98,6 +107,11 @@ public class VentanaEstadisticasProducto extends javax.swing.JFrame {
 
         buttonCerrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         buttonCerrar.setText("Cerrar");
+        buttonCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCerrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,6 +157,18 @@ public class VentanaEstadisticasProducto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comboTiendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTiendasActionPerformed
+        int select = -1;
+        Integer codigoTienda =-1;
+        select = this.comboTiendas.getSelectedIndex();
+        codigoTienda = this.vecTiendas.elementAt(select).getCodigo();
+        this.llenarTabla(codigoTienda);
+    }//GEN-LAST:event_comboTiendasActionPerformed
+
+    private void buttonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCerrarActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonCerrarActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -166,10 +192,24 @@ public class VentanaEstadisticasProducto extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void llenarTabla(Integer codigoTienda){
+        this.vecProdsMasSol = this.controlProducto.consultaProductosMasSolicitados(codigoTienda);
         
+        DefaultTableModel dm = new DefaultTableModel();
+        dm.addColumn("ID Producto");
+        dm.addColumn("Nombre");
+        dm.addColumn("Descripción");
+
+        for (Producto prod : vecProdsMasSol) {
+            Vector info = new Vector();
+            info.addElement(prod.getId());
+            info.addElement(prod.getNombre());
+            info.addElement(prod.getDescripcion());
+            dm.addRow(info);
+        }
+        this.tablaProdMasSolicitados.setModel(dm);
     }
 
-    public void cargarComboTienda(){
+    public void cargarComboTiendas(){
 
         this.vecTiendas = this.controlTienda.consultarTiendas();
 
