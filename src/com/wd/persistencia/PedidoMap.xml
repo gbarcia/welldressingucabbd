@@ -1,13 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
-<!--
-    Document   : PedidoMap.xml
-    Created on : 17 de enero de 2009, 14:09
-    Author     : Casa
-    Description:
-        Purpose of the document follows.
--->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-<root>
+<sqlMap namespace="Pedido">
 
-</root>
+    <typeAlias alias="pedido" type="com.wd.dominio.Pedido"/>
+
+    <resultMap id="PedidoMaping" class="pedido">
+        <result property="id"              column="idSolicitud" />
+        <result property="fechaGenerada"   column="fechaGen" />
+        <result property="fechaEstimada"   column="fechaEstimada" />
+        <result property="status"          column="estado" />
+        <result property="tiendaCodigo"    column="tiendaCodigo" />
+        <result property="centroCodigo"    column="centroCodigo" />
+        <result property="ciConductor"     column="ciConductor" />
+        <result property="idCamion"        column="placa" />
+        <result property="nombreTienda"    column="nombreTienda" />
+        <result property="nombreCebtro"    column="nombreCentro" />
+        <result property="nombreConductor" column="nombreConductor" />
+    </resultMap>
+
+    <insert id="agregarPedido" parameterClass="pedido">
+        INSERT INTO SOLICITUD
+        (id, fecha_gen, fecha_est, status, tipo, TIENDA_codigo_PEDIDO,
+         TIENDA_codigo_TRANSFIERE, TIENDA_codigo1_TRANSFERIDO, CENTRO_DISTRIBUCION_codigo,
+         CAMION_id, EMPLEADO_ci, EMPRESA_SERVICIO_rif)
+         VALUES (NULL, #fechaGenerada#, #fechaEstimada#, #status#, 'P', #tiendaCodigo#,
+         NULL, NULL, #centroCodigo#, #idCamion#, #ciConductor#, NULL);
+        <selectKey keyProperty="id" resultClass="int">
+            select auto_increment from `information_schema`.tables where
+            TABLE_SCHEMA = 'well_dressing' and TABLE_NAME = 'solicitud'
+        </selectKey>
+    </insert>
+
+    <select id="siguienteNumeroOrden2" resultClass="int">
+        select auto_increment from `information_schema`.tables where
+        TABLE_SCHEMA = 'well_dressing' and TABLE_NAME = 'solicitud'
+    </select>
+
+</sqlMap>
