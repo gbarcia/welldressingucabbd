@@ -114,6 +114,8 @@ public class ControlGui {
     private VentanaActualizarOrdenCompraSel vActOrden;
     /** variable de ventana para consultar y editar empleados de centro */
     private VentanaConsultarEditarEmpleadoCentro1 ventanaConsultarEditarEmpleadoCentro;
+    /** variable de ventana para eliminar empleados de centro */
+    private VentanaEliminarEmpleadoCentro ventanaEliminarEmpleadoCentro;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -590,12 +592,21 @@ public class ControlGui {
     }
 
     /**
-     * metodo para ocultar o mostrar la ventana de consultar editar empleado tienda
+     * metodo para ocultar o mostrar la ventana de consultar editar empleado centro
      * @param var booleano que indica si mostrar o no la ventana
      */
     public void iniciarCerrarVentanaConsultaEmpleadoCentro (boolean var) {
         this.ventanaConsultarEditarEmpleadoCentro = new VentanaConsultarEditarEmpleadoCentro1();
         this.ventanaConsultarEditarEmpleadoCentro.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de eliminar empleado centro
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaEliminarEmpleadoCentro (boolean var) {
+        this.ventanaEliminarEmpleadoCentro = new VentanaEliminarEmpleadoCentro();
+        this.ventanaEliminarEmpleadoCentro.setVisible(var);
     }
 
     /**
