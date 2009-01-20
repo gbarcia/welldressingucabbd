@@ -132,6 +132,8 @@ public class ControlGui {
     private VentanaEstadisticasServicios ventanaEstadisticasServicios;
     /** variable de ventana de consulta de Estadisticas de los Servicios */
     private VentanaEstadisticasProducto ventanaEstadisticasProducto;
+    /** variable de ventana de consulta de empleados por tienda */
+    private VentanaConsultarEmpleadosPorTienda ventanaConsultarEmpleadosPorTienda;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -695,6 +697,15 @@ public class ControlGui {
     public void iniciarVentanaEstadisticasProducto(boolean var) {
         this.ventanaEstadisticasProducto = new VentanaEstadisticasProducto();
         this.ventanaEstadisticasProducto.setVisible(var);
+    }
+
+    /**
+     * Metodo para mostrar la ventana de consulta de empleados por tienda
+     * @param var visivilidad
+     */
+    public void iniciarVentanaEmpleadosPorTienda(boolean var) {
+        this.ventanaConsultarEmpleadosPorTienda = new VentanaConsultarEmpleadosPorTienda();
+        this.ventanaConsultarEmpleadosPorTienda.setVisible(var);
     }
 
     /**

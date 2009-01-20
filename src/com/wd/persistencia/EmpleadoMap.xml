@@ -224,7 +224,7 @@
         e.direccion direccion, e.tipo cargo, e.LUGAR_id lugarId, l.nombre nombreCiudad
         FROM TIENDA t, NOMINA_TIENDA nt, EMPLEADO e, LUGAR l
         WHERE nt.fecha_fin IS NULL
-        AND nt.TIENDA_codigo = 1
+        AND nt.TIENDA_codigo = #value#
         AND nt.EMPLEADO_ci = e.ci
         AND nt.TIENDA_codigo = t.codigo
         AND e.LUGAR_id = l.id

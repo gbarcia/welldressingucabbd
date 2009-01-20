@@ -1,5 +1,6 @@
 package com.wd.gui.controlparticular;
 
+import com.wd.dominio.Empleado;
 import com.wd.dominio.EmpresaVigilancia;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
@@ -193,6 +194,15 @@ public class ControlGuiTienda {
     public Collection<Tienda> traerTiendasMenorTamano (){
         Collection<Tienda> resultado = this.controlGeneral.traerTiendasOrdenTamano(2);
         return resultado;
+    }
+
+    /**
+     * Metodo para traer todos los empleados de una tienda
+     * @param codigo
+     * @return
+     */
+    public Vector<Empleado> traerEmpleadosPorTienda(Integer codigo) {
+        return new Vector<Empleado>(controlGeneral.traerEmpleadosPorTienda(codigo));
     }
 
 }
