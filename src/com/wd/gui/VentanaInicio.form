@@ -233,13 +233,11 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroNominaEditarEmpleado">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Editar un empleado"/>
+                    <Property name="text" type="java.lang.String" value="Consultar o editar un empleado"/>
                   </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuCentroNominaConsultarEmpleado">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Consultar un empleado"/>
-                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCentroNominaEditarEmpleadoActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroNominaEliminarEmpleado">
                   <Properties>
