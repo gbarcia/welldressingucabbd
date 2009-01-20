@@ -56,6 +56,19 @@
         WHERE l.id = es.LUGAR_id AND es.tipo = 0
     </select>
 
+    <select id="TraerProveedoresMasOC" resultMap="traerTodosLosProveedores">
+        SELECT es.rif rif, es.nombre nombre,es.telefono TELEFONO,
+        es.direccion DIRECCION,es.nombre_contacto NOMBRECONTACTO,
+        es.apellido_contacto APELLIDO_CONTACTO,es.LUGAR_id IDLUGAR,
+        l.nombre CIUDAD
+        FROM EMPRESA_SERVICIO es, SOLICITUD s,LUGAR l
+        WHERE s.EMPRESA_SERVICIO_rif = es.rif AND s.tipo ='O' AND es.tipo=0
+        AND l.id = es.LUGAR_id
+        GROUP BY rif, nombre, telefono, direccion
+        HAVING COUNT(es.rif) = ( SELECT max(A.cnt) FROM ( SELECT COUNT(s.EMPRESA_SERVICIO_rif) as cnt from solicitud s where s.tipo=0
+        GROUP BY s.EMPRESA_SERVICIO_rif ) as A)
+    </select>
+
     <select id="proveedoresPorCentro" parameterClass="int" resultMap="traerTodosLosProveedores">
         SELECT es.rif, es.nombre,
         es.telefono TELEFONO,

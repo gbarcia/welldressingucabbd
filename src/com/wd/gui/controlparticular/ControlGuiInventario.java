@@ -64,6 +64,19 @@ public class ControlGuiInventario {
         return vectorResult;
     }
     /**
+    * Metodo para buscar los productos con mayor inventario en las tiendas
+    * @return Vector vector con todos los objetos Inventario
+    */
+    public Vector<Inventario> traerProductosMayorInvTiendas () {
+        Vector<Inventario> vectorResult = null;
+        Collection<Inventario> coleccion = ControlGeneral.getInstance().traerProductosMayorInvTiendas();
+        vectorResult = new Vector();
+        for (Inventario it : coleccion) {
+            vectorResult.add(it);
+        }
+        return vectorResult;
+    }
+    /**
     * Metodo para buscar el inventario en camino un centro de distribucion
      * @param codigoCentro int codigo del centro al que pertenece el inv.
     * @return Vector vector con el inventario del centro
