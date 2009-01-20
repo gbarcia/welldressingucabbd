@@ -42,6 +42,10 @@ public class VentanaConsultarEditarEmpleadoTienda2 extends javax.swing.JFrame {
     public VentanaConsultarEditarEmpleadoTienda2(int cedula) {
         initComponents();
 
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+
         Collection<Lugar> ciudades = controlG.traerTodosLosLuagres(2);
 
         empleado = controlGui.consultarEmpleado(cedula);
@@ -173,7 +177,7 @@ public class VentanaConsultarEditarEmpleadoTienda2 extends javax.swing.JFrame {
         setTitle("Consulta de Empleado");
         setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del Empleado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 12), java.awt.SystemColor.activeCaption)); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del Empleado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
         jPanel1.setAutoscrolls(true);
 
         jLabel1.setText("Nombre:");
@@ -217,6 +221,7 @@ public class VentanaConsultarEditarEmpleadoTienda2 extends javax.swing.JFrame {
         jLabel10.setText("Dirección:");
 
         jtDireccion.setColumns(20);
+        jtDireccion.setLineWrap(true);
         jtDireccion.setRows(5);
         jScrollPane1.setViewportView(jtDireccion);
 
@@ -301,10 +306,10 @@ public class VentanaConsultarEditarEmpleadoTienda2 extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cargo Actual y TIenda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 12), java.awt.SystemColor.activeCaption)); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cargo Actual y TIenda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
 
         jLabel11.setText("Cargo:");
 
@@ -360,7 +365,7 @@ public class VentanaConsultarEditarEmpleadoTienda2 extends javax.swing.JFrame {
             }
         });
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Historial", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 12), java.awt.SystemColor.activeCaption)); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Historial", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
 
         tablaHisto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

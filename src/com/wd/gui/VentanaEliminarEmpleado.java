@@ -30,6 +30,10 @@ public class VentanaEliminarEmpleado extends javax.swing.JFrame {
     /** Creates new form VentanaConsultarEditarEmpleadoTIenda1 */
     public VentanaEliminarEmpleado() {
         initComponents();
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+
         this.jPanel2.setVisible(false);
         Cemp = control.traerTodosEmpTiendas();
         DefaultListModel modelo = new DefaultListModel();

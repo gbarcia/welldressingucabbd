@@ -1291,6 +1291,24 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Operacion para borrar un empleado en el sistema
+     * @param cedula int el numero de cedula del empleado que se quiere borrar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean borrarEmpleadoCentro(int cedula) {
+        boolean resultado = false;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("Control empleado iniciado correctamente");
+            resultado = controlEmpleado.borrarEmpleadoCentro(cedula);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el ControlEmpleado por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Metodo para agregar un registro Producto-Departamento
      * @param producto el producto a agregar
      * @return resultado de la operacion

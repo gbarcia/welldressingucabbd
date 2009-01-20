@@ -283,7 +283,7 @@ public class ControlGuiEmpleadoCentro{
             Integer ced = Integer.parseInt(cedula);
             int confirmacion = controlador.dialogoConfirmacion(mensaje);
             if (confirmacion == 0) {
-                resultado = controlG.borrarEmpleado(ced);
+                resultado = controlG.borrarEmpleadoCentro(ced);
                 if (resultado) {
                     controlador.mostrarMensaje("Empleado " + cedula + " borrado con éxito", 0);
                 } else if (!resultado) {

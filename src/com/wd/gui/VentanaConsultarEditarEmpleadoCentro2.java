@@ -41,6 +41,10 @@ public class VentanaConsultarEditarEmpleadoCentro2 extends javax.swing.JFrame {
     public VentanaConsultarEditarEmpleadoCentro2(int cedula) {
         initComponents();
 
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+
         Collection<Lugar> ciudades = controlG.traerTodosLosLuagres(2);
 
         empleado = controlGui.consultarEmpleado(cedula);

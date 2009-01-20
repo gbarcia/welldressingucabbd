@@ -30,6 +30,11 @@ public class VentanaConsultarEditarEmpleadoTIenda1 extends javax.swing.JFrame {
     /** Creates new form VentanaConsultarEditarEmpleadoTIenda1 */
     public VentanaConsultarEditarEmpleadoTIenda1() {
         initComponents();
+
+        java.net.URL url = getClass().getResource("Iconos/icon_016.png");
+        java.awt.Image imagen = getToolkit().getImage(url);
+        setIconImage (imagen);
+
         this.jPanel2.setVisible(false);
         Cemp = control.traerTodosEmpTiendas();
         DefaultListModel modelo = new DefaultListModel();
