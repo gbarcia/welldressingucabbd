@@ -71,7 +71,7 @@ public class ControlOrdenCompra implements IfaceSolicitud {
     public int obtenerSiguienteNumeroOrden() {
         Integer resultado = 0;
         try {
-            resultado = (Integer) sqlMap.queryForObject("siguienteNumeroOrden");
+            resultado = (Integer) sqlMap.queryForObject("siguienteNumeroOrden2");
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar porque " + ex.getMessage());
         } finally {

@@ -32,5 +32,6 @@
     <sqlMap resource="com/wd/persistencia/OrdenCompraMap.xml" />
     <sqlMap resource="com/wd/persistencia/ItemMap.xml" />
     <sqlMap resource="com/wd/persistencia/InventarioMap.xml" />
+    <sqlMap resource="com/wd/persistencia/PedidoMap.xml" />
 
 </sqlMapConfig>

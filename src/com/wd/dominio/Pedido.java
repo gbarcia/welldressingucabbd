@@ -18,7 +18,7 @@ public class Pedido extends Solicitud {
     /**cedula del conductor*/
     private Integer ciConductor;
     /**placa del camion*/
-    private String placaCamion;
+    private Integer idCamion;
     /**nombre de la tienda*/
     private String nombreTienda;
     /**nombre del centro*/
@@ -45,11 +45,11 @@ public class Pedido extends Solicitud {
      * @param status estado del pedido
      */
     public Pedido(Integer tiendaCodigo, Integer centroCodigo, Integer ciConductor,
-            String placaCamion, Date FechaGen, Date FechaEst, Integer status) {
+            Integer placaCamion, Date FechaGen, Date FechaEst, Integer status) {
         this.tiendaCodigo = tiendaCodigo;
         this.centroCodigo = centroCodigo;
         this.ciConductor = ciConductor;
-        this.setPlacaCamion(placaCamion);
+        this.setIdCamion(placaCamion);
         super.setFechaEstimada(FechaEst);
         super.setFechaGenerada(FechaGen);
         super.setStatus(status);
@@ -70,12 +70,12 @@ public class Pedido extends Solicitud {
      * @param status estado del pedido
      */
     public Pedido(Integer pedidoId, Integer tiendaCodigo, Integer centroCodigo, Integer ciConductor,
-            String placaCamion, String nombreTienda, String nombreCebtro, String nombreConductor,
+            Integer placaCamion, String nombreTienda, String nombreCebtro, String nombreConductor,
             Date FechaGen, Date FechaEst, Integer status) {
         this.tiendaCodigo = tiendaCodigo;
         this.centroCodigo = centroCodigo;
         this.ciConductor = ciConductor;
-        this.setPlacaCamion(placaCamion);
+        this.setIdCamion(placaCamion);
         super.setFechaEstimada(FechaEst);
         super.setFechaGenerada(FechaGen);
         super.setStatus(status);
@@ -174,16 +174,16 @@ public class Pedido extends Solicitud {
      * obenter la placa del camion
      * @return placa del camion
      */
-    public String getPlacaCamion() {
-        return placaCamion;
+    public Integer getIdCamion() {
+        return idCamion;
     }
 
     /**
      * Establecer la placa del camion
      * @param placaCamion
      */
-    public void setPlacaCamion(String placaCamion) {
-        this.placaCamion = placaCamion.toUpperCase();
+    public void setIdCamion(Integer placaCamion) {
+        this.idCamion = placaCamion;
     }
 
     /**
