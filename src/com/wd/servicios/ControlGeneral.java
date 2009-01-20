@@ -1604,4 +1604,22 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+
+    /**
+     * Metodo para consultar los productos mas solicitados por una tienda
+     * @param codigoTienda Integer codigo de la tienda en cuestion
+     * @return resultado coleccion de productos
+     */
+    public Collection<Producto> consultaProductosMasSolicitados(Integer codigoTienda){
+        Collection<Producto> coleccion = null;
+        try {
+            this.controlProducto = new ControlProducto();
+            bitacora.info("Control Producto Iniciado correctamente");
+            coleccion = controlProducto.consultaProductosMasSolicitados(codigoTienda);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control Producto por " + ex.getMessage());
+        } finally {
+            return coleccion;
+        }
+    }
 }
