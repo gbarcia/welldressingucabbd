@@ -3,13 +3,13 @@ package com.wd.servicios;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.wd.dominio.Inventario;
 import com.wd.dominio.Item;
 import com.wd.dominio.Pedido;
 import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -81,5 +81,19 @@ public class ControlPedido implements IfaceSolicitud {
 
     public boolean actualizarInventario(Object aAct) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * Operacion que retorna el invenario actual de un centro de distribucion
+     * @param codigoCentro int codigo del centro a consultar su inventario
+     * @return Coleccion de objetos Inventario
+     */
+    public Collection<Inventario> traerInventarioActualCentro(int codigoCentro) {
+        try {
+            this.controlInventario = new ControlInventario();
+        } catch (IOException ex) {
+        } finally {
+            return this.controlInventario.traerInventarioTeoCentro(codigoCentro);
+        }
     }
 }

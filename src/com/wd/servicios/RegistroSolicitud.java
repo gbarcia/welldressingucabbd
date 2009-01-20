@@ -1,6 +1,8 @@
 package com.wd.servicios;
 
+import com.wd.dominio.Inventario;
 import com.wd.dominio.OrdenCompra;
+import com.wd.dominio.Pedido;
 import java.io.IOException;
 import java.util.Collection;
 import org.apache.log4j.Logger;
@@ -12,8 +14,10 @@ import org.apache.log4j.Logger;
  */
 public class RegistroSolicitud {
 
-    /** Variable para trabajar con el controlador de los horario*/
+    /** Variable para trabajar con el controlador de las ordenes de compra*/
     private ControlOrdenCompra controlOC;
+    /** Variable para trabajar con el controlador de los pedidos*/
+    private ControlPedido controlPedido;
     /** Variable para trabajar con la bitacora*/
     private Logger bitacora = Logger.getLogger(getClass());
 
@@ -100,5 +104,35 @@ public class RegistroSolicitud {
             bitacora.error("No se pudo iniciar el registro OrdenCompra por " + ex.getMessage());
         }
         return controlOC.buscarOrdenCompra(numeroOrden);
+    }
+
+    /**
+     * Operacion para procesar un pedido en el sitema
+     * @param p Objeto pedido a procesar
+     * @return boleano con el resultado de la operacion
+     */
+    public boolean procesarPedido(Pedido p) {
+        try {
+            this.controlPedido = new ControlPedido();
+            bitacora.info("Registro Pedido Iniciado correctamente");
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el registro Pedido por " + ex.getMessage());
+        } finally {
+            return this.controlPedido.agregarUnPedido(p);
+        }
+    }
+
+    /**
+     * Operacion que retorna el invenario actual de un centro de distribucion
+     * @param codigoCentro int codigo del centro a consultar su inventario
+     * @return Coleccion de objetos Inventario
+     */
+    public Collection<Inventario> traerInventarioActualCentro(int codigoCentro) {
+        try {
+            this.controlPedido = new ControlPedido();
+        } catch (IOException ex) {
+        } finally {
+            return this.controlPedido.traerInventarioActualCentro(codigoCentro);
+        }
     }
 }
