@@ -4,9 +4,9 @@
  */
 
 /*
- * VentanaConsultarCamion.java
+ * VentanaEditarCamion.java
  *
- * Created on Jan 20, 2009, 1:10:24 AM
+ * Created on Jan 20, 2009, 1:55:56 AM
  */
 
 package com.wd.gui;
@@ -20,7 +20,7 @@ import java.util.Vector;
  *
  * @author Johnny
  */
-public class VentanaConsultarCamion extends javax.swing.JFrame {
+public class VentanaEditarCamion extends javax.swing.JFrame {
 
     private ControlGuiCamion control;
     private Vector<Camion> camiones;
@@ -28,8 +28,8 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
     private Camion camion;
     private CentroDistribucion centro;
 
-    /** Creates new form VentanaConsultarCamion */
-    public VentanaConsultarCamion() {
+    /** Creates new form VentanaEditarCamion */
+    public VentanaEditarCamion() {
         initComponents();
 
         java.net.URL url = getClass().getResource("Iconos/icon_016.png");
@@ -40,15 +40,8 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
         this.camiones = this.control.traerTodosLosCamiones();
         this.centros = this.control.traerTodosLosCentros();
         this.llenarCamiones();
-        if (this.jComboBox1.getSelectedIndex() != -1){
-            this.jComboBox1.setSelectedIndex(0);
-        }
-    }
-
-    public void llenarCamiones(){
-        for (Camion c : this.camiones) {
-            this.jComboBox1.addItem(c.getPlaca().toString());
-        }
+        this.llenarCentros();
+        this.llenarInformacion();
     }
 
     private void llenarInformacion(){
@@ -58,14 +51,20 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
         this.jTextEstado.setText(this.camion.getEstado());
         this.jTextModelo.setText(this.camion.getModelo());
         this.jTextPlaca.setText(this.camion.getPlaca());
+    }
 
-        for (CentroDistribucion d : this.centros) {
-            if (d.getCodigo() == camion.getCentroDistribucionCodigo()){
-                this.centro = d;
-            }
+    public void llenarCamiones(){
+        this.jComboBox1.removeAllItems();
+        for (Camion c : this.camiones) {
+            this.jComboBox1.addItem(c.getPlaca());
         }
+    }
 
-        this.jTextCentro.setText(this.centro.getNombre());
+    public void llenarCentros(){
+        this.jComboBox2.removeAllItems();
+        for (CentroDistribucion c : this.centros) {
+            this.jComboBox2.addItem(c.getNombre());
+        }
     }
 
     /** This method is called from within the constructor to
@@ -92,43 +91,39 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextCentro = new javax.swing.JTextField();
+        jComboBox2 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consultar Camion");
+        setTitle("Editar Camion");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Camión"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Editar Camión"));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Información del Camión"));
         jPanel2.setPreferredSize(new java.awt.Dimension(350, 263));
 
-        jTextPlaca.setEditable(false);
         jTextPlaca.setPreferredSize(new java.awt.Dimension(200, 20));
 
         jLabel1.setText("Placa");
 
         jLabel2.setText("Modelo");
 
-        jTextModelo.setEditable(false);
         jTextModelo.setPreferredSize(new java.awt.Dimension(200, 20));
 
         jLabel3.setText("Color");
 
-        jTextColor.setEditable(false);
         jTextColor.setPreferredSize(new java.awt.Dimension(200, 20));
 
         jLabel4.setText("Estado");
 
-        jTextEstado.setEditable(false);
         jTextEstado.setPreferredSize(new java.awt.Dimension(200, 20));
 
         jLabel5.setText("Capacidad");
 
-        jTextCapacidad.setEditable(false);
         jTextCapacidad.setPreferredSize(new java.awt.Dimension(200, 20));
 
         jLabel6.setText("kg");
@@ -195,8 +190,12 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
 
         jLabel7.setText("Centro de Distribución");
 
-        jTextCentro.setEditable(false);
-        jTextCentro.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox2.setPreferredSize(new java.awt.Dimension(200, 20));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -206,7 +205,7 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jTextCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -214,7 +213,7 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -257,6 +256,13 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton3.setText("Modificar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -267,7 +273,10 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -278,15 +287,18 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton2))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 414, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,6 +306,7 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 391, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,8 +321,28 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
 }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        this.llenarInformacion();
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        if (this.jComboBox1.getSelectedIndex() != -1) this.llenarInformacion();
+}//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.control.modificarCamion(
+                this.camion.getId(),
+                this.jTextPlaca.getText(),
+                this.jTextModelo.getText(),
+                this.jTextColor.getText(),
+                this.jTextEstado.getText(),
+                this.jTextCapacidad.getText(),
+                this.centros.get(this.jComboBox2.getSelectedIndex()).getCodigo());
+
+        this.control = new ControlGuiCamion();
+        this.camiones = this.control.traerTodosLosCamiones();
+        this.llenarCamiones();
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
     * @param args the command line arguments
@@ -317,14 +350,16 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaConsultarCamion().setVisible(true);
+                new VentanaEditarCamion().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -338,7 +373,6 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextCapacidad;
-    private javax.swing.JTextField jTextCentro;
     private javax.swing.JTextField jTextColor;
     private javax.swing.JTextField jTextEstado;
     private javax.swing.JTextField jTextModelo;

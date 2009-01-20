@@ -48,7 +48,9 @@ public class ControlGuiCamion {
         return new Vector<Camion>(controlGeneral.traerTodosLosCamiones());
     }
 
-    public boolean modificarCamion(Camion camion) {
+    public boolean modificarCamion(int id, String placa, String modelo, String color, String estado, String capacidad, int centro) {
+        if (!this.esEntero(capacidad)) return false;
+        this.camion = new Camion(id, placa, modelo, color, estado, Integer.parseInt(capacidad), centro);
         boolean resultado =  controlGeneral.modificarCamion(camion);
         if (resultado) {
             controlador.mostrarMensaje("Camion modificado con éxito",0);
