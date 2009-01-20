@@ -402,4 +402,11 @@ public interface IfaceControlGeneral {
      */
     public boolean borrarEmpleadoCentro(int cedula);
 
+    /**
+     * Metodo para traer todos los empleados de una tienda
+     * @param codigo el codiog de la tienda
+     * @return los empleados de la tienda
+     */
+    public Collection<Empleado> traerEmpleadosPorTienda(Integer codigo);
+
 }
