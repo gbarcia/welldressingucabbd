@@ -193,6 +193,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuTiendas.setText("Tiendas");
 
+        menuMantenimientoTienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/editdd.png"))); // NOI18N
         menuMantenimientoTienda.setText("Mantenimiento");
 
         menuRegistrarTienda.setText("Registro de tienda");
@@ -229,6 +230,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuTiendas.add(menuMantenimientoTienda);
 
+        menuNominaTienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/edit_group.png"))); // NOI18N
         menuNominaTienda.setText("Nomina");
 
         menuAgregarEmpleadoTienda.setText("Agregar un empleado");
@@ -266,6 +268,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuTiendas.add(menuNominaTienda);
 
+        menuInventarioTienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/note_edit.png"))); // NOI18N
         menuInventarioTienda.setText("Inventario");
 
         menuConsultaInventarioTienda.setText("Consulta de inventario");
@@ -281,6 +284,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuTiendas.add(menuInventarioTienda);
 
+        menuSolicitudesTienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/money.png"))); // NOI18N
         menuSolicitudesTienda.setText("Solicitudes");
 
         menuTransferenciasTienda.setText("Transferencias");
@@ -293,6 +297,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuTiendas.add(menuSolicitudesTienda);
         menuTiendas.add(menuTiendasSeparador);
 
+        menuEstadisticasTienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/chart_bar_edit.png"))); // NOI18N
         menuEstadisticasTienda.setText("Estadisticas");
         menuEstadisticasTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,6 +310,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentros.setText("Centros");
 
+        menuCentroMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/editdd.png"))); // NOI18N
         menuCentroMantenimiento.setText("Mantenimiento");
 
         menuCentroRegistro.setText("Agregar centro");
@@ -341,6 +347,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentros.add(menuCentroMantenimiento);
 
+        menuCentroNomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/edit_group.png"))); // NOI18N
         menuCentroNomina.setText("Nomina");
 
         menuCentroNominaAgregarEmpleado.setText("Agregar un empleado");
@@ -374,8 +381,10 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentros.add(menuCentroNomina);
 
+        menuCentroSolicitudes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/money.png"))); // NOI18N
         menuCentroSolicitudes.setText("Solicitudes");
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/cart.png"))); // NOI18N
         jMenu1.setText("Ordenes de compra");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,11 +410,13 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentroSolicitudes.add(jMenu1);
 
+        menuCentroSolicitudesPedidosTiendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/cart_remove.png"))); // NOI18N
         menuCentroSolicitudesPedidosTiendas.setText("Pedidos realizados de tiendas");
         menuCentroSolicitudes.add(menuCentroSolicitudesPedidosTiendas);
 
         menuCentros.add(menuCentroSolicitudes);
 
+        menuCentroInventarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/note_edit.png"))); // NOI18N
         menuCentroInventarios.setText("Inventario");
 
         menuCentroInventarioConsultar.setText("Consulta de inventario");
@@ -426,6 +437,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentros.add(menuCentroInventarios);
 
+        menuCentroCamiones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/lorry_add.png"))); // NOI18N
         menuCentroCamiones.setText("Camiones");
 
         menuCentroCamionRegistro.setText("Registro de camion");
@@ -445,6 +457,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentros.add(menuCentroCamiones);
 
+        menuCentroAsignarProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/transmit_go.png"))); // NOI18N
         menuCentroAsignarProvedores.setText("Asignar Provedores");
         menuCentroAsignarProvedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -453,6 +466,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         menuCentros.add(menuCentroAsignarProvedores);
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/lock_go.png"))); // NOI18N
         jMenuItem1.setText("Asignar o renovar Vigilancia");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -462,6 +476,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentros.add(jMenuItem1);
         menuCentros.add(menuCentroSeparador);
 
+        menuCentroEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/chart_bar_edit.png"))); // NOI18N
         menuCentroEstadisticas.setText("Estadisticas");
         menuCentros.add(menuCentroEstadisticas);
 
@@ -469,6 +484,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuProductos.setText("Productos");
 
+        menuProductosMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/editdd.png"))); // NOI18N
         menuProductosMantenimiento.setText("Mantenimiento");
 
         MenuProductosAgregar.setText("Agregar producto");
@@ -505,6 +521,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuProductos.add(menuProductosMantenimiento);
 
+        menuProductosDepartamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/knewstuff.png"))); // NOI18N
         menuProductosDepartamentos.setText("Departamentos");
 
         menuProductosDepartamentosAgregar.setText("Agregar departamento");
@@ -541,6 +558,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuProductos.add(menuProductosDepartamentos);
 
+        menuProductosClases.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/agt_web.png"))); // NOI18N
         menuProductosClases.setText("Clases");
 
         menuProductosClaseAgregar.setText("Agregar clase");
@@ -577,6 +595,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuProductos.add(menuProductosClases);
 
+        menuProductosSubClases.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/sport_8ball.png"))); // NOI18N
         menuProductosSubClases.setText("Sub Clases");
 
         menuProductosSubAgregar.setText("Agregar sub clase");
@@ -601,6 +620,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuProductos.add(menuProductosSubClases);
         menuProductos.add(menuProductosSeparador);
 
+        menuProductosConsultarPrecios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/money.png"))); // NOI18N
         menuProductosConsultarPrecios.setText("Consultar Precios");
         menuProductosConsultarPrecios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -609,6 +629,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         menuProductos.add(menuProductosConsultarPrecios);
 
+        menuProductosEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/chart_bar_edit.png"))); // NOI18N
         menuProductosEstadisticas.setText("Estadisticas");
         menuProductos.add(menuProductosEstadisticas);
 
@@ -616,6 +637,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuServicios.setText("Servicios");
 
+        menuServiciosVigilancia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/lock_go.png"))); // NOI18N
         menuServiciosVigilancia.setText("Servicio de vigilancia");
 
         menuServiciosVigilanciaAgregar.setText("Agregar servicio de vigilancia");
@@ -652,6 +674,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuServicios.add(menuServiciosVigilancia);
 
+        menuServiciosProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/transmit_go.png"))); // NOI18N
         menuServiciosProvedores.setText("Proveedores");
 
         menuServiciosProvedoresAgregar.setText("Agregar proveedor");
@@ -691,6 +714,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuServicios.add(menuServiciosProvedores);
         menuServicios.add(menuServiciosSeparador);
 
+        menuServiciosEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/chart_bar_edit.png"))); // NOI18N
         menuServiciosEstadisticas.setText("Estadisticas");
         menuServicios.add(menuServiciosEstadisticas);
 
@@ -698,6 +722,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuUbicaciones.setText("Ubicaciones");
 
+        menuUbicacionesHorarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/calendar_view_week.png"))); // NOI18N
         menuUbicacionesHorarios.setText("Horarios");
 
         menuUbicacionesHorarioAgregar.setText("Agregar nuevo horario");
@@ -718,6 +743,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuUbicaciones.add(menuUbicacionesHorarios);
 
+        menuUbicacionesLugares.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/world.png"))); // NOI18N
         menuUbicacionesLugares.setText("Lugares");
 
         menuUbicacionesLugarNuevo.setText("Nuevo lugar");
@@ -742,9 +768,11 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuHistorial.setText("Personal");
 
+        menuHistorialTiendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/edit_group.png"))); // NOI18N
         menuHistorialTiendas.setText("Personal Tiendas");
         menuHistorial.add(menuHistorialTiendas);
 
+        menuHistorialCentros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/edit_group.png"))); // NOI18N
         menuHistorialCentros.setText("Personal Centros");
         menuHistorialCentros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -753,6 +781,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         menuHistorial.add(menuHistorialCentros);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/chart_bar_edit.png"))); // NOI18N
         jMenuItem3.setText("Estadísticas");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
