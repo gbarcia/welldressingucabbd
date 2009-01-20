@@ -19,6 +19,7 @@ import com.wd.gui.controlparticular.ControlGuiHorario;
 import com.wd.gui.controlparticular.ControlGuiLugar;
 import com.wd.gui.controlparticular.ControlGuiProducto;
 import com.wd.gui.controlparticular.ControlGuiTienda;
+import com.wd.guiSolicitud.VentanaProcesarPedidoSeleccion;
 import java.util.Collection;
 import java.util.Vector;
 
@@ -76,8 +77,10 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuConsultaCentrosTienda = new javax.swing.JMenuItem();
         menuSolicitudesTienda = new javax.swing.JMenu();
         menuTransferenciasTienda = new javax.swing.JMenuItem();
-        menuPedidosTienda = new javax.swing.JMenuItem();
         menuSeparadorDosTienda = new javax.swing.JSeparator();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         menuTiendasSeparador = new javax.swing.JSeparator();
         menuEstadisticasTienda = new javax.swing.JMenuItem();
         menuCentros = new javax.swing.JMenu();
@@ -289,10 +292,22 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuTransferenciasTienda.setText("Transferencias");
         menuSolicitudesTienda.add(menuTransferenciasTienda);
-
-        menuPedidosTienda.setText("Pedidos");
-        menuSolicitudesTienda.add(menuPedidosTienda);
         menuSolicitudesTienda.add(menuSeparadorDosTienda);
+
+        jMenu2.setText("Pedidos");
+
+        jMenuItem2.setText("Realizar Pedido");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem6.setText("Consultar y Editar");
+        jMenu2.add(jMenuItem6);
+
+        menuSolicitudesTienda.add(jMenu2);
 
         menuTiendas.add(menuSolicitudesTienda);
         menuTiendas.add(menuTiendasSeparador);
@@ -1206,6 +1221,11 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui.iniciarVentanaEstadisticasServicios(true);
     }//GEN-LAST:event_menuServiciosEstadisticasActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        VentanaProcesarPedidoSeleccion ven = new VentanaProcesarPedidoSeleccion();
+        ven.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1221,10 +1241,13 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuProductosAgregar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem menuAgregarEmpleadoTienda;
     private javax.swing.JMenuItem menuArcecaDe;
     private javax.swing.JMenu menuArchivo;
@@ -1269,7 +1292,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu menuInventarioTienda;
     private javax.swing.JMenu menuMantenimientoTienda;
     private javax.swing.JMenu menuNominaTienda;
-    private javax.swing.JMenuItem menuPedidosTienda;
     private javax.swing.JMenu menuProductos;
     private javax.swing.JMenuItem menuProductosClaseAgregar;
     private javax.swing.JMenuItem menuProductosClaseConsultar;
