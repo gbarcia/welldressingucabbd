@@ -37,7 +37,7 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
     private ArrayList<Producto> carritoCompra = new ArrayList();
     private DefaultTableModel ModeloOrden = new DefaultTableModel();
     private ControlGeneral controlG = ControlGeneral.getInstance();
-    private int contador =0;
+    private int contador = 0;
     private double costoNeto;
     private double costoTotal;
     private double iva = 1.09;
@@ -48,6 +48,10 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
     public VentanaActualizarOrdenCompra(OrdenCompra oc) {
         initComponents();
         this.ordenActual = oc;
+
+        if (oc.getStatus() != 0) {
+            this.jButton7.setEnabled(false);
+        }
         this.panelAgregar.setVisible(false);
         String RIFprove = oc.getProveedorRif();
         this.proveedorActual = this.controlG.consultarProveedor(RIFprove);
@@ -59,12 +63,12 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
         this.llenarTabla();
         Integer Totalneto = this.obtenerTotalNeto();
 
-            this.jlCostoNeto.setText(Totalneto.toString());
-            Double Total = this.obtenerTotal();
-            this.jlCostoTotal.setText(Total.toString());
+        this.jlCostoNeto.setText(Totalneto.toString());
+        Double Total = this.obtenerTotal();
+        this.jlCostoTotal.setText(Total.toString());
 
-            Double diferencia = Total - Totalneto;
-            this.jliva.setText(diferencia.toString());
+        Double diferencia = Total - Totalneto;
+        this.jliva.setText(diferencia.toString());
 
         this.fechaEst.setText(oc.getFechaEstimada().toString());
         this.fechaGen.setText(oc.getFechaGenerada().toString());
@@ -116,6 +120,16 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
         }
     }
 
+    private Producto obtenerElementoRepetido(int idProducto) {
+        Producto resultado = null;
+        for (Producto producto : carritoCompra) {
+            if (idProducto == producto.getId()) {
+                resultado = producto;
+            }
+        }
+        return resultado;
+    }
+
     private boolean existeElementoEnCarrito(int idProducto) {
         boolean resultado = false;
         for (Producto producto : carritoCompra) {
@@ -150,15 +164,13 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
         for (Producto producto : productosProveedor) {
             if (producto.getId() == idProdcuto) {
                 if (this.existeElementoEnCarrito(idProdcuto)) {
+                    Producto productoRepe = this.obtenerElementoRepetido(idProdcuto);
                     int cantidaActual = this.obtenerCantidadRepetida(idProdcuto);
-                    int cantidadTotal = cantidaActual + cantidad;
+                    int cantidadTotal = cantidad;
                     producto.setDepartamentoId(cantidadTotal);
                     this.carritoCompra.add(producto);
                     int indiceP = this.obtenerindiceProblematico(idProdcuto);
-                    if (contador == 0) {
-                    this.carritoCompra.remove(indiceP - 1);
-                    this.contador++;}
-                    else this.carritoCompra.remove(indiceP);
+                    this.carritoCompra.remove(productoRepe);
                 } else {
                     producto.setDepartamentoId(cantidad);
                     this.carritoCompra.add(producto);
@@ -227,6 +239,7 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
         jtcantidad = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         JcEstado = new javax.swing.JComboBox();
+        jButton8 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -492,7 +505,14 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel6.setText("Estado de la Orden:");
 
-        JcEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADA", "DESPECHADA", "RECIBIDA", "CANCELADA" }));
+        JcEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "APROBADA", "DESPACHADA", "RECIBIDA", "CANCELADA" }));
+
+        jButton8.setText("Salir");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -507,7 +527,9 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel6)
-                    .addComponent(JcEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JcEstado, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -521,7 +543,9 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JcEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JcEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton8)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -647,7 +671,6 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -695,22 +718,27 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-            int Status = this.JcEstado.getSelectedIndex();
-            this.ordenActual.setStatus(Status);
-            Collection<Item> coleccionItems = this.control.productoToItem(carritoCompra, ordenActual.getId());
-            this.ordenActual.setColeccionProductos(coleccionItems);
-            this.control.actualizarOrdenCompra(ordenActual);
+        int Status = this.JcEstado.getSelectedIndex();
+        this.ordenActual.setStatus(Status);
+        Collection<Item> coleccionItems = this.control.productoToItem(carritoCompra, ordenActual.getId());
+        this.ordenActual.setColeccionProductos(coleccionItems);
+        this.control.actualizarOrdenCompra(ordenActual);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         int seleccion = -1;
         seleccion = this.tablaProductos.getSelectedRow();
         if (seleccion >= 0) {
-        Producto pr = this.carritoCompra.get(seleccion);
-        this.jTextField3.setText(String.valueOf(pr.getId()));
-        this.jtcantidad.setText(String.valueOf(pr.getDepartamentoId()));
-        this.panelAgregar.setVisible(true);}
+            Producto pr = this.carritoCompra.get(seleccion);
+            this.jTextField3.setText(String.valueOf(pr.getId()));
+            this.jtcantidad.setText(String.valueOf(pr.getDepartamentoId()));
+            this.panelAgregar.setVisible(true);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -739,6 +767,7 @@ public class VentanaActualizarOrdenCompra extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
