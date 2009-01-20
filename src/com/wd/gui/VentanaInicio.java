@@ -815,6 +815,11 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuHistorialTiendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/edit_group.png"))); // NOI18N
         menuHistorialTiendas.setText("Personal Tiendas");
+        menuHistorialTiendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuHistorialTiendasActionPerformed(evt);
+            }
+        });
         menuHistorial.add(menuHistorialTiendas);
 
         menuHistorialCentros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/edit_group.png"))); // NOI18N
@@ -1235,6 +1240,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui = new ControlGui();
        this.controlGeneralGui.iniciarVentanaEstadisticasProducto(true);
     }//GEN-LAST:event_menuProductosEstadisticasActionPerformed
+
+    private void menuHistorialTiendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHistorialTiendasActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaEmpleadosPorTienda(true);
+    }//GEN-LAST:event_menuHistorialTiendasActionPerformed
 
     /**
     * @param args the command line arguments
