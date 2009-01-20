@@ -171,6 +171,26 @@ public class ControlProducto {
         }
     }
 
+     /**
+     * Metodo para consultar los productos mas solicitados por una tienda
+     * @param codigoTienda Integer codigo de la tienda en cuestion
+     * @return resultado coleccion de productos
+     */
+    public Collection<Producto> consultaProductosMasSolicitados(Integer codigoTienda) {
+        Collection<Producto> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los Productos mas " +
+                    "solicitados");
+            resultado = sqlMap.queryForList("productosMasSolicitados",codigoTienda);
+        } catch (SQLException ex) {
+            this.bitacora.error("No se pudo realizar la operacion porque: " +
+                    ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
+
     /**
      * Metodo para agregar registro al historial de Productos-Departamentos
      * @param producto el producto a agregar

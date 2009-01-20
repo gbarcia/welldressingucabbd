@@ -89,4 +89,19 @@ public class ControlGuiProducto {
             return resultado;
     }
 
+    /**
+     * Metodo para consultar los productos mas solicitados por una tienda
+     * @param codigoTienda Integer codigo de la tienda en cuestion
+     * @return resultado coleccion de productos
+     */
+    public Vector<Producto> consultaProductosMasSolicitados(Integer codigoTienda) {
+        Vector<Producto> vectorResult = null;
+        Collection<Producto> coleccion = ControlGeneral.getInstance().consultaProductosMasSolicitados(codigoTienda);
+        vectorResult = new Vector();
+        for (Producto prod : coleccion) {
+            vectorResult.add(prod);
+        }
+        return vectorResult;
+    }
+
 }

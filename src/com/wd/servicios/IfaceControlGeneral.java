@@ -415,4 +415,11 @@ public interface IfaceControlGeneral {
      */
     public Collection<Empleado> traerEmpleadosPorTienda(Integer codigo);
 
+     /**
+     * Metodo para consultar los productos mas solicitados por una tienda
+     * @param codigoTienda Integer codigo de la tienda en cuestion
+     * @return resultado coleccion de productos
+     */
+    public Collection<Producto> consultaProductosMasSolicitados(Integer codigoTienda);
+
 }
