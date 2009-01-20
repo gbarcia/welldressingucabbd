@@ -83,6 +83,19 @@ public class ControlGuiProveedor {
         return resultado;
     }
 
+    /** operacion para traer todos los proveedores rcon mas ordenes de compra
+     * @return resultado coleccion de todos los proveedores registrados en el sistema
+     */
+    public Vector<Proveedor> todosLosProveedoresMasOC() {
+        Collection<Proveedor> resultado = null;
+        Vector<Proveedor> result = new Vector();
+        resultado = controlG.todosLosProveedoresMasOC();
+        for (Proveedor prov : resultado) {
+            result.addElement(prov);
+        }
+        return result;
+    }
+
     /** operacion para consultar un proveedor en el sistema
      * @param rif String del rif del proveedor a consultar
      * @return resultado Proveedor Objeto proveedor con la informacion solicitada

@@ -128,6 +128,8 @@ public class ControlGui {
     private VentanaConsultarCamion ventanaConsultarCamion;
     /** variable de ventana para editar camion */
     private VentanaEditarCamion ventanaEditarCamion;
+    /** variable de ventana de consulta de Estadisticas de los Servicios */
+    private VentanaEstadisticasServicios ventanaEstadisticasServicios;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -673,6 +675,15 @@ public class ControlGui {
     public void iniciarVentanaEditarCamion(boolean var) {
         this.ventanaEditarCamion = new VentanaEditarCamion();
         this.ventanaEditarCamion.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de estadisticas servicios
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaEstadisticasServicios(boolean var) {
+        this.ventanaEstadisticasServicios = new VentanaEstadisticasServicios();
+        this.ventanaEstadisticasServicios.setVisible(var);
     }
 
     /**

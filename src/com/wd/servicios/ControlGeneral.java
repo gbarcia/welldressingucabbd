@@ -667,6 +667,22 @@ public class ControlGeneral implements IfaceControlGeneral {
             return resultado;
         }
     }
+    /**
+     * Operacion para consultar todos los proveedores con mas ordenes de compra
+     * @return resultado Coleccion de objetos Proveedor
+     */
+    public Collection<Proveedor> todosLosProveedoresMasOC() {
+        Collection<Proveedor> resultado = null;
+        try {
+            this.controlProveedor = new ControlProveedor();
+            bitacora.info("Control Proveedor Iniciado correctamente");
+            resultado = controlProveedor.todosLosProveedoresMasOC();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control proveedor por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
 
     /**
      * Operacion para borrar un proveedor del sistema

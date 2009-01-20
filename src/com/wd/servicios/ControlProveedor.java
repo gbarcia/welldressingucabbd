@@ -110,6 +110,24 @@ public class ControlProveedor {
     }
 
     /**
+     * Operacion para consultar todos los proveedores con mas ordenes de compra
+     * @return resultado Coleccion de objetos Proveedor
+     */
+    public Collection<Proveedor> todosLosProveedoresMasOC() {
+        Collection<Proveedor> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer todos los proveedores");
+            resultado = sqlMap.queryForList("TraerProveedoresMasOC");
+        } catch (SQLException ex) {
+             bitacora.error("No se pudo realizar la operacion porque: "
+                    + ex.getMessage());
+        }
+        finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para borrar un proveedor del sistema
      * @param rif String rif del proveedor a eliminar
      * @return resultado boolean de exito o no de la operacion
