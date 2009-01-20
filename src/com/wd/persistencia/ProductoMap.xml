@@ -39,6 +39,15 @@
     WHERE id = #id#
   </select>
 
+  <select id="productosMasSolicitados" parameterClass="Integer" resultMap="resultMapProducto">
+    SELECT p.id id, p.nombre nombre, p.descripcion descripcion
+    FROM PRODUCTO p, SOLICITUD s, ITEMS it, TIENDA t
+    WHERE it.SOLICITUD_id = s.id AND s.tipo='P' AND p.id = it.PRODUCTO_id AND s.TIENDA_codigo_PEDIDO = t.codigo AND t.codigo =#value#
+    GROUP BY id,nombre,descripcion
+    HAVING COUNT(id) = ( SELECT MAX(A.cnt)
+    FROM ( SELECT COUNT(it.PRODUCTO_id) as cnt FROM ITEMS it,SOLICITUD s WHERE s.id = it.SOLICITUD_id AND s.tipo='P' GROUP BY it.PRODUCTO_id ) as A)
+  </select>
+
   <update id="modificarProducto" parameterClass="producto">
     UPDATE producto
     SET nombre = #nombre#, descripcion = #descripcion#
