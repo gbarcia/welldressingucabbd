@@ -91,7 +91,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroNomina = new javax.swing.JMenu();
         menuCentroNominaAgregarEmpleado = new javax.swing.JMenuItem();
         menuCentroNominaEditarEmpleado = new javax.swing.JMenuItem();
-        menuCentroNominaConsultarEmpleado = new javax.swing.JMenuItem();
         menuCentroNominaEliminarEmpleado = new javax.swing.JMenuItem();
         menuCentroNominaSeparador = new javax.swing.JSeparator();
         menuCentroNominaTrasnferirEmpelado = new javax.swing.JMenuItem();
@@ -349,11 +348,13 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroNominaAgregarEmpleado.setText("Agregar un empleado");
         menuCentroNomina.add(menuCentroNominaAgregarEmpleado);
 
-        menuCentroNominaEditarEmpleado.setText("Editar un empleado");
+        menuCentroNominaEditarEmpleado.setText("Consultar o editar un empleado");
+        menuCentroNominaEditarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroNominaEditarEmpleadoActionPerformed(evt);
+            }
+        });
         menuCentroNomina.add(menuCentroNominaEditarEmpleado);
-
-        menuCentroNominaConsultarEmpleado.setText("Consultar un empleado");
-        menuCentroNomina.add(menuCentroNominaConsultarEmpleado);
 
         menuCentroNominaEliminarEmpleado.setText("Eliminar un empleado");
         menuCentroNomina.add(menuCentroNominaEliminarEmpleado);
@@ -1089,6 +1090,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui.ivenAoc(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void menuCentroNominaEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroNominaEditarEmpleadoActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarCerrarVentanaConsultaEmpleadoCentro(true);
+    }//GEN-LAST:event_menuCentroNominaEditarEmpleadoActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1131,7 +1137,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu menuCentroMantenimiento;
     private javax.swing.JMenu menuCentroNomina;
     private javax.swing.JMenuItem menuCentroNominaAgregarEmpleado;
-    private javax.swing.JMenuItem menuCentroNominaConsultarEmpleado;
     private javax.swing.JMenuItem menuCentroNominaEditarEmpleado;
     private javax.swing.JMenuItem menuCentroNominaEliminarEmpleado;
     private javax.swing.JSeparator menuCentroNominaSeparador;
