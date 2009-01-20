@@ -211,4 +211,39 @@ public class ControlInventario {
             return resultado;
         }
     }
+
+    /**
+     * Operacion para verficar si un producto ya esta en el inventario de una tienda
+     * y la cantidad que tiene
+     * @param inv objeto inventario donde la cantidad no importa
+     * @return retorna null si no existe el producto y un valor si existe con su
+     * respectiva cantidad
+     */
+    public Integer verificarSiExisteProductoYcantidadTienda(Inventario inv) {
+        Integer cantidad = -1;
+        try {
+            cantidad = (Integer) sqlMap.queryForObject("verificarExistenciaProductoCantidadTienda", inv);
+        } catch (SQLException ex) {
+            bitacora.error("Inventario operacion" + " fallida porque: " + ex.getMessage());
+        } finally {
+            return cantidad;
+        }
+    }
+
+    /**
+     * Operacion para agregar un nuevo registro al inventario de una tienda
+     * @param inv objeto inventario a agregar
+     * @return boleeano con el resultado de la operacion
+     */
+    public boolean agregarRegistroInventarioTienda(Inventario inv) {
+        boolean resultado = false;
+        try {
+            sqlMap.insert("agergarRegistroInventarioTienda", inv);
+            resultado = true;
+        } catch (SQLException ex) {
+            bitacora.error("Inventario operacion" + " fallida porque: " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
 }

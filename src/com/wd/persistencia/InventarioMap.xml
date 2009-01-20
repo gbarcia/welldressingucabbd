@@ -89,9 +89,20 @@
         AND PRODUCTO_id = #productoId#
     </select>
 
+    <select id="verificarExistenciaProductoCantidadTienda" parameterClass="inventario" resultClass="int">
+        SELECT cantidad FROM INVENTARIO_TIENDA
+        WHERE TIENDA_codigo = #tiendaCodigo#
+        AND PRODUCTO_id = #productoId#
+    </select>
+
     <insert id="agergarRegistroInventario" parameterClass="inventario">
         INSERT INTO INVENTARIO_CENTRO
         VALUES (#centroDistribucionCodigo#,#productoId#,#cantidad#)
+    </insert>
+
+    <insert id="agergarRegistroInventarioTienda" parameterClass="inventario">
+        INSERT INTO INVENTARIO_TIENDA
+        VALUES (#tiendaCodigo#,#productoId#,#cantidad#)
     </insert>
 
     <delete id="borrarRegistroInventario" parameterClass="inventario">

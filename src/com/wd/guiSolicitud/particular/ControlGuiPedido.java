@@ -12,6 +12,7 @@ import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.ControlInventario;
 import com.wd.servicios.RegistroSolicitud;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -132,5 +133,72 @@ public class ControlGuiPedido {
         } else {
             controlador.mostrarMensaje("Error: Operacion Fallida", 1);
         }
+    }
+
+    /**
+     * Operacion para obtener si un producto existe en el inventario de un centro y que cantidad tiene
+     * @param idProducto int id del producto
+     * @param idCentro int ide del centro
+     * @return null si no existe o un numero entero con su cantidad
+     */
+    private Integer obtenerCantidadActualProductoyExistencia(int idProducto, int idCentro) {
+        Inventario inv = new Inventario();
+        try {
+            this.controlInventario = new ControlInventario();
+            inv.setProductoId(idProducto);
+            inv.setCentroDistribucionCodigo(idProducto);
+            inv.setCantidad(0);
+        } catch (IOException ex) {
+        } finally {
+            return this.controlInventario.verificarSiExisteProductoYcantidad(inv);
+        }
+    }
+
+    /**
+     * Operacion para agregar un producto al inventario de un centro
+     * @param inv objeto inventario a agregar
+     * @return booleano de la operacion
+     */
+    private boolean agregarProductoInventarioCentro(Inventario inv) {
+        try {
+            this.controlInventario = new ControlInventario();
+        } catch (IOException ex) {
+        } finally {
+            return this.controlInventario.agregarRegistroInventario(inv);
+        }
+    }
+
+    /**
+     * Operacion para actualizar el inventario de un centro
+     * @param col coleccion de objetos inventarios a actualizar
+     * @param operacion la operacion a realizar 0 suma 1 resta
+     * @return boleano con el exito de la operacion
+     */
+    public boolean ActualizarInventarioCentro(Collection<Inventario> col, int operacion) {
+        int cantidadNueva = 0;
+        boolean resultado = false;
+        try {
+            this.controlInventario = new ControlInventario();
+            for (Inventario inventario : col) {
+                Integer cantidad = this.obtenerCantidadActualProductoyExistencia(inventario.getProductoId(), inventario.getCentroDistribucionCodigo());
+                if (cantidad == null) {
+                    resultado = this.agregarProductoInventarioCentro(inventario);
+                } else {
+                    if (operacion == 0) //suma
+                    {
+                        cantidadNueva = cantidad + inventario.getCantidad();
+                    } else if (operacion == 1) // resta
+                    {
+                        cantidadNueva = cantidad - inventario.getCantidad();
+                    }
+                    inventario.setCantidad(cantidadNueva);
+                    resultado = this.controlInventario.modificarInventarioTeoCentro(inventario);
+                }
+            }
+        } catch (IOException ex) {
+        } finally {
+            return resultado;
+        }
+
     }
 }
