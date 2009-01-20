@@ -12,6 +12,7 @@ import java.util.Date;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Vector;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -574,6 +575,25 @@ public class ControlEmpleado {
             "empleados de un centro");
             resultado = sqlMap.queryForList("consultaNominaCentro", codigoCentro);
             //resultado = this.agregarHistorialListaEmpleadosTienda(resultadoP);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Metodo para traer todos los empleados de una tienda
+     * @param codigo el codigo de la tienda
+     * @return collecion de empleados de esa tienda
+     */
+    public Collection<Empleado> traerEmpleadosPorTienda(int codigo) {
+        Collection<Empleado> resultado = null;
+        try {
+            bitacora.info("Iniciando operacion para traer historial de los" +
+                "empleados de una tienda");
+            resultado = sqlMap.queryForList("traerEmpleadosPorTienda", codigo);
         } catch (SQLException ex) {
             bitacora.error("No se pudo operar " +
                     " porque " + ex.getMessage());

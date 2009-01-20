@@ -18,6 +18,7 @@ import com.wd.dominio.Servicio;
 import com.wd.dominio.Tienda;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -1548,6 +1549,25 @@ public class ControlGeneral implements IfaceControlGeneral {
             " por " + ex.getMessage());
         } finally {
             return coleccion;
+        }
+    }
+
+    /**
+     * Metodo para traer todos los empleados de una tienda
+     * @param codigo el codiog de la tienda
+     * @return los empleados de la tienda
+     */
+    public Collection<Empleado> traerEmpleadosPorTienda(Integer codigo){
+        Collection<Empleado> resultado = null;
+        try {
+            this.controlEmpleado = new ControlEmpleado();
+            bitacora.info("ControlEmpleado iniciado correctamente");
+            resultado = this.controlEmpleado.traerEmpleadosPorTienda(codigo);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlEmpleado" +
+            " por " + ex.getMessage());
+        } finally {
+            return resultado;
         }
     }
 }
