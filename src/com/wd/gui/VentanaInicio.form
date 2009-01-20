@@ -362,21 +362,33 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Registro de camion"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCentroCamionRegistroActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroCamionEditar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar un camion"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCentroCamionEditarActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroCamionConsulta">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Consultar un camion"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCentroCamionConsultaActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroCamionEliminar">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar un camion"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCentroCamionEliminarActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuCentroCamionAgregarCamionSuelto">
                   <Properties>

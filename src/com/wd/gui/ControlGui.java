@@ -120,6 +120,14 @@ public class ControlGui {
     private VentanaAgregarEmpleadoCentro ventanaAgregarEmpleadoCentro;
     /** variable de ventana para asignar proveedores a los centros */
     private VentanaAsignarProveedorCentro ventanaAsignarProveedorCentro;
+    /** variable de ventana para agreagar camion */
+    private VentanaAgregarCamion ventanaAgregarCamion;
+    /** variable de ventana para eliminar camion */
+    private VentanaEliminarCamion ventanaEliminarCamion;
+    /** variable de ventana para consultar camion */
+    private VentanaConsultarCamion ventanaConsultarCamion;
+    /** variable de ventana para editar camion */
+    private VentanaEditarCamion ventanaEditarCamion;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -629,6 +637,42 @@ public class ControlGui {
     public void iniciarVentanaEliminarEmpleadoCentro(boolean var) {
         this.ventanaEliminarEmpleadoCentro = new VentanaEliminarEmpleadoCentro();
         this.ventanaEliminarEmpleadoCentro.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de agregar camion
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaAgregarCamion(boolean var) {
+        this.ventanaAgregarCamion = new VentanaAgregarCamion();
+        this.ventanaAgregarCamion.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de agregar camion
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaEliminarCamion(boolean var) {
+        this.ventanaEliminarCamion = new VentanaEliminarCamion();
+        this.ventanaEliminarCamion.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de agregar camion
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaConsultarCamion(boolean var) {
+        this.ventanaConsultarCamion = new VentanaConsultarCamion();
+        this.ventanaConsultarCamion.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de agregar camion
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void iniciarVentanaEditarCamion(boolean var) {
+        this.ventanaEditarCamion = new VentanaEditarCamion();
+        this.ventanaEditarCamion.setVisible(var);
     }
 
     /**
