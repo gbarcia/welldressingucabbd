@@ -107,6 +107,7 @@ public class VentanaConsultarEditarEmpleadoCentro2 extends javax.swing.JFrame {
         switch (arg) {
             case 0: return "Gerente";
             case 1: return "Regular";
+            case 2: return "Conductor";
             default : return "Indefinido";
         }
     }
@@ -155,7 +156,8 @@ public class VentanaConsultarEditarEmpleadoCentro2 extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaHisto = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consultar y Editar Empleados De Centros de Distribucion");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del Empleado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
         jPanel1.setAutoscrolls(true);
@@ -204,6 +206,7 @@ public class VentanaConsultarEditarEmpleadoCentro2 extends javax.swing.JFrame {
         jLabel10.setText("Dirección:");
 
         jtDireccion.setColumns(20);
+        jtDireccion.setLineWrap(true);
         jtDireccion.setRows(5);
         jScrollPane1.setViewportView(jtDireccion);
 
@@ -309,7 +312,7 @@ public class VentanaConsultarEditarEmpleadoCentro2 extends javax.swing.JFrame {
 
         jLabel11.setText("Cargo:");
 
-        jcCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "gerente", "empleado regular" }));
+        jcCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "gerente", "empleado regular", "conductor de camion" }));
         jcCargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcCargoActionPerformed(evt);
@@ -380,7 +383,6 @@ public class VentanaConsultarEditarEmpleadoCentro2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 752, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -403,7 +405,6 @@ public class VentanaConsultarEditarEmpleadoCentro2 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

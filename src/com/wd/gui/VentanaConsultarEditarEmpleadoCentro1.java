@@ -58,7 +58,8 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consultar y Editar Empleados De Centros de Distribucion");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Todos los Empleados de los Centros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
 
