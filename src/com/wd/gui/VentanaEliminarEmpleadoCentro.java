@@ -204,6 +204,13 @@ public class VentanaEliminarEmpleadoCentro extends javax.swing.JFrame {
             control.eliminarEmpleadoDelSistema(cel);
         }
         this.jtCedula.setText("");
+
+        Cemp = control.traerTodosEmpCentros();
+        DefaultListModel modelo = new DefaultListModel();
+        for (Empleado emp : Cemp) {
+            modelo.addElement(emp.getApellido() + ", " + emp.getNombre());
+        }
+        this.jlEmpleados.setModel(modelo);
 }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

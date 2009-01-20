@@ -357,6 +357,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroNomina.add(menuCentroNominaEditarEmpleado);
 
         menuCentroNominaEliminarEmpleado.setText("Eliminar un empleado");
+        menuCentroNominaEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroNominaEliminarEmpleadoActionPerformed(evt);
+            }
+        });
         menuCentroNomina.add(menuCentroNominaEliminarEmpleado);
         menuCentroNomina.add(menuCentroNominaSeparador);
 
@@ -1094,6 +1099,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniciarCerrarVentanaConsultaEmpleadoCentro(true);
     }//GEN-LAST:event_menuCentroNominaEditarEmpleadoActionPerformed
+
+    private void menuCentroNominaEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroNominaEliminarEmpleadoActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaEliminarEmpleadoCentro(true);
+    }//GEN-LAST:event_menuCentroNominaEliminarEmpleadoActionPerformed
 
     /**
     * @param args the command line arguments
