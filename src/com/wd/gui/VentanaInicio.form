@@ -164,13 +164,28 @@
                     <Property name="text" type="java.lang.String" value="Transferencias"/>
                   </Properties>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuPedidosTienda">
+                <MenuItem class="javax.swing.JSeparator" name="menuSeparadorDosTienda">
+                </MenuItem>
+                <Menu class="javax.swing.JMenu" name="jMenu2">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Pedidos"/>
                   </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JSeparator" name="menuSeparadorDosTienda">
-                </MenuItem>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Realizar Pedido"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Consultar y Editar"/>
+                      </Properties>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
               </SubComponents>
             </Menu>
             <MenuItem class="javax.swing.JSeparator" name="menuTiendasSeparador">
