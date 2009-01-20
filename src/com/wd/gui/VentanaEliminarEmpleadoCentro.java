@@ -4,9 +4,9 @@
  */
 
 /*
- * VentanaConsultarEditarEmpleadoCentro1.java
+ * EliminarEmpleadoCentro.java
  *
- * Created on Jan 18, 2009, 9:08:00 PM
+ * Created on Jan 19, 2009, 9:35:20 PM
  */
 
 package com.wd.gui;
@@ -21,16 +21,15 @@ import javax.swing.DefaultListModel;
  *
  * @author Johnny
  */
-public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
+public class VentanaEliminarEmpleadoCentro extends javax.swing.JFrame {
 
     private Collection<Empleado> Cemp;
     private ControlGuiEmpleadoCentro control = new ControlGuiEmpleadoCentro();
     private ControlGui controlGui = new ControlGui();
 
-    /** Creates new form VentanaConsultarEditarEmpleadoCentro1 */
-    public VentanaConsultarEditarEmpleadoCentro1() {
+    /** Creates new form EliminarEmpleadoCentro */
+    public VentanaEliminarEmpleadoCentro() {
         initComponents();
-
         java.net.URL url = getClass().getResource("Iconos/icon_016.png");
         java.awt.Image imagen = getToolkit().getImage(url);
         setIconImage (imagen);
@@ -63,10 +62,10 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consultar y Editar Empleados De Centros de Distribucion");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Todos los Empleados de los Centros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Todos los Empleados de los centros", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
 
         jlEmpleados.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jlEmpleados);
@@ -120,7 +119,7 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Consultar");
+        jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -138,6 +137,7 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 462, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,6 +160,7 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 439, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -193,17 +194,16 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (this.flag.isSelected()) {
             String cedula = this.jtCedula.getText();
-            control.iniciarVentanaConsulta(cedula);
-        }
-        else {
+            control.eliminarEmpleadoDelSistema(cedula);
+        } else {
             int indiceSeleccionado = this.jlEmpleados.getSelectedIndex();
             Vector aux = new Vector(Cemp);
             Empleado p = (Empleado) aux.get(indiceSeleccionado);
             Integer a = p.getCedula();
             String cel = a.toString();
-            control.iniciarVentanaConsulta(cel);
+            control.eliminarEmpleadoDelSistema(cel);
         }
-        this.setVisible(false);
+        this.jtCedula.setText("");
 }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -216,7 +216,7 @@ public class VentanaConsultarEditarEmpleadoCentro1 extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaConsultarEditarEmpleadoCentro1().setVisible(true);
+                new VentanaEliminarEmpleadoCentro().setVisible(true);
             }
         });
     }

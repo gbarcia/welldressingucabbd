@@ -456,6 +456,29 @@ public class ControlEmpleado {
     }
 
     /**
+     * Operacion para borrar el historial de un empleado en el sistema
+     * @param cedula int el numero de cedula del empleado que se quiere borrar
+     * el historial
+     * @return boolean de exito o no de la operacion
+     */
+    private boolean borrarHistorialEmpleadoCentro(int cedula) {
+        boolean resultado = false;
+        int nra = -1;
+        try {
+            bitacora.info("Iniciando operacion para eliminar historial de " + cedula);
+            nra = sqlMap.delete("borrarHistorialEmpleadoCentro", cedula);
+            if (nra > 0) {
+                resultado = true;
+            }
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
      * Operacion para borrar un empleado en el sistema
      * @param cedula int el numero de cedula del empleado que se quiere borrar   
      * @return boolean de exito o no de la operacion
@@ -466,6 +489,31 @@ public class ControlEmpleado {
         try {
             bitacora.info("Iniciando operacion para borrar empleado: " + cedula);
             resultado = this.borrarHistorialEmpleadoTienda(cedula);
+            nra = sqlMap.delete("borrarEmpleado", cedula);
+            if (nra > 0) {
+                resultado = true;
+            } else {
+                resultado = false;
+            }
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar " +
+                    " porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para borrar un empleado en el sistema
+     * @param cedula int el numero de cedula del empleado que se quiere borrar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean borrarEmpleadoCentro(int cedula) {
+        boolean resultado = false;
+        int nra = -1;
+        try {
+            bitacora.info("Iniciando operacion para borrar empleado: " + cedula);
+            resultado = this.borrarHistorialEmpleadoCentro(cedula);
             nra = sqlMap.delete("borrarEmpleado", cedula);
             if (nra > 0) {
                 resultado = true;

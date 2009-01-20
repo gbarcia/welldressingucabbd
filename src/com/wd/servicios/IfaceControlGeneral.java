@@ -394,4 +394,12 @@ public interface IfaceControlGeneral {
      * @return Collection todos los producto con sus proveedores
      */
     public Collection<Producto> consultaProductoProveedor(int codigoProducto);
+
+    /**
+     * Operacion para borrar un empleado en el sistema
+     * @param cedula int el numero de cedula del empleado que se quiere borrar
+     * @return boolean de exito o no de la operacion
+     */
+    public boolean borrarEmpleadoCentro(int cedula);
+
 }
