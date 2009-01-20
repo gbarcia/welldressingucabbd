@@ -118,6 +118,8 @@ public class ControlGui {
     private VentanaEliminarEmpleadoCentro ventanaEliminarEmpleadoCentro;
     /** variable de ventana para registrar empleados de centro */
     private VentanaAgregarEmpleadoCentro ventanaAgregarEmpleadoCentro;
+    /** variable de ventana para asignar proveedores a los centros */
+    private VentanaAsignarProveedorCentro ventanaAsignarProveedorCentro;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -129,6 +131,15 @@ public class ControlGui {
      */
     public void iniciarCerrarVentanaInicio(boolean var) {
         ventanaInicio.setVisible(var);
+    }
+
+    /**
+     * metodo para ocultar o mostrar la ventana de asignar prove cen
+     * @param var booleano que indica si mostrar o no la ventana
+     */
+    public void ivenAsignarProveCen(boolean var) {
+        this.ventanaAsignarProveedorCentro = new VentanaAsignarProveedorCentro();
+        this.ventanaAsignarProveedorCentro.setVisible(var);
     }
 
     /**
@@ -597,7 +608,7 @@ public class ControlGui {
      * metodo para ocultar o mostrar la ventana de registrar empleado centro
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaRegistrarEmpleadoCentro (boolean var) {
+    public void iniciarVentanaRegistrarEmpleadoCentro(boolean var) {
         this.ventanaAgregarEmpleadoCentro = new VentanaAgregarEmpleadoCentro();
         this.ventanaAgregarEmpleadoCentro.setVisible(true);
     }
@@ -606,7 +617,7 @@ public class ControlGui {
      * metodo para ocultar o mostrar la ventana de consultar editar empleado centro
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarCerrarVentanaConsultaEmpleadoCentro (boolean var) {
+    public void iniciarCerrarVentanaConsultaEmpleadoCentro(boolean var) {
         this.ventanaConsultarEditarEmpleadoCentro = new VentanaConsultarEditarEmpleadoCentro1();
         this.ventanaConsultarEditarEmpleadoCentro.setVisible(var);
     }
@@ -615,7 +626,7 @@ public class ControlGui {
      * metodo para ocultar o mostrar la ventana de eliminar empleado centro
      * @param var booleano que indica si mostrar o no la ventana
      */
-    public void iniciarVentanaEliminarEmpleadoCentro (boolean var) {
+    public void iniciarVentanaEliminarEmpleadoCentro(boolean var) {
         this.ventanaEliminarEmpleadoCentro = new VentanaEliminarEmpleadoCentro();
         this.ventanaEliminarEmpleadoCentro.setVisible(var);
     }

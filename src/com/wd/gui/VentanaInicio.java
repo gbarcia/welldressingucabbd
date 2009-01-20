@@ -78,8 +78,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuTransferenciasTienda = new javax.swing.JMenuItem();
         menuPedidosTienda = new javax.swing.JMenuItem();
         menuSeparadorDosTienda = new javax.swing.JSeparator();
-        menuAsignarCentroTienda = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         menuTiendasSeparador = new javax.swing.JSeparator();
         menuEstadisticasTienda = new javax.swing.JMenuItem();
         menuCentros = new javax.swing.JMenu();
@@ -182,7 +180,13 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuArchivo.add(menuArcecaDe);
 
         menuSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/quit.png"))); // NOI18N
         menuSalir.setText("Salir");
+        menuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSalirActionPerformed(evt);
+            }
+        });
         menuArchivo.add(menuSalir);
 
         menuBar.add(menuArchivo);
@@ -287,12 +291,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuSolicitudesTienda.add(menuSeparadorDosTienda);
 
         menuTiendas.add(menuSolicitudesTienda);
-
-        menuAsignarCentroTienda.setText("Asignar Centro");
-        menuTiendas.add(menuAsignarCentroTienda);
-
-        jMenuItem2.setText("Asignar o renovar vigilancia");
-        menuTiendas.add(jMenuItem2);
         menuTiendas.add(menuTiendasSeparador);
 
         menuEstadisticasTienda.setText("Estadisticas");
@@ -448,6 +446,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentros.add(menuCentroCamiones);
 
         menuCentroAsignarProvedores.setText("Asignar Provedores");
+        menuCentroAsignarProvedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroAsignarProvedoresActionPerformed(evt);
+            }
+        });
         menuCentros.add(menuCentroAsignarProvedores);
 
         jMenuItem1.setText("Asignar o renovar Vigilancia");
@@ -1115,6 +1118,15 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui.iniciarVentanaRegistrarEmpleadoCentro(true);
     }//GEN-LAST:event_menuCentroNominaAgregarEmpleadoActionPerformed
 
+    private void menuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalirActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_menuSalirActionPerformed
+
+    private void menuCentroAsignarProvedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroAsignarProvedoresActionPerformed
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.ivenAsignarProveCen(true);
+    }//GEN-LAST:event_menuCentroAsignarProvedoresActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1131,14 +1143,12 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem menuAgregarEmpleadoTienda;
     private javax.swing.JMenuItem menuArcecaDe;
     private javax.swing.JMenu menuArchivo;
-    private javax.swing.JMenuItem menuAsignarCentroTienda;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuCentroAsignarProvedores;
     private javax.swing.JMenuItem menuCentroCamionAgregarCamionSuelto;
