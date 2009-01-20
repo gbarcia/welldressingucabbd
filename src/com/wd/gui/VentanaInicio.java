@@ -441,15 +441,35 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuCentroCamiones.setText("Camiones");
 
         menuCentroCamionRegistro.setText("Registro de camion");
+        menuCentroCamionRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroCamionRegistroActionPerformed(evt);
+            }
+        });
         menuCentroCamiones.add(menuCentroCamionRegistro);
 
         menuCentroCamionEditar.setText("Editar un camion");
+        menuCentroCamionEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroCamionEditarActionPerformed(evt);
+            }
+        });
         menuCentroCamiones.add(menuCentroCamionEditar);
 
         menuCentroCamionConsulta.setText("Consultar un camion");
+        menuCentroCamionConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroCamionConsultaActionPerformed(evt);
+            }
+        });
         menuCentroCamiones.add(menuCentroCamionConsulta);
 
         menuCentroCamionEliminar.setText("Eliminar un camion");
+        menuCentroCamionEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroCamionEliminarActionPerformed(evt);
+            }
+        });
         menuCentroCamiones.add(menuCentroCamionEliminar);
 
         menuCentroCamionAgregarCamionSuelto.setText("Agregar un camion a un centro");
@@ -1155,6 +1175,26 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui = new ControlGui();
        this.controlGeneralGui.ivenAsignarProveCen(true);
     }//GEN-LAST:event_menuCentroAsignarProvedoresActionPerformed
+
+    private void menuCentroCamionRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroCamionRegistroActionPerformed
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaAgregarCamion(true);
+    }//GEN-LAST:event_menuCentroCamionRegistroActionPerformed
+
+    private void menuCentroCamionEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroCamionEditarActionPerformed
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaEditarCamion(true);
+    }//GEN-LAST:event_menuCentroCamionEditarActionPerformed
+
+    private void menuCentroCamionConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroCamionConsultaActionPerformed
+        this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaConsultarCamion(true);
+    }//GEN-LAST:event_menuCentroCamionConsultaActionPerformed
+
+    private void menuCentroCamionEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroCamionEliminarActionPerformed
+         this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaEliminarCamion(true);
+    }//GEN-LAST:event_menuCentroCamionEliminarActionPerformed
 
     /**
     * @param args the command line arguments

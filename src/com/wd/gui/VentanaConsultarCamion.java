@@ -101,7 +101,7 @@ public class VentanaConsultarCamion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Consultar Camion");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Camión"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Camión"));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Información del Camión"));
         jPanel2.setPreferredSize(new java.awt.Dimension(350, 263));
