@@ -1496,6 +1496,24 @@ public class ControlGeneral implements IfaceControlGeneral {
     }
 
     /**
+     * Metodo para traer productos con mayor inventarios en las tiendas
+     * @return coleccion collection de inventarios
+     */
+    public Collection traerProductosMayorInvTiendas() {
+        Collection<Inventario> coleccion = null;
+        try {
+            this.controlInventario = new ControlInventario();
+            bitacora.info("ControlInventario iniciado correctamente");
+            coleccion = this.controlInventario.traerProductosMayorInvTiendas();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlInventario" +
+            " por " + ex.getMessage());
+        } finally {
+            return coleccion;
+        }
+    }
+
+    /**
      * Metodo para traer el inventario en camino de una tienda
      * @param codigoTienda codigo de la tienda
      * @return coleccion collection de items

@@ -49,6 +49,23 @@ public class ControlInventario {
     }
 
     /**
+     * Metodo para los productos con mayor inventario en tiendas
+     * @return Collection todos los inventarios registrados
+     */
+    public Collection<Inventario> traerProductosMayorInvTiendas() {
+        Collection<Inventario> coleccion = null;
+        try {
+            bitacora.info("Iniciando operacion para traer los productos " +
+                    "con mayor inventario en las tiendas");
+            coleccion = sqlMap.queryForList("traerProductosMasInventarioTiendas");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo realizar la operacion porque: " + ex.getMessage());
+        } finally {
+            return coleccion;
+        }
+    }
+
+    /**
      * Metodo para buscar el inventario en camino de un centro de distribucion
      * @param codigoCentro int codigo del centro al que pertenece el inv.
      * @return Collection todos los inventarios registrados

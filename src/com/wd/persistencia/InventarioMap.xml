@@ -44,6 +44,14 @@
         ORDER BY PRODUCTOID
     </select>
 
+    <select id="traerProductosMasInventarioTiendas" resultMap="inventarioTeoTienda">
+        SELECT it.TIENDA_codigo TIENDACODIGO,
+        it.PRODUCTO_id PRODUCTOID, MAX(it.cantidad) CANTIDAD
+        FROM INVENTARIO_TIENDA it
+        GROUP BY TIENDACODIGO,PRODUCTOID
+        ORDER BY TIENDACODIGO
+    </select>
+
     <select id="traerInventarioCaminoTienda" parameterClass="Integer" resultMap="inventarioCamino">
         SELECT  p.id PRODUCTOID, s.id SOLICITUDID,it.cantidad CANTIDAD,
         it.costo COSTO

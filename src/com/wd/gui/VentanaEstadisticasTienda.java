@@ -11,7 +11,11 @@
 
 package com.wd.gui;
 
+import com.wd.dominio.Inventario;
+import com.wd.dominio.Producto;
 import com.wd.dominio.Tienda;
+import com.wd.gui.controlparticular.ControlGuiInventario;
+import com.wd.gui.controlparticular.ControlGuiProducto;
 import com.wd.gui.controlparticular.ControlGuiTienda;
 import java.util.Collection;
 import java.util.Vector;
@@ -26,6 +30,20 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
     private Collection<Tienda> tiendasMayor;
 
     private Collection<Tienda> tiendasMenor;
+    
+    private Vector<Tienda> vecTiendasAll = new Vector();
+    
+    private Vector<Tienda> vecTiendas = new Vector();
+
+    private Vector<Producto> vecProdsAll = new Vector();
+
+    private Vector<Producto> vecProdsAllAux = new Vector();
+
+    private Vector<Inventario> vecProdsInv = new Vector();
+
+    private ControlGuiProducto controlProducto = new ControlGuiProducto();
+
+    private ControlGuiInventario controlInventario = new ControlGuiInventario();
 
     private ControlGuiTienda control = new ControlGuiTienda();
 
@@ -67,6 +85,8 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
        }
            this.TablaMeMa.setModel(dm2);
 
+       this.llenarTablaProdsMayorInvTiendas();
+
     }
 
     /** This method is called from within the constructor to
@@ -86,12 +106,15 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaMaMe = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaMayorInventarioTiendas = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setTitle("Estadísticas Tienda");
         setAlwaysOnTop(true);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estadísticas de Tiendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 0, 12), java.awt.SystemColor.activeCaption)); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estadísticas de Tiendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), java.awt.SystemColor.activeCaption)); // NOI18N
 
         TablaMeMa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,7 +132,7 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -117,7 +140,7 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("por Tamaño Menor a Mayor", jPanel3);
@@ -138,7 +161,7 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -146,10 +169,46 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("por Tamaño Mayor a Menor", jPanel2);
+
+        tablaMayorInventarioTiendas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(tablaMayorInventarioTiendas);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 581, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(27, 27, 27)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(23, Short.MAX_VALUE)))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(10, 10, 10)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(48, Short.MAX_VALUE)))
+        );
+
+        jTabbedPane1.addTab("Productos con Mayor Inventario", jPanel4);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -222,10 +281,65 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaMaMe;
+    private javax.swing.JTable tablaMayorInventarioTiendas;
     // End of variables declaration//GEN-END:variables
 
+    public void llenarVecs(){
+
+        this.vecProdsAll = this.controlProducto.traerTodosLosProductos();
+        this.vecProdsInv = this.controlInventario.traerProductosMayorInvTiendas();
+        this.vecTiendasAll = control.consultarTiendas();
+
+        for (Inventario inv : vecProdsInv) {
+            for (Producto prod : vecProdsAll) {
+                if (inv.getProductoId() == prod.getId()){
+                    this.vecProdsAllAux.addElement(prod);
+                }
+            }
+        }
+        for (Inventario inv : vecProdsInv) {
+            for (Tienda tiendita : vecTiendasAll) {
+                if (inv.getTiendaCodigo() == tiendita.getCodigo()){
+                    this.vecTiendas.addElement(tiendita);
+                }
+            }
+        }
+    }
+
+    public void llenarTablaProdsMayorInvTiendas(){
+
+        this.llenarVecs();
+
+        DefaultTableModel dm = new DefaultTableModel();
+        dm.addColumn("Código Tienda");
+        dm.addColumn("NombreTienda ");
+        dm.addColumn("Código Producto");
+        dm.addColumn("Nombre Producto");
+        dm.addColumn("Cantidad");
+
+        Inventario inv = new Inventario();
+        Producto prod = new Producto();
+        Tienda store= new Tienda();
+        for (int i = 0; i < vecProdsInv.size(); i++) {
+            inv = vecProdsInv.elementAt(i);
+            prod = vecProdsAllAux.elementAt(i);
+            store = vecTiendas.elementAt(i);
+
+            Vector info = new Vector();
+            info.addElement(store.getCodigo());
+            info.addElement(store.getNombre());
+            info.addElement(prod.getId());
+            info.addElement(prod.getNombre());
+            info.addElement(inv.getCantidad());
+
+            dm.addRow(info);
+        }
+        this.tablaMayorInventarioTiendas.setModel(dm);
+    }
 }
