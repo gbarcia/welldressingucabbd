@@ -181,6 +181,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuArcecaDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/icon_016.png"))); // NOI18N
         menuArcecaDe.setText("Acerca de...");
         menuArcecaDe.setToolTipText("Informacion sobre el Grupo de Desarrollo");
+        menuArcecaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuArcecaDeActionPerformed(evt);
+            }
+        });
         menuArchivo.add(menuArcecaDe);
 
         menuSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
@@ -1256,6 +1261,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         VentanaActualizarPedidoSeleccion ven = new VentanaActualizarPedidoSeleccion();
         ven.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void menuArcecaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuArcecaDeActionPerformed
+        VentanaAcercaDe ven = new VentanaAcercaDe();
+        ven.setVisible(true);
+    }//GEN-LAST:event_menuArcecaDeActionPerformed
 
     /**
     * @param args the command line arguments
