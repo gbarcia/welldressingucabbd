@@ -20,6 +20,9 @@
                 <Property name="text" type="java.lang.String" value="Acerca de..."/>
                 <Property name="toolTipText" type="java.lang.String" value="Informacion sobre el Grupo de Desarrollo"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuArcecaDeActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuSalir">
               <Properties>
