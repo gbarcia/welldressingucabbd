@@ -19,6 +19,12 @@
     <result property="EMPRESA_SERVICIO_rif" column="EMPRESA_SERVICIO_rif" />
   </resultMap>
 
+  <resultMap id="resultMapTiendaConVariedad" class="tienda">
+    <result property="codigo" column="codigo" />
+    <result property="nombre" column="nombre" />
+    <result property="variedad" column="variedad" />
+  </resultMap>
+
   <insert id="agregarTienda" parameterClass="tienda">
     INSERT INTO tienda (codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif)
     VALUES (null, #nombre#, #tamano#, #telefono#, #correo#, #direccion#, #LUGAR_id#, #HORARIO_id#, #EMPRESA_SERVICIO_rif#)
@@ -54,6 +60,22 @@
   <select id="consultarTiendasMenorTamano" resultMap="resultMapTienda">
     SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
     FROM TIENDA ORDER BY tamano ASC
+  </select>
+
+  <select id="consultarTiendasVariedadDesc" resultMap="resultMapTiendaConVariedad">
+    SELECT i.TIENDA_codigo codigo, t.nombre nombre, COUNT(i.TIENDA_codigo) variedad
+    FROM INVENTARIO_TIENDA i, TIENDA t
+    WHERE i.TIENDA_codigo = t.codigo
+    GROUP BY (i.TIENDA_codigo)
+    ORDER BY variedad DESC
+  </select>
+
+  <select id="consultarTiendasVariedadAsc" resultMap="resultMapTiendaConVariedad">
+    SELECT i.TIENDA_codigo codigo, t.nombre nombre, COUNT(i.TIENDA_codigo) variedad
+    FROM INVENTARIO_TIENDA i, TIENDA t
+    WHERE i.TIENDA_codigo = t.codigo
+    GROUP BY (i.TIENDA_codigo)
+    ORDER BY variedad ASC
   </select>
 
 </sqlMap>

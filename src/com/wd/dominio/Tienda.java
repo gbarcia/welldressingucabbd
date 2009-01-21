@@ -26,6 +26,8 @@ public class Tienda {
     private int HORARIO_id;
     /** variable de identificador de empresa de servicio de vigilancia de la tienda*/
     private String EMPRESA_SERVICIO_rif;
+    /** variedad de productos de la tienda*/
+    private Integer variedad;
 
     /**
      * Constructor de la Clase
@@ -58,6 +60,12 @@ public class Tienda {
         this.LUGAR_id = LUGAR_id;
         this.HORARIO_id = HORARIO_id;
         this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif;
+    }
+
+    public Tienda(int codigo, String nombre, Integer variedad) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.variedad = variedad;
     }
 
     /**
@@ -186,6 +194,24 @@ public class Tienda {
     public void setEMPRESA_SERVICIO_rif(String EMPRESA_SERVICIO_rif) {
         if (EMPRESA_SERVICIO_rif != null)
             this.EMPRESA_SERVICIO_rif = EMPRESA_SERVICIO_rif;
+    }
+
+    /**
+     * Get the value of variedad
+     *
+     * @return the value of variedad
+     */
+    public Integer getVariedad() {
+        return variedad;
+    }
+
+    /**
+     * Set the value of variedad
+     *
+     * @param variedad new value of variedad
+     */
+    public void setVariedad(Integer variedad) {
+        this.variedad = variedad;
     }
 
 }

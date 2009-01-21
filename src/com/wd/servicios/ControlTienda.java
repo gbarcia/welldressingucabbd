@@ -111,6 +111,40 @@ public class ControlTienda {
     }
 
     /**
+     * Metodo para traer las tiendas y su variedad de productos
+     * @return coleccion de tiendas
+     */
+    public Collection<Tienda> consultarTiendasVariedadDesc() {
+        Collection<Tienda> coleccionTiendas = null;
+        try {
+            this.bitacora.info("Iniciando operacion para traer todas las Tiendas y sus variedades");
+            coleccionTiendas = this.sqlMap.queryForList("consultarTiendasVariedadDesc");
+        } catch (SQLException ex) {
+            this.bitacora.error("No se pudo realizar la operacion porque: " +
+                    ex.getMessage());
+        } finally {
+            return coleccionTiendas;
+        }
+    }
+
+    /**
+     * Metodo para traer las tiendas y su variedad de productos
+     * @return coleccion de tiendas
+     */
+    public Collection<Tienda> consultarTiendasVariedadAsc() {
+        Collection<Tienda> coleccionTiendas = null;
+        try {
+            this.bitacora.info("Iniciando operacion para traer todas las Tiendas y sus variedades");
+            coleccionTiendas = this.sqlMap.queryForList("consultarTiendasVariedadAsc");
+        } catch (SQLException ex) {
+            this.bitacora.error("No se pudo realizar la operacion porque: " +
+                    ex.getMessage());
+        } finally {
+            return coleccionTiendas;
+        }
+    }
+
+    /**
      * Metodo para consultar Tiendas en base a su tamaño en orden de mayor a menor
      * o de menor a mayor
      * @param orden int 1 de mayor a menor 2 de menor a mayor
