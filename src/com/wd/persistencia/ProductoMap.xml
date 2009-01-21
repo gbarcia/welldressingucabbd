@@ -13,6 +13,13 @@
     <result property="descripcion" column="descripcion" />
   </resultMap>
 
+  <resultMap id="resultMapProductoCant" class="producto">
+    <result property="id" column="idProducto" />
+    <result property="nombre" column="nombre" />
+    <result property="descripcion" column="descripcion" />
+    <result property="cantidad" column="cantidad" />
+  </resultMap>
+
   <resultMap id="resultMapProductoProveedor" class="producto">
     <result property="id" column="id" />
     <result property="nombre" column="nombre" />
@@ -104,6 +111,13 @@
   <select id="consultarProductoDepartamento" resultMap="resultMapProductoDepartamento">
     SELECT PRODUCTO_id, DEPARTAMENTO_codigo
     FROM producto_departamento;
+  </select>
+
+  <select id="traerProductosTienda" parameterClass="Integer" resultMap="resultMapProductoCant">
+    SELECT p.id idProducto, p.nombre nombre, p.descripcion descripcion, inv.cantidad cantidad
+    FROM producto p, inventario_tienda inv, tienda t
+    WHERE p.id = inv.PRODUCTO_id AND inv.TIENDA_codigo = t.codigo AND
+    t.codigo = #value#
   </select>
 
 </sqlMap>

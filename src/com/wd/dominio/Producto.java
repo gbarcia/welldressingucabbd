@@ -33,6 +33,8 @@ public class Producto {
     /**variable de identificador del proveedor que provee este producto*/
     private String empresaServicioRif;
 
+    /**variable para la cantidad de ese producto en una tienda o centro*/
+    private int cantidad;
     /**
      * Contructor de la clase
      */
@@ -186,6 +188,20 @@ public class Producto {
      */
     public void setEmpresaServicioRif(String empresaServicioRif) {
         this.empresaServicioRif = empresaServicioRif;
+    }
+    /**
+     * Metodo para obtener la cantidad de este producto en una tienda o centro
+     */
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * Metodo para establacer la cantidad de este producto en una tienda o centro
+     * @param cantidad int la cantidad de este producto en una tienda o centro
+     */
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
 

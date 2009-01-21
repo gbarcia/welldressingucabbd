@@ -134,6 +134,23 @@ public class ControlProducto {
     }
 
     /**
+     * Metodo para consultar productos de una tienda
+     * @return coleccion de productos
+     */
+    public Collection<Producto> consultarProductosTienda(Integer codigoTienda){
+        Collection<Producto> coleccionProductos = null;
+        try {
+            this.bitacora.info("Iniciando operacion para traer todos los " +
+            "Productos de una tienda");
+            coleccionProductos = this.sqlMap.queryForList("traerProductosTienda",codigoTienda);
+        } catch (SQLException ex) {
+            this.bitacora.error("No se pudo realizar la operacion porque: " +
+                    ex.getMessage());
+        } finally {
+            return coleccionProductos;
+        }
+    }
+    /**
      * Metodo para consultar productos con sus proveedores
      * @param codigoProducto int codigo del producto.
      * @return coleccion de productos

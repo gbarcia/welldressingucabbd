@@ -3,6 +3,7 @@ package com.wd.servicios;
 import com.wd.dominio.Inventario;
 import com.wd.dominio.OrdenCompra;
 import com.wd.dominio.Pedido;
+import com.wd.dominio.Transferencia;
 import java.io.IOException;
 import java.util.Collection;
 import org.apache.log4j.Logger;
@@ -18,6 +19,8 @@ public class RegistroSolicitud {
     private ControlOrdenCompra controlOC;
     /** Variable para trabajar con el controlador de los pedidos*/
     private ControlPedido controlPedido;
+    /** Variable para trabajar con el controlador de las transferenciaas*/
+    private ControlTransferencia controlTransferencia;
     /** Variable para trabajar con la bitacora*/
     private Logger bitacora = Logger.getLogger(getClass());
 
@@ -134,5 +137,69 @@ public class RegistroSolicitud {
         } finally {
             return this.controlPedido.traerInventarioActualCentro(codigoCentro);
         }
+    }
+
+    /**
+     * Operacion para procesar una Transferencia en el sistema
+     * @param trans objeto Transferencia con sus items
+     * @return boolean del resultado de la operacion
+     */
+    public boolean procesarTransferencia(Transferencia trans) {
+        boolean resultado = false;
+        try {
+            controlTransferencia = new ControlTransferencia();
+            bitacora.info("Registro Transferencia Iniciado correctamente");
+            resultado = controlTransferencia.agregarTransferencia(trans);
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el registro Transferencia por " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para actualizar una orden de compra
+     * @param oc orden de compra a actualizar
+     * @return booleano de la operacion
+     */
+    public boolean actualizarTransferencia(Transferencia trans) {
+        try {
+            controlTransferencia = new ControlTransferencia();
+            bitacora.info("Registro Transferencia Iniciado correctamente");
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el registro OrdenCompra por " + ex.getMessage());
+        }
+        return controlTransferencia.actualizarTransferencia(trans);
+    }
+
+    /**
+     * Operacion para consultar todas las Transferencias de compra del sistema
+     * @return Coleccion de objetos Transferencia
+     */
+    public Collection<Transferencia> traerTodasLasTransferencias() {
+        Collection<Transferencia> resultado = null;
+        try {
+            controlTransferencia = new ControlTransferencia();
+            bitacora.info("Registro Transferencia Iniciado correctamente");
+            resultado = controlTransferencia.traerTodasLasTransferencias();
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el registro Transferencia por " + ex.getMessage());
+        }
+        return resultado;
+    }
+
+    /**
+     * Operacion para buscar una Transferencia
+     * @param numeroOrden int el numero de orden de la Transferencia a buscar
+     * @return Objeto Transferencia con la coleccion de Items
+     */
+    public Transferencia buscarTransferencia(int numeroOrden) {
+        try {
+            controlTransferencia = new ControlTransferencia();
+            bitacora.info("Registro Transferencia Iniciado correctamente");
+        } catch (IOException ex) {
+            bitacora.error("No se pudo iniciar el registro Transferencia por " + ex.getMessage());
+        }
+        return controlTransferencia.buscarTransferencia(numeroOrden);
     }
 }

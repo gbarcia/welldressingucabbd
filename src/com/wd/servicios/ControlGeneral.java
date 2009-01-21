@@ -907,6 +907,23 @@ public class ControlGeneral implements IfaceControlGeneral {
         }
     }
 
+     /**
+     * Metodo para consultar todos los productos de una tienda
+     * @return coleccion de productos
+     */
+    public Collection traerTodosLosProductosTienda(Integer codigoTienda) {
+        Collection<Producto> productos = null;
+        try {
+            this.controlProducto = new ControlProducto();
+            bitacora.info("ControlProducto iniciado correctamente");
+            productos = this.controlProducto.consultarProductosTienda(codigoTienda);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlProducto por " + ex.getMessage());
+        } finally {
+            return productos;
+        }
+    }
+
     /**
      * Metodo para agregar un Camion
      * @param camion
