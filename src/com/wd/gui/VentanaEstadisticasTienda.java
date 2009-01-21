@@ -45,15 +45,15 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
 
     private ControlGuiInventario controlInventario = new ControlGuiInventario();
 
-    private ControlGuiTienda control = new ControlGuiTienda();
+    private ControlGuiTienda controlTienda = new ControlGuiTienda();
 
     /** Creates new form VentanaEstadisticasTienda */
     public VentanaEstadisticasTienda() {
         initComponents();
 
-        tiendasMayor = control.traerTiendasMayorTamano();
+        tiendasMayor = controlTienda.traerTiendasMayorTamano();
 
-        tiendasMenor = control.traerTiendasMenorTamano();
+        tiendasMenor = controlTienda.traerTiendasMenorTamano();
 
          DefaultTableModel dm = new DefaultTableModel();
             dm.addColumn("Codigo");
@@ -87,6 +87,9 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
 
        this.llenarTablaProdsMayorInvTiendas();
 
+
+       this.llenarSurtidoAsc();
+       this.llenarSurtidoDesc();
     }
 
     /** This method is called from within the constructor to
@@ -109,12 +112,20 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaMayorInventarioTiendas = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaMayorSurtido = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablaMenorSurtido = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setTitle("Estadísticas Tienda");
         setAlwaysOnTop(true);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estadísticas de Tiendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), java.awt.SystemColor.activeCaption)); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estadísticas de Tiendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), null)); // NOI18N
+
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
         TablaMeMa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,7 +143,7 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -161,7 +172,7 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -191,12 +202,12 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 581, Short.MAX_VALUE)
+            .addGap(0, 568, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(27, 27, 27)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(23, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,13 +221,57 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Productos con Mayor Inventario", jPanel4);
 
+        jScrollPane4.setViewportView(tablaMayorSurtido);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("por Mayor Surtido", jPanel5);
+
+        jScrollPane5.setViewportView(tablaMenorSurtido);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 568, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("por Menor Surtido", jPanel6);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -282,19 +337,25 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaMaMe;
     private javax.swing.JTable tablaMayorInventarioTiendas;
+    private javax.swing.JTable tablaMayorSurtido;
+    private javax.swing.JTable tablaMenorSurtido;
     // End of variables declaration//GEN-END:variables
 
     public void llenarVecs(){
 
         this.vecProdsAll = this.controlProducto.traerTodosLosProductos();
         this.vecProdsInv = this.controlInventario.traerProductosMayorInvTiendas();
-        this.vecTiendasAll = control.consultarTiendas();
+        this.vecTiendasAll = controlTienda.consultarTiendas();
 
         for (Inventario inv : vecProdsInv) {
             for (Producto prod : vecProdsAll) {
@@ -342,4 +403,36 @@ public class VentanaEstadisticasTienda extends javax.swing.JFrame {
         }
         this.tablaMayorInventarioTiendas.setModel(dm);
     }
+
+    private void llenarSurtidoAsc(){
+        this.controlTienda = new ControlGuiTienda();
+        DefaultTableModel dm = new DefaultTableModel();
+        dm.addColumn("Tienda");
+        dm.addColumn("Productos Disponibles");
+        Vector<Tienda> tiendas = this.controlTienda.consultarTiendasVariedadAsc();
+        for (Tienda tienda : tiendas) {
+            Vector info = new Vector();
+            info.addElement(tienda.getNombre());
+            info.addElement(tienda.getVariedad());
+            dm.addRow(info);
+        }
+        this.tablaMenorSurtido.setModel(dm);
+    }
+
+    private void llenarSurtidoDesc(){
+        this.controlTienda = new ControlGuiTienda();
+        DefaultTableModel dm = new DefaultTableModel();
+        dm.addColumn("Tienda");
+        dm.addColumn("Productos Disponibles");
+        Vector<Tienda> tiendas = this.controlTienda.consultarTiendasVariedadDesc();
+        for (Tienda tienda : tiendas) {
+            Vector info = new Vector();
+            info.addElement(tienda.getNombre());
+            info.addElement(tienda.getVariedad());
+            dm.addRow(info);
+        }
+        this.tablaMayorSurtido.setModel(dm);
+    }
+
+
 }

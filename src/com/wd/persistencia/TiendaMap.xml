@@ -66,7 +66,7 @@
     SELECT i.TIENDA_codigo codigo, t.nombre nombre, COUNT(i.TIENDA_codigo) variedad
     FROM INVENTARIO_TIENDA i, TIENDA t
     WHERE i.TIENDA_codigo = t.codigo
-    GROUP BY (i.TIENDA_codigo)
+    GROUP BY i.TIENDA_codigo
     ORDER BY variedad DESC
   </select>
 
@@ -74,7 +74,7 @@
     SELECT i.TIENDA_codigo codigo, t.nombre nombre, COUNT(i.TIENDA_codigo) variedad
     FROM INVENTARIO_TIENDA i, TIENDA t
     WHERE i.TIENDA_codigo = t.codigo
-    GROUP BY (i.TIENDA_codigo)
+    GROUP BY i.TIENDA_codigo
     ORDER BY variedad ASC
   </select>
 
