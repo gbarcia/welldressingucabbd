@@ -3,6 +3,7 @@ package com.wd.gui;
 import com.wd.dominio.Proveedor;
 import com.wd.guiSolicitud.VentanaActualizarOrdenCompraSel;
 import com.wd.guiSolicitud.VentanaProcesarOCseleccion;
+import com.wd.guiSolicitud.VentanaProcesarTransSeleccion;
 import java.util.Collection;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -134,6 +135,8 @@ public class ControlGui {
     private VentanaEstadisticasProducto ventanaEstadisticasProducto;
     /** variable de ventana de consulta de empleados por tienda */
     private VentanaConsultarEmpleadosPorTienda ventanaConsultarEmpleadosPorTienda;
+    /** variable de ventana de realizar seleccion de tiendas en transferencia */
+    private VentanaProcesarTransSeleccion ventanaProcesarTransSeleccion;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -706,6 +709,15 @@ public class ControlGui {
     public void iniciarVentanaEmpleadosPorTienda(boolean var) {
         this.ventanaConsultarEmpleadosPorTienda = new VentanaConsultarEmpleadosPorTienda();
         this.ventanaConsultarEmpleadosPorTienda.setVisible(var);
+    }
+
+    /**
+     * Metodo para mostrar la ventana para la seleccion de tiendas de una tranferencia
+     * @param var visibilidad Vector result vector de tiendas
+     */
+    public void iniciarVentanaSeleccionTiendasTrans(boolean var,Vector result) {
+        this.ventanaProcesarTransSeleccion = new VentanaProcesarTransSeleccion(result);
+        this.ventanaProcesarTransSeleccion.setVisible(var);
     }
 
     /**
