@@ -77,7 +77,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuConsultaInventarioTienda = new javax.swing.JMenuItem();
         menuConsultaCentrosTienda = new javax.swing.JMenuItem();
         menuSolicitudesTienda = new javax.swing.JMenu();
-        menuTransferenciasTienda = new javax.swing.JMenuItem();
+        MenuTransferenciaTiendas = new javax.swing.JMenu();
+        menuRealizarTransferencia = new javax.swing.JMenuItem();
+        menuConsultarEditarTransferencia = new javax.swing.JMenuItem();
         menuSeparadorDosTienda = new javax.swing.JSeparator();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -296,8 +298,20 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuSolicitudesTienda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/money.png"))); // NOI18N
         menuSolicitudesTienda.setText("Solicitudes");
 
-        menuTransferenciasTienda.setText("Transferencias");
-        menuSolicitudesTienda.add(menuTransferenciasTienda);
+        MenuTransferenciaTiendas.setText("Transferencias");
+
+        menuRealizarTransferencia.setText("Realizar Transferencia");
+        menuRealizarTransferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRealizarTransferenciaActionPerformed(evt);
+            }
+        });
+        MenuTransferenciaTiendas.add(menuRealizarTransferencia);
+
+        menuConsultarEditarTransferencia.setText("Consultar y Editar");
+        MenuTransferenciaTiendas.add(menuConsultarEditarTransferencia);
+
+        menuSolicitudesTienda.add(MenuTransferenciaTiendas);
         menuSolicitudesTienda.add(menuSeparadorDosTienda);
 
         jMenu2.setText("Pedidos");
@@ -1267,6 +1281,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         ven.setVisible(true);
     }//GEN-LAST:event_menuArcecaDeActionPerformed
 
+    private void menuRealizarTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRealizarTransferenciaActionPerformed
+       Vector<Tienda> result = null;
+       this.controlGuiTienda = new ControlGuiTienda();
+       result = this.controlGuiTienda.consultarTiendas();
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaSeleccionTiendasTrans(true,result);
+    }//GEN-LAST:event_menuRealizarTransferenciaActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1280,6 +1302,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MenuProductosAgregar;
+    private javax.swing.JMenu MenuTransferenciaTiendas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -1321,6 +1344,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu menuCentros;
     private javax.swing.JMenuItem menuConsultaCentrosTienda;
     private javax.swing.JMenuItem menuConsultaInventarioTienda;
+    private javax.swing.JMenuItem menuConsultarEditarTransferencia;
     private javax.swing.JMenuItem menuConsultarTienda;
     private javax.swing.JMenuItem menuEditarEmpleadoTienda;
     private javax.swing.JMenuItem menuEditarTienda;
@@ -1355,6 +1379,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu menuProductosSubClases;
     private javax.swing.JMenuItem menuProductosSubConsultar;
     private javax.swing.JMenuItem menuProductosSubEliminar;
+    private javax.swing.JMenuItem menuRealizarTransferencia;
     private javax.swing.JMenuItem menuRegistrarTienda;
     private javax.swing.JMenuItem menuSalir;
     private javax.swing.JSeparator menuSeparadorDosTienda;
@@ -1377,7 +1402,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu menuSolicitudesTienda;
     private javax.swing.JMenu menuTiendas;
     private javax.swing.JSeparator menuTiendasSeparador;
-    private javax.swing.JMenuItem menuTransferenciasTienda;
     private javax.swing.JMenuItem menuTransferirEmpleadoTienda;
     private javax.swing.JMenu menuUbicaciones;
     private javax.swing.JMenuItem menuUbicacionesHorarioAgregar;
