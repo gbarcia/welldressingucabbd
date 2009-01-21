@@ -11,11 +11,15 @@ import com.wd.dominio.Tienda;
 import com.wd.gui.ControlGui;
 import com.wd.servicios.ControlGeneral;
 import com.wd.servicios.ControlInventario;
+import com.wd.servicios.ControlPedido;
 import com.wd.servicios.RegistroSolicitud;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Clase para el manejo de la interfaz de los Pedidos
@@ -33,6 +37,8 @@ public class ControlGuiPedido {
     private ControlInventario controlInventario;
     /** variable para trabajar con el control de las oc*/
     private ControlGuiOrdenCompra controlOc;
+    /** variable para trabajar con el control de las oc*/
+    private ControlPedido controlP;
 
     /**
      * Constructor por defecto
@@ -131,6 +137,37 @@ public class ControlGuiPedido {
             controlador.mostrarMensaje("Pedido: " + p.getId() + " procesado con exito", 0);
         } else {
             controlador.mostrarMensaje("Error: Operacion Fallida", 1);
+        }
+    }
+
+    /**
+     * Operacion para traer todos los pedidos registrados en el sistema
+     * @return Coleccion de objetos Pedido
+     */
+    public Collection<Pedido> traerTodosLosPedidos() {
+        Collection<Pedido> resultado = null;
+        try {
+            this.controlP = new ControlPedido();
+            resultado = this.controlP.traerTodosLosPedidos();
+        } catch (IOException ex) {
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para buscar un pedido
+     * @param numero int numero del pedido
+     * @return Objeto Pedido con sus items
+     */
+    public Pedido buscarPedido(int numero) {
+        Pedido resultado = null;
+        try {
+            this.controlP = new ControlPedido();
+            resultado = this.controlP.buscarPedido(numero);
+        } catch (IOException ex) {
+        } finally {
+            return resultado;
         }
     }
 }

@@ -99,6 +99,20 @@ public class ControlPedido implements IfaceSolicitud {
     }
 
     /**
+     * Operacion que retorna el invenario actual de un centro de una tienda
+     * @param codigoTienda int codigo de la tienda a consultar su inventario
+     * @return Coleccion de objetos Inventario
+     */
+    public Collection<Inventario> traerInventarioActualTienda(int codigoTienda) {
+        try {
+            this.controlInventario = new ControlInventario();
+        } catch (IOException ex) {
+        } finally {
+            return this.controlInventario.traerInventarioTeoTienda(codigoTienda);
+        }
+    }
+
+    /**
      * Operacion para obtener si un producto existe en el inventario de un centro y que cantidad tiene
      * @param idProducto int id del producto
      * @param idCentro int ide del centro
