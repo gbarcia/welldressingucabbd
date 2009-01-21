@@ -18,8 +18,6 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Clase para el manejo de la interfaz de los Pedidos
@@ -168,6 +166,59 @@ public class ControlGuiPedido {
         } catch (IOException ex) {
         } finally {
             return resultado;
+        }
+    }
+
+    /**
+     * Operacion para pasar los objetos items a objetos producto
+     * @param col coleccion de objetos item
+     * @param tiendaCodigo codigo de la tienda
+     * @return Coleccion de productos
+     */
+    public ArrayList<Producto> itemToProducto(Collection<Item> col, int tiendaCodigo) {
+        ArrayList<Producto> resultado = new ArrayList<Producto>();
+        Collection<Producto> productosProve = this.controlG.traerTodosLosProductos();
+        this.controlOc = new ControlGuiOrdenCompra();
+        for (Item item : col) {
+            Producto p = this.controlOc.buscarProductoAux(item.getIdProducto(), productosProve);
+            p.setDepartamentoId(item.getCantidad());
+            resultado.add(p);
+        }
+        return resultado;
+    }
+
+    /**
+     * Operacion para obtener el inventario actual de una tienda
+     * @param codigoTienda int codigo de la tienda
+     * @return Coleccion de productos
+     */
+    public Collection<Producto> traerInventarioActualTienda(int codigoTienda) {
+        try {
+            this.controlInventario = new ControlInventario();
+        } catch (IOException ex) {
+        }
+        return this.InventarioToProducto(this.controlInventario.traerInventarioTeoTienda(codigoTienda));
+    }
+
+    /**
+     * Operacion para actualizar una pedido en el sistema
+     * @param p el pedido a actualizar
+     */
+    public void actualizarOrdenCompra(Pedido p) {
+        boolean resultado = false;
+        if (p.getColeccionProductos() != null) {
+            try {
+                this.controlP = new ControlPedido();
+            } catch (IOException ex) {
+            }
+            resultado = this.controlP.actualizarPedido(p);
+            if (resultado) {
+                controlador.mostrarMensaje("Pedido: " + p.getId() + " actualizado con exito", 0);
+            } else {
+                controlador.mostrarMensaje("Error: Operacion Fallida", 1);
+            }
+        } else {
+            controlador.mostrarMensaje("Error: Faltan elementos", 1);
         }
     }
 }

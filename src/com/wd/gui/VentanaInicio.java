@@ -19,6 +19,7 @@ import com.wd.gui.controlparticular.ControlGuiHorario;
 import com.wd.gui.controlparticular.ControlGuiLugar;
 import com.wd.gui.controlparticular.ControlGuiProducto;
 import com.wd.gui.controlparticular.ControlGuiTienda;
+import com.wd.guiSolicitud.VentanaActualizarPedidoSeleccion;
 import com.wd.guiSolicitud.VentanaProcesarPedidoSeleccion;
 import java.util.Collection;
 import java.util.Vector;
@@ -305,6 +306,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         jMenu2.add(jMenuItem2);
 
         jMenuItem6.setText("Consultar y Editar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         menuSolicitudesTienda.add(jMenu2);
@@ -1245,6 +1251,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         this.controlGeneralGui = new ControlGui();
         this.controlGeneralGui.iniciarVentanaEmpleadosPorTienda(true);
     }//GEN-LAST:event_menuHistorialTiendasActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        VentanaActualizarPedidoSeleccion ven = new VentanaActualizarPedidoSeleccion();
+        ven.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
     * @param args the command line arguments
