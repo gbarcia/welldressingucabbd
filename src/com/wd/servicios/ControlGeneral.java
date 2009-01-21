@@ -1622,4 +1622,38 @@ public class ControlGeneral implements IfaceControlGeneral {
             return coleccion;
         }
     }
+
+    /**
+     * Metodo para traer las tiendas y su variedad
+     * @return coleccion
+     */
+    public Collection consultarTiendasVariedadDesc() {
+        Collection<Tienda> tiendas = null;
+        try {
+            this.controlTienda = new ControlTienda();
+            bitacora.info("ControlTienda iniciado correctamente");
+            tiendas = controlTienda.consultarTiendasVariedadDesc();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlTienda por " + ex.getMessage());
+        } finally {
+            return tiendas;
+        }
+    }
+
+    /**
+     * Metodo para traer las tiendas y su variedad
+     * @return coleccion
+     */
+    public Collection consultarTiendasVariedadAsc() {
+        Collection<Tienda> tiendas = null;
+        try {
+            this.controlTienda = new ControlTienda();
+            bitacora.info("ControlTienda iniciado correctamente");
+            tiendas = controlTienda.consultarTiendasVariedadAsc();
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el ControlTienda por " + ex.getMessage());
+        } finally {
+            return tiendas;
+        }
+    }
 }

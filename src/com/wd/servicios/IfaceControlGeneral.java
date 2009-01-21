@@ -422,4 +422,16 @@ public interface IfaceControlGeneral {
      */
     public Collection<Producto> consultaProductosMasSolicitados(Integer codigoTienda);
 
+    /**
+     * Metodo para traer las tiendas y su variedad
+     * @return coleccion
+     */
+    public Collection consultarTiendasVariedadDesc();
+
+    /**
+     * Metodo para traer las tiendas y su variedad
+     * @return coleccion
+     */
+    public Collection consultarTiendasVariedadAsc();
+
 }
