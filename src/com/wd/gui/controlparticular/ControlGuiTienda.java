@@ -205,4 +205,12 @@ public class ControlGuiTienda {
         return new Vector<Empleado>(controlGeneral.traerEmpleadosPorTienda(codigo));
     }
 
+    public Vector<Tienda> consultarTiendasVariedadDesc() {
+        return new Vector<Tienda>(controlGeneral.consultarTiendasVariedadDesc());
+    }
+
+    public Vector<Tienda> consultarTiendasVariedadAsc() {
+        return new Vector<Tienda>(controlGeneral.consultarTiendasVariedadAsc());
+    }
+
 }
