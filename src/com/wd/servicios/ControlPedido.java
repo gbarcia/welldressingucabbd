@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Vector;
 import org.apache.log4j.Logger;
 
 /**
@@ -108,7 +109,7 @@ public class ControlPedido implements IfaceSolicitud {
         try {
             this.controlInventario = new ControlInventario();
             inv.setProductoId(idProducto);
-            inv.setCentroDistribucionCodigo(idProducto);
+            inv.setCentroDistribucionCodigo(idCentro);
             inv.setCantidad(0);
         } catch (IOException ex) {
         } finally {
@@ -166,10 +167,10 @@ public class ControlPedido implements IfaceSolicitud {
     /**
      * Operacion para obtener si un producto existe en el inventario de un centro y que cantidad tiene
      * @param idProducto int id del producto
-     * @param idCentro int id de la tienda
+     * @param idTienda int id de la tienda
      * @return null si no existe o un numero entero con su cantidad
      */
-    private Integer obtenerCantidadActualProductoyExistenciaTienda(int idProducto, int idTienda) {
+    public Integer obtenerCantidadActualProductoyExistenciaTienda(int idProducto, int idTienda) {
         Inventario inv = new Inventario();
         try {
             this.controlInventario = new ControlInventario();
@@ -224,6 +225,132 @@ public class ControlPedido implements IfaceSolicitud {
                 }
             }
         } catch (IOException ex) {
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para traer todos los pedidos registrados en el sistema
+     * @return Coleccion de objetos Pedido
+     */
+    public Collection<Pedido> traerTodosLosPedidos() {
+        Collection<Pedido> resultado = null;
+        try {
+            resultado = sqlMap.queryForList("todosLosPedidos");
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para buscar un pedido particular en el sistema
+     * @param numeroPedido int numero de pedido a consultar
+     * @return Objeto Pedido
+     */
+    public Pedido buscarPedido(int numeroPedido) {
+        Pedido aux = null;
+        Collection<Item> items = null;
+        try {
+            aux = (Pedido) this.sqlMap.queryForObject("buscarPedido", numeroPedido);
+            this.controlItem = new ControlItem();
+            items = this.controlItem.traerTodosItems(numeroPedido);
+            aux.setColeccionProductos(items);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
+            return aux;
+        }
+    }
+
+    /**
+     * Operacion para cambiar el estado de un pedido
+     * @param p el pedido a cambiarle el estado
+     * @return boleano del resultado de la operacion
+     */
+    public boolean cambiarEstadoPedido(Pedido p) {
+        boolean resultado = false;
+        try {
+            int na = 0;
+            na = sqlMap.update("cambiarEstadoPedido", p);
+            if (na > 0) {
+                resultado = true;
+            }
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
+
+    /**
+     * Operacion para actualizar un pedido dependiendo de su estado
+     * @param p Objeto Pedido a actualizar
+     * @return boleano con el resultado de la operacion
+     */
+    public boolean actualizarPedido(Pedido p) {
+        boolean resultado = false;
+        Collection<Item> coleccion = p.getColeccionProductos();
+        Collection<Inventario> colInv = new Vector<Inventario>();
+        boolean re = this.actualizarListaItems(coleccion);
+        switch (p.getStatus()) {
+            case 1: { //despachado
+                for (Item item : coleccion) {
+                    Inventario i = new Inventario();
+                    i.setCentroDistribucionCodigo(p.getCentroCodigo());
+                    i.setProductoId(item.getIdProducto());
+                    i.setCantidad(item.getCantidad());
+                    colInv.add(i);
+                }
+                this.ActualizarInventarioCentro(colInv, 1); // Descontar Inventario Centro
+                break;
+            }
+            case 2: { // recibido
+                for (Item item : coleccion) {
+                    Inventario i = new Inventario();
+                    i.setTiendaCodigo(p.getTiendaCodigo());
+                    i.setProductoId(item.getIdProducto());
+                    i.setCantidad(item.getCantidad());
+                    colInv.add(i);
+                }
+                this.ActualizarInventarioTienda(colInv, 0); // Aumentar Inventario de la Tienda
+                break;
+            }
+            case 3: { // cancelado
+                for (Item item : coleccion) {
+                    Inventario i = new Inventario();
+                    i.setCentroDistribucionCodigo(p.getCentroCodigo());
+                    i.setProductoId(item.getIdProducto());
+                    i.setCantidad(item.getCantidad());
+                    colInv.add(i);
+                }
+                this.ActualizarInventarioCentro(colInv, 0); // Aumentar Inventario Centro
+                break;
+            }
+            default:
+                break;
+        }
+        resultado = this.cambiarEstadoPedido(p);
+        return resultado;
+    }
+
+    /**
+     * Operacion para actualizar los registros de Items
+     * @param items Coleccion de itemes
+     * @return boolean de resultado de la operacion
+     */
+    public boolean actualizarListaItems(Collection<Item> items) {
+        boolean resultado = false;
+        try {
+            this.controlItem = new ControlItem();
+            for (Item item : items) {
+                this.controlItem.actualizatItem(item);
+            }
+            resultado = true;
+        } catch (IOException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
         } finally {
             return resultado;
         }
