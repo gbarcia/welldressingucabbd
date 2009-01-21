@@ -39,4 +39,34 @@
         TABLE_SCHEMA = 'well_dressing' and TABLE_NAME = 'solicitud'
     </select>
 
+    <select id="todosLosPedidos" resultMap="PedidoMaping">
+        SELECT s.id idSolicitud, s.fecha_gen fechaGen, s.fecha_est fechaEstimada, s.status estado, s.TIENDA_codigo_PEDIDO tiendaCodigo,
+        s.CENTRO_DISTRIBUCION_codigo centroCodigo, s.CAMION_id placa, s.EMPLEADO_ci ciConductor, t.nombre nombreTienda, c.nombre nombreCentro,
+        e.nombre nombreConductor
+        FROM SOLICITUD s, TIENDA t, CENTRO_DISTRIBUCION c, EMPLEADO e
+        WHERE s.TIENDA_codigo_PEDIDO = t.codigo
+        AND s.CENTRO_DISTRIBUCION_codigo = c.codigo
+        AND s.EMPLEADO_ci = e.ci
+        AND s.tipo = 'P'
+    </select>
+
+    <select id="buscarPedido" parameterClass="int" resultClass="pedido">
+        SELECT s.id , s.fecha_gen fechaGenerada, s.fecha_est fechaEstimada, s.status , s.TIENDA_codigo_PEDIDO tiendaCodigo,
+        s.CENTRO_DISTRIBUCION_codigo centroCodigo, s.CAMION_id idCamion, s.EMPLEADO_ci ciConductor, t.nombre nombreTienda, c.nombre nombreCebtro,
+        e.nombre nombreConductor
+        FROM SOLICITUD s, TIENDA t, CENTRO_DISTRIBUCION c, EMPLEADO e
+        WHERE s.TIENDA_codigo_PEDIDO = t.codigo
+        AND s.CENTRO_DISTRIBUCION_codigo = c.codigo
+        AND s.EMPLEADO_ci = e.ci
+        AND s.tipo = 'P'
+        AND s.id = #value#
+    </select>
+
+    <update id="cambiarEstadoPedido" parameterClass="pedido">
+        UPDATE SOLICITUD
+        SET status = #status#
+        WHERE id = #id#
+        AND tipo = 'P'
+    </update>
+
 </sqlMap>

@@ -199,7 +199,7 @@ public class ControlGuiTienda {
     /**
      * Metodo para traer todos los empleados de una tienda
      * @param codigo
-     * @return
+     * @return Vector
      */
     public Vector<Empleado> traerEmpleadosPorTienda(Integer codigo) {
         return new Vector<Empleado>(controlGeneral.traerEmpleadosPorTienda(codigo));
