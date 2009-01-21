@@ -75,6 +75,11 @@ public class Producto {
         this.departamentoId = departamentoId;
     }
 
+    public Producto(int id, String empresaServicioRif) {
+        this.id = id;
+        this.empresaServicioRif = empresaServicioRif;
+    }
+
     /**
      * @return identificador del producto
      */
