@@ -159,7 +159,7 @@ public class RegistroSolicitud {
 
     /**
      * Operacion para actualizar una orden de compra
-     * @param oc orden de compra a actualizar
+     * @param trans orden de compra a actualizar
      * @return booleano de la operacion
      */
     public boolean actualizarTransferencia(Transferencia trans) {

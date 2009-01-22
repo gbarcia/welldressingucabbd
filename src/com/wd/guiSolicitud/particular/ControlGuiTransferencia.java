@@ -50,7 +50,7 @@ public class ControlGuiTransferencia {
 
     /**
      * Operacion para consultar todos los productos que de una tienda
-     * @param rif String rif del proveedor a consultar
+     * @param codigoTienda String rif del proveedor a consultar
      * @return Coleccion de obhetos Producto
      */
     public Collection<Producto> traerProductosTienda(Integer codigoTienda) {
@@ -107,7 +107,6 @@ public class ControlGuiTransferencia {
     /**
      * Operacion para pasar los objetos items a objetos producto
      * @param col coleccion de objetos item
-     * @param rif rif del proveedor a quien pertencen los productos
      * @return Coleccion de productos
      */
     public ArrayList<Producto> itemToProducto(Collection<Item> col) {
@@ -171,7 +170,7 @@ public class ControlGuiTransferencia {
 
     /**
      * Operacion para actualizar una Transferencia en el sistema
-     * @param oc la orden de compra a actualizar
+     * @param trans la orden de compra a actualizar
      */
     public void actualizarTransferencia(Transferencia trans) {
         boolean resultado = false;

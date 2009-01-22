@@ -38,7 +38,7 @@ public class ControlTransferencia implements IfaceSolicitud {
 
     /**
      * Operacion para registrar una tranferencia en el sistema
-     * @param orden objeto transferencia con sus items
+     * @param trans objeto transferencia con sus items
      * @return boolean resultado de la operacion
      */
     public boolean agregarTransferencia(Transferencia trans) {
