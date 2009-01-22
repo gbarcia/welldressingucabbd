@@ -309,6 +309,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         MenuTransferenciaTiendas.add(menuRealizarTransferencia);
 
         menuConsultarEditarTransferencia.setText("Consultar y Editar");
+        menuConsultarEditarTransferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsultarEditarTransferenciaActionPerformed(evt);
+            }
+        });
         MenuTransferenciaTiendas.add(menuConsultarEditarTransferencia);
 
         menuSolicitudesTienda.add(MenuTransferenciaTiendas);
@@ -1288,6 +1293,11 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui = new ControlGui();
        this.controlGeneralGui.iniciarVentanaSeleccionTiendasTrans(true,result);
     }//GEN-LAST:event_menuRealizarTransferenciaActionPerformed
+
+    private void menuConsultarEditarTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultarEditarTransferenciaActionPerformed
+       this.controlGeneralGui = new ControlGui();
+       this.controlGeneralGui.iniciarVentanaConsultarTransferencias(true);
+    }//GEN-LAST:event_menuConsultarEditarTransferenciaActionPerformed
 
     /**
     * @param args the command line arguments

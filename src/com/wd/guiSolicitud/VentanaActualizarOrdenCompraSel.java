@@ -34,7 +34,7 @@ public class VentanaActualizarOrdenCompraSel extends javax.swing.JFrame {
 
         DefaultTableModel dm1 = new DefaultTableModel();
         dm1.addColumn("Id");
-        dm1.addColumn("Emicion");
+        dm1.addColumn("Emisión");
         dm1.addColumn("Estimada");
         dm1.addColumn("Estado");
         dm1.addColumn("Centro");
