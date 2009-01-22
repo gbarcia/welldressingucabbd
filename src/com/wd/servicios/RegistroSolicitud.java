@@ -148,7 +148,7 @@ public class RegistroSolicitud {
         boolean resultado = false;
         try {
             controlTransferencia = new ControlTransferencia();
-            bitacora.info("Registro Transferencia Iniciado correctamente");
+            bitacora.info("Registro Transferencia Iniciado correctamente papapa");
             resultado = controlTransferencia.agregarTransferencia(trans);
         } catch (IOException ex) {
             bitacora.error("No se pudo iniciar el registro Transferencia por " + ex.getMessage());

@@ -1,6 +1,13 @@
 package com.wd.guiSolicitud;
 
+import com.wd.dominio.Producto;
 import com.wd.dominio.Tienda;
+import com.wd.guiSolicitud.particular.ControlGuiTransferencia;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -10,11 +17,46 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
 
     private Tienda tiendaTrans = new Tienda();
 
-    private Tienda tiendarecibe = new Tienda();
+    private Tienda tiendaRecibe = new Tienda();
+
+    private ControlGuiTransferencia controlTransferencia = new ControlGuiTransferencia();
+    
+    private DefaultTableModel modeloTablaDisp = new DefaultTableModel();
+
+    private DefaultTableModel modeloTablaCarrito = new DefaultTableModel();
+
+    private Collection<Producto> vecProdDisp = new Vector();
+
+    private ArrayList<Producto> carritoCompra = new ArrayList();
+
+    private Integer numSol = 0;
 
     /** Creates new form VentanaProcesarTransferencia */
-    public VentanaProcesarTransferencia(Tienda tiendaTransfiere,Tienda tiendaRecibe) {
+    public VentanaProcesarTransferencia(Tienda tiendaTransfiere,Tienda tiendaRecibe1) {
         initComponents();
+        
+        this.panelAgregar.setVisible(false);
+
+        tiendaTrans = tiendaTransfiere;
+        tiendaRecibe = tiendaRecibe1;
+
+        vecProdDisp = this.controlTransferencia.traerProductosTienda(tiendaTrans.getCodigo());
+
+        numSol = this.controlTransferencia.obtenerNumeroDeOrden();
+
+        this.labelIdtrans.setText(numSol.toString());
+        this.labelNombreTiendaTrans.setText(tiendaTrans.getNombre());
+        this.labelTelefonoTrans.setText(tiendaTrans.getTelefono());
+        this.labelTiendaRecibeNombre.setText(tiendaRecibe.getNombre());
+        this.labelTelefonoTiendaRecibe.setText(tiendaRecibe.getTelefono());
+
+        this.llenarTablaProdDisp();
+
+        modeloTablaCarrito.addColumn("Id Producto");
+        modeloTablaCarrito.addColumn("Nombre");
+        modeloTablaCarrito.addColumn("Descripción");
+        modeloTablaCarrito.addColumn("Cantidad");
+
     }
 
     /** This method is called from within the constructor to
@@ -42,19 +84,21 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
         labelTiendaRecibeTeleNomb = new javax.swing.JLabel();
         labelTelefonoTiendaRecibe = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaProductos = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        buttonAgregarProducto = new javax.swing.JButton();
+        buttonEliminarProducto = new javax.swing.JButton();
+        buttonProcesarTransferencia = new javax.swing.JButton();
         panelAgregar = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        buttonAgregarProd = new javax.swing.JButton();
+        campoIdProd = new javax.swing.JTextField();
+        buttonAgregarProdCarrito = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jtcantidad = new javax.swing.JTextField();
+        CampoCantidad = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaProdDisp = new javax.swing.JTable();
@@ -71,6 +115,7 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("N° TRANSFERENCIA:");
 
+        labelIdtrans.setForeground(new java.awt.Color(0, 0, 102));
         labelIdtrans.setText("AQUI IDTRANS");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -79,24 +124,34 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
         labelTiendaTransNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelTiendaTransNomb.setText("Tienda que Transfiere: ");
 
+        labelNombreTiendaTrans.setForeground(new java.awt.Color(0, 0, 102));
         labelNombreTiendaTrans.setText("jLabel4");
 
         labelTelefonoTransNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelTelefonoTransNomb.setText("Teléfono Tienda que transfiere: ");
 
+        labelTelefonoTrans.setForeground(new java.awt.Color(0, 0, 102));
         labelTelefonoTrans.setText("jLabel4");
 
         labelTiendaRecibeNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelTiendaRecibeNomb.setText("Tienda que Recibe:");
 
+        labelTiendaRecibeNombre.setForeground(new java.awt.Color(0, 0, 102));
         labelTiendaRecibeNombre.setText("jLabel4");
 
         labelTiendaRecibeTeleNomb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         labelTiendaRecibeTeleNomb.setText("Teléfono Tienda que recibe: ");
 
+        labelTelefonoTiendaRecibe.setForeground(new java.awt.Color(0, 0, 102));
         labelTelefonoTiendaRecibe.setText("jLabel4");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Imagenes/logo.png"))); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("ESTADO:");
+
+        jLabel5.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel5.setText("APROBADO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,51 +160,61 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(labelIdtrans))
+                    .addComponent(jLabel2)
+                    .addComponent(labelIdtrans)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jdFechaGenerada, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jdFechaEstimada, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(66, 66, 66)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelTiendaRecibeTeleNomb)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelTelefonoTiendaRecibe))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelTiendaRecibeNomb)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelTiendaRecibeNombre))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelTelefonoTransNomb)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelTiendaTransNomb)
-                                .addGap(60, 60, 60)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNombreTiendaTrans)
-                            .addComponent(labelTelefonoTrans))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelTiendaRecibeTeleNomb)
+                            .addGap(21, 21, 21))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelTiendaRecibeNomb)
+                            .addGap(73, 73, 73))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(labelTiendaTransNomb)
+                            .addGap(50, 50, 50)))
+                    .addComponent(labelTelefonoTransNomb))
+                .addGap(81, 81, 81)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTelefonoTrans)
+                    .addComponent(labelNombreTiendaTrans)
+                    .addComponent(labelTiendaRecibeNombre)
+                    .addComponent(labelTelefonoTiendaRecibe))
+                .addGap(148, 148, 148)
                 .addComponent(jLabel10)
-                .addGap(34, 34, 34))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(labelIdtrans)
-                    .addComponent(labelTiendaTransNomb)
-                    .addComponent(labelNombreTiendaTrans))
-                .addGap(18, 18, 18)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTiendaTransNomb)
+                            .addComponent(labelNombreTiendaTrans))
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTelefonoTransNomb)
+                            .addComponent(labelTelefonoTrans))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTiendaRecibeNomb)
+                            .addComponent(labelTiendaRecibeNombre))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTiendaRecibeTeleNomb)
+                            .addComponent(labelTelefonoTiendaRecibe)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(11, 11, 11)
@@ -159,22 +224,15 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jdFechaEstimada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTelefonoTransNomb)
-                            .addComponent(labelTelefonoTrans))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelIdtrans)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTiendaRecibeNombre)
-                            .addComponent(labelTiendaRecibeNomb))
+                        .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTelefonoTiendaRecibe)
-                            .addComponent(labelTiendaRecibeTeleNomb))))
-                .addGap(31, 31, 31))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel10)
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .addComponent(jLabel5))
+                    .addComponent(jLabel10))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 102))); // NOI18N
@@ -191,44 +249,65 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/add.png"))); // NOI18N
-        jButton1.setText("Agregar Producto");
+        buttonAgregarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/add.png"))); // NOI18N
+        buttonAgregarProducto.setText("Agregar Producto");
+        buttonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAgregarProductoActionPerformed(evt);
+            }
+        });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/quit.png"))); // NOI18N
-        jButton2.setText("Eliminar Producto");
+        buttonEliminarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/quit.png"))); // NOI18N
+        buttonEliminarProducto.setText("Eliminar Producto");
+        buttonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEliminarProductoActionPerformed(evt);
+            }
+        });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/agt_action_success.png"))); // NOI18N
-        jButton3.setText("Procesar Orden");
+        buttonProcesarTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/agt_action_success.png"))); // NOI18N
+        buttonProcesarTransferencia.setText("Procesar Solicitud");
+        buttonProcesarTransferencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonProcesarTransferenciaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(50, 50, 50))
+                    .addComponent(buttonProcesarTransferencia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(buttonEliminarProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(buttonAgregarProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
+                .addGap(25, 25, 25)
+                .addComponent(buttonAgregarProducto)
                 .addGap(30, 30, 30)
-                .addComponent(jButton2)
+                .addComponent(buttonEliminarProducto)
                 .addGap(32, 32, 32)
-                .addComponent(jButton3)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addComponent(buttonProcesarTransferencia)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         panelAgregar.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Producto"));
 
         jLabel11.setText("Id producto:");
 
-        buttonAgregarProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/add.png"))); // NOI18N
+        buttonAgregarProdCarrito.setForeground(new java.awt.Color(0, 0, 102));
+        buttonAgregarProdCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/add.png"))); // NOI18N
+        buttonAgregarProdCarrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAgregarProdCarritoActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Cantidad:");
 
@@ -239,11 +318,11 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
             .addGroup(panelAgregarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(campoIdProd, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                     .addComponent(jLabel11)
-                    .addComponent(buttonAgregarProd, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonAgregarProdCarrito, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jtcantidad, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(CampoCantidad, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -253,13 +332,13 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoIdProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CampoCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonAgregarProd)
+                .addComponent(buttonAgregarProdCarrito)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -281,7 +360,7 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -292,6 +371,11 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
         );
 
         buttonSalir.setText("Salir");
+        buttonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -338,22 +422,65 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, 0, 969, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarProductoActionPerformed
+        this.panelAgregar.setVisible(true);
+    }//GEN-LAST:event_buttonAgregarProductoActionPerformed
+
+    private void buttonAgregarProdCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgregarProdCarritoActionPerformed
+        String idProductoColocado = this.campoIdProd.getText();
+        String cantidad = this.CampoCantidad.getText();
+        if ((!idProductoColocado.equals("")) && (!cantidad.equals(""))) {
+            Integer idProduSel = Integer.parseInt(idProductoColocado);
+            Integer cantidadidProd = Integer.parseInt(cantidad);
+            this.agregarElementoCarrito(idProduSel, cantidadidProd);
+            this.tablaProductos.removeAll();
+            this.llenarTablaCarrito();
+
+            this.CampoCantidad.setText("");
+            this.campoIdProd.setText("");
+        }
+    }//GEN-LAST:event_buttonAgregarProdCarritoActionPerformed
+
+    private void buttonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarProductoActionPerformed
+        int seleccion = -1;
+        seleccion = this.tablaProductos.getSelectedRow();
+        if (seleccion >= 0) {
+            this.eliminarElementoCarrito(seleccion);
+            this.llenarTablaCarrito();
+        }
+    }//GEN-LAST:event_buttonEliminarProductoActionPerformed
+
+    private void buttonProcesarTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProcesarTransferenciaActionPerformed
+        Date fechaGen = this.jdFechaGenerada.getDate();
+        java.sql.Date fechita = new java.sql.Date(fechaGen.getTime());
+
+        Date fechaEst = this.jdFechaEstimada.getDate();
+        java.sql.Date fechita2 = new java.sql.Date(fechaEst.getTime());
+        
+        this.controlTransferencia.procesarTransferencia(tiendaTrans.getCodigo(),tiendaRecibe.getCodigo(), fechita, fechita2, carritoCompra,numSol);
+        this.buttonProcesarTransferencia.setEnabled(false);
+    }//GEN-LAST:event_buttonProcesarTransferenciaActionPerformed
+
+    private void buttonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonSalirActionPerformed
 
     /**
     * @param args the command line arguments
@@ -370,27 +497,29 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAgregarProd;
+    private javax.swing.JTextField CampoCantidad;
+    private javax.swing.JButton buttonAgregarProdCarrito;
+    private javax.swing.JButton buttonAgregarProducto;
+    private javax.swing.JButton buttonEliminarProducto;
+    private javax.swing.JButton buttonProcesarTransferencia;
     private javax.swing.JButton buttonSalir;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTextField campoIdProd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField3;
     private com.toedter.calendar.JDateChooser jdFechaEstimada;
     private com.toedter.calendar.JDateChooser jdFechaGenerada;
-    private javax.swing.JTextField jtcantidad;
     private javax.swing.JLabel labelIdtrans;
     private javax.swing.JLabel labelNombreTiendaTrans;
     private javax.swing.JLabel labelTelefonoTiendaRecibe;
@@ -405,4 +534,92 @@ public class VentanaProcesarTransferencia extends javax.swing.JFrame {
     private javax.swing.JTable tablaProductos;
     // End of variables declaration//GEN-END:variables
 
+    public void llenarTablaProdDisp(){
+
+        modeloTablaDisp.addColumn("Id Producto");
+        modeloTablaDisp.addColumn("Nombre");
+        modeloTablaDisp.addColumn("Descripción");
+        modeloTablaDisp.addColumn("Cantidad");
+
+        for (Producto producto : vecProdDisp) {
+            Vector info = new Vector();
+            info.addElement(producto.getId());
+            info.addElement(producto.getNombre());
+            info.addElement(producto.getDescripcion());
+            info.addElement(producto.getCantidad());
+            modeloTablaDisp.addRow(info);
+        }
+
+        this.tablaProdDisp.setModel(modeloTablaDisp);
+    }
+    
+    public void llenarTablaCarrito(){
+        for (int i = 0; i < modeloTablaCarrito.getRowCount(); i++) {
+            this.modeloTablaCarrito.removeRow(i);
+        }       
+
+        for (Producto producto : carritoCompra) {
+            Vector info = new Vector();
+            info.addElement(producto.getId());
+            info.addElement(producto.getNombre());
+            info.addElement(producto.getDescripcion());
+            info.addElement(producto.getCantidad());
+            modeloTablaCarrito.addRow(info);
+        }
+
+        this.tablaProductos.setModel(modeloTablaCarrito);
+    }
+
+    private boolean existeElementoEnCarrito(int idProducto) {
+        boolean resultado = false;
+        for (Producto producto : carritoCompra) {
+            if (idProducto == producto.getId()) {
+                resultado = true;
+            }
+        }
+        return resultado;
+    }
+
+    private int obtenerCantidadRepetida(int idProducto) {
+        int resultado = 0;
+        for (Producto producto : carritoCompra) {
+            if (idProducto == producto.getId()) {
+                resultado = producto.getDepartamentoId();
+            }
+        }
+        return resultado;
+    }
+
+    private int obtenerindiceProblematico(int idProducto) {
+        int resultado = 0;
+        for (Producto producto : carritoCompra) {
+            if (idProducto == producto.getId()) {
+                resultado = carritoCompra.indexOf(producto);
+            }
+        }
+        return resultado;
+    }
+
+    private void agregarElementoCarrito(int idProdcuto, int cantidad) {
+        for (Producto producto : vecProdDisp) {
+            if (producto.getId() == idProdcuto) {
+                if (this.existeElementoEnCarrito(idProdcuto)) {
+                    int cantidaActual = this.obtenerCantidadRepetida(idProdcuto);
+                    int cantidadTotal = cantidaActual + cantidad;
+                    producto.setCantidad(cantidadTotal);
+                    this.carritoCompra.add(producto);
+                    int indiceP = this.obtenerindiceProblematico(idProdcuto);
+                    this.carritoCompra.remove(indiceP);
+                } else {
+                    producto.setCantidad(cantidad);
+                    this.carritoCompra.add(producto);
+                }
+            }
+        }
+    }
+
+    private void eliminarElementoCarrito(int productoId) {
+        int indiceP = this.obtenerindiceProblematico(productoId);
+        this.carritoCompra.remove(indiceP);
+    }
 }
