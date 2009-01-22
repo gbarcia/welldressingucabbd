@@ -120,4 +120,31 @@
     t.codigo = #value#
   </select>
 
+  <select id="consultaProductoProveedor" parameterClass="producto" resultMap="resultMapProductoProveedor">
+    SELECT pr.id id, pr.nombre nombre, pr.descripcion, p.costo costo, p.fecha_cre fecha_cre,
+        p.fecha_ult_mod fecha_ult_mod, p.EMPRESA_SERVICIO_rif rifproveedor
+    FROM presupuesto p, producto pr
+    WHERE p.PRODUCTO_id = #id#
+    AND p.EMPRESA_SERVICIO_rif = #empresaServicioRif#
+    AND p.PRODUCTO_id = pr.id
+  </select>
+
+  <insert id="agregarProductoProveedor" parameterClass="producto">
+    INSERT INTO presupuesto (PRODUCTO_id, EMPRESA_SERVICIO_rif, costo, fecha_cre, fecha_ult_mod)
+    VALUES (#id#, #empresaServicioRif#, #precio#, #fecha_creacion#, #fecha_ultima_modificacion#)
+  </insert>
+
+  <update id="modificarProductoProveedor" parameterClass="producto">
+    UPDATE presupuesto
+    SET costo = #precio#, fecha_ult_mod = #fecha_ultima_modificacion#
+    WHERE PRODUCTO_id = #id#
+    AND EMPRESA_SERVICIO_rif = #empresaServicioRif#
+  </update>
+
+  <delete id="eliminarProductoProveedor" parameterClass="producto">
+      DELETE FROM presupuesto
+      WHERE PRODUCTO_id = #id#
+      AND EMPRESA_SERVICIO_rif = #empresaServicioRif#
+  </delete>
+
 </sqlMap>

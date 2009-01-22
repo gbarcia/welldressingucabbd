@@ -246,4 +246,65 @@ public class ControlProducto {
             return coleccionProductos;
         }
     }
+
+    public Collection<Producto> consultaProductoProveedor(Producto producto){
+        Collection<Producto> coleccionProductos = null;
+        try {
+            this.bitacora.info("Iniciando operacion para traer Productos-Proveedor");
+            coleccionProductos = this.sqlMap.queryForList("consultaProductoProveedor", producto);
+        } catch (SQLException ex) {
+            this.bitacora.error("No se pudo realizar la operacion porque: " +
+                    ex.getMessage());
+        } finally {
+            return coleccionProductos;
+        }
+    }
+
+    public boolean agregarProductoProveedor(Producto producto){
+        boolean resultado = false;
+        try {
+            this.sqlMap.insert("agregarProductoProveedor", producto);
+            this.bitacora.info("Producto-Proveedor: " + producto.getId() + " agregado con " +
+                    "éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            this.bitacora.error("Producto: " + producto.getId() + " operacion " +
+                    "fallida: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    public boolean modificarProductoProveedor(Producto producto){
+        boolean resultado = false;
+        try {
+            this.sqlMap.update("modificarProductoProveedor", producto);
+            this.bitacora.info("Producto-Proveedor: " + producto.getId() + " modificado " +
+                    "con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            this.bitacora.error("Producto-Proveedor: " + producto.getId() + " operacion " +
+                    "fallida: " + ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
+    public boolean eliminarProductoProveedor(Producto producto){
+        boolean resultado = false;
+        try {
+            this.sqlMap.delete("eliminarProductoProveedor", producto);
+            this.bitacora.info("Producto-Proveedor: " + producto.getId() + " eliminado con éxito");
+            resultado = true;
+        } catch (SQLException ex) {
+            this.bitacora.error("Producto-Proveedor: " + producto.getId() + " operacion fallida: " +
+                    ex.getMessage());
+            resultado = false;
+        } finally {
+            return resultado;
+        }
+    }
+
 }
