@@ -110,12 +110,12 @@ public class ControlGuiTransferencia {
      * @param rif rif del proveedor a quien pertencen los productos
      * @return Coleccion de productos
      */
-    public ArrayList<Producto> itemToProducto(Collection<Item> col, String rif) {
+    public ArrayList<Producto> itemToProducto(Collection<Item> col) {
         ArrayList<Producto> resultado = new ArrayList<Producto>();
-        Collection<Producto> productosProve = this.controlG.consultaProductosProveedor(rif);
+        Collection<Producto> productosProve = this.controlG.traerTodosLosProductos();
         for (Item item : col) {
             Producto p = this.buscarProductoAux(item.getIdProducto(), productosProve);
-            p.setDepartamentoId(item.getCantidad());
+            p.setCantidad(item.getCantidad());
             resultado.add(p);
         }
         return resultado;

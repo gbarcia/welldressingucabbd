@@ -163,8 +163,6 @@ public class ControlTransferencia implements IfaceSolicitud {
                             Integer cantTotal = cantidadProductoActual - cantidad;
                             inven.setCantidad(cantTotal);
                             boolean exitoInv = this.actualizarInventario(inven);
-                        }else{
-                            boolean exitoInv = false;//Porque no hay suficientes items de ese prod
                         }
                     }
                 }
