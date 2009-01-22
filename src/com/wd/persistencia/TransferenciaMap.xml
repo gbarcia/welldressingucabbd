@@ -24,17 +24,12 @@
          TIENDA_codigo_TRANSFIERE, TIENDA_codigo1_TRANSFERIDO, CENTRO_DISTRIBUCION_codigo,
          CAMION_id, EMPLEADO_ci, EMPRESA_SERVICIO_rif)
          VALUES (NULL, #fechaGenerada#, #fechaEstimada#, #status#, 'T',NULL,
-         #idTiendaQueTransfiere#, #idTiendaQueRecibe#, NULL, NULL, NULL NULL);
+         #idTiendaQueTransfiere#, #idTiendaQueRecibe#, NULL, NULL, NULL, NULL);
         <selectKey keyProperty="id" resultClass="int">
             select auto_increment from `information_schema`.tables where
             TABLE_SCHEMA = 'well_dressing' and TABLE_NAME = 'solicitud'
         </selectKey>
     </insert>
-
-    <select id="siguienteNumeroTrans" resultClass="int">
-        select auto_increment from `information_schema`.tables where
-        TABLE_SCHEMA = 'well_dressing' and TABLE_NAME = 'solicitud'
-    </select>
 
     <select id="todasLasTransferencias" resultMap="TransferenciaMap">
         SELECT s.id idSolicitud, s.fecha_gen fechaGen, s.fecha_est fechaEstimada,

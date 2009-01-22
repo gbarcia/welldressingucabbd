@@ -82,8 +82,7 @@ public class ControlGuiTransferencia {
     public Collection<Item> productoToItem(ArrayList<Producto> col, int idSolicitud) {
         Collection<Item> resultado = new Vector();
         for (Producto producto : col) {
-            Item i = new Item(producto.getId(), idSolicitud, producto.getDepartamentoId(),
-                    producto.getPrecio());
+            Item i = new Item(producto.getId(), idSolicitud, producto.getCantidad(),0);
             resultado.add(i);
         }
         return resultado;
@@ -137,7 +136,7 @@ public class ControlGuiTransferencia {
      * @param numeroOrden int el numero de orden de la Transferencia a buscar
      * @return Objeto Transferencia con la coleccion de Items
      */
-    public Transferencia buscarOrdenCompra(int numeroOrden) {
+    public Transferencia buscarTransferencia(int numeroOrden) {
         return this.registro.buscarTransferencia(numeroOrden);
     }
 
