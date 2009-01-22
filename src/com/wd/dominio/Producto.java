@@ -80,6 +80,16 @@ public class Producto {
         this.empresaServicioRif = empresaServicioRif;
     }
 
+    public Producto(int id, int precio, Date fecha_creacion, Date fecha_ultima_modificacion, String empresaServicioRif) {
+        this.id = id;
+        this.precio = precio;
+        this.fecha_creacion = fecha_creacion;
+        this.fecha_ultima_modificacion = fecha_ultima_modificacion;
+        this.empresaServicioRif = empresaServicioRif;
+    }
+
+    
+
     /**
      * @return identificador del producto
      */
