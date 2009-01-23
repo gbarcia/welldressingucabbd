@@ -1673,4 +1673,77 @@ public class ControlGeneral implements IfaceControlGeneral {
             return tiendas;
         }
     }
+
+    /**
+     * Metodo para consultar todos los productos
+     * @param producto el registro a consultar
+     * @return registro
+     */
+    public Collection<Producto> consultarProductoProveedor(Producto producto){
+        Collection<Producto> result = null;
+        try {
+            this.controlProducto = new ControlProducto();
+            this.bitacora.info("ControlProducto iniciado correctamente");
+            result = this.controlProducto.consultaProductoProveedor(producto);
+        } catch (Exception e) {
+            this.bitacora.info("No se pudo iniciar el ControlProducto por " + e.getMessage());
+        } finally {
+            return result;
+        }
+    }
+
+    /**
+     * Metodo para agregar un registro Producto-Proveedor
+     * @param producto el registro a agragar
+     * @return resultado de la operacion
+     */
+    public boolean agregarProductoProveedor(Producto producto){
+        boolean result = false;
+        try {
+            this.controlProducto = new ControlProducto();
+            this.bitacora.info("ControlProducto iniciado correctamente");
+            result = this.controlProducto.agregarProductoProveedor(producto);
+        } catch (Exception e) {
+            this.bitacora.info("No se pudo iniciar el ControlProducto por " + e.getMessage());
+        } finally {
+            return result;
+        }
+    }
+
+    /**
+     * Metodo para modificar un producto
+     * @param producto el registro a modificar
+     * @return resultado de la operacion
+     */
+    public boolean modificarProductoProveedor(Producto producto){
+        boolean result = false;
+        try {
+            this.controlProducto = new ControlProducto();
+            this.bitacora.info("ControlProducto iniciado correctamente");
+            result = this.controlProducto.modificarProductoProveedor(producto);
+        } catch (Exception e) {
+            this.bitacora.info("No se pudo iniciar el ControlProducto por " + e.getMessage());
+        } finally {
+            return result;
+        }
+    }
+
+    /**
+     * Metodo para eliminar un registro Producto-Proveedor
+     * @param producto
+     * @return
+     */
+    public boolean eliminarProductoProveedor(Producto producto){
+        boolean result = false;
+        try {
+            this.controlProducto = new ControlProducto();
+            this.bitacora.info("ControlProducto iniciado correctamente");
+            result = this.controlProducto.eliminarProductoProveedor(producto);
+        } catch (Exception e) {
+            this.bitacora.info("No se pudo iniciar el ControlProducto por " + e.getMessage());
+        } finally {
+            return result;
+        }
+    }
+
 }

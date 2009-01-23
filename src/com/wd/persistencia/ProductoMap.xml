@@ -130,8 +130,8 @@
   </select>
 
   <insert id="agregarProductoProveedor" parameterClass="producto">
-    INSERT INTO presupuesto (PRODUCTO_id, EMPRESA_SERVICIO_rif, costo, fecha_cre, fecha_ult_mod)
-    VALUES (#id#, #empresaServicioRif#, #precio#, #fecha_creacion#, #fecha_ultima_modificacion#)
+    INSERT INTO presupuesto (PRODUCTO_id, EMPRESA_SERVICIO_rif, costo, fecha_cre)
+    VALUES (#id#, #empresaServicioRif#, #precio#, #fecha_creacion#)
   </insert>
 
   <update id="modificarProductoProveedor" parameterClass="producto">

@@ -69,4 +69,16 @@
         AND tipo = 'P'
     </update>
 
+    <select id="buscarPedidosDeUnCentro" parameterClass="int" resultClass="pedido">
+        SELECT s.id , s.fecha_gen fechaGenerada, s.fecha_est fechaEstimada, s.status , s.TIENDA_codigo_PEDIDO tiendaCodigo,
+        s.CENTRO_DISTRIBUCION_codigo centroCodigo, s.CAMION_id idCamion, s.EMPLEADO_ci ciConductor, t.nombre nombreTienda, c.nombre nombreCebtro,
+        e.nombre nombreConductor
+        FROM SOLICITUD s, TIENDA t, CENTRO_DISTRIBUCION c, EMPLEADO e
+        WHERE s.TIENDA_codigo_PEDIDO = t.codigo
+        AND s.CENTRO_DISTRIBUCION_codigo = c.codigo
+        AND s.EMPLEADO_ci = e.ci
+        AND s.tipo = 'P'
+        AND c.codigo = #value#
+    </select>
+
 </sqlMap>
