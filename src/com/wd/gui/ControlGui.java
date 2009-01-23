@@ -140,6 +140,10 @@ public class ControlGui {
     private VentanaProcesarTransSeleccion ventanaProcesarTransSeleccion;
     /** variable de ventana para actializar o consultar transferencias */
     private VentanaActualizarTransSel ventanaActualizarTransSel;
+    /** variable de ventana proveedor-producto*/
+    private VentanaProveedorProducto ventanaProveedorProducto;
+    /** variable de ventana de pedidos de un centro*/
+    private VentanaPedidosDeUnCentro ventanaPedidosDeUnCentro;
 
     /** Constructor del ControlGui */
     public ControlGui() {
@@ -730,6 +734,16 @@ public class ControlGui {
     public void iniciarVentanaConsultarTransferencias(boolean var) {
         this.ventanaActualizarTransSel = new VentanaActualizarTransSel();
         this.ventanaActualizarTransSel.setVisible(var);
+    }
+
+    public void iniciarVentanaProveedorProducto(boolean var){
+        this.ventanaProveedorProducto = new VentanaProveedorProducto();
+        this.ventanaProveedorProducto.setVisible(var);
+    }
+
+    public void iniciarVentanaPedidosDeUnCentro(boolean var){
+        this.ventanaPedidosDeUnCentro = new VentanaPedidosDeUnCentro();
+        this.ventanaPedidosDeUnCentro.setVisible(var);
     }
 
     /**

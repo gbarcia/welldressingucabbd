@@ -12,6 +12,7 @@ import com.wd.dominio.Inventario;
 import com.wd.dominio.Item;
 import com.wd.dominio.Lugar;
 import com.wd.dominio.NominaCentro;
+import com.wd.dominio.Pedido;
 import com.wd.dominio.Producto;
 import com.wd.dominio.Proveedor;
 import com.wd.dominio.Servicio;
@@ -50,6 +51,8 @@ public class ControlGeneral implements IfaceControlGeneral {
     private ControlEmpleado controlEmpleado;
     /** Variable para trabajar con el controlador de los inventarios*/
     private ControlInventario controlInventario;
+    /** Variable para trabajar con el controlador de los pedidos*/
+    private ControlPedido controlPedido;
     /** Variable para obtener una instancia de esta clase (patron singleton)*/
     private static ControlGeneral INSTANCIA = null;
     /** Variable para trabajar con la bitacora*/
@@ -1741,6 +1744,24 @@ public class ControlGeneral implements IfaceControlGeneral {
             result = this.controlProducto.eliminarProductoProveedor(producto);
         } catch (Exception e) {
             this.bitacora.info("No se pudo iniciar el ControlProducto por " + e.getMessage());
+        } finally {
+            return result;
+        }
+    }
+
+    /**
+     * Metodo para traer los pedidos de un centro
+     * @param centro el centro
+     * @return pedidos
+     */
+    public Collection<Pedido> buscarPedidosDeUnCentro(int centro) {
+        Collection<Pedido> result = null;
+        try {
+            this.controlPedido = new ControlPedido();
+            bitacora.info("Control Departamento Iniciado correctamente");
+            result = this.controlPedido.buscarPedidosDeUnCentro(centro);
+        } catch (IOException ex) {
+            bitacora.info("No se pudo iniciar el control departamento por " + ex.getMessage());
         } finally {
             return result;
         }

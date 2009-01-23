@@ -369,4 +369,20 @@ public class ControlPedido implements IfaceSolicitud {
             return resultado;
         }
     }
+
+    /**
+     * Metodo para traer todos los pedidos de un centro
+     * @param centro el centro
+     * @return pedidos
+     */
+    public Collection<Pedido> buscarPedidosDeUnCentro(int centro) {
+        Collection<Pedido> resultado = null;
+        try {
+            resultado = sqlMap.queryForList("todosLosPedidos", centro);
+        } catch (SQLException ex) {
+            bitacora.error("No se pudo operar porque " + ex.getMessage());
+        } finally {
+            return resultado;
+        }
+    }
 }
