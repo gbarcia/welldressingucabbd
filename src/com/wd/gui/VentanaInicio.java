@@ -151,8 +151,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuServiciosProvedoresEliminar = new javax.swing.JMenuItem();
         menuServiciosProvedorSeparador = new javax.swing.JSeparator();
         menuServiciosProvedorAgregarProductos = new javax.swing.JMenuItem();
-        menusSeriviciosProvedoreEditarProductos = new javax.swing.JMenuItem();
-        menuServiciosProvedorEliminarProductos = new javax.swing.JMenuItem();
         menuServiciosSeparador = new javax.swing.JSeparator();
         menuServiciosEstadisticas = new javax.swing.JMenuItem();
         menuUbicaciones = new javax.swing.JMenu();
@@ -457,6 +455,11 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         menuCentroSolicitudesPedidosTiendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/wd/gui/Iconos/cart_remove.png"))); // NOI18N
         menuCentroSolicitudesPedidosTiendas.setText("Pedidos realizados de tiendas");
+        menuCentroSolicitudesPedidosTiendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCentroSolicitudesPedidosTiendasActionPerformed(evt);
+            }
+        });
         menuCentroSolicitudes.add(menuCentroSolicitudesPedidosTiendas);
 
         menuCentros.add(menuCentroSolicitudes);
@@ -772,14 +775,13 @@ public class VentanaInicio extends javax.swing.JFrame {
         menuServiciosProvedores.add(menuServiciosProvedoresEliminar);
         menuServiciosProvedores.add(menuServiciosProvedorSeparador);
 
-        menuServiciosProvedorAgregarProductos.setText("Agregar Productos");
+        menuServiciosProvedorAgregarProductos.setText("Gestion Productos");
+        menuServiciosProvedorAgregarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuServiciosProvedorAgregarProductosActionPerformed(evt);
+            }
+        });
         menuServiciosProvedores.add(menuServiciosProvedorAgregarProductos);
-
-        menusSeriviciosProvedoreEditarProductos.setText("Editar Productos");
-        menuServiciosProvedores.add(menusSeriviciosProvedoreEditarProductos);
-
-        menuServiciosProvedorEliminarProductos.setText("Eliminar Productos");
-        menuServiciosProvedores.add(menuServiciosProvedorEliminarProductos);
 
         menuServicios.add(menuServiciosProvedores);
         menuServicios.add(menuServiciosSeparador);
@@ -1299,6 +1301,16 @@ public class VentanaInicio extends javax.swing.JFrame {
        this.controlGeneralGui.iniciarVentanaConsultarTransferencias(true);
     }//GEN-LAST:event_menuConsultarEditarTransferenciaActionPerformed
 
+    private void menuServiciosProvedorAgregarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuServiciosProvedorAgregarProductosActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaProveedorProducto(true);
+    }//GEN-LAST:event_menuServiciosProvedorAgregarProductosActionPerformed
+
+    private void menuCentroSolicitudesPedidosTiendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCentroSolicitudesPedidosTiendasActionPerformed
+        this.controlGeneralGui = new ControlGui();
+        this.controlGeneralGui.iniciarVentanaPedidosDeUnCentro(true);
+    }//GEN-LAST:event_menuCentroSolicitudesPedidosTiendasActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1397,7 +1409,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu menuServicios;
     private javax.swing.JMenuItem menuServiciosEstadisticas;
     private javax.swing.JMenuItem menuServiciosProvedorAgregarProductos;
-    private javax.swing.JMenuItem menuServiciosProvedorEliminarProductos;
     private javax.swing.JSeparator menuServiciosProvedorSeparador;
     private javax.swing.JMenu menuServiciosProvedores;
     private javax.swing.JMenuItem menuServiciosProvedoresAgregar;
@@ -1420,7 +1431,6 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuUbicacionesLugarConsulta;
     private javax.swing.JMenuItem menuUbicacionesLugarNuevo;
     private javax.swing.JMenu menuUbicacionesLugares;
-    private javax.swing.JMenuItem menusSeriviciosProvedoreEditarProductos;
     // End of variables declaration//GEN-END:variables
 
 }

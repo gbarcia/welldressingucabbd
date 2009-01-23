@@ -7,6 +7,7 @@ import com.wd.dominio.Empleado;
 import com.wd.dominio.HistorialEmpleado;
 import com.wd.dominio.Horario;
 import com.wd.dominio.Lugar;
+import com.wd.dominio.Pedido;
 import com.wd.dominio.Producto;
 import com.wd.dominio.Proveedor;
 import com.wd.dominio.Tienda;
@@ -461,5 +462,12 @@ public interface IfaceControlGeneral {
      * @return
      */
     public boolean eliminarProductoProveedor(Producto producto);
+
+    /**
+     * Metodo para traer los pedidos de un centro
+     * @param centro el centro
+     * @return pedidos
+     */
+    public Collection<Pedido> buscarPedidosDeUnCentro(int centro);
     
 }

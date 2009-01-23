@@ -360,6 +360,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pedidos realizados de tiendas"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCentroSolicitudesPedidosTiendasActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -741,18 +744,11 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuServiciosProvedorAgregarProductos">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Agregar Productos"/>
+                    <Property name="text" type="java.lang.String" value="Gestion Productos"/>
                   </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menusSeriviciosProvedoreEditarProductos">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Editar Productos"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="menuServiciosProvedorEliminarProductos">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Eliminar Productos"/>
-                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuServiciosProvedorAgregarProductosActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
