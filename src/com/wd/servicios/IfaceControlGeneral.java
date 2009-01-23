@@ -459,7 +459,7 @@ public interface IfaceControlGeneral {
     /**
      * Metodo para eliminar un registro Producto-Proveedor
      * @param producto
-     * @return
+     * @return resultado de la operacion
      */
     public boolean eliminarProductoProveedor(Producto producto);
 

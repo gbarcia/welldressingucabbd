@@ -1734,7 +1734,7 @@ public class ControlGeneral implements IfaceControlGeneral {
     /**
      * Metodo para eliminar un registro Producto-Proveedor
      * @param producto
-     * @return
+     * @return elimina un registro
      */
     public boolean eliminarProductoProveedor(Producto producto){
         boolean result = false;
