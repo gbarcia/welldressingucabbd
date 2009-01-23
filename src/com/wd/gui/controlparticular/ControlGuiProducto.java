@@ -104,4 +104,39 @@ public class ControlGuiProducto {
         return vectorResult;
     }
 
+    public boolean modificarProductoProveedor(Producto producto) {
+        boolean result = controlGeneral.modificarProductoProveedor(producto);
+        if (result) {
+            controlador.mostrarMensaje("Registro modificado",0);
+        } else {
+            controlador.mostrarMensaje("Operacion fallida", 1);
+        }
+        return result;
+    }
+
+    public boolean eliminarProductoProveedor(Producto producto) {
+        boolean result = controlGeneral.eliminarProductoProveedor(producto);
+        if (result) {
+            controlador.mostrarMensaje("Registro eliminado",0);
+        } else {
+            controlador.mostrarMensaje("Operacion fallida", 1);
+        }
+        return result;
+    }
+
+    public Vector<Producto> consultarProductoProveedor(Producto producto) {
+        Vector<Producto> result = new Vector<Producto>(controlGeneral.consultarProductoProveedor(producto));
+        return result;
+    }
+
+    public boolean agregarProductoProveedor(Producto producto) {
+        boolean result = controlGeneral.agregarProductoProveedor(producto);
+        if (result) {
+            controlador.mostrarMensaje("Registro agregado",0);
+        } else {
+            controlador.mostrarMensaje("Operacion fallida", 1);
+        }
+        return result;
+    }
+
 }

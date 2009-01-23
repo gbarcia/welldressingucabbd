@@ -434,4 +434,32 @@ public interface IfaceControlGeneral {
      */
     public Collection consultarTiendasVariedadAsc();
 
+    /**
+     * Metodo para consultar todos los productos
+     * @param producto el registro a consultar
+     * @return registro
+     */
+    public Collection<Producto> consultarProductoProveedor(Producto producto);
+
+    /**
+     * Metodo para agregar un registro Producto-Proveedor
+     * @param producto el registro a agragar
+     * @return resultado de la operacion
+     */
+    public boolean agregarProductoProveedor(Producto producto);
+
+    /**
+     * Metodo para modificar un producto
+     * @param producto el registro a modificar
+     * @return resultado de la operacion
+     */
+    public boolean modificarProductoProveedor(Producto producto);
+
+    /**
+     * Metodo para eliminar un registro Producto-Proveedor
+     * @param producto
+     * @return
+     */
+    public boolean eliminarProductoProveedor(Producto producto);
+    
 }
