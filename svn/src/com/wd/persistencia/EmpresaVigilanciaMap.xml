@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+    <sqlMap namespace="EmpresaVigilancia">
+
+   <typeAlias alias="empresaVigilancia" type="com.wd.dominio.EmpresaVigilancia"/>
+
+   <typeAlias alias="servicio" type="com.wd.dominio.Servicio"/>
+
+    <insert id="agregarServicio" parameterClass="servicio">
+        INSERT INTO SERVICIO (EMPRESA_SERVICIO_rif,CENTRO_DISTRIBUCION_codigo)
+        VALUES (#empresaServicioRif#,#centroDistribucionCodigo#)
+    </insert>
+    
+    <resultMap id="buscarServicios" class="servicio">
+        <result property="empresaServicioRif" column="EMPRESASERVICIORIF" />
+        <result property="centroDistribucionCodigo" column="CENTRODISTRIBUCIONCODIGO" />
+    </resultMap>
+
+    <select id ="buscarServicios" parameterClass ="java.lang.String"  resultMap="buscarServicios">
+        SELECT s.EMPRESA_SERVICIO_rif EMPRESASERVICIORIF,
+        s.CENTRO_DISTRIBUCION_codigo CENTRODISTRIBUCIONCODIGO
+        FROM SERVICIO s
+        WHERE s.EMPRESA_SERVICIO_rif = #value#
+    </select>
+
+    <delete id ="eliminarServicio" parameterClass="servicio">
+        DELETE FROM SERVICIO
+        WHERE EMPRESA_SERVICIO_rif = #empresaServicioRif# AND
+        CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo#
+    </delete>
+
+      <resultMap id="traerTodasLasEmpresas" class="empresaVigilancia">
+        <result property="rif" column="rif" />
+        <result property="nombre" column="nombre" />
+        <result property="telefono" column="TELEFONO" />
+        <result property="nombreContacto" column="NOMBRECONTACTO" />
+        <result property="apellidoContacto" column="APELLIDO_CONTACTO" />
+        <result property="direccion" column="DIRECCION" />
+        <result property="lugarId" column="IDLUGAR" />
+      </resultMap>    
+
+    <insert id="agregarEmpresa" parameterClass="empresaVigilancia">
+        INSERT INTO EMPRESA_SERVICIO
+        (rif,nombre,telefono,nombre_contacto,apellido_contacto,direccion,
+        tipo,LUGAR_id)
+        VALUES (#rif#, #nombre#, #telefono#, #nombreContacto#,
+        #apellidoContacto#, #direccion#,1,#lugarId#)
+    </insert>
+
+    <select id="TodasLasEmpresas" resultMap="traerTodasLasEmpresas">
+        SELECT es.rif, es.nombre, es.telefono, es.nombre_contacto NOMBRECONTACTO,
+        es.apellido_contacto APELLIDO_CONTACTO, es.direccion DIRECCION, es.LUGAR_id IDLUGAR
+        FROM EMPRESA_SERVICIO es
+        WHERE tipo = 1
+    </select>
+
+    <update id="modificarEmpresa" parameterClass="empresaVigilancia">
+        UPDATE EMPRESA_SERVICIO SET
+        nombre= #nombre#,
+        telefono = #telefono#,
+        nombre_contacto = #nombreContacto#,
+        apellido_contacto = #apellidoContacto#,
+        direccion = #direccion#,
+        LUGAR_id = #lugarId#
+        WHERE rif = #rif#
+    </update>
+
+    <delete id="eliminarEmpresa" parameterClass="String">
+        DELETE FROM EMPRESA_SERVICIO WHERE rif = #value#
+    </delete>
+
+    </sqlMap>

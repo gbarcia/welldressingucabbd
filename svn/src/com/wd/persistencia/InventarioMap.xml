@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+    <sqlMap namespace="Inventario">
+
+   <typeAlias alias="inventario" type="com.wd.dominio.Inventario"/>
+   <typeAlias alias="item" type="com.wd.dominio.Item"/>
+
+    <resultMap id="inventarioTeoCentro" class="inventario">
+        <result property="centroDistribucionCodigo" column="CODIGOCENTRO" />
+        <result property="productoId" column="PRODUCTOID" />
+        <result property="cantidad" column="CANTIDAD" />
+    </resultMap>
+
+    <resultMap id="inventarioTeoTienda" class="inventario">
+        <result property="tiendaCodigo" column="TIENDACODIGO" />
+        <result property="productoId" column="PRODUCTOID" />
+        <result property="cantidad" column="CANTIDAD" />
+    </resultMap>
+
+    <resultMap id="inventarioCamino" class="item">
+        <result property="idProducto" column="PRODUCTOID" />
+        <result property="idSolicitud" column="SOLICITUDID" />
+        <result property="cantidad" column="CANTIDAD" />
+        <result property="costo" column="COSTO" />
+    </resultMap>
+
+    <select id="traerTodoInventarioTeoCentro" parameterClass="int" resultMap="inventarioTeoCentro">
+        SELECT ic.CENTRO_DISTRIBUCION_codigo CODIGOCENTRO,
+        ic.PRODUCTO_id PRODUCTOID,ic.cantidad CANTIDAD
+        FROM INVENTARIO_CENTRO ic, CENTRO_DISTRIBUCION c
+        WHERE ic.CENTRO_DISTRIBUCION_codigo = c.codigo AND c.codigo = #value#
+    </select>
+
+    <select id="traerInventarioCaminoCentro" parameterClass="int" resultMap="inventarioCamino">
+        SELECT  p.id PRODUCTOID, s.id SOLICITUDID,it.cantidad CANTIDAD,
+        it.costo COSTO
+        FROM ITEMS it, SOLICITUD s, CENTRO_DISTRIBUCION c, PRODUCTO p
+        WHERE it.SOLICITUD_id = s.id AND p.id = it.PRODUCTO_id AND s.status=1 AND
+        s.CENTRO_DISTRIBUCION_codigo = c.codigo AND c.codigo = #value#
+        AND s.tipo = 'O'
+        ORDER BY PRODUCTOID
+    </select>
+
+    <select id="traerProductosMasInventarioTiendas" resultMap="inventarioTeoTienda">
+        SELECT it.TIENDA_codigo TIENDACODIGO,
+        it.PRODUCTO_id PRODUCTOID, MAX(it.cantidad) CANTIDAD
+        FROM INVENTARIO_TIENDA it
+        GROUP BY TIENDACODIGO,PRODUCTOID
+        ORDER BY TIENDACODIGO
+    </select>
+
+    <select id="traerInventarioCaminoTienda" parameterClass="Integer" resultMap="inventarioCamino">
+        SELECT  p.id PRODUCTOID, s.id SOLICITUDID,it.cantidad CANTIDAD,
+        it.costo COSTO
+        FROM ITEMS it, SOLICITUD s, TIENDA t, PRODUCTO p
+        WHERE it.SOLICITUD_id = s.id AND p.id = it.PRODUCTO_id AND s.status=1 AND
+        (s.TIENDA_codigo_PEDIDO = t.codigo OR s.TIENDA_codigo1_TRANSFERIDO=t.codigo)
+        AND t.codigo = #value# AND (s.tipo = 'P' OR s.tipo = 'T')
+        ORDER BY PRODUCTOID
+    </select>
+
+    <select id="traerTodoInventarioTeoTienda" parameterClass="Integer" resultMap="inventarioTeoTienda">
+        SELECT it.TIENDA_codigo TIENDACODIGO,
+        it.PRODUCTO_id PRODUCTOID,it.cantidad CANTIDAD
+        FROM INVENTARIO_TIENDA it, TIENDA t
+        WHERE it.TIENDA_codigo = t.codigo AND t.codigo = #value#
+    </select>
+
+    <update id="modificarCantidadInvTeoCentro" parameterClass ="inventario">
+        UPDATE INVENTARIO_CENTRO pepe SET
+        pepe.cantidad =#cantidad#
+        WHERE pepe.CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo# AND
+        pepe.PRODUCTO_id = #productoId#
+    </update>
+
+    <update id="modificarCantidadInvTeoTienda" parameterClass ="inventario">
+        UPDATE INVENTARIO_TIENDA pepe SET
+        pepe.cantidad = #cantidad#
+        WHERE pepe.TIENDA_codigo = #tiendaCodigo# AND
+        pepe.PRODUCTO_id = #productoId#
+    </update>
+
+    <select id="verificarExistenciaProductoCantidad" parameterClass="inventario" resultClass="int">
+        SELECT cantidad FROM INVENTARIO_CENTRO
+        WHERE CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo#
+        AND PRODUCTO_id = #productoId#
+    </select>
+
+    <select id="verificarExistenciaProductoCantidadTienda" parameterClass="inventario" resultClass="int">
+        SELECT cantidad FROM INVENTARIO_TIENDA
+        WHERE TIENDA_codigo = #tiendaCodigo#
+        AND PRODUCTO_id = #productoId#
+    </select>
+
+    <insert id="agergarRegistroInventario" parameterClass="inventario">
+        INSERT INTO INVENTARIO_CENTRO
+        VALUES (#centroDistribucionCodigo#,#productoId#,#cantidad#)
+    </insert>
+
+    <insert id="agergarRegistroInventarioTienda" parameterClass="inventario">
+        INSERT INTO INVENTARIO_TIENDA
+        VALUES (#tiendaCodigo#,#productoId#,#cantidad#)
+    </insert>
+
+    <delete id="borrarRegistroInventario" parameterClass="inventario">
+        DELETE FROM INVENTARIO_CENTRO
+        WHERE CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo#
+        AND PRODUCTO_id=#productoId#
+    </delete>
+    
+    </sqlMap>
+

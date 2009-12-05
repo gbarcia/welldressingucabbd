@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+    <sqlMap namespace="Lugar">
+
+    <typeAlias alias="lugar" type="com.wd.dominio.Lugar"/>
+
+    <resultMap id="traerTodosLosLugares" class="lugar">
+    <result property="id" column="Id" />
+    <result property="nombrePropio" column="Ciudad" />
+    <result property="tipo" column="tipo" />
+    <result property="lugarID" column="EdoId" />
+    <result property="nombrePertenece" column="Estado" />
+    </resultMap>
+
+    <resultMap id="traerTodosLosEstados" class="lugar">
+        <result property="id" column="id"/>
+        <result property="nombrePropio" column="nombre"/>
+    </resultMap>
+
+    <select id="todosLosLugares" resultMap="traerTodosLosLugares">
+        SELECT l.id Id, l.nombre Ciudad, l.tipo , l2.nombre Estado,
+        l2.id EdoId FROM LUGAR l, LUGAR l2
+        WHERE l.LUGAR_id is not null AND l.LUGAR_id = l2.id ORDER BY l.nombre;
+    </select>
+
+    <select id="todosLosEstados" resultMap="traerTodosLosEstados">
+       select l.id,l.nombre
+       from LUGAR l
+       where tipo= 0 ORDER BY l.nombre
+    </select>
+
+    <insert id="agregarLugarEstado" parameterClass="lugar">
+        INSERT INTO LUGAR (id, nombre, tipo, LUGAR_id)
+        VALUES (null, #nombrePropio#, #tipo#,#lugarID#)
+    </insert>
+
+  </sqlMap>

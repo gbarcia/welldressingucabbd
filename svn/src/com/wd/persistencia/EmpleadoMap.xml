@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+    <sqlMap namespace="Empleado">
+
+   <typeAlias alias="empleado" type="com.wd.dominio.Empleado"/>
+   <typeAlias alias="historial" type="com.wd.dominio.HistorialEmpleado"/>
+   <typeAlias alias="historialCentro" type="com.wd.dominio.NominaCentro"/>
+
+   <resultMap id="empleadoMap" class="empleado">
+    <result property="cedula"          column="cedula" />
+    <result property="nombre"          column="nombre" />
+    <result property="apellido"        column="apellido" />
+    <result property="fechaNacimiento" column="nacimiento" />
+    <result property="telefono"        column="telefono" />
+    <result property="estadoCivil"     column="estadoCivil" />
+    <result property="sexo"            column="sexo" />
+    <result property="nivelEstudios"   column="nivelEstudios" />
+    <result property="direccion"       column="direccion" />
+    <result property="tipo"            column="cargo" />
+    <result property="lugarId"         column="lugarId" />
+    <result property="ciudadVive"      column="nombreCiudad" />
+  </resultMap>
+
+   <resultMap id="historialMap" class="historial">   
+    <result property="fechaInicio"    column="fechainicio" />
+    <result property="fechaFin"       column="fechafin" />
+    <result property="cargo"          column="cargo" />
+    <result property="nombreEmpresa"  column="tienda" />
+    <result property="nombreEmpleado" column="nombre" />
+    <result property="cedula"         column="cedula" />
+    <result property="codigo"         column="codigoTienda" />
+  </resultMap>
+
+  <resultMap id="nominaCentro" class="historialCentro">
+    <result property="fechaIni"    column="fechainicio" />
+    <result property="fechaFin"    column="fechafin" />
+    <result property="cargo"       column="cargo" />
+    <result property="empleadoCi"  column="cedula" />
+    <result property="centroDistribucionCodigo" column="codigoCentro" />
+  </resultMap>
+
+   <insert id="agregarEmpleado" parameterClass="empleado">
+        INSERT INTO EMPLEADO (
+        ci,
+        nombre,
+        apellido,
+        fecha_nac,
+        telefono,
+        estado_civ,
+        sexo,
+        nivel_est,
+        direccion,
+        tipo,
+        LUGAR_id)
+        VALUES (#cedula#, #nombre#, #apellido#, #fechaNacimiento#, #telefono#,
+        #estadoCivil#, #sexo#, #nivelEstudios#,#direccion#, #tipo#, #lugarId#);
+    </insert>
+
+    <insert id="agregarHistorial" parameterClass="historial">
+        INSERT INTO NOMINA_TIENDA (
+        EMPLEADO_ci,
+        TIENDA_codigo,
+        fecha_ini,
+        fecha_fin,
+        cargo)
+        VALUES (#cedula#, #codigo#, #fechaInicio#, #fechaFin#, #cargo#);
+    </insert>
+
+    <insert id="agregarHistorialCentro" parameterClass="historial">
+        INSERT INTO NOMINA_CENTRO (
+        EMPLEADO_ci,
+        CENTRO_DISTRIBUCION_codigo,
+        fecha_ini,
+        fecha_fin,
+        cargo)
+        VALUES (#cedula#, #codigo#, #fechaInicio#, #fechaFin#, #cargo#);
+    </insert>
+
+    <update id="actualizarEmpleado" parameterClass="empleado">
+        UPDATE EMPLEADO SET nombre= #nombre#,
+        apellido = #apellido#,
+        fecha_nac = #fechaNacimiento#,
+        telefono = #telefono#,
+        estado_civ = #estadoCivil#,
+        sexo = #sexo#,
+        nivel_est = #nivelEstudios#,
+        direccion = #direccion#,
+        tipo = #tipo#,
+        LUGAR_id = #lugarId#
+        WHERE ci = #cedula#
+    </update>
+
+    <select id="buscarEmpleado" parameterClass="int" resultMap="empleadoMap">
+        SELECT emp.ci cedula, emp.nombre nombre, emp.apellido apellido, emp.fecha_nac nacimiento,
+        emp.telefono telefono,emp.estado_civ estadoCivil, emp.sexo sexo, emp.nivel_est nivelEstudios,
+        emp.direccion direccion, emp.tipo cargo,emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l
+        WHERE emp.LUGAR_id = l.id AND emp.ci = #value#
+    </select>
+
+    <select id="todosLosEmpleados" resultMap="empleadoMap">
+        SELECT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
+        emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l
+        WHERE emp.LUGAR_id = l.id ORDER BY apellido,nombre
+    </select>
+
+    <select id="todosLosEmpleadosTiendas" resultMap="empleadoMap">
+        SELECT DISTINCT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
+        emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l,NOMINA_TIENDA nt
+        WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci ORDER BY apellido,nombre
+    </select>
+
+    <select id="todosLosEmpleadosCentros" resultMap="empleadoMap">
+        SELECT DISTINCT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
+        emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l,NOMINA_CENTRO nt
+        WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci ORDER BY apellido,nombre
+    </select>
+
+    <select id="todosLosEmpleadosTienda" parameterClass="Integer" resultMap="empleadoMap">
+        SELECT DISTINCT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
+        emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l,NOMINA_TIENDA nt, TIENDA t
+        WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci AND nt.fecha_fin is null AND
+        nt.TIENDA_codigo = t.codigo AND t.codigo = #value#
+        ORDER BY apellido,nombre
+    </select>
+
+    <select id="conductoresMasEntregas" resultMap="empleadoMap">
+        SELECT emp.ci cedula , emp.nombre, emp.apellido, COUNT(s.EMPLEADO_ci) cargo,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.LUGAR_id lugarId,
+        l.nombre nombreCiudad
+        FROM EMPLEADO emp, SOLICITUD s, LUGAR l
+        WHERE emp.tipo = 2 AND emp.ci = s.EMPLEADO_ci AND l.id = emp.LUGAR_id
+        GROUP BY emp.ci
+        ORDER BY cargo DESC
+    </select>
+
+    <select id="consultaHistorialEmpleado" parameterClass="int" resultMap="historialMap">
+       SELECT e.nombre nombre,e.ci cedula, t.nombre tienda,t.codigo codigoTienda, 
+       n.fecha_ini fechainicio, n.fecha_fin fechafin, n.cargo cargo
+       FROM EMPLEADO e, TIENDA t, NOMINA_TIENDA n
+       WHERE t.codigo = n.TIENDA_codigo AND e.ci = n.EMPLEADO_ci AND ci= #value#
+       ORDER BY fechainicio
+    </select>
+
+    <select id="consultaHistorialEmpleadoCentro" parameterClass="int" resultMap="historialMap">
+       SELECT e.nombre nombre,e.ci cedula, t.nombre tienda,t.codigo codigoTienda,
+       n.fecha_ini fechainicio, n.fecha_fin fechafin, n.cargo cargo
+       FROM EMPLEADO e, CENTRO_DISTRIBUCION t, NOMINA_CENTRO n
+       WHERE t.codigo = n.CENTRO_DISTRIBUCION_codigo AND e.ci = n.EMPLEADO_ci AND ci= #value#
+       ORDER BY fechainicio
+    </select>
+
+    <select id="consultaNominaTienda" parameterClass="Integer" resultMap="historialMap">
+       SELECT e.nombre nombre,e.ci cedula, t.nombre tienda,t.codigo codigoTienda,
+       n.fecha_ini fechainicio, n.fecha_fin fechafin, n.cargo cargo
+       FROM EMPLEADO e, TIENDA t, NOMINA_TIENDA n
+       WHERE t.codigo = n.TIENDA_codigo AND t.codigo = #value#
+       ORDER BY fechainicio
+    </select>
+
+    <update id="actualizarHistorial" parameterClass="historial">
+        UPDATE NOMINA_TIENDA SET fecha_fin = #fechaFin#
+        WHERE EMPLEADO_ci = #cedula# AND TIENDA_codigo = #codigo# AND
+        fecha_ini = #fechaInicio#
+    </update>
+
+    <update id="actualizarHistorialCentro" parameterClass="historial">
+        UPDATE NOMINA_CENTRO SET fecha_fin = #fechaFin#
+        WHERE EMPLEADO_ci = #cedula# AND CENTRO_DISTRIBUCION_codigo = #codigo# AND
+        fecha_ini = #fechaInicio#
+    </update>
+
+    <delete id="borrarHistorialEmpleadoTienda" parameterClass="int">
+        DELETE FROM NOMINA_TIENDA WHERE EMPLEADO_ci = #value#
+    </delete>
+
+    <delete id="borrarHistorialEmpleadoCentro" parameterClass="int">
+        DELETE FROM NOMINA_CENTRO WHERE EMPLEADO_ci = #value#
+    </delete>
+
+    <delete id="borrarEmpleado" parameterClass="int">
+        DELETE FROM EMPLEADO WHERE ci = #value#
+    </delete>
+
+    <select id="consultaNominaCentro"  parameterClass="int" resultMap="nominaCentro">
+       SELECT n.fecha_ini fechainicio, IFNULL(n.fecha_fin,'N/A') fechafin ,
+       n.cargo cargo,n.EMPLEADO_ci cedula,
+       n.CENTRO_DISTRIBUCION_codigo codigoCentro
+       FROM NOMINA_CENTRO n
+       WHERE n.CENTRO_DISTRIBUCION_codigo = #value#
+       ORDER BY cedula
+    </select>
+
+    <select id="todosLosEmpleadosCentro" parameterClass="int" resultMap="empleadoMap">
+        SELECT DISTINCT emp.ci cedula, emp.nombre nombre, emp.apellido apellido,
+        emp.fecha_nac nacimiento, emp.telefono telefono, emp.estado_civ estadoCivil,
+        emp.sexo sexo, emp.nivel_est nivelEstudios, emp.direccion direccion, emp.tipo cargo,
+        emp.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM EMPLEADO emp, LUGAR l,NOMINA_CENTRO nt, CENTRO_DISTRIBUCION c
+        WHERE emp.LUGAR_id = l.id AND emp.ci= nt.EMPLEADO_ci  AND
+        c.codigo = nt.CENTRO_DISTRIBUCION_codigo and c.codigo = #value#
+        ORDER BY cedula
+    </select>
+
+    <select id="traerEmpleadosPorTienda" parameterClass="int" resultMap="empleadoMap">
+        SELECT e.ci cedula, e.nombre nombre, e.apellido apellido, e .fecha_nac nacimiento,
+        e.telefono telefono, e.estado_civ estadoCivil, e.sexo sexo, e.nivel_est nivelEstudios,
+        e.direccion direccion, e.tipo cargo, e.LUGAR_id lugarId, l.nombre nombreCiudad
+        FROM TIENDA t, NOMINA_TIENDA nt, EMPLEADO e, LUGAR l
+        WHERE nt.fecha_fin IS NULL
+        AND nt.TIENDA_codigo = #value#
+        AND nt.EMPLEADO_ci = e.ci
+        AND nt.TIENDA_codigo = t.codigo
+        AND e.LUGAR_id = l.id
+    </select>
+
+   </sqlMap>

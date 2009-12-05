@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="producto">
+
+  <typeAlias alias="producto" type="com.wd.dominio.Producto"/>
+
+  <resultMap id="resultMapProducto" class="producto">
+    <result property="id" column="idProducto" />
+    <result property="nombre" column="nombre" />
+    <result property="descripcion" column="descripcion" />
+  </resultMap>
+
+  <resultMap id="resultMapProductoCant" class="producto">
+    <result property="id" column="idProducto" />
+    <result property="nombre" column="nombre" />
+    <result property="descripcion" column="descripcion" />
+    <result property="cantidad" column="cantidad" />
+  </resultMap>
+
+  <resultMap id="resultMapProductoProveedor" class="producto">
+    <result property="id" column="id" />
+    <result property="nombre" column="nombre" />
+    <result property="descripcion" column="descripcion" />
+    <result property="precio" column="costo" />
+    <result property="fecha_creacion" column="fecha_cre" />
+    <result property="fecha_ultima_modificacion" column="fecha_ult_mod" />
+    <result property="empresaServicioRif" column="rifproveedor" />
+  </resultMap>
+
+  <resultMap id="resultMapProductoDepartamento" class="producto">
+    <result property="id" column="PRODUCTO_id" />
+    <result property="departamentoId" column="DEPARTAMENTO_codigo" />
+  </resultMap>
+
+  <insert id="agregarProducto" parameterClass="producto">
+        INSERT INTO producto (id, nombre, descripcion)
+        VALUES (LAST_INSERT_ID(), #nombre#, #descripcion#)
+  </insert>
+
+  <select id="consultarProducto" parameterClass="int" resultClass="producto">
+    SELECT id, nombre, descripcion
+    FROM producto
+    WHERE id = #id#
+  </select>
+
+  <select id="productosMasSolicitados" parameterClass="Integer" resultMap="resultMapProducto">
+    SELECT p.id idProducto, p.nombre nombre, p.descripcion descripcion
+    FROM PRODUCTO p, SOLICITUD s, ITEMS it, TIENDA t
+    WHERE it.SOLICITUD_id = s.id AND s.tipo='P' AND p.id = it.PRODUCTO_id AND s.TIENDA_codigo_PEDIDO = t.codigo AND t.codigo =#value#
+    GROUP BY idProducto,nombre,descripcion
+    HAVING COUNT(idProducto) = ( SELECT MAX(A.cnt)
+    FROM ( SELECT COUNT(it.PRODUCTO_id) as cnt FROM ITEMS it,SOLICITUD s WHERE s.id = it.SOLICITUD_id AND s.tipo='P' GROUP BY it.PRODUCTO_id ) as A)
+  </select>
+
+  <update id="modificarProducto" parameterClass="producto">
+    UPDATE producto
+    SET nombre = #nombre#, descripcion = #descripcion#
+    WHERE id = #id#
+  </update>
+
+  <delete id="eliminarProducto" parameterClass="int">
+      DELETE FROM producto
+      WHERE id = #id#
+  </delete>
+
+  <select id="consultarProductos" resultMap="resultMapProducto">
+    SELECT id idProducto, nombre, descripcion
+    FROM producto
+  </select>
+
+  <select id="consultarProductosProveedor" parameterClass="String" resultMap="resultMapProductoProveedor">
+    SELECT  produ.id,
+    produ.nombre,
+    produ.descripcion,
+    presu.costo,
+    presu.fecha_cre,
+    presu.fecha_ult_mod,
+    es.rif rifproveedor
+    FROM PRODUCTO produ, PRESUPUESTO presu, EMPRESA_SERVICIO es
+    WHERE produ.id = presu.PRODUCTO_id AND es.rif = presu.EMPRESA_SERVICIO_rif
+    AND presu.EMPRESA_SERVICIO_rif = #value#
+  </select>
+
+  <select id="consultarProductoConProveedor" parameterClass="int" resultMap="resultMapProductoProveedor">
+    SELECT  produ.id,
+    produ.nombre,
+    produ.descripcion,
+    presu.costo,
+    presu.fecha_cre,
+    presu.fecha_ult_mod,
+    presu.EMPRESA_SERVICIO_rif rifproveedor
+    FROM PRODUCTO produ, PRESUPUESTO presu, EMPRESA_SERVICIO es
+    WHERE produ.id = presu.PRODUCTO_id AND es.rif = presu.EMPRESA_SERVICIO_rif
+    AND produ.id = #value#
+    ORDER BY presu.costo ASC
+  </select>
+
+  <insert id="agregarProductoDepartamento" parameterClass="producto">
+    INSERT INTO producto_departamento (PRODUCTO_id, DEPARTAMENTO_codigo)
+    VALUES (#id#, #departamentoId#)
+  </insert>
+  
+  <delete id="eliminarProductoDepartamento" parameterClass="int">
+    DELETE FROM producto_departamento
+    WHERE PRODUCTO_id = #id#
+  </delete>
+
+  <select id="consultarProductoDepartamento" resultMap="resultMapProductoDepartamento">
+    SELECT PRODUCTO_id, DEPARTAMENTO_codigo
+    FROM producto_departamento;
+  </select>
+
+  <select id="traerProductosTienda" parameterClass="Integer" resultMap="resultMapProductoCant">
+    SELECT p.id idProducto, p.nombre nombre, p.descripcion descripcion, inv.cantidad cantidad
+    FROM producto p, inventario_tienda inv, tienda t
+    WHERE p.id = inv.PRODUCTO_id AND inv.TIENDA_codigo = t.codigo AND
+    t.codigo = #value#
+  </select>
+
+  <select id="consultaProductoProveedor" parameterClass="producto" resultMap="resultMapProductoProveedor">
+    SELECT pr.id id, pr.nombre nombre, pr.descripcion, p.costo costo, p.fecha_cre fecha_cre,
+        p.fecha_ult_mod fecha_ult_mod, p.EMPRESA_SERVICIO_rif rifproveedor
+    FROM presupuesto p, producto pr
+    WHERE p.PRODUCTO_id = #id#
+    AND p.EMPRESA_SERVICIO_rif = #empresaServicioRif#
+    AND p.PRODUCTO_id = pr.id
+  </select>
+
+  <insert id="agregarProductoProveedor" parameterClass="producto">
+    INSERT INTO presupuesto (PRODUCTO_id, EMPRESA_SERVICIO_rif, costo, fecha_cre)
+    VALUES (#id#, #empresaServicioRif#, #precio#, #fecha_creacion#)
+  </insert>
+
+  <update id="modificarProductoProveedor" parameterClass="producto">
+    UPDATE presupuesto
+    SET costo = #precio#, fecha_ult_mod = #fecha_ultima_modificacion#
+    WHERE PRODUCTO_id = #id#
+    AND EMPRESA_SERVICIO_rif = #empresaServicioRif#
+  </update>
+
+  <delete id="eliminarProductoProveedor" parameterClass="producto">
+      DELETE FROM presupuesto
+      WHERE PRODUCTO_id = #id#
+      AND EMPRESA_SERVICIO_rif = #empresaServicioRif#
+  </delete>
+
+</sqlMap>

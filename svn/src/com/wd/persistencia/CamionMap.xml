@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="camion">
+
+  <typeAlias alias="camion" type="com.wd.dominio.Camion"/>
+
+  <resultMap id="resultMapCamion" class="camion">
+    <result property="id" column="id" />
+    <result property="placa" column="placa" />
+    <result property="modelo" column="modelo" />
+    <result property="color" column="color" />
+    <result property="estado" column="estado" />
+    <result property="capacidad" column="capacidad" />
+    <result property="centroDistribucionCodigo" column="CentroDistribucionCodigo" />
+  </resultMap>
+
+  <insert id="agregarCamion" parameterClass="camion">
+    INSERT INTO camion (id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_codigo)
+    VALUES (null, #placa#, #modelo#, #color#, #estado#, #capacidad#, #centroDistribucionCodigo#)
+  </insert>
+
+  <select id="consultarCamion" parameterClass="int" resultClass="camion">
+    SELECT id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_codigo CentroDistribucionCodigo
+    FROM camion
+    WHERE id = #id#
+  </select>
+
+  <update id="modificarCamion" parameterClass="camion">
+    UPDATE camion
+    SET placa = #placa#, modelo = #modelo#, color = #color#, estado = #estado#, capacidad = #capacidad#, CENTRO_DISTRIBUCION_codigo = #centroDistribucionCodigo#
+    WHERE id = #id#
+  </update>
+
+  <delete id="eliminarCamion" parameterClass="camion">
+    DELETE FROM camion
+    WHERE id = #id#
+  </delete>
+
+  <select id="consultarCamiones" resultMap="resultMapCamion">
+    SELECT id, placa, modelo, color, estado, capacidad, CENTRO_DISTRIBUCION_codigo CentroDistribucionCodigo
+    FROM camion
+  </select>
+
+</sqlMap>
