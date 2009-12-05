@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="OrdenCompra">
+
+    <typeAlias alias="oc" type="com.wd.dominio.OrdenCompra"/>
+
+    <resultMap id="OcMaping" class="oc">
+    <result property="id" column="idSolicitud" />
+    <result property="fechaGenerada" column="fechaGen" />
+    <result property="fechaEstimada" column="fechaEstimada" />
+    <result property="status" column="estado" />
+    <result property="centroCodigo" column="codigoCentro" />
+    <result property="proveedorRif" column="rifProveedor" />
+    <result property="nombreCentro" column="nombreCentro" />
+    <result property="nombreProveedor" column="nombreProveedor" />
+    </resultMap>
+
+    <insert id="agregarOrden" parameterClass="oc">
+        INSERT INTO SOLICITUD (id, fecha_gen, fecha_est, status, tipo,
+                               TIENDA_codigo_PEDIDO, TIENDA_codigo_TRANSFIERE,
+                               TIENDA_codigo1_TRANSFERIDO, CENTRO_DISTRIBUCION_codigo,
+                               CAMION_id, EMPLEADO_ci, EMPRESA_SERVICIO_rif)
+        VALUES (NULL,#fechaGenerada#, #fechaEstimada#, #status#, 'O', NULL, NULL, 
+                NULL, #centroCodigo#, NULL, NULL, #proveedorRif#);
+        <selectKey keyProperty="id" resultClass="int">
+            select auto_increment from `information_schema`.tables where
+            TABLE_SCHEMA = 'well_dressing' and TABLE_NAME = 'solicitud'
+        </selectKey>
+    </insert>
+
+    <select id="siguienteNumeroOrden" resultClass="int">
+        select auto_increment from `information_schema`.tables where
+        TABLE_SCHEMA = 'well_dressing' and TABLE_NAME = 'solicitud'
+    </select>
+
+    <select id="todasOrdenCompra" resultMap="OcMaping">
+       SELECT s.id idSolicitud, s.fecha_est fechaEstimada,s.fecha_gen fechaGen, s.status estado, s.CENTRO_DISTRIBUCION_codigo codigoCentro,
+       s.EMPRESA_SERVICIO_rif rifProveedor, c.nombre nombreCentro, es.nombre nombreProveedor
+       FROM SOLICITUD s, CENTRO_DISTRIBUCION c, EMPRESA_SERVICIO es
+       WHERE s.CENTRO_DISTRIBUCION_codigo = c.codigo
+       AND s.EMPRESA_SERVICIO_rif = es.rif
+       AND s.tipo= 'O'
+    </select>
+
+    <select id="buscarOrden" parameterClass="int" resultClass="oc">
+        SELECT s.id , s.fecha_est fechaEstimada, s.fecha_gen fechaGenerada, s.status, s.CENTRO_DISTRIBUCION_codigo centroCodigo,
+        s.EMPRESA_SERVICIO_rif proveedorRif, c.nombre nombreCentro, es.nombre nombreProveedor
+        FROM SOLICITUD s, CENTRO_DISTRIBUCION c, EMPRESA_SERVICIO es
+        WHERE s.CENTRO_DISTRIBUCION_codigo = c.codigo
+        AND s.EMPRESA_SERVICIO_rif = es.rif
+        AND s.tipo= 'O'
+        AND s.id = #value#
+    </select>
+
+    <update id="cambiarEstadoOrden" parameterClass="oc">
+        UPDATE SOLICITUD
+        SET status = #status#
+        WHERE id = #id#
+        AND tipo = 'O'
+    </update>
+    
+</sqlMap>

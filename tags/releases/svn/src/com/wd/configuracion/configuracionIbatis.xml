@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+    <transactionManager type="JDBC" >
+        <dataSource type="SIMPLE">
+            
+            <property name="JDBC.Driver"
+                      value="com.mysql.jdbc.Driver"/>
+          
+            <property name="JDBC.ConnectionURL"
+                      value="jdbc:mysql://localhost/well_dressing"/>
+       
+            <property name="JDBC.Username"
+                      value="root"/>
+
+            <property name="JDBC.Password"
+                      value="admin"/>
+        </dataSource>
+    </transactionManager>
+    
+    <sqlMap resource="com/wd/persistencia/HorarioMap.xml" />
+    <sqlMap resource="com/wd/persistencia/CentroDistribucionMap.xml" />
+    <sqlMap resource="com/wd/persistencia/CamionMap.xml" />
+    <sqlMap resource="com/wd/persistencia/TiendaMap.xml" />
+    <sqlMap resource="com/wd/persistencia/ProductoMap.xml" />
+    <sqlMap resource="com/wd/persistencia/DepartamentoMap.xml" />
+    <sqlMap resource="com/wd/persistencia/LugarMap.xml" />
+    <sqlMap resource="com/wd/persistencia/ProveedorMap.xml" />
+    <sqlMap resource="com/wd/persistencia/EmpresaVigilanciaMap.xml" />
+    <sqlMap resource="com/wd/persistencia/EmpleadoMap.xml" />
+    <sqlMap resource="com/wd/persistencia/OrdenCompraMap.xml" />
+    <sqlMap resource="com/wd/persistencia/ItemMap.xml" />
+    <sqlMap resource="com/wd/persistencia/InventarioMap.xml" />
+    <sqlMap resource="com/wd/persistencia/PedidoMap.xml" />
+    <sqlMap resource="com/wd/persistencia/TransferenciaMap.xml" />
+
+</sqlMapConfig>

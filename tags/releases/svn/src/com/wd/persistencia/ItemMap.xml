@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Item">
+
+  <typeAlias alias="item" type="com.wd.dominio.Item"/>
+
+  <resultMap id="itemMaping" class="item">
+    <result property="idProducto" column="idProducto" />
+    <result property="idSolicitud" column="idSolicitud" />
+    <result property="cantidad" column="cantidad" />
+    <result property="costo" column="costo" />
+  </resultMap>
+
+  <insert id="agregarItem" parameterClass="item">
+      INSERT INTO ITEMS (SOLICITUD_id, PRODUCTO_id, cantidad, costo)
+      VALUES (#idSolicitud#, #idProducto#, #cantidad#, #costo#);
+  </insert>
+
+  <update id="editarItem" parameterClass="item">
+      UPDATE ITEMS SET cantidad = #cantidad#
+      WHERE SOLICITUD_id = #idSolicitud# AND PRODUCTO_id= #idProducto#
+  </update>
+
+  <select id="traerTodosItems" parameterClass="int" resultMap="itemMaping">
+      SELECT SOLICITUD_id idSolicitud, PRODUCTO_id idProducto, cantidad, costo
+      FROM ITEMS
+      WHERE SOLICITUD_id = #value#
+  </select>
+
+  <select id="buscarItem" parameterClass="item" resultMap="itemMaping">
+      SELECT SOLICITUD_id idSolicitud, PRODUCTO_id idProducto, cantidad, costo
+      FROM ITEMS
+      WHERE SOLICITUD_id = #idSolicitud# AND PRODUCTO_id = #idProducto#
+  </select>
+
+  <delete id="borrarTodosLosItems" parameterClass="int">
+      DELETE FROM ITEMS WHERE SOLICITUD_id = #value#
+  </delete>
+
+  <delete id="borrarItem" parameterClass="item">
+      DELETE FROM ITEMS WHERE SOLICITUD_id = #idSolicitud#
+      AND PRODUCTO_id = #idProducto#
+  </delete>
+
+  </sqlMap>

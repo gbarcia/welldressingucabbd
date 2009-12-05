@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+    <sqlMap namespace="Proveedor">
+
+   <typeAlias alias="proveedor" type="com.wd.dominio.Proveedor"/>   
+
+   <resultMap id="traerTodosLosProveedores" class="proveedor">
+    <result property="rif" column="rif" />
+    <result property="nombre" column="nombre" />
+    <result property="telefono" column="TELEFONO" />
+    <result property="nombreContacto" column="NOMBRECONTACTO" />
+    <result property="apellidoContacto" column="APELLIDO_CONTACTO" />
+    <result property="direccion" column="DIRECCION" />
+    <result property="lugarID" column="IDLUGAR" />
+    <result property="nombreCiudad" column="CIUDAD" />
+  </resultMap>
+
+
+  <resultMap id="buscarProveedor" class="proveedor">
+    <result property="rif" column="RIF" />
+    <result property="nombre" column="NOMBRE" />
+    <result property="telefono" column="TELEFONO" />
+    <result property="nombreContacto" column="NOMBRECONTACTO" />
+    <result property="apellidoContacto" column="APELLIDO_CONTACTO" />
+    <result property="direccion" column="DIRECCION" />
+    <result property="lugarID" column="IDLUGAR" />
+    <result property="nombreCiudad" column="CIUDAD" />
+  </resultMap>
+
+    <insert id="agregarProveedor" parameterClass="proveedor">
+        INSERT INTO EMPRESA_SERVICIO
+        (rif,
+        nombre,
+        telefono,
+        nombre_contacto,
+        apellido_contacto,
+        direccion,
+        tipo,
+        LUGAR_id) 
+        VALUES (#rif#, #nombre#, #telefono#, #nombreContacto#, #apellidoContacto#,
+        #direccion#,0,#lugarID#)
+    </insert>
+
+    <select id="TodosLosProveedores" resultMap="traerTodosLosProveedores">
+        SELECT es.rif, es.nombre,
+        es.telefono TELEFONO,
+        es.nombre_contacto NOMBRECONTACTO,
+        es.apellido_contacto APELLIDO_CONTACTO,
+        es.direccion DIRECCION,
+        es.LUGAR_id IDLUGAR,
+        l.nombre CIUDAD
+        FROM EMPRESA_SERVICIO es, LUGAR l
+        WHERE l.id = es.LUGAR_id AND es.tipo = 0
+    </select>
+
+    <select id="TraerProveedoresMasOC" resultMap="traerTodosLosProveedores">
+        SELECT es.rif rif, es.nombre nombre,es.telefono TELEFONO,
+        es.direccion DIRECCION,es.nombre_contacto NOMBRECONTACTO,
+        es.apellido_contacto APELLIDO_CONTACTO,es.LUGAR_id IDLUGAR,
+        l.nombre CIUDAD
+        FROM EMPRESA_SERVICIO es, SOLICITUD s,LUGAR l
+        WHERE s.EMPRESA_SERVICIO_rif = es.rif AND s.tipo ='O' AND es.tipo=0
+        AND l.id = es.LUGAR_id
+        GROUP BY rif, nombre, telefono, direccion
+        HAVING COUNT(es.rif) = ( SELECT max(A.cnt) FROM ( SELECT COUNT(s.EMPRESA_SERVICIO_rif) as cnt from solicitud s where s.tipo=0
+        GROUP BY s.EMPRESA_SERVICIO_rif ) as A)
+    </select>
+
+    <select id="proveedoresPorCentro" parameterClass="int" resultMap="traerTodosLosProveedores">
+        SELECT es.rif, es.nombre,
+        es.telefono TELEFONO,
+        es.nombre_contacto NOMBRECONTACTO,
+        es.apellido_contacto APELLIDO_CONTACTO,
+        es.direccion DIRECCION,
+        es.LUGAR_id IDLUGAR,
+        l.nombre CIUDAD
+        FROM EMPRESA_SERVICIO es, LUGAR l, CENTRO_DISTRIBUCION cd,SERVICIO srv
+        WHERE l.id = es.LUGAR_id AND es.tipo = 0 AND
+        cd.codigo = srv.CENTRO_DISTRIBUCION_codigo AND
+        cd.codigo = #value# AND es.rif = srv.EMPRESA_SERVICIO_rif
+    </select>
+
+    <select id="buscarUnProveedor" parameterClass="String" resultMap="buscarProveedor">
+        SELECT
+        es.rif RIF,
+        es.nombre NOMBRE,
+        es.telefono TELEFONO,
+        es.nombre_contacto NOMBRECONTACTO,
+        es.apellido_contacto APELLIDO_CONTACTO,
+        es.direccion DIRECCION,
+        es.LUGAR_id IDLUGAR,
+        l.nombre CIUDAD
+        FROM EMPRESA_SERVICIO es, LUGAR l
+        WHERE l.id = es.LUGAR_id AND es.tipo = 0 AND es.rif = #value#
+    </select>
+
+    <update id="actualizarProveedor" parameterClass="proveedor">
+        UPDATE EMPRESA_SERVICIO SET
+        nombre= #nombre#,
+        telefono = #telefono#,
+        nombre_contacto = #nombreContacto#,
+        apellido_contacto = #apellidoContacto#,
+        direccion = #direccion#,
+        LUGAR_id = #lugarID#
+        WHERE rif = #rif#
+    </update>
+
+    <delete id="borrarProveedor" parameterClass="String">
+        DELETE FROM EMPRESA_SERVICIO WHERE rif = #value#
+    </delete>
+       
+    </sqlMap>
