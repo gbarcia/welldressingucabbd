@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="CentroDistribucion">
+
+  <typeAlias alias="centroDistribucion" type="com.wd.dominio.CentroDistribucion"/>
+  
+  <insert id="agregarCentroDistribucion" parameterClass="CentroDistribucion">
+      INSERT INTO CENTRO_DISTRIBUCION (codigo,nombre,telefono,direccion,LUGAR_id)
+      VALUES (null, #nombre#,#telefono#,#direccion#,#lugarId#)
+  </insert>
+
+  <resultMap id="traerTodosLosCentros" class="centroDistribucion">
+    <result property="codigo" column="Codigo" />
+    <result property="nombre" column="Nombre" />
+    <result property="telefono" column="Telefono" />
+    <result property="direccion" column="Direccion" />
+    <result property="lugarId" column="LugarId" />
+  </resultMap>
+
+  <select id="TodosLosCentros" resultMap="traerTodosLosCentros">
+      SELECT c.codigo Codigo, c.nombre Nombre, c.telefono Telefono,
+      c.direccion Direccion, c.LUGAR_id LugarId
+      FROM CENTRO_DISTRIBUCION c;
+  </select>
+
+  <delete id="borrarCentro" parameterClass="centroDistribucion">
+      DELETE FROM CENTRO_DISTRIBUCION WHERE codigo=#codigo#
+  </delete>
+
+  <update id="modificarCentro" parameterClass="centroDistribucion">
+      UPDATE CENTRO_DISTRIBUCION SET
+      NOMBRE = #nombre#,
+      TELEFONO = #telefono#,
+      DIRECCION = #direccion#
+      WHERE CODIGO = #codigo#
+  </update>
+  
+</sqlMap>

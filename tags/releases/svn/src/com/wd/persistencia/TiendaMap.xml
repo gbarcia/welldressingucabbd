@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="tienda">
+
+  <typeAlias alias="tienda" type="com.wd.dominio.Tienda"/>
+
+  <resultMap id="resultMapTienda" class="tienda">
+    <result property="codigo" column="codigo" />
+    <result property="nombre" column="nombre" />
+    <result property="correo" column="correo" />
+    <result property="tamano" column="tamano" />
+    <result property="telefono" column="telefono" />
+    <result property="direccion" column="direccion" />
+    <result property="LUGAR_id" column="LUGAR_id" />
+    <result property="HORARIO_id" column="HORARIO_id" />
+    <result property="EMPRESA_SERVICIO_rif" column="EMPRESA_SERVICIO_rif" />
+  </resultMap>
+
+  <resultMap id="resultMapTiendaConVariedad" class="tienda">
+    <result property="codigo" column="codigo" />
+    <result property="nombre" column="nombre" />
+    <result property="variedad" column="variedad" />
+  </resultMap>
+
+  <insert id="agregarTienda" parameterClass="tienda">
+    INSERT INTO tienda (codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif)
+    VALUES (null, #nombre#, #tamano#, #telefono#, #correo#, #direccion#, #LUGAR_id#, #HORARIO_id#, #EMPRESA_SERVICIO_rif#)
+  </insert>
+
+  <select id="consultarTienda" parameterClass="int" resultClass="tienda">
+    SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
+    FROM tienda
+    WHERE codigo = #codigo#
+  </select>
+
+  <update id="modificarTienda" parameterClass="tienda">
+    UPDATE tienda
+    SET nombre = #nombre#, tamano = #tamano#, telefono = #telefono#, correo = #correo#, direccion = #direccion#, HORARIO_id = #HORARIO_id#, LUGAR_id = #LUGAR_id#, EMPRESA_SERVICIO_rif = #EMPRESA_SERVICIO_rif#
+    WHERE codigo = #codigo#
+  </update>
+
+  <delete id="eliminarTienda" parameterClass="int">
+      DELETE FROM tienda
+      WHERE codigo = #codigo#
+  </delete>
+
+  <select id="consultarTiendas" resultMap="resultMapTienda">
+    SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
+    FROM TIENDA
+  </select>
+
+  <select id="consultarTiendasMayorTamano" resultMap="resultMapTienda">
+    SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
+    FROM TIENDA ORDER BY tamano DESC
+  </select>
+
+  <select id="consultarTiendasMenorTamano" resultMap="resultMapTienda">
+    SELECT codigo, nombre, tamano, telefono, correo, direccion, LUGAR_id, HORARIO_id, EMPRESA_SERVICIO_rif
+    FROM TIENDA ORDER BY tamano ASC
+  </select>
+
+  <select id="consultarTiendasVariedadDesc" resultMap="resultMapTiendaConVariedad">
+    SELECT i.TIENDA_codigo codigo, t.nombre nombre, COUNT(i.TIENDA_codigo) variedad
+    FROM INVENTARIO_TIENDA i, TIENDA t
+    WHERE i.TIENDA_codigo = t.codigo
+    GROUP BY i.TIENDA_codigo
+    ORDER BY variedad DESC
+  </select>
+
+  <select id="consultarTiendasVariedadAsc" resultMap="resultMapTiendaConVariedad">
+    SELECT i.TIENDA_codigo codigo, t.nombre nombre, COUNT(i.TIENDA_codigo) variedad
+    FROM INVENTARIO_TIENDA i, TIENDA t
+    WHERE i.TIENDA_codigo = t.codigo
+    GROUP BY i.TIENDA_codigo
+    ORDER BY variedad ASC
+  </select>
+
+</sqlMap>
