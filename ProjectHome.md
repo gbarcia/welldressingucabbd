@@ -1,0 +1,1 @@
+Sistema de la cadena de tiendas de ropa "Well Dressing" para manejo de inventario, empleados, proveedores, entre otros. Desarrollado en Java con el framework iBatis.
